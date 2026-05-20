@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, MapPin, Sparkles, Send, CheckCircle } from "lucide-react";
+import { Mail, Sparkles, Send, CheckCircle } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const faqs = [
@@ -33,14 +33,31 @@ export default function ContactPage() {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.project) return;
     setIsSubmitting(true);
-    
-    // Simulate API request to /api/contact
+
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setSubmitted(true);
-      setFormData({ name: "", email: "", project: "", service: "AI Solutions" });
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: `Service Interest: ${formData.service}\n\nProject Description:\n${formData.project}`,
+        }),
+      });
+
+      const data = await response.json().catch(() => null);
+
+      if (response.ok && data?.ok) {
+        setSubmitted(true);
+        setFormData({ name: "", email: "", project: "", service: "AI Solutions" });
+      } else {
+        alert(data?.error || "Failed to submit request. Please try again.");
+      }
     } catch (err) {
       console.error(err);
+      alert("Something went wrong. Please check your internet connection and try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -103,16 +120,6 @@ export default function ContactPage() {
                       <p className="text-[11px]">spacivaaisolution@gmail.com</p>
                     </div>
                   </a>
-
-                  <div className="flex items-center gap-3.5 text-xs text-[var(--text-secondary)] shrink-0">
-                    <div className="p-2.5 rounded-xl bg-blue-500/10 text-electric-blue border border-blue-500/20 shrink-0">
-                      <MapPin size={16} />
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-bold text-white">Development Hub</p>
-                      <p className="text-[11px]">Ahmedabad, India</p>
-                    </div>
-                  </div>
                 </div>
               </div>
             </AnimatedSection>

@@ -27,8 +27,8 @@ export async function POST(request: Request) {
     );
   }
 
-  const to = process.env.RESEND_TO || "spacivatech@gmail.com";
-  const from = process.env.RESEND_FROM || "SPACIVA <contact@spaciva.tech>";
+  const to = process.env.RESEND_TO || "spacivaaisolution@gmail.com";
+  const from = process.env.RESEND_FROM || "onboarding@resend.dev";
 
   let body: ContactPayload;
   try {
@@ -83,14 +83,14 @@ export async function POST(request: Request) {
       ${company ? `<p style="margin: 0 0 12px;"><strong>Company:</strong> ${escapeHtml(company)}</p>` : ""}
       <div style="margin-top: 12px; padding: 12px; border: 1px solid #e5e7eb; border-radius: 10px;">
         <pre style="white-space: pre-wrap; margin: 0; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">${escapeHtml(
-          message
-        )}</pre>
+    message
+  )}</pre>
       </div>
     </div>
   `;
 
   try {
-    await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from,
       to,
       subject,
@@ -98,14 +98,20 @@ export async function POST(request: Request) {
       text,
       html,
     });
+
+    if (error) {
+      console.error("Resend API error:", error);
+      return Response.json({ ok: false, error: error.message }, { status: 500 });
+    }
+
+    return Response.json({ ok: true, data });
   } catch (error) {
+    console.error("Resend execution error:", error);
     return Response.json(
       { ok: false, error: "Failed to send email." },
       { status: 500 }
     );
   }
-
-  return Response.json({ ok: true });
 }
 
 function escapeHtml(value: string) {
