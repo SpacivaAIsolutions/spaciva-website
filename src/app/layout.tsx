@@ -17,22 +17,28 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "SPACIVA — Technology & Marketing",
+  title: "SPACIVA — AI Solutions & Enterprise Digital Ecosystems",
   description:
-    "We help startups and businesses scale through powerful marketing strategies and cutting-edge technology. Digital Marketing, Web Development, Branding & more.",
+    "We engineer custom AI automation agents, custom CRM & LMS platforms, high-performance Web systems, and data-driven SEO growth engines. Elevate your workflows with SPACIVA, a premier AI software agency based in India.",
   keywords: [
-    "digital marketing",
-    "web development",
-    "branding",
-    "SEO",
-    "performance marketing",
-    "Ahmedabad",
-    "SPACIVA",
+    "AI solution company",
+    "India based AI company",
+    "AI solutions agency India",
+    "custom CRM development",
+    "custom LMS platform development",
+    "AI automation developer",
+    "enterprise software development Ahmedabad",
+    "Next.js web development agency",
+    "technical SEO company India",
+    "SPACIVA AI",
+    "SPACIVA solutions",
+    "custom business software",
+    "AI integrations developer"
   ],
   openGraph: {
-    title: "SPACIVA — Technology & Marketing",
+    title: "SPACIVA — AI Solutions & Enterprise Digital Ecosystems",
     description:
-      "We help startups and businesses scale through powerful marketing strategies and cutting-edge technology.",
+      "We engineer custom AI automation agents, custom CRM & LMS platforms, high-performance Web systems, and data-driven SEO growth engines.",
     url: "https://spaciva.tech",
     siteName: "SPACIVA",
     type: "website",

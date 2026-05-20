@@ -68,10 +68,16 @@ export default function CTASection() {
               Contact us
             </h2>
             <p
-              className="text-sm max-w-md mx-auto mb-8"
+              className="text-sm max-w-lg mx-auto mb-8"
               style={{ color: "var(--text-secondary)" }}
             >
-              Tell us about your project and we&apos;ll get back to you.
+              Tell us about your project or email us directly at{" "}
+              <a
+                href="mailto:spacivaaisolution@gmail.com"
+                className="text-electric-blue hover:text-blue-400 transition-colors font-medium"
+              >
+                spacivaaisolution@gmail.com
+              </a>
             </p>
 
             <form onSubmit={onSubmit} className="max-w-2xl mx-auto text-left">

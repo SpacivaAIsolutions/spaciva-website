@@ -58,6 +58,23 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
+
+            <div>
+              <h4
+                className="text-xs font-medium uppercase tracking-wider mb-4"
+                style={{ color: "var(--text-secondary)" }}
+              >
+                Contact
+              </h4>
+              <p className="text-[13px]" style={{ color: "var(--text-muted)" }}>
+                <a
+                  href="mailto:spacivaaisolution@gmail.com"
+                  className="hover:text-electric-blue transition-colors font-medium"
+                >
+                  spacivaaisolution@gmail.com
+                </a>
+              </p>
+            </div>
           </div>
         </div>
 
