@@ -7,10 +7,10 @@ import { useTheme } from "./ThemeProvider";
 import Image from "next/image";
 
 const navLinks = [
-  { name: "Services", href: "#services" },
-  { name: "Work", href: "#portfolio" },
-  { name: "Process", href: "#process" },
-  { name: "Testimonials", href: "#testimonials" },
+  { name: "Solutions", href: "/solutions" },
+  { name: "Work", href: "/#portfolio" },
+  { name: "About Us", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -29,7 +29,7 @@ export default function Navbar() {
       >
         <div className="px-6 py-2.5 flex items-center justify-between">
           {/* Brand Logo */}
-          <a href="#" className="shrink-0 flex items-center gap-2 group">
+          <a href="/" className="shrink-0 flex items-center gap-2 group">
             <div className="relative h-9 w-28 sm:h-10 sm:w-32 transition-transform duration-300 group-hover:scale-[1.02]">
               <Image
                 src={theme === "dark" ? "/spaciva-nav-dark.png" : "/spaciva-nav-light.png"}
@@ -117,7 +117,7 @@ export default function Navbar() {
 
             {/* CTA Button */}
             <a
-              href="#contact"
+              href="/contact"
               className="relative overflow-hidden text-[12px] font-semibold px-5 py-2.5 rounded-full text-white bg-linear-to-r from-electric-blue to-violet shadow-sm hover:shadow-lg hover:shadow-violet/20 transition-all duration-300 hover:scale-[1.03] active:scale-95 flex items-center gap-1"
             >
               <span>Get Started</span>
@@ -177,7 +177,7 @@ export default function Navbar() {
               ))}
               <hr className="border-t opacity-10" style={{ borderColor: "var(--text-secondary)" }} />
               <a
-                href="#contact"
+                href="/contact"
                 onClick={() => setIsOpen(false)}
                 className="text-xs font-bold text-center py-3 rounded-full text-white bg-linear-to-r from-electric-blue to-violet shadow-md"
               >

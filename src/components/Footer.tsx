@@ -4,10 +4,10 @@ import Image from "next/image";
 import { useTheme } from "./ThemeProvider";
 
 const footerLinks = [
-  { name: "Services", href: "#services" },
-  { name: "Work", href: "#portfolio" },
-  { name: "Process", href: "#process" },
-  { name: "Testimonials", href: "#testimonials" },
+  { name: "Solutions", href: "/solutions" },
+  { name: "Work", href: "/#portfolio" },
+  { name: "About Us", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Footer() {
