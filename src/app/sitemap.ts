@@ -23,19 +23,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/solutions/dubai`,
+      url: `${baseUrl}/ai-company-in-dubai`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/solutions/uk`,
+      url: `${baseUrl}/ai-solutions-company-uk`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/solutions/us`,
+      url: `${baseUrl}/ai-solutions-company-usa`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
