@@ -51,7 +51,7 @@ export default function DubaiAISolutionPage() {
               <div className="p-3 rounded-xl bg-blue-500/10 text-electric-blue border border-blue-500/20 w-fit mb-4">
                 <Globe size={18} />
               </div>
-              <h3 className="text-xs font-bold text-white mb-2">Bilingual AI Assistants</h3>
+              <h3 className="text-xs font-bold mb-2" style={{ color: "var(--text-primary)" }}>Bilingual AI Assistants</h3>
               <p className="text-[11px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                 We build intelligent automation agents that process queries in both Arabic and English, streamlining Middle East sales and user interactions.
               </p>
@@ -69,7 +69,7 @@ export default function DubaiAISolutionPage() {
               <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 w-fit mb-4">
                 <Shield size={18} />
               </div>
-              <h3 className="text-xs font-bold text-white mb-2">Enterprise CRM & Database</h3>
+              <h3 className="text-xs font-bold mb-2" style={{ color: "var(--text-primary)" }}>Enterprise CRM & Database</h3>
               <p className="text-[11px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                 Custom pipeline structures and tracking databases optimized for Dubai real estate, retail, and logistics sectors with zero seat-license fees.
               </p>
@@ -87,7 +87,7 @@ export default function DubaiAISolutionPage() {
               <div className="p-3 rounded-xl bg-violet-500/10 text-violet border border-violet/20 w-fit mb-4">
                 <Bot size={18} />
               </div>
-              <h3 className="text-xs font-bold text-white mb-2">Web Application Blueprint</h3>
+              <h3 className="text-xs font-bold mb-2" style={{ color: "var(--text-primary)" }}>Web Application Blueprint</h3>
               <p className="text-[11px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                 Responsive, ultra-fast Next.js interfaces delivering premium web capabilities and rapid loads for international visitors.
               </p>
@@ -104,30 +104,30 @@ export default function DubaiAISolutionPage() {
               borderColor: "var(--border-subtle)",
             }}
           >
-            <h2 className="text-xl font-bold text-white mb-6">Why Partner with SPACIVA Dubai?</h2>
+            <h2 className="text-xl font-bold mb-6" style={{ color: "var(--text-primary)" }}>Why Partner with SPACIVA Dubai?</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="flex items-start gap-3">
                 <CheckCircle size={16} className="text-emerald-400 shrink-0 mt-0.5" />
                 <p className="text-xs" style={{ color: "var(--text-secondary)" }}>
-                  <strong className="text-white">Full Source Code Ownership:</strong> Host locally or in your private regional cloud, avoiding vendor dependencies.
+                  <strong style={{ color: "var(--text-primary)" }}>Full Source Code Ownership:</strong> Host locally or in your private regional cloud, avoiding vendor dependencies.
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle size={16} className="text-emerald-400 shrink-0 mt-0.5" />
                 <p className="text-xs" style={{ color: "var(--text-secondary)" }}>
-                  <strong className="text-white">Local Integration Ready:</strong> Integrate SMS gateway nodes, payment layers, and local CRM database backups.
+                  <strong style={{ color: "var(--text-primary)" }}>Local Integration Ready:</strong> Integrate SMS gateway nodes, payment layers, and local CRM database backups.
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle size={16} className="text-emerald-400 shrink-0 mt-0.5" />
                 <p className="text-xs" style={{ color: "var(--text-secondary)" }}>
-                  <strong className="text-white">High-Speed Performance:</strong> Next.js-driven design providing quick load times under 1.5 seconds.
+                  <strong style={{ color: "var(--text-primary)" }}>High-Speed Performance:</strong> Next.js-driven design providing quick load times under 1.5 seconds.
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle size={16} className="text-emerald-400 shrink-0 mt-0.5" />
                 <p className="text-xs" style={{ color: "var(--text-secondary)" }}>
-                  <strong className="text-white">Experienced Engineers:</strong> Direct communication with senior software architects and ML developers.
+                  <strong style={{ color: "var(--text-primary)" }}>Experienced Engineers:</strong> Direct communication with senior software architects and ML developers.
                 </p>
               </div>
             </div>
@@ -137,7 +137,7 @@ export default function DubaiAISolutionPage() {
         {/* Call to action */}
         <AnimatedSection>
           <div className="text-center">
-            <h3 className="text-lg font-bold text-white mb-4">Start Your Scoping Phase</h3>
+            <h3 className="text-lg font-bold mb-4" style={{ color: "var(--text-primary)" }}>Start Your Scoping Phase</h3>
             <a
               href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 text-xs font-bold text-white rounded-full bg-linear-to-r from-electric-blue to-violet hover:shadow-lg transition-transform duration-300 hover:scale-[1.02]"

@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 import Image from "next/image";
@@ -21,156 +20,139 @@ const caseStudies: CaseStudy[] = [
     imageSrc: "/WILDMIND.png",
     imageAlt: "Wildmind AI",
     url: null,
-    description: "An AI-powered mental wellness application featuring conversational coaching agent workflows, context memory state retention, and mood logs.",
+    description:
+      "An AI-powered mental wellness application featuring conversational coaching agent workflows, context memory state retention, and mood logs.",
   },
   {
     name: "Siddhraj",
     type: "AI-Powered B2B CRM",
     imageSrc: "/SIDHARAJ.png",
-    imageAlt: "ApexCRM AI",
+    imageAlt: "Siddhraj CRM",
     url: null,
-    description: "A custom multi-tenant CRM dashboard automating sales email follow-ups, pipeline analytics, and agent task scheduling.",
+    description:
+      "A custom multi-tenant CRM dashboard automating sales email follow-ups, pipeline analytics, and agent task scheduling for real-estate teams.",
   },
   {
     name: "Vachnamrut",
-    type: "Enterprise LMS Space",
+    type: "Enterprise LMS Platform",
     imageSrc: "/vachnamrut.png",
-    imageAlt: "EduSphere LMS",
+    imageAlt: "Vachnamrut LMS",
     url: null,
-    description: "A scalable staff education portal built with responsive course libraries, auto-grading quiz structures, and automated PDF certification hooks.",
+    description:
+      "A scalable staff education portal built with responsive course libraries, auto-grading quiz structures, and automated PDF certification hooks.",
   },
   {
     name: "Unoloft",
     type: "SEO & Growth Strategy",
     imageSrc: "/UNOLOFT.png",
     imageAlt: "Unoloft",
-    url: "http://unoloft.com/",
-    description: "A search optimization pipeline featuring technical performance tuning, keyword directory mappings, and targeted content calendars.",
+    url: "https://unoloft.com/",
+    description:
+      "A search optimization pipeline featuring technical performance tuning, keyword directory mappings, and targeted content calendars that tripled organic traffic.",
   },
 ];
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="py-24 relative overflow-hidden">
-      {/* Background ambient highlights */}
-      <div className="absolute inset-0 pointer-events-none opacity-20">
-        <div
-          className="absolute bottom-0 left-1/4 w-[600px] h-[300px] rounded-full blur-[140px]"
-          style={{
-            background: "radial-gradient(circle at center, var(--gradient-orb-1), transparent 70%)",
-          }}
-        />
-      </div>
-
-      <div className="max-w-5xl mx-auto px-6 relative z-10">
+    <section id="portfolio" className="py-24" style={{ background: "var(--bg-secondary)" }}>
+      <div className="max-w-5xl mx-auto px-6">
         <AnimatedSection>
-          <p className="text-xs text-electric-blue tracking-widest uppercase mb-3 text-center font-semibold">
+          <p className="text-xs font-semibold tracking-widest uppercase mb-3 text-center" style={{ color: "var(--color-electric-blue)" }}>
             Showcase
           </p>
           <h2
-            className="text-3xl sm:text-4xl font-bold tracking-tight text-center mb-6"
-            style={{ fontFamily: "var(--font-heading)" }}
+            className="text-3xl sm:text-4xl font-bold tracking-tight text-center mb-4"
+            style={{ fontFamily: "var(--font-heading)", color: "var(--text-primary)" }}
           >
             Featured projects
           </h2>
-          <p
-            className="text-sm max-w-2xl mx-auto text-center mb-16 leading-relaxed"
-            style={{ color: "var(--text-secondary)" }}
-          >
-            Explore our engineering work across custom artificial intelligence agents, LMS portals, CRM dashboards, and SEO pipelines.
+          <p className="text-sm max-w-2xl mx-auto text-center mb-16 leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+            Explore our engineering work across custom AI agents, LMS portals, CRM dashboards, and SEO growth pipelines.
           </p>
         </AnimatedSection>
 
-        {/* 2-Column Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {caseStudies.map((study, i) => (
-            <AnimatedSection key={study.name} delay={i * 0.06}>
+            <AnimatedSection key={study.name} delay={i * 0.07}>
               <div
-                className="group rounded-2xl overflow-hidden border transition-all duration-300 flex flex-col justify-between h-full hover:shadow-lg hover:-translate-y-0.5"
+                className="group rounded-2xl overflow-hidden border transition-all duration-300 flex flex-col h-full hover:-translate-y-1"
                 style={{
                   background: "var(--bg-card)",
                   borderColor: "var(--border-subtle)",
+                  boxShadow: "var(--shadow-sm)",
                 }}
                 onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = "var(--shadow-lg)";
                   e.currentTarget.style.borderColor = "var(--border-hover)";
-                  e.currentTarget.style.background = "var(--bg-card-hover)";
                 }}
                 onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = "var(--shadow-sm)";
                   e.currentTarget.style.borderColor = "var(--border-subtle)";
-                  e.currentTarget.style.background = "var(--bg-card)";
                 }}
               >
-                <div>
-                  {/* Aspect Video Image Container */}
+                {/* Image container */}
+                <div
+                  className="relative aspect-video w-full overflow-hidden border-b"
+                  style={{ borderColor: "var(--border-subtle)", background: "var(--bg-secondary)" }}
+                >
+                  {/* Subtle gradient orb behind logo */}
                   <div
-                    className="relative aspect-video w-full overflow-hidden border-b flex items-center justify-center bg-black/15"
-                    style={{ borderColor: "var(--border-subtle)" }}
-                  >
-                    <div
-                      className="absolute inset-0 pointer-events-none opacity-[0.03]"
-                      style={{
-                        backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px)`,
-                        backgroundSize: "16px 16px",
-                      }}
+                    className="absolute -inset-16 blur-3xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+                    style={{
+                      background: "radial-gradient(circle at center, var(--gradient-orb-1), transparent 70%), radial-gradient(circle at 60% 40%, var(--gradient-orb-2), transparent 70%)",
+                    }}
+                  />
+                  <div className="relative w-full h-full transition-transform duration-500 group-hover:scale-[1.04]">
+                    <Image
+                      src={study.imageSrc}
+                      alt={study.imageAlt}
+                      fill
+                      className="object-contain p-8"
+                      sizes="(max-width: 768px) 100vw, 480px"
                     />
-                    <div
-                      className="absolute -inset-16 blur-3xl opacity-30 group-hover:scale-105 transition-transform duration-500"
-                      style={{
-                        background:
-                          "radial-gradient(circle at center, var(--gradient-orb-1), transparent 70%), radial-gradient(circle at center, var(--gradient-orb-2), transparent 70%)",
-                      }}
-                    />
-                    <div className="relative w-full h-full p-6 transition-transform duration-500 group-hover:scale-[1.03]">
-                      <Image
-                        src={study.imageSrc}
-                        alt={study.imageAlt}
-                        fill
-                        className="object-contain p-6"
-                        sizes="(max-width: 768px) 100vw, 480px"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Details */}
-                  <div className="p-6">
-                    <span
-                      className="inline-flex items-center text-[9px] tracking-wider uppercase font-bold mb-3.5 px-2.5 py-0.5 rounded-full border bg-white/5"
-                      style={{
-                        color: "var(--text-secondary)",
-                        borderColor: "var(--border-subtle)",
-                      }}
-                    >
-                      {study.type}
-                    </span>
-                    <h3
-                      className="text-base font-bold text-white mb-2 tracking-tight"
-                      style={{ fontFamily: "var(--font-heading)" }}
-                    >
-                      {study.name}
-                    </h3>
-                    <p
-                      className="text-[12px] leading-relaxed"
-                      style={{ color: "var(--text-secondary)" }}
-                    >
-                      {study.description}
-                    </p>
                   </div>
                 </div>
 
-                {/* Optional CTA Footer */}
-                {study.url && (
-                  <div className="px-6 pb-6 pt-1">
-                    <a
-                      href={study.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-[11px] font-bold text-electric-blue hover:text-blue-400 transition-colors"
-                    >
-                      <span>Visit live website</span>
-                      <ArrowUpRight size={12} />
-                    </a>
-                  </div>
-                )}
+                {/* Card body */}
+                <div className="p-6 flex flex-col flex-1">
+                  <span
+                    className="inline-flex items-center text-[9px] tracking-wider uppercase font-bold mb-3.5 px-2.5 py-1 rounded-full border"
+                    style={{
+                      color: "var(--text-secondary)",
+                      borderColor: "var(--border-subtle)",
+                      background: "var(--bg-secondary)",
+                    }}
+                  >
+                    {study.type}
+                  </span>
+
+                  <h3
+                    className="text-base font-bold mb-2 tracking-tight"
+                    style={{ fontFamily: "var(--font-heading)", color: "var(--text-primary)" }}
+                  >
+                    {study.name}
+                  </h3>
+                  <p className="text-[12px] leading-relaxed flex-1" style={{ color: "var(--text-secondary)" }}>
+                    {study.description}
+                  </p>
+
+                  {study.url && (
+                    <div className="mt-4 pt-4 border-t" style={{ borderColor: "var(--border-subtle)" }}>
+                      <a
+                        href={study.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-[11px] font-bold transition-colors"
+                        style={{ color: "var(--color-electric-blue)" }}
+                        onMouseEnter={(e) => (e.currentTarget.style.color = "#1D4ED8")}
+                        onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-electric-blue)")}
+                      >
+                        <span>Visit live website</span>
+                        <ArrowUpRight size={12} />
+                      </a>
+                    </div>
+                  )}
+                </div>
               </div>
             </AnimatedSection>
           ))}

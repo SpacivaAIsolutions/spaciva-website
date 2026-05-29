@@ -77,9 +77,9 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-24 relative overflow-hidden">
+    <section id="services" className="py-24 relative overflow-hidden" style={{ background: "var(--bg-primary)" }}>
       {/* Background radial highlight */}
-      <div className="absolute inset-0 pointer-events-none opacity-30">
+      <div className="absolute inset-0 pointer-events-none opacity-40">
         <div
           className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[350px] rounded-full blur-[160px]"
           style={{
@@ -90,12 +90,12 @@ export default function Services() {
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <AnimatedSection>
-          <p className="text-xs text-electric-blue tracking-widest uppercase mb-3 text-center font-semibold">
+          <p className="text-xs font-semibold tracking-widest uppercase mb-3 text-center" style={{ color: "var(--color-electric-blue)" }}>
             Capabilities
           </p>
           <h2
             className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-center mb-6"
-            style={{ fontFamily: "var(--font-heading)" }}
+            style={{ fontFamily: "var(--font-heading)", color: "var(--text-primary)" }}
           >
             Intelligent business solutions
           </h2>
@@ -117,17 +117,18 @@ export default function Services() {
                 style={{
                   background: "var(--bg-card)",
                   borderColor: activeTab === service.id ? "var(--color-electric-blue)" : "var(--border-subtle)",
+                  boxShadow: activeTab === service.id ? "var(--shadow-md)" : "var(--shadow-sm)",
                 }}
                 onMouseEnter={(e) => {
                   if (activeTab !== service.id) {
                     e.currentTarget.style.borderColor = "var(--border-hover)";
-                    e.currentTarget.style.background = "var(--bg-card-hover)";
+                    e.currentTarget.style.boxShadow = "var(--shadow-md)";
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (activeTab !== service.id) {
                     e.currentTarget.style.borderColor = "var(--border-subtle)";
-                    e.currentTarget.style.background = "var(--bg-card)";
+                    e.currentTarget.style.boxShadow = "var(--shadow-sm)";
                   }
                 }}
               >
@@ -171,10 +172,11 @@ export default function Services() {
           </AnimatedSection>
 
           <div
-            className="rounded-3xl border overflow-hidden backdrop-blur-md shadow-2xl transition-all duration-300"
+            className="rounded-3xl border overflow-hidden transition-all duration-300"
             style={{
               borderColor: "var(--border-subtle)",
               background: "var(--bg-card)",
+              boxShadow: "var(--shadow-lg)",
             }}
           >
             {/* Explorer Nav Tab Bar */}
@@ -182,7 +184,7 @@ export default function Services() {
               className="flex overflow-x-auto border-b"
               style={{
                 borderColor: "var(--border-subtle)",
-                background: "rgba(0, 0, 0, 0.15)",
+                background: "var(--bg-secondary)",
                 scrollbarWidth: "none",
               }}
             >
@@ -386,14 +388,14 @@ function AISimulator() {
         <div className="mt-8 pt-4 border-t" style={{ borderColor: "var(--border-subtle)" }}>
           <div className="flex gap-4">
             <div>
-              <p className="text-xs font-bold text-white">LLM Agility</p>
+              <p className="text-xs font-bold" style={{ color: "var(--text-primary)" }}>LLM Agility</p>
               <p className="text-[10px]" style={{ color: "var(--text-secondary)" }}>
                 Latency average: 210ms
               </p>
             </div>
             <div className="w-px h-8 bg-border-subtle" style={{ background: "var(--border-subtle)" }} />
             <div>
-              <p className="text-xs font-bold text-white">Cost Saved</p>
+              <p className="text-xs font-bold" style={{ color: "var(--text-primary)" }}>Cost Saved</p>
               <p className="text-[10px]" style={{ color: "var(--text-secondary)" }}>
                 ~92% per manual run
               </p>
@@ -546,7 +548,7 @@ function CRMSimulator() {
         <div className="mt-8 pt-4 border-t space-y-3" style={{ borderColor: "var(--border-subtle)" }}>
           <div className="flex justify-between items-center text-xs">
             <span style={{ color: "var(--text-secondary)" }}>Active Pipeline:</span>
-            <span className="font-bold text-white">${stats.pipelineTotal.toLocaleString()}</span>
+            <span className="font-bold" style={{ color: "var(--text-primary)" }}>${stats.pipelineTotal.toLocaleString()}</span>
           </div>
           <div className="flex justify-between items-center text-xs">
             <span style={{ color: "var(--text-secondary)" }}>Closed Won:</span>
@@ -567,7 +569,7 @@ function CRMSimulator() {
             <span className="text-[10px] font-bold uppercase tracking-wider text-muted" style={{ color: "var(--text-secondary)" }}>
               Leads
             </span>
-            <span className="text-[10px] bg-white/5 px-1.5 py-0.5 rounded text-white/60">
+            <span className="text-[10px] px-1.5 py-0.5 rounded" style={{ background: "var(--bg-card-hover)", color: "var(--text-secondary)" }}>
               {deals.filter((d) => d.stage === "leads").length}
             </span>
           </div>
@@ -635,7 +637,7 @@ function CRMCard({ deal, onClick }: { deal: CRMDeal; onClick: () => void }) {
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
     >
-      <p className="text-[11px] font-bold truncate text-white">{deal.company}</p>
+      <p className="text-[11px] font-bold truncate" style={{ color: "var(--text-primary)" }}>{deal.company}</p>
       <p className="text-[10px] mt-1 font-mono" style={{ color: "var(--text-secondary)" }}>
         ${deal.amount.toLocaleString()}
       </p>
@@ -751,7 +753,7 @@ function LMSSimulator() {
 
         <div className="mt-8 pt-4 border-t text-xs flex justify-between items-center" style={{ borderColor: "var(--border-subtle)" }}>
           <span style={{ color: "var(--text-secondary)" }}>LMS Stack:</span>
-          <span className="font-mono text-[10px] text-white bg-white/5 px-2 py-0.5 rounded">
+          <span className="font-mono text-[10px] px-2 py-0.5 rounded" style={{ color: "var(--text-primary)", background: "var(--bg-card-hover)" }}>
             React Server Components
           </span>
         </div>
@@ -774,7 +776,7 @@ function LMSSimulator() {
                   <span>MODULE 4: ENTERPRISE DEPLOYMENT</span>
                   <span>QUESTION {activeQuestion + 1} OF 2</span>
                 </div>
-                <h5 className="text-sm font-bold mb-4 text-white">{currentQ.text}</h5>
+                <h5 className="text-sm font-bold mb-4" style={{ color: "var(--text-primary)" }}>{currentQ.text}</h5>
 
                 <div className="space-y-2">
                   {currentQ.options.map((opt, oIdx) => {
@@ -839,7 +841,7 @@ function LMSSimulator() {
             >
               {/* Certificate Design */}
               <GraduationCap size={48} className="text-emerald-400 mb-4 animate-bounce" />
-              <h5 className="text-base font-bold text-white mb-2">Simulated Module Cleared!</h5>
+              <h5 className="text-base font-bold mb-2" style={{ color: "var(--text-primary)" }}>Simulated Module Cleared!</h5>
               <p className="text-xs max-w-sm mb-6" style={{ color: "var(--text-secondary)" }}>
                 Congratulations, you scored {correctCount}/2 on the training assessment module. Custom workflows can triggers system events, webhook payloads, and update HR databases.
               </p>
@@ -915,7 +917,7 @@ function WebSimulator() {
 
         <div className="mt-8 pt-4 border-t text-xs flex justify-between items-center" style={{ borderColor: "var(--border-subtle)" }}>
           <span style={{ color: "var(--text-secondary)" }}>Architecture:</span>
-          <span className="font-mono text-[9px] text-white">Next.js + Clean Arch</span>
+          <span className="font-mono text-[9px]" style={{ color: "var(--text-primary)" }}>Next.js + Clean Arch</span>
         </div>
       </div>
 

@@ -51,7 +51,7 @@ export default function UKAISolutionPage() {
               <div className="p-3 rounded-xl bg-blue-500/10 text-electric-blue border border-blue-500/20 w-fit mb-4">
                 <Shield size={18} />
               </div>
-              <h3 className="text-xs font-bold text-white mb-2">GDPR Data Compliance</h3>
+              <h3 className="text-xs font-bold mb-2" style={{ color: "var(--text-primary)" }}>GDPR Data Compliance</h3>
               <p className="text-[11px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                 Encryption standards, custom isolated DB schemas, and GDPR compliance parameters built directly into your user storage.
               </p>
@@ -69,7 +69,7 @@ export default function UKAISolutionPage() {
               <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 w-fit mb-4">
                 <Award size={18} />
               </div>
-              <h3 className="text-xs font-bold text-white mb-2">Workforce LMS Portals</h3>
+              <h3 className="text-xs font-bold mb-2" style={{ color: "var(--text-primary)" }}>Workforce LMS Portals</h3>
               <p className="text-[11px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                 Corporate learning systems with quiz engines, automated grading logs, and PDF compliance certificates for UK staff.
               </p>
@@ -87,7 +87,7 @@ export default function UKAISolutionPage() {
               <div className="p-3 rounded-xl bg-violet-500/10 text-violet border border-violet/20 w-fit mb-4">
                 <Bot size={18} />
               </div>
-              <h3 className="text-xs font-bold text-white mb-2">Workflow AI Agents</h3>
+              <h3 className="text-xs font-bold mb-2" style={{ color: "var(--text-primary)" }}>Workflow AI Agents</h3>
               <p className="text-[11px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                 Automate invoicing extractions, client follow-up notifications, and customer review tagging using LLMs.
               </p>
@@ -104,30 +104,30 @@ export default function UKAISolutionPage() {
               borderColor: "var(--border-subtle)",
             }}
           >
-            <h2 className="text-xl font-bold text-white mb-6">Why Partner with SPACIVA UK?</h2>
+            <h2 className="text-xl font-bold mb-6" style={{ color: "var(--text-primary)" }}>Why Partner with SPACIVA UK?</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="flex items-start gap-3">
                 <CheckCircle size={16} className="text-emerald-400 shrink-0 mt-0.5" />
                 <p className="text-xs" style={{ color: "var(--text-secondary)" }}>
-                  <strong className="text-white">Full Source Code Ownership:</strong> Host in your preferred cloud container, avoiding seat subscription overheads.
+                  <strong style={{ color: "var(--text-primary)" }}>Full Source Code Ownership:</strong> Host in your preferred cloud container, avoiding seat subscription overheads.
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle size={16} className="text-emerald-400 shrink-0 mt-0.5" />
                 <p className="text-xs" style={{ color: "var(--text-secondary)" }}>
-                  <strong className="text-white">Secure Data Infrastructure:</strong> Set up secure AWS London nodes mapping eu-west-2 region rules.
+                  <strong style={{ color: "var(--text-primary)" }}>Secure Data Infrastructure:</strong> Set up secure AWS London nodes mapping eu-west-2 region rules.
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle size={16} className="text-emerald-400 shrink-0 mt-0.5" />
                 <p className="text-xs" style={{ color: "var(--text-secondary)" }}>
-                  <strong className="text-white">Ultra-Fast Next.js Loads:</strong> Optimized loading times under 1.5 seconds to maximize visitor actions.
+                  <strong style={{ color: "var(--text-primary)" }}>Ultra-Fast Next.js Loads:</strong> Optimized loading times under 1.5 seconds to maximize visitor actions.
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle size={16} className="text-emerald-400 shrink-0 mt-0.5" />
                 <p className="text-xs" style={{ color: "var(--text-secondary)" }}>
-                  <strong className="text-white">Architect Advisory Syncs:</strong> Direct access channels with our software architects and ML developers.
+                  <strong style={{ color: "var(--text-primary)" }}>Architect Advisory Syncs:</strong> Direct access channels with our software architects and ML developers.
                 </p>
               </div>
             </div>
@@ -137,7 +137,7 @@ export default function UKAISolutionPage() {
         {/* Call to action */}
         <AnimatedSection>
           <div className="text-center">
-            <h3 className="text-lg font-bold text-white mb-4">Start Your Scoping Phase</h3>
+            <h3 className="text-lg font-bold mb-4" style={{ color: "var(--text-primary)" }}>Start Your Scoping Phase</h3>
             <a
               href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 text-xs font-bold text-white rounded-full bg-linear-to-r from-electric-blue to-violet hover:shadow-lg transition-transform duration-300 hover:scale-[1.02]"

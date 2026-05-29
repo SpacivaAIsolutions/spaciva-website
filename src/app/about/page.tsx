@@ -76,7 +76,7 @@ export default function AboutPage() {
               }}
             >
               <div>
-                <h3 className="text-lg font-bold text-white mb-4">Our Core Mission</h3>
+                <h3 className="text-lg font-bold mb-4" style={{ color: "var(--text-primary)" }}>Our Core Mission</h3>
                 <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                   We bridge the gap between complex artificial intelligence capabilities and day-to-day business systems. Our goal is to replace manual overhead, optimize database operations, and build custom customer portals that streamline workflows.
                 </p>
@@ -97,7 +97,7 @@ export default function AboutPage() {
               }}
             >
               <div>
-                <h3 className="text-lg font-bold text-white mb-4">Our Quality Guarantee</h3>
+                <h3 className="text-lg font-bold mb-4" style={{ color: "var(--text-primary)" }}>Our Quality Guarantee</h3>
                 <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                   We do not use cookie-cutter website templates or generic software layers. Everything we build—from LLM prompt models to full-stack dashboard structures—is coded custom from scratch, fully documented, and verified under production loads.
                 </p>
@@ -113,7 +113,7 @@ export default function AboutPage() {
         {/* Core Values Section */}
         <AnimatedSection>
           <div className="text-center mb-16">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">How We Build Trust</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4" style={{ color: "var(--text-primary)" }}>How We Build Trust</h2>
             <p className="text-xs max-w-lg mx-auto" style={{ color: "var(--text-secondary)" }}>
               We hold our development processes to rigorous technical standards to guarantee reliability.
             </p>
@@ -142,7 +142,7 @@ export default function AboutPage() {
                   <val.icon size={18} />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-white mb-2">{val.title}</h4>
+                  <h4 className="text-xs font-bold mb-2" style={{ color: "var(--text-primary)" }}>{val.title}</h4>
                   <p className="text-[11px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                     {val.desc}
                   </p>
@@ -161,7 +161,7 @@ export default function AboutPage() {
               borderColor: "var(--border-subtle)",
             }}
           >
-            <h3 className="text-xl font-bold text-white mb-3">Ready to Discuss Your Project?</h3>
+            <h3 className="text-xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>Ready to Discuss Your Project?</h3>
             <p className="text-xs max-w-md mx-auto mb-6" style={{ color: "var(--text-secondary)" }}>
               Connect with our solutions architects to map out custom dashboards, CRM integration layers, or AI workflow systems.
             </p>

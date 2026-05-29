@@ -1,92 +1,141 @@
 "use client";
 
 import Image from "next/image";
-import { useTheme } from "./ThemeProvider";
 
-const footerLinks = [
+const navLinks = [
   { name: "Solutions", href: "/solutions" },
   { name: "Work", href: "/#portfolio" },
   { name: "About Us", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
 
-export default function Footer() {
-  const { theme } = useTheme();
+const serviceLinks = [
+  { name: "AI Automation Solutions", href: "/ai-automation-solutions" },
+  { name: "Custom CRM Development", href: "/custom-crm-development" },
+  { name: "LMS Development", href: "/lms-development-company" },
+  { name: "Web Development India", href: "/web-development-company-india" },
+  { name: "SEO Services India", href: "/seo-services-india" },
+];
 
+const geoLinks = [
+  { name: "AI Company in Dubai", href: "/ai-company-in-dubai" },
+  { name: "AI Solutions UK", href: "/ai-solutions-company-uk" },
+  { name: "AI Solutions USA", href: "/ai-solutions-company-usa" },
+];
+
+export default function Footer() {
   return (
-    <footer
-      className="py-12 transition-colors duration-300"
-      style={{ borderTop: "1px solid var(--border-subtle)" }}
-    >
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-start justify-between gap-10 mb-12">
-          <div className="max-w-xs">
-            <Image
-              src={theme === "dark" ? "/spaciva_dark.png" : "/spaciva_light.png"}
-              alt="SPACIVA"
-              width={120}
-              height={40}
-              className="h-10 w-auto mb-4"
-            />
-            <p
-              className="text-[13px] leading-relaxed"
-              style={{ color: "var(--text-muted)" }}
-            >
-              Scalable growth systems combining marketing and technology for modern brands.
+    <footer style={{ background: "var(--bg-navy)" }}>
+      <div className="max-w-6xl mx-auto px-6 pt-16 pb-10">
+        {/* Top grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-14">
+          {/* Brand column */}
+          <div className="sm:col-span-2 lg:col-span-1">
+            <div className="relative h-9 w-32 mb-5">
+              <Image
+                src="/spaciva-nav-dark.png"
+                alt="SPACIVA"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <p className="text-[13px] leading-relaxed mb-5" style={{ color: "rgba(255,255,255,0.42)" }}>
+              We engineer custom AI automation, CRM platforms, LMS systems, and high-performance web applications for modern businesses worldwide.
+            </p>
+            <p className="text-[11px] font-medium" style={{ color: "rgba(255,255,255,0.24)" }}>
+              Ahmedabad, India · Serving India, UAE, UK &amp; USA
             </p>
           </div>
 
-          <div className="flex gap-16">
-            <div>
-              <h4
-                className="text-xs font-medium uppercase tracking-wider mb-4"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                Navigate
-              </h4>
-              <ul className="space-y-2.5">
-                {footerLinks.map((link) => (
-                  <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="text-[13px] transition-colors"
-                      style={{ color: "var(--text-muted)" }}
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Navigate */}
+          <div>
+            <h4 className="text-[10px] font-semibold uppercase tracking-wider mb-5" style={{ color: "rgba(255,255,255,0.35)" }}>
+              Navigate
+            </h4>
+            <ul className="space-y-3">
+              {navLinks.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-[13px] transition-colors duration-200"
+                    style={{ color: "rgba(255,255,255,0.45)" }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            <div>
-              <h4
-                className="text-xs font-medium uppercase tracking-wider mb-4"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                Contact
-              </h4>
-              <p className="text-[13px]" style={{ color: "var(--text-muted)" }}>
-                <a
-                  href="mailto:spacivaaisolution@gmail.com"
-                  className="hover:text-electric-blue transition-colors font-medium"
-                >
-                  spacivaaisolution@gmail.com
-                </a>
-              </p>
-            </div>
+          {/* Services */}
+          <div>
+            <h4 className="text-[10px] font-semibold uppercase tracking-wider mb-5" style={{ color: "rgba(255,255,255,0.35)" }}>
+              Services
+            </h4>
+            <ul className="space-y-3">
+              {serviceLinks.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-[13px] transition-colors duration-200"
+                    style={{ color: "rgba(255,255,255,0.45)" }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Global + Contact */}
+          <div>
+            <h4 className="text-[10px] font-semibold uppercase tracking-wider mb-5" style={{ color: "rgba(255,255,255,0.35)" }}>
+              Global Offices
+            </h4>
+            <ul className="space-y-3 mb-8">
+              {geoLinks.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-[13px] transition-colors duration-200"
+                    style={{ color: "rgba(255,255,255,0.45)" }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <h4 className="text-[10px] font-semibold uppercase tracking-wider mb-3" style={{ color: "rgba(255,255,255,0.35)" }}>
+              Contact
+            </h4>
+            <a
+              href="mailto:spacivaaisolution@gmail.com"
+              className="text-[12px] transition-colors duration-200 break-all"
+              style={{ color: "rgba(255,255,255,0.45)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}
+            >
+              spacivaaisolution@gmail.com
+            </a>
           </div>
         </div>
 
+        {/* Bottom bar */}
         <div
           className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3"
-          style={{ borderTop: "1px solid var(--border-subtle)" }}
+          style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
         >
-          <p className="text-[11px]" style={{ color: "var(--text-faint)" }}>
+          <p className="text-[11px]" style={{ color: "rgba(255,255,255,0.2)" }}>
             © {new Date().getFullYear()} SPACIVA. All rights reserved.
           </p>
-          <p className="text-[11px]" style={{ color: "var(--text-faint)" }}>
-            Ahmedabad, India
+          <p className="text-[11px]" style={{ color: "rgba(255,255,255,0.2)" }}>
+            Built with Next.js · Deployed on Vercel
           </p>
         </div>
       </div>
