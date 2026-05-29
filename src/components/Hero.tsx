@@ -68,12 +68,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.1 }}
-          className="text-4xl sm:text-5xl lg:text-[66px] font-extrabold tracking-tight leading-[1.06] mb-6 max-w-4xl"
+          className="text-4xl sm:text-5xl lg:text-[60px] font-extrabold tracking-tight leading-[1.1] mb-6 max-w-4xl"
           style={{ fontFamily: "var(--font-heading)", color: "var(--text-primary)" }}
         >
-          Next-Gen AI Solutions
-          <br />
-          <span className="gradient-text font-black">& Digital Ecosystems</span>
+          Empower Your Growth with Software <br className="hidden sm:inline" />
+          Built Exactly for <span className="gradient-text font-black">Your Process</span>
         </motion.h1>
 
         {/* Subtext */}
@@ -81,10 +80,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-base sm:text-lg max-w-3xl mx-auto mb-10 leading-relaxed"
           style={{ color: "var(--text-secondary)" }}
         >
-          We engineer custom AI automation agents, CRM platforms, LMS systems, and high-performance web applications that scale your operations and drive measurable growth.
+          SPACIVA is a technology and AI product engineering company. We design and build custom Generative AI, Healthcare Technology, FinTech Solutions, Enterprise Software, and Scalable SaaS Platforms — engineered from scratch around your process.
         </motion.p>
 
         {/* CTAs */}
@@ -92,25 +91,41 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6"
         >
           <a
             href="/contact"
             className="group flex items-center gap-2 px-7 py-3.5 text-sm font-bold text-white rounded-xl transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
             style={{ background: "var(--bg-navy)", boxShadow: "var(--shadow-md)" }}
           >
-            Get a Free Consultation
+            Get a Free Project Scope
             <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-300" />
           </a>
           <a
-            href="#services"
+            href="/solutions"
             className="flex items-center gap-2 px-7 py-3.5 text-sm font-semibold rounded-xl border transition-all duration-300 hover:scale-[1.02]"
             style={{ color: "var(--text-primary)", borderColor: "var(--border-subtle)", background: "var(--bg-card)", boxShadow: "var(--shadow-sm)" }}
             onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--border-hover)"; e.currentTarget.style.boxShadow = "var(--shadow-md)"; }}
             onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border-subtle)"; e.currentTarget.style.boxShadow = "var(--shadow-sm)"; }}
           >
-            Explore Solutions
+            See Our Work
           </a>
+        </motion.div>
+
+        {/* Trust line below buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.34 }}
+          className="text-[11px] font-semibold tracking-wide mb-14 text-[var(--text-muted)] flex flex-wrap justify-center items-center gap-x-3 gap-y-1.5 max-w-xl mx-auto text-center"
+        >
+          <span>40+ enterprise projects</span>
+          <span className="text-slate-300">•</span>
+          <span>98% client retention</span>
+          <span className="text-slate-300">•</span>
+          <span>6+ countries served</span>
+          <span className="text-slate-300">•</span>
+          <span style={{ color: "var(--color-electric-blue)" }}>Full source code ownership guaranteed</span>
         </motion.div>
 
         {/* Stats row */}
@@ -121,14 +136,15 @@ export default function Hero() {
           className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-16 w-full max-w-2xl"
         >
           {stats.map((stat) => (
-            <div
+            <a
               key={stat.label}
-              className="py-4 px-3 rounded-2xl border text-center"
+              href={stat.label.includes("Projects") ? "/#portfolio" : undefined}
+              className={`py-4 px-3 rounded-2xl border text-center transition-all ${stat.label.includes("Projects") ? "hover:scale-[1.02] hover:border-[var(--border-hover)]" : ""}`}
               style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)", boxShadow: "var(--shadow-sm)" }}
             >
-              <p className="text-2xl font-extrabold mb-0.5" style={{ color: "var(--color-electric-blue)" }}>{stat.value}</p>
+              <p className="text-2xl sm:text-3xl font-extrabold mb-0.5" style={{ color: "var(--color-electric-blue)" }}>{stat.value}</p>
               <p className="text-[10px] leading-snug font-medium" style={{ color: "var(--text-muted)" }}>{stat.label}</p>
-            </div>
+            </a>
           ))}
         </motion.div>
 

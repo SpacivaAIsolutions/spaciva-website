@@ -6,6 +6,7 @@ const navLinks = [
   { name: "Solutions", href: "/solutions" },
   { name: "Work", href: "/#portfolio" },
   { name: "About Us", href: "/about" },
+  { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -43,7 +44,11 @@ export default function Footer() {
               We engineer custom AI automation, CRM platforms, LMS systems, and high-performance web applications for modern businesses worldwide.
             </p>
             <p className="text-[11px] font-medium" style={{ color: "rgba(255,255,255,0.24)" }}>
-              Ahmedabad, India · Serving India, UAE, UK &amp; USA
+              Ahmedabad, India · Serving{" "}
+              <a href="/web-development-company-india" className="hover:text-white/80 transition-colors">India</a>,{" "}
+              <a href="/ai-company-in-dubai" className="hover:text-white/80 transition-colors">UAE</a>,{" "}
+              <a href="/ai-solutions-company-uk" className="hover:text-white/80 transition-colors">UK</a> &amp;{" "}
+              <a href="/ai-solutions-company-usa" className="hover:text-white/80 transition-colors">USA</a>
             </p>
           </div>
 

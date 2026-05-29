@@ -94,10 +94,15 @@ export default function Testimonials() {
                   >
                     {t.initial}
                   </div>
-                  <div>
-                    <p className="text-xs font-semibold" style={{ color: "var(--text-primary)" }}>{t.name}</p>
-                    <p className="text-[10px] mt-0.5" style={{ color: "var(--text-muted)" }}>{t.role}, {t.company}</p>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-xs font-semibold truncate" style={{ color: "var(--text-primary)" }}>{t.name}</p>
+                    <p className="text-[10px] mt-0.5 truncate" style={{ color: "var(--text-muted)" }}>{t.role}, {t.company}</p>
                   </div>
+                </div>
+                <div className="mt-4 pt-3 border-t border-[var(--border-subtle)]">
+                  <a href="/#portfolio" className="text-[10px] font-bold text-[var(--color-electric-blue)] hover:underline inline-flex items-center gap-0.5">
+                    Read full case study <span className="text-[9px]">→</span>
+                  </a>
                 </div>
               </div>
             </AnimatedSection>
