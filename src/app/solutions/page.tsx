@@ -158,8 +158,8 @@ export default function SolutionsPage() {
                     </div>
 
                     <h2
-                      className="text-xl sm:text-2xl font-bold text-white mb-2 leading-snug"
-                      style={{ fontFamily: "var(--font-heading)" }}
+                      className="text-xl sm:text-2xl font-bold mb-2 leading-snug"
+                      style={{ fontFamily: "var(--font-heading)", color: "var(--text-primary)" }}
                     >
                       {service.title}
                     </h2>
@@ -172,7 +172,7 @@ export default function SolutionsPage() {
 
                     {/* Tech Stack Badges */}
                     <div className="mb-4">
-                      <h4 className="text-[10px] font-bold uppercase tracking-wider text-white mb-2">
+                      <h4 className="text-[10px] font-bold uppercase tracking-wider mb-2" style={{ color: "var(--text-primary)" }}>
                         Technologies We Use
                       </h4>
                       <div className="flex flex-wrap gap-1.5">
@@ -194,8 +194,8 @@ export default function SolutionsPage() {
 
                   {/* Right Column: Features checklist */}
                   <div className="lg:w-[45%] flex flex-col justify-between self-stretch shrink-0">
-                    <div className="p-6 rounded-2xl bg-black/10 border" style={{ borderColor: "var(--border-subtle)" }}>
-                      <h4 className="text-[10px] font-bold uppercase tracking-wider text-white mb-4">
+                    <div className="p-6 rounded-2xl border" style={{ borderColor: "var(--border-subtle)", background: "var(--bg-secondary)" }}>
+                      <h4 className="text-[10px] font-bold uppercase tracking-wider mb-4" style={{ color: "var(--text-primary)" }}>
                         Standard System Deliverables
                       </h4>
                       <ul className="space-y-3">
