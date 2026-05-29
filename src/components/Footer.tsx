@@ -11,11 +11,13 @@ const navLinks = [
 ];
 
 const serviceLinks = [
-  { name: "AI Automation Solutions", href: "/ai-automation-solutions" },
+  { name: "AI/ML Development", href: "/ai-ml-development" },
+  { name: "AI Agent Development", href: "/ai-agent-development" },
+  { name: "Web Design Services", href: "/web-design" },
+  { name: "Web Application Development", href: "/web-development-company-india" },
   { name: "Custom CRM Development", href: "/custom-crm-development" },
-  { name: "LMS Development", href: "/lms-development-company" },
-  { name: "Web Development India", href: "/web-development-company-india" },
   { name: "SEO Services India", href: "/seo-services-india" },
+  { name: "E-Commerce Website", href: "/ecommerce-website-development" }
 ];
 
 const geoLinks = [

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Bot, Users, GraduationCap, MapPin } from "lucide-react";
+import { ArrowRight, Bot, Heart, DollarSign, Sparkles } from "lucide-react";
 
 const stats = [
   { value: "40+", label: "Enterprise Projects" },
@@ -13,30 +13,30 @@ const stats = [
 const solutionCards = [
   {
     icon: Bot,
-    title: "AI Automation",
-    desc: "Custom LLM agents, pipeline automation, and intelligent workflow systems.",
+    title: "AI & Generative AI",
+    desc: "Custom LLM pipelines, autonomous workflows, RAG agents, and intelligent document engines.",
     badge: "92% Cost Saved",
     badgeClass: "bg-blue-50 text-blue-700 border-blue-100",
     iconBg: "bg-blue-600",
     href: "/ai-automation-solutions",
   },
   {
-    icon: Users,
-    title: "Custom CRM",
-    desc: "Deal pipelines, lead tracking, auto follow-ups — built to your process.",
-    badge: "3.5× Conversion",
-    badgeClass: "bg-violet-50 text-violet-700 border-violet-100",
-    iconBg: "bg-violet-600",
-    href: "/custom-crm-development",
-  },
-  {
-    icon: GraduationCap,
-    title: "LMS Platforms",
-    desc: "Corporate training portals, quizzes, and PDF certification engines.",
-    badge: "94% Completion",
+    icon: Heart,
+    title: "Healthcare Technology",
+    desc: "Secure, compliant quality systems (QMS), CAPA platforms, audit, and HIPAA regulatory builds.",
+    badge: "Bespoke & Compliant",
     badgeClass: "bg-emerald-50 text-emerald-700 border-emerald-100",
     iconBg: "bg-emerald-600",
-    href: "/lms-development-company",
+    href: "/about",
+  },
+  {
+    icon: DollarSign,
+    title: "FinTech & Financial",
+    desc: "Lending applications, custom loan managers, transaction-ready systems, and financial analytics.",
+    badge: "Secure Payments",
+    badgeClass: "bg-violet-50 text-violet-700 border-violet-100",
+    iconBg: "bg-violet-600",
+    href: "/about",
   },
 ];
 
@@ -62,6 +62,18 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex-1 flex flex-col justify-center items-center w-full">
+
+        {/* Small Positioning Pill Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-bold tracking-wider uppercase mb-6 border shadow-xs"
+          style={{ background: "rgba(37, 99, 235, 0.04)", borderColor: "rgba(37, 99, 235, 0.12)", color: "var(--color-electric-blue)" }}
+        >
+          <Sparkles size={11} className="text-blue-500 shrink-0" />
+          <span>Technology &amp; AI Product Engineering Company</span>
+        </motion.div>
 
         {/* Headline */}
         <motion.h1
