@@ -1,65 +1,94 @@
-"use client";
-
-import { Search, CheckCircle, ArrowRight, TrendingUp, FileText, Globe } from "lucide-react";
+import type { Metadata } from "next";
+import { CheckCircle, ArrowRight, Search, FileText, Globe, Settings, MapPin, Code2, LineChart } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 
-const features = [
+export const metadata: Metadata = {
+  title: "Technical SEO Services India | Search Ranking & Organic Growth | SPACIVA",
+  description: "SPACIVA delivers data-driven SEO strategies: Core Web Vitals optimization, structured data markup, keyword mapping, and content roadmaps that drive consistent organic growth. India-based.",
+  keywords: [
+    "SEO services India",
+    "technical SEO company India",
+    "SEO agency Ahmedabad",
+    "organic search growth India",
+    "local SEO India",
+    "Core Web Vitals optimization",
+    "search engine optimization company"
+  ],
+};
+
+const capabilities = [
   {
-    icon: TrendingUp,
-    title: "Technical SEO Audits",
-    desc: "Comprehensive crawl analysis, Core Web Vitals optimization, structured data implementation, and site architecture improvements for maximum crawlability.",
-    color: "bg-rose-500/10 text-rose-500 border-rose-500/20",
+    icon: Settings,
+    title: "Technical SEO Audit & Fixes",
+    desc: "We start with a comprehensive technical audit: crawlability, indexation, Core Web Vitals (LCP, FID, CLS), site architecture, duplicate content, broken links, and mobile usability. Then we fix every issue — not just report them.",
+    color: "bg-blue-500/10 text-blue-500 border-blue-500/20",
+  },
+  {
+    icon: Search,
+    title: "Keyword Research & Mapping",
+    desc: "Competitor gap analysis plus intent-based keyword research to identify the exact terms your target customers search. We map keywords to landing pages and create a clear content hierarchy.",
+    color: "bg-violet-500/10 text-violet-500 border-violet-500/20",
+  },
+  {
+    icon: Code2,
+    title: "On-Page Optimisation",
+    desc: "Meta titles, meta descriptions, heading structures, internal linking, schema markup (JSON-LD), image alt text, and page speed — optimised for both search engines and human readers.",
+    color: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20",
   },
   {
     icon: FileText,
-    title: "Content Strategy & Authority Building",
-    desc: "Keyword-targeted content calendars, long-form pillar pages, cluster topic mapping, and entity optimization to establish topical authority in your niche.",
-    color: "bg-orange-500/10 text-orange-500 border-orange-500/20",
+    title: "Content Strategy & Creation",
+    desc: "A 3–6 month content calendar targeting informational, navigational, and transactional keywords. We write SEO-optimised blog posts, service pages, and location pages that rank and convert.",
+    color: "bg-amber-500/10 text-amber-500 border-amber-500/20",
+  },
+  {
+    icon: MapPin,
+    title: "Local SEO & Google Business Profile",
+    desc: "For India-based businesses, we optimise your Google Business Profile, build local citations, and create location-specific landing pages to dominate search in your city and region.",
+    color: "bg-rose-500/10 text-rose-500 border-rose-500/20",
   },
   {
     icon: Globe,
-    title: "Local & International SEO",
-    desc: "Google Business Profile optimization, local citation building, hreflang implementation, and geo-targeted landing page strategies for multi-market visibility.",
-    color: "bg-violet-500/10 text-violet-500 border-violet-500/20",
+    title: "Structured Data & Rich Results",
+    desc: "We implement JSON-LD schema markup for FAQs, reviews, services, and local business — unlocking rich snippets in Google results that dramatically improve click-through rates.",
+    color: "bg-indigo-500/10 text-indigo-500 border-indigo-500/20",
   },
 ];
 
-const deliverables = [
-  "Full technical SEO audit with prioritized fix roadmap",
-  "Keyword research across informational, commercial, and transactional intent",
-  "On-page optimization for existing and new content",
-  "Core Web Vitals improvement (LCP, FID, CLS)",
-  "Schema markup for products, services, FAQs, and reviews",
-  "Backlink acquisition from high-authority industry sources",
-  "Monthly ranking report with keyword position tracking",
-  "Google Search Console and GA4 performance dashboards",
+const results = [
+  "3× organic traffic growth for Unoloft within 4 months",
+  "First-page rankings for 40+ target keywords across client portfolios",
+  "Core Web Vitals scores improved from failing to 90+ in 3 weeks",
+  "Local map pack inclusion for 5 India-based businesses within 8 weeks",
 ];
 
 export default function SEOServicesIndiaPage() {
   return (
-    <main className="min-h-screen pt-32 pb-24 relative overflow-hidden">
+    <main className="min-h-screen pt-32 pb-24 relative overflow-hidden" style={{ background: "var(--bg-primary)" }}>
+      {/* Background radial highlight */}
       <div className="absolute inset-0 pointer-events-none opacity-25">
         <div
-          className="absolute top-1/3 right-1/3 w-[600px] h-[500px] rounded-full blur-[160px]"
+          className="absolute top-1/3 left-1/3 w-[600px] h-[500px] rounded-full blur-[160px]"
           style={{ background: "radial-gradient(circle at center, var(--gradient-orb-2), transparent 70%)" }}
         />
       </div>
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
+        {/* Hero Section */}
         <AnimatedSection>
           <div className="text-center mb-20">
             <span className="text-xs text-electric-blue tracking-widest uppercase font-semibold mb-3.5 inline-block">
               SPACIVA SEO Services · India
             </span>
             <h1
-              className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-6 leading-tight"
-              style={{ fontFamily: "var(--font-heading)" }}
+              className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight mb-6 leading-[1.1]"
+              style={{ fontFamily: "var(--font-heading)", color: "var(--text-primary)" }}
             >
-              SEO Services India <br />
-              <span className="gradient-text font-black">Data-Driven Search Growth Engine</span>
+              Dominate Search Results and Turn Google <br className="hidden sm:inline" />
+              Into Your <span className="gradient-text">Best Sales Channel</span>
             </h1>
-            <p className="text-sm sm:text-base max-w-2xl mx-auto leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-              SPACIVA is a technical SEO agency in India delivering measurable organic growth through data-backed keyword strategy, content authority building, and Core Web Vitals optimization. We turn search engines into your most reliable lead source.
+            <p className="text-sm sm:text-base max-w-3xl mx-auto leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+              We combine technical SEO precision with strategic content mapping to build sustainable organic visibility — not short-lived ranking tricks.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
@@ -68,111 +97,101 @@ export default function SEOServicesIndiaPage() {
               >
                 Get a Free SEO Audit <ArrowRight size={15} />
               </a>
-              <a href="/#portfolio" className="text-sm font-medium" style={{ color: "var(--text-secondary)" }}>
+              <a
+                href="/#portfolio"
+                className="text-sm font-semibold transition-colors duration-200 hover:text-[var(--text-primary)]"
+                style={{ color: "var(--text-secondary)" }}
+              >
                 See SEO Case Studies →
               </a>
             </div>
           </div>
         </AnimatedSection>
 
-        {/* Core Services */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-          {features.map((f, i) => (
-            <AnimatedSection key={f.title} delay={i * 0.08}>
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+          {capabilities.map((c, i) => (
+            <AnimatedSection key={c.title} delay={i * 0.05}>
               <div
-                className="p-6 rounded-2xl border h-full transition-all duration-300 hover:-translate-y-0.5"
-                style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)" }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--border-hover)"; e.currentTarget.style.background = "var(--bg-card-hover)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border-subtle)"; e.currentTarget.style.background = "var(--bg-card)"; }}
+                className="p-6 rounded-2xl border h-full transition-all duration-300 hover:-translate-y-0.5 bg-[var(--bg-card)] border-[var(--border-subtle)] hover:border-[var(--border-hover)] hover:bg-[var(--bg-card-hover)]"
               >
-                <div className={`p-3 rounded-xl border w-fit mb-4 ${f.color}`}>
-                  <f.icon size={18} />
+                <div className={`p-3 rounded-xl border w-fit mb-4 ${c.color}`}>
+                  <c.icon size={18} />
                 </div>
-                <h3 className="text-sm font-bold mb-2" style={{ color: "var(--text-primary)" }}>{f.title}</h3>
-                <p className="text-[12px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>{f.desc}</p>
+                <h3 className="text-sm font-bold mb-2.5" style={{ color: "var(--text-primary)" }}>{c.title}</h3>
+                <p className="text-[12px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>{c.desc}</p>
               </div>
             </AnimatedSection>
           ))}
         </div>
 
-        {/* Deliverables */}
+        {/* Results We've Delivered */}
         <AnimatedSection>
-          <div
-            className="p-8 sm:p-10 rounded-3xl border mb-16"
-            style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)" }}
-          >
-            <h2 className="text-xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
-              What Our SEO Retainer Includes
+          <div className="p-8 sm:p-10 rounded-3xl border mb-20" style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)" }}>
+            <h2 className="text-xl sm:text-2xl font-bold mb-6 text-center" style={{ color: "var(--text-primary)" }}>
+              Results We Have Delivered
             </h2>
-            <p className="text-xs mb-8" style={{ color: "var(--text-secondary)" }}>
-              Transparent deliverables, measurable KPIs, and monthly performance reports — no vanity metrics.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {deliverables.map((d) => (
-                <div key={d} className="flex items-start gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+              {results.map((r) => (
+                <div key={r} className="flex items-start gap-3">
                   <CheckCircle size={15} className="text-emerald-500 shrink-0 mt-0.5" />
-                  <p className="text-xs" style={{ color: "var(--text-secondary)" }}>{d}</p>
+                  <p className="text-xs sm:text-sm font-medium" style={{ color: "var(--text-secondary)" }}>{r}</p>
                 </div>
               ))}
             </div>
           </div>
         </AnimatedSection>
 
-        {/* Stats */}
+        {/* Reporting Block */}
         <AnimatedSection>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-20">
-            {[
-              { stat: "3.5×", label: "Average organic traffic growth in 6 months" },
-              { stat: "85+", label: "Top-10 keyword positions delivered" },
-              { stat: "40%", label: "Average reduction in cost per lead" },
-              { stat: "48hrs", label: "SEO audit turnaround time" },
-            ].map((item) => (
-              <div key={item.stat} className="text-center p-5 rounded-2xl border" style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)" }}>
-                <p className="text-2xl font-extrabold gradient-text mb-1">{item.stat}</p>
-                <p className="text-[10px] leading-tight" style={{ color: "var(--text-secondary)" }}>{item.label}</p>
+          <div className="p-8 sm:p-10 rounded-3xl border mb-20" style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)" }}>
+            <div className="flex flex-col md:flex-row items-center gap-6">
+              <div className="p-4 rounded-full bg-violet-500/10 text-violet border border-violet-500/20 shrink-0">
+                <LineChart size={32} />
               </div>
-            ))}
+              <div>
+                <h3 className="text-sm sm:text-base font-bold mb-1" style={{ color: "var(--text-primary)" }}>Monthly Analytics & Reporting</h3>
+                <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                  Get clear monthly reports showing keyword ranking movements, organic traffic, click-through rates, and conversion data from Google Search Console and Analytics — with plain-English commentary on what&apos;s working.
+                </p>
+              </div>
+            </div>
           </div>
         </AnimatedSection>
 
-        {/* Why SPACIVA SEO */}
+        {/* FAQ Section */}
         <AnimatedSection>
-          <div
-            className="p-8 sm:p-10 rounded-3xl border mb-16"
-            style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)" }}
-          >
-            <h2 className="text-xl font-bold mb-6" style={{ color: "var(--text-primary)" }}>
-              Why SPACIVA for SEO in India?
+          <div className="p-8 sm:p-10 rounded-3xl border mb-20" style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)" }}>
+            <h2 className="text-xl sm:text-2xl font-bold mb-6 text-center" style={{ color: "var(--text-primary)" }}>
+              Frequently Asked Questions
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="space-y-6 max-w-3xl mx-auto">
               {[
-                { title: "Technical + Content Combined", body: "Most agencies do one or the other. We pair technical site health with content strategy for compounding organic results." },
-                { title: "Developer-Level Technical SEO", body: "Our team writes the fixes directly — no back-and-forth with separate dev teams. Faster implementation means faster ranking gains." },
-                { title: "Industry-Specific Keyword Intelligence", body: "We research your competitive landscape, SERP features, and search intent before writing a single piece of content." },
-                { title: "Transparent Monthly Reporting", body: "Live Search Console dashboards, position tracking reports, and monthly strategy calls — you always know exactly what is happening." },
+                { q: "How long before we see SEO results?", a: "Technical fixes and on-page changes can show results in 4–8 weeks. Competitive keyword rankings typically take 3–6 months of consistent effort. We show progress every month with transparent reporting." },
+                { q: "Do you use white-hat SEO techniques only?", a: "Always. We follow Google's Webmaster Guidelines strictly. No black-hat tactics, private blog networks, or link schemes that could get your site penalised." },
+                { q: "Can you handle SEO for multiple locations?", a: "Yes. We build location-specific landing pages, manage multiple Google Business Profiles, and create city-level content strategies for businesses operating across India or internationally." },
               ].map((item) => (
-                <div key={item.title} className="flex items-start gap-3">
-                  <CheckCircle size={15} className="text-electric-blue shrink-0 mt-0.5" />
-                  <p className="text-xs" style={{ color: "var(--text-secondary)" }}>
-                    <strong style={{ color: "var(--text-primary)" }}>{item.title}:</strong> {item.body}
-                  </p>
+                <div key={item.q} className="space-y-2">
+                  <h3 className="text-xs sm:text-sm font-bold" style={{ color: "var(--text-primary)" }}>{item.q}</h3>
+                  <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>{item.a}</p>
                 </div>
               ))}
             </div>
           </div>
         </AnimatedSection>
 
+        {/* Call To Action */}
         <AnimatedSection>
           <div className="text-center">
-            <h3 className="text-lg font-bold mb-4" style={{ color: "var(--text-primary)" }}>Start Ranking Higher on Google</h3>
-            <p className="text-sm mb-6" style={{ color: "var(--text-secondary)" }}>
-              Request a free technical SEO audit. We will analyze your site, identify quick wins, and present a growth roadmap with projected traffic estimates.
+            <h3 className="text-lg sm:text-xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>Ready to Dominate Search Rankings?</h3>
+            <p className="text-sm max-w-xl mx-auto mb-6" style={{ color: "var(--text-secondary)" }}>
+              Partner with SPACIVA to implement a highly precise search engine campaign that drives actual sales.
             </p>
             <a
               href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 text-sm font-bold text-white rounded-full bg-linear-to-r from-electric-blue to-violet hover:shadow-lg transition-all duration-300 hover:scale-[1.02]"
             >
-              Get My Free SEO Audit <ArrowRight size={14} />
+              Request a Technical SEO Audit <ArrowRight size={14} />
             </a>
           </div>
         </AnimatedSection>

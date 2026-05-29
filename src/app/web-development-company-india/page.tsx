@@ -1,38 +1,70 @@
-"use client";
-
-import { Code2, CheckCircle, ArrowRight, Globe, Zap, Shield } from "lucide-react";
+import type { Metadata } from "next";
+import { CheckCircle, ArrowRight, Code2, Globe, Shield, Terminal, LayoutGrid, Heart } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 
-const features = [
+export const metadata: Metadata = {
+  title: "Web Development Company India | Next.js & React Experts | SPACIVA Ahmedabad",
+  description: "SPACIVA builds high-performance Next.js web applications, dashboards, and portals from Ahmedabad, India. Server-side rendering, CI/CD pipelines, and mobile-first design. Serving India, UAE, UK & USA.",
+  keywords: [
+    "web development company India",
+    "Next.js development agency India",
+    "React web application development",
+    "web app development Ahmedabad",
+    "enterprise web development India",
+    "custom web portal development"
+  ],
+};
+
+const capabilities = [
   {
-    icon: Zap,
-    title: "High-Performance Next.js Applications",
-    desc: "Server-side rendered and statically generated web applications with Core Web Vitals scores above 95 — faster load times mean higher conversions.",
-    color: "bg-amber-500/10 text-amber-500 border-amber-500/20",
-  },
-  {
-    icon: Globe,
-    title: "Enterprise SaaS & Dashboard Platforms",
-    desc: "Complex multi-tenant SaaS architectures, admin dashboards, data visualization platforms, and B2B portals with role-based access control.",
+    icon: Code2,
+    title: "Custom Web Application Development",
+    desc: "From complex SaaS dashboards to multi-role portals, we build full-stack web applications tailored to your business logic. No templates — pure custom engineering with clean, documented code.",
     color: "bg-blue-500/10 text-blue-500 border-blue-500/20",
   },
   {
+    icon: Globe,
+    title: "Next.js & React Development",
+    desc: "We specialize in Next.js App Router with server-side rendering (SSR) and static site generation (SSG) for lightning-fast page loads and top Core Web Vitals scores. Our React components are accessible, responsive, and tested.",
+    color: "bg-violet-500/10 text-violet-500 border-violet-500/20",
+  },
+  {
     icon: Shield,
-    title: "Secure API & Backend Architecture",
-    desc: "RESTful and GraphQL APIs with JWT authentication, rate limiting, database optimization, and horizontal scaling capabilities on cloud infrastructure.",
+    title: "API Development & Integrations",
+    desc: "We build secure REST and GraphQL APIs optimized for low latency. We integrate with payment gateways (Stripe, Razorpay), communication tools (WhatsApp, Twilio), analytics platforms, and any third-party service your business needs.",
     color: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20",
+  },
+  {
+    icon: LayoutGrid,
+    title: "Dashboard & Admin Panel Development",
+    desc: "Data-rich dashboards with live charts, filterable tables, role-based access, and exportable reports. Built for internal teams who need clarity and speed in their daily operations.",
+    color: "bg-amber-500/10 text-amber-500 border-amber-500/20",
+  },
+  {
+    icon: Heart,
+    title: "Mobile-First Responsive Design",
+    desc: "Every interface we build is designed mobile-first and tested across devices and screen sizes. Your users get a flawless experience whether on a smartphone in Mumbai or a desktop in London.",
+    color: "bg-rose-500/10 text-rose-500 border-rose-500/20",
+  },
+  {
+    icon: Terminal,
+    title: "DevOps & Deployment",
+    desc: "We set up CI/CD pipelines with GitHub Actions, Docker containerization, and cloud deployment on AWS, Vercel, or Netlify. Automated testing ensures every deployment is stable.",
+    color: "bg-indigo-500/10 text-indigo-500 border-indigo-500/20",
   },
 ];
 
 const techStack = [
-  "Next.js 15 (App Router)", "React 19", "TypeScript", "Tailwind CSS",
-  "PostgreSQL / MySQL", "Prisma ORM", "Redis Caching", "AWS / Vercel / Railway",
-  "Stripe & Razorpay Payments", "Cloudflare CDN", "Docker Containers", "GitHub CI/CD",
+  { category: "Frontend", items: ["Next.js 15/16", "React 19", "TypeScript", "Tailwind CSS", "Framer Motion"] },
+  { category: "Backend", items: ["Node.js", "FastAPI (Python)", "REST & GraphQL APIs", "WebSockets"] },
+  { category: "Databases", items: ["PostgreSQL", "MongoDB", "Redis", "Prisma ORM", "pgvector"] },
+  { category: "Cloud & DevOps", items: ["AWS (EC2, S3, Lambda)", "Vercel", "Netlify", "Docker", "GitHub Actions"] },
 ];
 
 export default function WebDevelopmentIndiaPage() {
   return (
-    <main className="min-h-screen pt-32 pb-24 relative overflow-hidden">
+    <main className="min-h-screen pt-32 pb-24 relative overflow-hidden" style={{ background: "var(--bg-primary)" }}>
+      {/* Background radial highlight */}
       <div className="absolute inset-0 pointer-events-none opacity-25">
         <div
           className="absolute top-1/2 right-1/4 w-[600px] h-[500px] rounded-full blur-[160px]"
@@ -41,136 +73,116 @@ export default function WebDevelopmentIndiaPage() {
       </div>
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
+        {/* Hero Section */}
         <AnimatedSection>
           <div className="text-center mb-20">
             <span className="text-xs text-electric-blue tracking-widest uppercase font-semibold mb-3.5 inline-block">
               SPACIVA · Ahmedabad, India
             </span>
             <h1
-              className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-6 leading-tight"
-              style={{ fontFamily: "var(--font-heading)" }}
+              className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight mb-6 leading-[1.1]"
+              style={{ fontFamily: "var(--font-heading)", color: "var(--text-primary)" }}
             >
-              Web Development Company India <br />
-              <span className="gradient-text font-black">Next.js Experts in Ahmedabad</span>
+              Web Applications That Load Fast, <br className="hidden sm:inline" />
+              Scale Easily, <span className="gradient-text">and Convert Visitors</span>
             </h1>
-            <p className="text-sm sm:text-base max-w-2xl mx-auto leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-              SPACIVA is a premier web development company in India, specializing in high-performance Next.js applications, enterprise SaaS platforms, and custom web systems for global clients. Based in Ahmedabad with clients in USA, UK, UAE, and India.
+            <p className="text-sm sm:text-base max-w-3xl mx-auto leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+              We build custom web apps and portals using Next.js 15, React 19, and serverless cloud infrastructure — engineered for speed, reliability, and measurable business outcomes.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="/contact"
                 className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-bold text-white rounded-full bg-linear-to-r from-electric-blue to-violet hover:shadow-lg hover:shadow-violet/30 hover:scale-[1.02] transition-all duration-300"
               >
-                Start Your Web Project <ArrowRight size={15} />
+                Start Your Project <ArrowRight size={15} />
               </a>
-              <a href="/#portfolio" className="text-sm font-medium" style={{ color: "var(--text-secondary)" }}>
-                View Our Portfolio →
+              <a
+                href="/#portfolio"
+                className="text-sm font-semibold transition-colors duration-200 hover:text-[var(--text-primary)]"
+                style={{ color: "var(--text-secondary)" }}
+              >
+                View Our Work →
               </a>
             </div>
           </div>
         </AnimatedSection>
 
-        {/* Core Capabilities */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-          {features.map((f, i) => (
-            <AnimatedSection key={f.title} delay={i * 0.08}>
+        {/* Capabilities Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+          {capabilities.map((c, i) => (
+            <AnimatedSection key={c.title} delay={i * 0.05}>
               <div
-                className="p-6 rounded-2xl border h-full transition-all duration-300 hover:-translate-y-0.5"
-                style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)" }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--border-hover)"; e.currentTarget.style.background = "var(--bg-card-hover)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border-subtle)"; e.currentTarget.style.background = "var(--bg-card)"; }}
+                className="p-6 rounded-2xl border h-full transition-all duration-300 hover:-translate-y-0.5 bg-[var(--bg-card)] border-[var(--border-subtle)] hover:border-[var(--border-hover)] hover:bg-[var(--bg-card-hover)]"
               >
-                <div className={`p-3 rounded-xl border w-fit mb-4 ${f.color}`}>
-                  <f.icon size={18} />
+                <div className={`p-3 rounded-xl border w-fit mb-4 ${c.color}`}>
+                  <c.icon size={18} />
                 </div>
-                <h3 className="text-sm font-bold mb-2" style={{ color: "var(--text-primary)" }}>{f.title}</h3>
-                <p className="text-[12px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>{f.desc}</p>
+                <h3 className="text-sm font-bold mb-2.5" style={{ color: "var(--text-primary)" }}>{c.title}</h3>
+                <p className="text-[12px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>{c.desc}</p>
               </div>
             </AnimatedSection>
           ))}
         </div>
 
-        {/* Tech Stack */}
+        {/* Modern Web Tech Stack */}
         <AnimatedSection>
-          <div
-            className="p-8 sm:p-10 rounded-3xl border mb-16"
-            style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)" }}
-          >
-            <h2 className="text-xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
+          <div className="p-8 sm:p-10 rounded-3xl border mb-20" style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)" }}>
+            <h2 className="text-xl sm:text-2xl font-bold mb-8 text-center" style={{ color: "var(--text-primary)" }}>
               Our Modern Web Technology Stack
             </h2>
-            <p className="text-xs mb-8" style={{ color: "var(--text-secondary)" }}>
-              We use proven, production-grade technologies that ensure performance, security, and maintainability.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {techStack.map((tech) => (
-                <span
-                  key={tech}
-                  className="text-[11px] font-medium px-3 py-1.5 rounded-full border"
-                  style={{ background: "var(--bg-card-hover)", borderColor: "var(--border-subtle)", color: "var(--text-secondary)" }}
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Why India */}
-        <AnimatedSection>
-          <div
-            className="p-8 sm:p-10 rounded-3xl border mb-16"
-            style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)" }}
-          >
-            <h2 className="text-xl font-bold mb-6" style={{ color: "var(--text-primary)" }}>
-              Why Hire a Web Development Company in India?
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {[
-                { title: "Cost Advantage Without Quality Compromise", body: "World-class Next.js and React development at 40–60% lower cost than UK or US agencies, with no compromise on code quality or delivery timelines." },
-                { title: "IST to GMT/EST Overlap Hours", body: "Our Ahmedabad team overlaps with both US morning sessions (EST) and UK afternoon sessions (GMT) — async communication made seamless." },
-                { title: "Experienced Senior Engineers Only", body: "You work directly with senior architects. No outsourcing, no juniors on critical paths, no account managers in between." },
-                { title: "End-to-End Project Ownership", body: "From UX wireframes to production deployment and post-launch monitoring — we own the entire web development lifecycle." },
-              ].map((item) => (
-                <div key={item.title} className="flex items-start gap-3">
-                  <CheckCircle size={15} className="text-electric-blue shrink-0 mt-0.5" />
-                  <p className="text-xs" style={{ color: "var(--text-secondary)" }}>
-                    <strong style={{ color: "var(--text-primary)" }}>{item.title}:</strong> {item.body}
-                  </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+              {techStack.map((stack) => (
+                <div key={stack.category} className="space-y-3">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-electric-blue">{stack.category}</h3>
+                  <div className="flex flex-wrap gap-1.5">
+                    {stack.items.map((item) => (
+                      <span
+                        key={item}
+                        className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full border bg-[var(--bg-secondary)] text-[var(--text-secondary)] border-[var(--border-subtle)]"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </AnimatedSection>
 
-        {/* Stats */}
+        {/* Why Choose Us FAQ */}
         <AnimatedSection>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-20">
-            {[
-              { stat: "1.2s", label: "Average page load time for our deployments" },
-              { stat: "98+", label: "Lighthouse performance score average" },
-              { stat: "30+", label: "Web applications shipped globally" },
-              { stat: "5★", label: "Average client satisfaction rating" },
-            ].map((item) => (
-              <div key={item.stat} className="text-center p-5 rounded-2xl border" style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)" }}>
-                <p className="text-2xl font-extrabold gradient-text mb-1">{item.stat}</p>
-                <p className="text-[10px] leading-tight" style={{ color: "var(--text-secondary)" }}>{item.label}</p>
-              </div>
-            ))}
+          <div className="p-8 sm:p-10 rounded-3xl border mb-20" style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)" }}>
+            <h2 className="text-xl sm:text-2xl font-bold mb-6 text-center" style={{ color: "var(--text-primary)" }}>
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-6 max-w-3xl mx-auto">
+              {[
+                { q: "Do we get the source code?", a: "Yes — always. Full source code ownership is non-negotiable at SPACIVA. You receive the complete GitHub repository with detailed technical documentation on delivery." },
+                { q: "How do you ensure the website is fast?", a: "We optimize strictly for Core Web Vitals: server-side rendering for fast initial loads, strict image formatting, CSS/JS minification, globally distributed Edge CDNs, and lazy loading. Most of our sites score 90+ on Google PageSpeed." },
+                { q: "Can you take over a project built by another agency?", a: "Yes. We frequently inherit codebases from other developers. We will audit the existing codebase, document what is there, and continue development or refactor as required." },
+              ].map((item) => (
+                <div key={item.q} className="space-y-2">
+                  <h3 className="text-xs sm:text-sm font-bold" style={{ color: "var(--text-primary)" }}>{item.q}</h3>
+                  <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>{item.a}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </AnimatedSection>
 
+        {/* Call To Action */}
         <AnimatedSection>
           <div className="text-center">
-            <h3 className="text-lg font-bold mb-4" style={{ color: "var(--text-primary)" }}>Start Your Web Development Project</h3>
-            <p className="text-sm mb-6" style={{ color: "var(--text-secondary)" }}>
-              Share your project requirements and we will deliver a detailed technical proposal and fixed-price quote within 48 hours.
+            <h3 className="text-lg sm:text-xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>Start Your Web Application Project</h3>
+            <p className="text-sm max-w-xl mx-auto mb-6" style={{ color: "var(--text-secondary)" }}>
+              Let&apos;s build an incredibly fast Next.js system tailored to your custom business logic.
             </p>
             <a
               href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 text-sm font-bold text-white rounded-full bg-linear-to-r from-electric-blue to-violet hover:shadow-lg transition-all duration-300 hover:scale-[1.02]"
             >
-              Get a Free Project Estimate <ArrowRight size={14} />
+              Inquire About Web Development <ArrowRight size={14} />
             </a>
           </div>
         </AnimatedSection>

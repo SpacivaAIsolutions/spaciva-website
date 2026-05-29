@@ -1,35 +1,62 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { ShieldCheck, Cpu, Hourglass, HelpCircle, CheckCircle, Users } from "lucide-react";
+import type { Metadata } from "next";
+import { CheckCircle, ArrowRight, ShieldCheck, Cpu, Hourglass, Users, Star, GraduationCap } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 
-const coreValues = [
+export const metadata: Metadata = {
+  title: "About SPACIVA | AI Software Agency Based in Ahmedabad, India",
+  description: "SPACIVA is an Ahmedabad-based AI software agency engineering custom AI automation, CRM platforms, LMS systems, and web applications for businesses in India, UAE, UK, and USA.",
+  keywords: [
+    "about SPACIVA",
+    "AI agency Ahmedabad",
+    "software development company India",
+    "custom software agency India",
+    "who is SPACIVA",
+    "SPACIVA AI solutions"
+  ],
+};
+
+const values = [
   {
     icon: ShieldCheck,
-    title: "Security & Compliance",
-    desc: "We build secure systems with strict data protection, audit logs, and compliance standards (HIPAA/GDPR readiness) built into our custom CRM and database architectures.",
-  },
-  {
-    icon: Cpu,
-    title: "Engineering Excellence",
-    desc: "We leverage robust frameworks like Next.js, FastAPIs, Python, and cloud infrastructure (AWS/Vercel) to deliver high-performance, optimized systems that scale with ease.",
+    title: "Custom Over Cookie-Cutter",
+    desc: "We never use templates, off-the-shelf themes, or drag-and-drop builders. Everything is engineered from scratch to fit your specific business — because generic tools produce generic results.",
   },
   {
     icon: Hourglass,
-    title: "Iterative Agile Delivery",
-    desc: "We prioritize velocity and transparency. We ship code weekly, maintain open channels, and build testable MVPs early so clients see progress and iterate fast.",
+    title: "Ownership First",
+    desc: "Every client leaves with full source code, documentation, and deployment access. We don't hold your business hostage with proprietary platforms or recurring license fees.",
   },
   {
     icon: Users,
-    title: "Dedicated Partner Support",
-    desc: "We function as an extension of your technical team, offering direct communication lines with software architects, codebase documentation, and maintenance agreements.",
+    title: "Transparency",
+    desc: "Fixed-price scoping. Weekly progress demos. Direct communication with the engineers building your system. No account managers translating between you and the people doing the work.",
   },
+  {
+    icon: Cpu,
+    title: "Measurable Outcomes",
+    desc: "We define success metrics before we write a single line of code. ROI, time saved, conversion rates, search rankings — we track what matters and report on it honestly.",
+  },
+];
+
+const expertise = [
+  { category: "AI & Machine Learning", items: ["OpenAI API", "Anthropic Claude API", "LangChain", "LlamaIndex", "Hugging Face", "Pinecone", "pgvector", "Python", "FastAPI"] },
+  { category: "Frontend", items: ["Next.js 15/16", "React 19", "TypeScript", "Tailwind CSS"] },
+  { category: "Backend", items: ["Node.js", "Python FastAPI", "PostgreSQL", "MongoDB", "Prisma ORM"] },
+  { category: "Cloud & DevOps", items: ["AWS (EC2, S3, Lambda)", "Vercel", "Docker", "GitHub Actions", "CI/CD"] },
+  { category: "SEO Tools", items: ["Google Search Console", "Screaming Frog", "Google Analytics", "Next.js Metadata API", "JSON-LD Schema"] },
+];
+
+const stats = [
+  { value: "40+", label: "Enterprise projects delivered" },
+  { value: "3.2x", label: "Average ROI delivered to clients" },
+  { value: "98%", label: "Client retention rate" },
+  { value: "6+", label: "Countries served" },
+  { value: "48h", label: "First response turnaround guarantee" },
 ];
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen pt-32 pb-24 relative overflow-hidden">
+    <main className="min-h-screen pt-32 pb-24 relative overflow-hidden" style={{ background: "var(--bg-primary)" }}>
       {/* Background Orbs */}
       <div className="absolute inset-0 pointer-events-none opacity-20">
         <div
@@ -43,15 +70,15 @@ export default function AboutPage() {
       </div>
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
-        {/* Title Header */}
+        {/* Hero Section */}
         <AnimatedSection>
-          <div className="text-center mb-20">
+          <div className="text-center mb-24">
             <span className="text-xs text-electric-blue tracking-widest uppercase font-semibold mb-3.5 inline-block">
               Our Agency
             </span>
             <h1
               className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-6 leading-tight"
-              style={{ fontFamily: "var(--font-heading)" }}
+              style={{ fontFamily: "var(--font-heading)", color: "var(--text-primary)" }}
             >
               Engineered for Enterprise <br />
               <span className="gradient-text font-black">Quality & Trust</span>
@@ -65,111 +92,102 @@ export default function AboutPage() {
           </div>
         </AnimatedSection>
 
-        {/* Company Mission Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
-          <AnimatedSection delay={0.05}>
-            <div
-              className="p-8 rounded-2xl border h-full flex flex-col justify-between"
-              style={{
-                background: "var(--bg-card)",
-                borderColor: "var(--border-subtle)",
-              }}
-            >
-              <div>
-                <h3 className="text-lg font-bold mb-4" style={{ color: "var(--text-primary)" }}>Our Core Mission</h3>
-                <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-                  We bridge the gap between complex artificial intelligence capabilities and day-to-day business systems. Our goal is to replace manual overhead, optimize database operations, and build custom customer portals that streamline workflows.
-                </p>
-              </div>
-              <div className="mt-6 flex items-center gap-2 text-xs font-semibold text-emerald-400">
-                <CheckCircle size={14} />
-                <span>Custom deliverables built with production-ready standards.</span>
-              </div>
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.1}>
-            <div
-              className="p-8 rounded-2xl border h-full flex flex-col justify-between"
-              style={{
-                background: "var(--bg-card)",
-                borderColor: "var(--border-subtle)",
-              }}
-            >
-              <div>
-                <h3 className="text-lg font-bold mb-4" style={{ color: "var(--text-primary)" }}>Our Quality Guarantee</h3>
-                <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-                  We do not use cookie-cutter website templates or generic software layers. Everything we build—from LLM prompt models to full-stack dashboard structures—is coded custom from scratch, fully documented, and verified under production loads.
-                </p>
-              </div>
-              <div className="mt-6 flex items-center gap-2 text-xs font-semibold text-cyan-400">
-                <CheckCircle size={14} />
-                <span>100% custom-engineered code ownership for clients.</span>
-              </div>
-            </div>
-          </AnimatedSection>
-        </div>
-
-        {/* Core Values Section */}
+        {/* Our Story Block */}
         <AnimatedSection>
-          <div className="text-center mb-16">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4" style={{ color: "var(--text-primary)" }}>How We Build Trust</h2>
-            <p className="text-xs max-w-lg mx-auto" style={{ color: "var(--text-secondary)" }}>
-              We hold our development processes to rigorous technical standards to guarantee reliability.
-            </p>
+          <div className="p-8 sm:p-10 rounded-3xl border mb-24" style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)" }}>
+            <h2 className="text-xl sm:text-2xl font-bold mb-4" style={{ color: "var(--text-primary)" }}>Our Story</h2>
+            <div className="space-y-4 text-xs sm:text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+              <p>
+                SPACIVA was founded with a single belief: that enterprise-grade AI and software should be accessible to every ambitious business — not just Fortune 500 companies with eight-figure IT budgets.
+              </p>
+              <p>
+                Based in Ahmedabad, Gujarat, we started by building the tools we wished existed for growing businesses: CRM systems that matched real sales processes, AI agents that actually reduced workload, and LMS platforms that employees completed voluntarily.
+              </p>
+              <p>
+                Today, we serve clients across India, the UAE, the United Kingdom, and the United States — delivering 40+ enterprise projects with a 98% client retention rate.
+              </p>
+            </div>
           </div>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
-          {coreValues.map((val, i) => (
-            <AnimatedSection key={val.title} delay={i * 0.05}>
-              <div
-                className="p-6 rounded-2xl border flex items-start gap-4 transition-all duration-300 hover:shadow-md"
-                style={{
-                  background: "var(--bg-card)",
-                  borderColor: "var(--border-subtle)",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "var(--border-hover)";
-                  e.currentTarget.style.background = "var(--bg-card-hover)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "var(--border-subtle)";
-                  e.currentTarget.style.background = "var(--bg-card)";
-                }}
-              >
-                <div className="p-2.5 rounded-xl bg-blue-500/10 text-electric-blue border border-blue-500/20 shrink-0">
-                  <val.icon size={18} />
-                </div>
-                <div>
-                  <h4 className="text-xs font-bold mb-2" style={{ color: "var(--text-primary)" }}>{val.title}</h4>
-                  <p className="text-[11px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-                    {val.desc}
-                  </p>
-                </div>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
-
-        {/* Closing CTA */}
+        {/* Our Values */}
         <AnimatedSection>
-          <div
-            className="p-10 rounded-3xl border text-center relative overflow-hidden"
-            style={{
-              background: "var(--bg-card)",
-              borderColor: "var(--border-subtle)",
-            }}
-          >
-            <h3 className="text-xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>Ready to Discuss Your Project?</h3>
-            <p className="text-xs max-w-md mx-auto mb-6" style={{ color: "var(--text-secondary)" }}>
-              Connect with our solutions architects to map out custom dashboards, CRM integration layers, or AI workflow systems.
+          <div className="mb-12 text-center">
+            <h2 className="text-2xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>Our Core Values</h2>
+            <p className="text-sm" style={{ color: "var(--text-secondary)" }}>The principles guiding our engineers, product designers, and strategists daily.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
+            {values.map((v) => (
+              <div
+                key={v.title}
+                className="p-6 rounded-2xl border transition-all duration-300 hover:-translate-y-0.5 bg-[var(--bg-card)] border-[var(--border-subtle)] hover:border-[var(--border-hover)] hover:bg-[var(--bg-card-hover)]"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2.5 rounded-xl bg-blue-500/10 text-electric-blue border border-blue-500/20">
+                    <v.icon size={16} />
+                  </div>
+                  <h3 className="text-sm font-bold" style={{ color: "var(--text-primary)" }}>{v.title}</h3>
+                </div>
+                <p className="text-[12px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </AnimatedSection>
+
+        {/* Technical Expertise */}
+        <AnimatedSection>
+          <div className="p-8 sm:p-10 rounded-3xl border mb-24" style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)" }}>
+            <h2 className="text-xl sm:text-2xl font-bold mb-8 text-center" style={{ color: "var(--text-primary)" }}>
+              Our Technical Expertise
+            </h2>
+            <div className="space-y-6">
+              {expertise.map((exp) => (
+                <div key={exp.category} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 border-b pb-4 last:border-b-0 last:pb-0" style={{ borderColor: "var(--border-subtle)" }}>
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-electric-blue sm:w-1/4 shrink-0">{exp.category}</h3>
+                  <div className="flex flex-wrap gap-1.5 flex-1">
+                    {exp.items.map((item) => (
+                      <span
+                        key={item}
+                        className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full border bg-[var(--bg-secondary)] text-[var(--text-secondary)] border-[var(--border-subtle)]"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* By the Numbers Stats */}
+        <AnimatedSection>
+          <div className="mb-12 text-center">
+            <h2 className="text-2xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>By the Numbers</h2>
+            <p className="text-sm" style={{ color: "var(--text-secondary)" }}>Proven track records of delivering enterprise velocity and robust quality.</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-24">
+            {stats.map((item) => (
+              <div key={item.label} className="text-center p-5 rounded-2xl border bg-[var(--bg-card)] border-[var(--border-subtle)] flex flex-col justify-center">
+                <p className="text-2xl sm:text-3xl font-extrabold gradient-text mb-1">{item.value}</p>
+                <p className="text-[10px] leading-tight font-semibold" style={{ color: "var(--text-secondary)" }}>{item.label}</p>
+              </div>
+            ))}
+          </div>
+        </AnimatedSection>
+
+        {/* CTA */}
+        <AnimatedSection>
+          <div className="text-center">
+            <h3 className="text-lg sm:text-xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>Partner with SPACIVA</h3>
+            <p className="text-sm max-w-xl mx-auto mb-6" style={{ color: "var(--text-secondary)" }}>
+              Ready to automate your workloads or scale your customer databases? Let&apos;s talk.
             </p>
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 text-xs font-bold text-white rounded-full bg-linear-to-r from-electric-blue to-violet hover:shadow-lg transition-transform duration-300 hover:scale-[1.02]"
+              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-bold text-white rounded-full bg-linear-to-r from-electric-blue to-violet hover:shadow-lg transition-all duration-300 hover:scale-[1.02]"
             >
-              Talk to Our Team
+              Get in Touch <ArrowRight size={14} />
             </a>
           </div>
         </AnimatedSection>
