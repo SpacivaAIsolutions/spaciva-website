@@ -84,7 +84,7 @@ export default function Hero() {
           className="text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
           style={{ color: "var(--text-secondary)" }}
         >
-          We engineer custom AI automation agents, CRM platforms, LMS systems, and high-performance web applications that scale your operations and drive measurable growth.
+          We engineers custom AI automation agents, CRM platforms, LMS systems, and high-performance web applications that scale your operations and drive measurable growth.
         </motion.p>
 
         {/* CTAs */}
