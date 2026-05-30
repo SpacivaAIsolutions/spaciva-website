@@ -209,13 +209,6 @@ const industries: Record<string, IndustryData> = {
         resolution: "We develop ultra-lightweight progressive web apps (PWAs) that work seamlessly offline."
       }
     ],
-    problemsSolved: [
-      {
-        painPoint: "Manual route planning causing delays",
-        consequence: "High fuel costs",
-        resolution: "Automatic GPS routing"
-      }
-    ],
     solutions: [
       { title: "Real-Time Fleet Dashboards", desc: "Live web dashboards map fleet vehicle telemetry, fuel consumption, speed alerts, and ETA updates." },
       { title: "Digital Proof of Delivery", desc: "Secure mobile client signature capture, photo upload confirmations, and automated invoicing on delivery." },
