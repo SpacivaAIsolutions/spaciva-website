@@ -102,16 +102,16 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="fixed top-4 inset-x-0 z-50 px-4 md:px-8 flex justify-center transition-all duration-300">
-      <div className="w-full max-w-5xl relative">
+    <header className="fixed top-0 inset-x-0 z-50 flex justify-center transition-all duration-300">
+      <div className="w-full relative">
         <nav
-          className="w-full h-[64px] px-5 sm:px-8 flex items-center justify-between rounded-full transition-all duration-300"
+          className="w-full h-[72px] px-6 sm:px-12 flex items-center justify-between transition-all duration-300"
           style={{
-            background: scrolled ? "rgba(255, 255, 255, 0.75)" : "rgba(255, 255, 255, 0.3)",
-            backdropFilter: "blur(20px)",
-            WebkitBackdropFilter: "blur(20px)",
-            border: scrolled ? "1px solid rgba(226, 228, 233, 0.8)" : "1px solid rgba(255, 255, 255, 0.4)",
-            boxShadow: scrolled ? "0 8px 32px -8px rgba(15, 23, 42, 0.08)" : "0 4px 24px -8px rgba(15, 23, 42, 0.04)",
+            background: scrolled ? "rgba(255, 255, 255, 0.95)" : "rgba(255, 255, 255, 0)",
+            backdropFilter: scrolled ? "blur(20px)" : "none",
+            WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
+            borderBottom: scrolled ? "1px solid rgba(0, 0, 0, 0.05)" : "1px solid transparent",
+            boxShadow: scrolled ? "0 4px 20px -8px rgba(0, 0, 0, 0.05)" : "none",
           }}
         >
           {/* Logo */}
@@ -349,13 +349,16 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Actions */}
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden md:flex items-center gap-6">
           <a
             href="/contact"
-            className="text-[13px] font-semibold px-5 py-2.5 rounded-lg text-white transition-all duration-200 hover:opacity-90 active:scale-[0.97]"
-            style={{ background: "var(--bg-navy)", boxShadow: "var(--shadow-sm)" }}
-            onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "var(--shadow-md)")}
-            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "var(--shadow-sm)")}
+            className="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+          >
+            Book A Demo
+          </a>
+          <a
+            href="/contact"
+            className="text-[13px] font-semibold px-6 py-2.5 rounded-sm text-white bg-[#111827] transition-all duration-200 hover:bg-gray-800 active:scale-[0.97]"
           >
             Get Started
           </a>
@@ -526,8 +529,7 @@ export default function Navbar() {
                 <a
                   href="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="text-sm font-semibold text-center py-3 rounded-xl text-white mt-2"
-                  style={{ background: "var(--bg-navy)" }}
+                  className="text-sm font-semibold text-center py-3 rounded-sm text-white mt-2 bg-[#111827]"
                 >
                   Get Started
                 </a>
