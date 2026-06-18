@@ -34,13 +34,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-14">
           {/* Brand column */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="relative h-9 w-32 mb-5">
-              <Image
-                src="/spaciva-nav-dark.png"
-                alt="SPACIVA"
-                fill
-                className="object-contain"
+            <div className="flex items-center gap-2 mb-6">
+              <img 
+                src="/spaciva-logo.png" 
+                alt="Spaciva Icon" 
+                className="h-8 w-auto object-contain mix-blend-multiply" 
               />
+              <span className="text-[22px] font-bold tracking-[0.25em] text-[#2563eb] pt-1">
+                SPΛCIVΛ
+              </span>
             </div>
             <p className="text-[13px] leading-relaxed mb-5" style={{ color: "rgba(255,255,255,0.42)" }}>
               We engineer custom AI automation, CRM platforms, LMS systems, and high-performance web applications for modern businesses worldwide.

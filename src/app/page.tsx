@@ -29,7 +29,7 @@ export default function Home() {
             "@type": "Organization",
             "name": "SPACIVA",
             "url": "https://spaciva.tech",
-            "logo": "https://spaciva.tech/spaciva-nav-dark.png",
+            "logo": "https://spaciva.tech/spaciva-logo.png",
             "description": "Custom AI automation agents, CRM platforms, LMS systems, and web applications for businesses in India, UAE, UK & USA.",
             "email": "spacivaaisolution@gmail.com",
             "address": {
@@ -38,7 +38,7 @@ export default function Home() {
               "addressRegion": "Gujarat",
               "addressCountry": "IN"
             },
-            "areaServed": ["IN","AE","GB","US"],
+            "areaServed": ["IN", "AE", "GB", "US"],
             "sameAs": [],
             "foundingDate": "2023",
             "numberOfEmployees": { "@type": "QuantitativeValue", "value": "5-15" }
@@ -52,13 +52,13 @@ export default function Home() {
       <section className="py-12 border-y border-slate-100 bg-white overflow-hidden relative">
         <div className="absolute left-0 top-0 w-24 h-full bg-gradient-to-r from-white to-transparent z-10"></div>
         <div className="absolute right-0 top-0 w-24 h-full bg-gradient-to-l from-white to-transparent z-10"></div>
-        
+
         <div className="flex whitespace-nowrap animate-marquee">
           {[1, 2].map((group) => (
             <div key={group} className="flex items-center justify-around min-w-full gap-16 px-8">
               {['OpenAI', 'Anthropic', 'LangChain', 'AWS', 'Vercel', 'Next.js', 'Google Cloud', 'Stripe'].map((tech) => (
                 <div key={`${group}-${tech}`} className="flex items-center gap-2 text-2xl font-bold text-slate-800 tracking-tighter opacity-30 hover:opacity-100 transition-opacity cursor-default grayscale hover:grayscale-0">
-                   {tech}
+                  {tech}
                 </div>
               ))}
             </div>
@@ -76,7 +76,7 @@ export default function Home() {
       </section>
 
       <InteractiveComparison />
-      
+
       <ExpertiseGrid />
 
       <Portfolio />

@@ -108,17 +108,15 @@ export default function Navbar() {
           className={`w-full h-[72px] px-6 sm:px-12 flex items-center justify-between transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-xl border-b border-slate-200" : "bg-transparent border-b border-transparent"}`}
         >
           {/* Logo */}
-          <a href="/" className="shrink-0 flex items-center group">
-            <div className="relative h-9 w-28 sm:h-10 sm:w-32 transition-opacity duration-200 group-hover:opacity-85">
-              {/* Changed to dark logo to contrast against white background */}
-              <Image
-                src="/spaciva-nav-dark.png"
-                alt="SPACIVA"
-                fill
-                priority
-                className="object-contain"
-              />
-            </div>
+          <a href="/" className="shrink-0 flex items-center gap-2 sm:gap-3 group transition-opacity duration-200 hover:opacity-85">
+            <img 
+              src="/spaciva-logo.png" 
+              alt="Spaciva Icon" 
+              className="h-7 sm:h-9 w-auto object-contain mix-blend-multiply" 
+            />
+            <span className="text-[20px] sm:text-[24px] font-bold tracking-[0.25em] text-[#2563eb] pt-1">
+              SPΛCIVΛ
+            </span>
           </a>
 
           {/* Desktop Nav Links */}
