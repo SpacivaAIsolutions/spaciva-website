@@ -42,12 +42,6 @@ export default function Hero() {
           >
             Get Started Free
           </a>
-          <a
-            href="/solutions"
-            className="flex items-center justify-center gap-2 px-8 py-4 text-[15px] font-semibold text-[#0f172a] bg-transparent border border-slate-300 rounded-sm hover:bg-slate-50 transition-colors w-full sm:w-auto min-w-[200px]"
-          >
-            Book A Demo
-          </a>
         </motion.div>
       </div>
 

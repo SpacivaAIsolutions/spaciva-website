@@ -277,12 +277,6 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-6">
             <a
               href="/contact"
-              className="text-sm font-bold text-slate-600 hover:text-slate-900 transition-colors"
-            >
-              Book A Demo
-            </a>
-            <a
-              href="/contact"
               className="text-sm font-bold px-6 py-2.5 rounded-sm text-white bg-[#0f172a] hover:bg-slate-800 transition-colors"
             >
               Get Started
