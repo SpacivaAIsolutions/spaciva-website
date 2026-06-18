@@ -61,136 +61,106 @@ const industries = [
 
 export default function DubaiAISolutionPage() {
   return (
-    <main className="min-h-screen pt-32 pb-24 relative overflow-hidden" style={{ background: "var(--bg-primary)" }}>
-      {/* Background radial highlight */}
-      <div className="absolute inset-0 pointer-events-none opacity-25">
-        <div
-          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full blur-[140px]"
-          style={{ background: "radial-gradient(circle at center, var(--gradient-orb-1), transparent 70%)" }}
-        />
-      </div>
-
-      <div className="max-w-5xl mx-auto px-6 relative z-10">
+    <main className="min-h-screen pt-36 pb-24 relative overflow-hidden bg-[#f8fafc]">
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        
         {/* Hero Section */}
-        <AnimatedSection>
-          <div className="text-center mb-20">
-            <span className="text-xs text-electric-blue tracking-widest uppercase font-semibold mb-3.5 inline-block">
-              SPACIVA Middle East
-            </span>
-            <h1
-              className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight mb-6 leading-[1.1]"
-              style={{ fontFamily: "var(--font-heading)", color: "var(--text-primary)" }}
+        <div className="text-center mb-24 max-w-4xl mx-auto">
+          <span className="text-sm font-bold tracking-widest uppercase text-blue-600 mb-6 inline-block">
+            SPACIVA Middle East
+          </span>
+          <h1 className="text-[3rem] sm:text-5xl md:text-6xl font-bold tracking-tightest leading-[1.05] mb-8 text-[#0f172a]">
+            AI & Enterprise Software Solutions <br className="hidden sm:inline" />
+            for Dubai's <span className="text-blue-600">Fastest-Growing Businesses</span>
+          </h1>
+          <p className="text-lg sm:text-[22px] max-w-3xl mx-auto mb-10 leading-relaxed text-slate-600 font-medium tracking-tight">
+            SPACIVA engineers custom AI automation systems, CRM platforms, and web applications for UAE companies — combining world-class technical expertise with deep understanding of the Dubai market.
+          </p>
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="/contact"
+              className="flex items-center justify-center gap-2 px-8 py-4 text-[15px] font-bold text-white bg-[#0f172a] rounded-full hover:bg-blue-600 transition-colors w-full sm:w-auto"
             >
-              AI & Enterprise Software Solutions <br className="hidden sm:inline" />
-              for Dubai&apos;s <span className="gradient-text">Fastest-Growing Businesses</span>
-            </h1>
-            <p className="text-sm sm:text-base max-w-3xl mx-auto leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-              SPACIVA engineers custom AI automation systems, CRM platforms, and web applications for UAE companies — combining world-class technical expertise with deep understanding of the Dubai market.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="/contact"
-                className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-bold text-white rounded-full bg-linear-to-r from-electric-blue to-violet hover:shadow-lg hover:shadow-violet/30 hover:scale-[1.02] transition-all duration-300"
-              >
-                Book a Dubai Consultation <ArrowRight size={15} />
-              </a>
-              <a
-                href="/solutions"
-                className="text-sm font-semibold transition-colors duration-200 hover:text-[var(--text-primary)]"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                View Our Work →
-              </a>
-            </div>
+              Let's Connect <ArrowRight size={18} />
+            </a>
           </div>
-        </AnimatedSection>
+        </div>
 
         {/* Intro */}
-        <AnimatedSection>
-          <div className="p-8 sm:p-10 rounded-3xl border mb-20" style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)" }}>
-            <h2 className="text-lg sm:text-xl font-bold mb-4 text-center" style={{ color: "var(--text-primary)" }}>Why Dubai Businesses Choose SPACIVA</h2>
-            <p className="text-xs sm:text-sm leading-relaxed text-center max-w-3xl mx-auto" style={{ color: "var(--text-secondary)" }}>
-              Dubai&apos;s business environment moves fast. Your technology should too. We deliver custom AI and software systems built for the specific demands of UAE companies — multilingual support, GDPR-adjacent data compliance, and integration with regional platforms like noon, Careem, and UAE government APIs.
-            </p>
-          </div>
-        </AnimatedSection>
+        <div className="bg-white rounded-[32px] p-10 md:p-14 border border-slate-200 shadow-xl mb-24 text-center">
+           <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-[#0f172a]">Why Dubai Businesses Choose SPACIVA</h2>
+           <p className="text-lg leading-relaxed text-slate-600 max-w-4xl mx-auto">
+             Dubai's business environment moves fast. Your technology should too. We deliver custom AI and software systems built for the specific demands of UAE companies — multilingual support, GDPR-adjacent data compliance, and integration with regional platforms like noon, Careem, and UAE government APIs.
+           </p>
+        </div>
 
-        {/* Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+        {/* Pillars / Value Props */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
           {pillars.map((p, i) => (
-            <AnimatedSection key={p.title} delay={i * 0.05}>
-              <div
-                className="p-6 rounded-2xl border h-full transition-all duration-300 hover:-translate-y-0.5 bg-[var(--bg-card)] border-[var(--border-subtle)] hover:border-[var(--border-hover)] hover:bg-[var(--bg-card-hover)]"
-              >
-                <div className={`p-3 rounded-xl border w-fit mb-4 ${p.color}`}>
-                  <p.icon size={18} />
-                </div>
-                <h3 className="text-sm font-bold mb-2.5" style={{ color: "var(--text-primary)" }}>{p.title}</h3>
-                <p className="text-[12px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>{p.desc}</p>
-              </div>
-            </AnimatedSection>
+             <div key={p.title} className="bg-white p-10 rounded-[32px] border border-slate-200 shadow-lg hover:shadow-xl transition-shadow group">
+               <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 bg-slate-50 group-hover:bg-blue-50 transition-colors">
+                 <p.icon size={28} className="text-slate-900 group-hover:text-blue-600 transition-colors" />
+               </div>
+               <h3 className="text-2xl font-bold text-[#0f172a] mb-4">{p.title}</h3>
+               <p className="text-slate-600 leading-relaxed text-lg">{p.desc}</p>
+             </div>
           ))}
         </div>
 
-        {/* Dubai Industries */}
-        <AnimatedSection>
-          <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>Dubai Industries We Serve</h2>
-            <p className="text-sm" style={{ color: "var(--text-secondary)" }}>Engineering systems for localized business vectors across the Middle East.</p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-20">
-            {industries.map((ind) => (
-              <div key={ind} className="p-4 rounded-xl border text-center font-bold text-xs bg-[var(--bg-card)] border-[var(--border-subtle)]" style={{ color: "var(--text-primary)" }}>
-                {ind}
-              </div>
-            ))}
-          </div>
-        </AnimatedSection>
+        {/* Industries We Serve */}
+        <div className="mb-24">
+           <div className="text-center mb-12">
+             <h2 className="text-3xl font-bold mb-4 text-[#0f172a]">Dubai Industries We Serve</h2>
+             <p className="text-lg text-slate-600 max-w-2xl mx-auto">Engineering systems for localized business vectors across the Middle East.</p>
+           </div>
+           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+             {industries.map((ind) => (
+               <div key={ind} className="bg-white p-8 rounded-[24px] border border-slate-200 shadow-sm hover:shadow-md transition-shadow text-center flex flex-col items-center justify-center min-h-[120px]">
+                 <h3 className="text-lg font-bold text-[#0f172a]">{ind}</h3>
+               </div>
+             ))}
+           </div>
+        </div>
 
-        {/* Feature/Trust Points */}
-        <AnimatedSection>
-          <div className="p-8 sm:p-10 rounded-3xl border mb-20" style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)" }}>
-            <h2 className="text-xl sm:text-2xl font-bold mb-8 text-center" style={{ color: "var(--text-primary)" }}>
-              Engineered Around UAE Regional Requirements
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {reasons.map((item) => (
-                <div key={item.title} className="flex items-start gap-3">
-                  <CheckCircle size={15} className="text-emerald-500 shrink-0 mt-0.5" />
-                  <p className="text-xs" style={{ color: "var(--text-secondary)" }}>
-                    <strong style={{ color: "var(--text-primary)" }}>{item.title}:</strong> {item.body}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </AnimatedSection>
+        {/* Engineered Around / Engagement Info */}
+        <div className="bg-[#0f172a] rounded-[32px] p-10 md:p-16 mb-24 relative overflow-hidden shadow-2xl">
+           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3"></div>
+           <div className="relative z-10">
+             <h2 className="text-3xl font-bold mb-12 text-white text-center">Engineered Around UAE Regional Requirements</h2>
+             <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+               {reasons.map((item) => (
+                 <div key={item.title} className="flex flex-col gap-3">
+                   <div className="flex items-center gap-3 text-xl font-bold text-white">
+                     <CheckCircle size={24} className="text-blue-400 shrink-0" /> {item.title}
+                   </div>
+                   <p className="text-slate-400 leading-relaxed text-lg pl-9">{item.body}</p>
+                 </div>
+               ))}
+             </div>
+           </div>
+        </div>
+        
+        {/* Engagement Model */}
+        <div className="bg-white rounded-[32px] p-10 md:p-14 border border-slate-200 shadow-xl mb-24 text-center">
+           <h3 className="text-3xl font-bold mb-6 text-[#0f172a]">Our UAE Engagement Model</h3>
+           <p className="text-lg leading-relaxed text-slate-600 max-w-4xl mx-auto">
+             We work with UAE clients remotely through a streamlined flow: discovery scoping video calls (GST friendly), signed Non-Disclosure Agreements (NDA), clear fixed-price milestones, weekly demonstration check-ins, and source code transfer with final technical documentation. Invoices can be issued in AED.
+           </p>
+        </div>
 
-        {/* Engagement Info */}
-        <AnimatedSection>
-          <div className="p-8 sm:p-10 rounded-3xl border mb-20 text-center" style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)" }}>
-            <h3 className="text-base sm:text-lg font-bold mb-3" style={{ color: "var(--text-primary)" }}>Our UAE Engagement Model</h3>
-            <p className="text-xs sm:text-sm max-w-3xl mx-auto leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-              We work with UAE clients remotely through a streamlined flow: discovery scoping video calls (GST friendly), signed Non-Disclosure Agreements (NDA), clear fixed-price milestones, weekly demonstration check-ins, and source code transfer with final technical documentation. Invoices can be issued in AED.
-            </p>
-          </div>
-        </AnimatedSection>
-
-        {/* Call To Action */}
-        <AnimatedSection>
-          <div className="text-center">
-            <h3 className="text-lg sm:text-xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>Start Your Dubai Business Expansion</h3>
-            <p className="text-sm max-w-xl mx-auto mb-6" style={{ color: "var(--text-secondary)" }}>
-              Hire SPACIVA to design and deploy custom bilingual AI systems and high-converting web applications.
-            </p>
-            <a
-              href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-bold text-white rounded-full bg-linear-to-r from-electric-blue to-violet hover:shadow-lg transition-all duration-300 hover:scale-[1.02]"
-            >
-              Request a Scoping Call <ArrowRight size={14} />
-            </a>
-          </div>
-        </AnimatedSection>
+        {/* Call to action */}
+        <div className="text-center">
+          <h2 className="text-4xl font-bold mb-6 text-[#0f172a]">Start Your Dubai Business Expansion</h2>
+          <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
+            Hire SPACIVA to design and deploy custom bilingual AI systems and high-converting web applications.
+          </p>
+          <a
+            href="/contact"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 text-[15px] font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 hover:shadow-lg transition-all duration-300 w-full sm:w-auto min-w-[200px]"
+          >
+            Let's Connect <ArrowRight size={18} />
+          </a>
+        </div>
       </div>
     </main>
   );
