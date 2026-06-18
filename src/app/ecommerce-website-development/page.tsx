@@ -1,44 +1,27 @@
 import type { Metadata } from "next";
-import { CheckCircle, ArrowRight, ShoppingCart, ShieldCheck, Zap, Database, Percent, Star } from "lucide-react";
-import AnimatedSection from "@/components/AnimatedSection";
+import { ArrowRight, CheckCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "E-Commerce Website Development | Custom Storefronts | SPACIVA",
   description: "SPACIVA designs and builds custom e-commerce web applications, headless Shopify platforms, headless WooCommerce integrations, and custom subscription models.",
-  keywords: [
-    "custom e-commerce development",
-    "headless commerce developer",
-    "Shopify React frontend builder",
-    "e-commerce web development India",
-    "subscription platform development",
-    "Next.js commerce company"
-  ],
 };
 
 const capabilities = [
   {
-    icon: ShoppingCart,
     title: "Headless Commerce (Next.js & Shopify)",
     desc: "Achieve sub-second page loads. We separate your frontend (Next.js/React) from your store backend (Shopify, BigCommerce), yielding 100/100 Google PageSpeed scores that maximize ad click ROI.",
-    color: "bg-blue-500/10 text-blue-500 border-blue-500/20",
   },
   {
-    icon: ShieldCheck,
     title: "Secure Custom Checkouts",
-    desc: "Avoid cart abandonment. Build custom, single-page, responsive checkout checkout paths with integrated fraud detection, recurring sub-models, and localized pricing.",
-    color: "bg-violet-500/10 text-violet-500 border-violet-500/20",
+    desc: "Avoid cart abandonment. Build custom, single-page, responsive checkout paths with integrated fraud detection, recurring sub-models, and localized pricing.",
   },
   {
-    icon: Database,
     title: "ERP & Inventory Synchronization",
     desc: "Real-time sync. Connect your custom storefront directly to logistics warehouses, Salesforce CRM, custom ERP systems, and automated billing software with zero latency.",
-    color: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20",
   },
   {
-    icon: Percent,
     title: "Loyalty & Subscription Logic",
     desc: "Create bespoke recurring subscription systems, loyalty points calculators, automated referral programs, and personalized checkout discounting logic built from scratch.",
-    color: "bg-amber-500/10 text-amber-500 border-amber-500/20",
   },
 ];
 
@@ -51,110 +34,92 @@ const pillars = [
 
 export default function EcommerceDevelopmentPage() {
   return (
-    <main className="min-h-screen pt-32 pb-24 relative overflow-hidden" style={{ background: "var(--bg-primary)" }}>
-      {/* Background radial highlight */}
-      <div className="absolute inset-0 pointer-events-none opacity-25">
-        <div
-          className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full blur-[160px]"
-          style={{ background: "radial-gradient(circle at center, var(--gradient-orb-1), transparent 70%)" }}
-        />
-      </div>
-
-      <div className="max-w-5xl mx-auto px-6 relative z-10">
+    <main className="min-h-screen pt-36 pb-24 bg-white px-6">
+      <div className="max-w-[1400px] mx-auto">
+        
         {/* Hero Section */}
-        <AnimatedSection>
-          <div className="text-center mb-20">
-            <span className="text-xs text-electric-blue tracking-widest uppercase font-semibold mb-3.5 inline-block">
-              SPACIVA E-Commerce Solutions
-            </span>
-            <h1
-              className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight mb-6 leading-[1.1]"
-              style={{ fontFamily: "var(--font-heading)", color: "var(--text-primary)" }}
-            >
-              Enterprise Storefronts &amp; <br className="hidden sm:inline" />
-              Custom <span className="gradient-text">E-Commerce Development</span>
-            </h1>
-            <p className="text-sm sm:text-base max-w-3xl mx-auto leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-              We engineer custom headless shopping architectures, secure subscription platforms, and high-performance checkout pipelines designed to lift conversions and maximize lifetime order values (LTV).
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="/contact"
-                className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-bold text-white rounded-full bg-linear-to-r from-electric-blue to-violet hover:shadow-lg hover:shadow-violet/30 hover:scale-[1.02] transition-all duration-300"
-              >
-                Inquire About Custom Commerce <ArrowRight size={15} />
-              </a>
-              <a
-                href="/solutions"
-                className="text-sm font-semibold transition-colors duration-200 hover:text-[var(--text-primary)]"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                Learn About Headless Benefits →
-              </a>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Intro */}
-        <AnimatedSection>
-          <div className="p-8 sm:p-10 rounded-3xl border mb-20" style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)" }}>
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-xl sm:text-2xl font-bold mb-4" style={{ color: "var(--text-primary)" }}>Why Choose Custom Headless Architecture?</h2>
-              <p className="text-xs sm:text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-                Traditional themes bloat code and slow down mobile shoppers. By disconnecting your design layer from the transaction layer, you gain absolute branding freedom, extreme speed advantages, and seamless multi-channel product synchronization.
-              </p>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Capabilities Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
-          {capabilities.map((c, i) => (
-            <AnimatedSection key={c.title} delay={i * 0.05}>
-              <div
-                className="p-6 rounded-2xl border h-full transition-all duration-300 hover:-translate-y-0.5 bg-[var(--bg-card)] border-[var(--border-subtle)] hover:border-[var(--border-hover)] hover:bg-[var(--bg-card-hover)]"
-              >
-                <div className={`p-3 rounded-xl border w-fit mb-4 ${c.color}`}>
-                  <c.icon size={18} />
-                </div>
-                <h3 className="text-sm font-bold mb-2.5" style={{ color: "var(--text-primary)" }}>{c.title}</h3>
-                <p className="text-[12px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>{c.desc}</p>
-              </div>
-            </AnimatedSection>
-          ))}
+        <div className="mb-32 md:mb-48 max-w-5xl">
+          <span className="block text-xs font-bold tracking-widest uppercase text-slate-400 mb-6">E-Commerce Solutions</span>
+          <h1 className="text-5xl sm:text-7xl md:text-[80px] font-bold tracking-tightest leading-[1.05] text-[#0f172a] mb-8">
+            Enterprise <br />
+            <span className="italic text-slate-400 font-serif">Storefronts.</span>
+          </h1>
+          <p className="text-xl text-slate-500 font-medium max-w-2xl leading-relaxed mb-12">
+            We engineer custom headless shopping architectures, secure subscription platforms, and high-performance checkout pipelines designed to lift conversions and maximize lifetime order values (LTV).
+          </p>
+          <a
+            href="/contact"
+            className="group inline-flex items-center gap-3 px-8 py-5 bg-[#0f172a] text-white text-[15px] font-bold rounded-sm transition-all hover:bg-slate-800 shrink-0"
+          >
+            Inquire About Custom Commerce
+            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          </a>
         </div>
 
-        {/* Pillars */}
-        <AnimatedSection>
-          <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>Engineered for Scalability &amp; ROI</h2>
-            <p className="text-sm" style={{ color: "var(--text-secondary)" }}>Our core design and logic metrics keep store transaction pipes fully operational and frictionless.</p>
+        {/* Intro Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24 mb-32 md:mb-48 border-t border-slate-200 pt-16">
+          <div className="lg:col-span-5">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-8">Headless Architecture</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 mb-20">
-            {pillars.map((item) => (
-              <div key={item.name} className="p-6 rounded-2xl border bg-[var(--bg-card)] border-[var(--border-subtle)]">
-                <h3 className="text-xs font-bold mb-2 uppercase text-electric-blue tracking-widest">{item.name}</h3>
-                <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>{item.desc}</p>
+          <div className="lg:col-span-7 space-y-8 text-lg md:text-xl leading-relaxed text-slate-500 font-medium">
+            <p>
+              Traditional themes bloat code and slow down mobile shoppers. By disconnecting your design layer from the transaction layer, you gain absolute branding freedom, extreme speed advantages, and seamless multi-channel product synchronization.
+            </p>
+          </div>
+        </div>
+
+        {/* Capabilities */}
+        <div className="mb-32 md:mb-48 border-t border-slate-200 pt-16">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-16">Core Capabilities</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16">
+            {capabilities.map((c, i) => (
+              <div key={c.title} className="flex flex-col">
+                <div className="flex items-center gap-4 mb-6">
+                  <span className="text-xs font-bold text-slate-400 w-4">0{i + 1}</span>
+                  <h3 className="text-2xl font-bold tracking-tight text-slate-900">{c.title}</h3>
+                </div>
+                <p className="text-lg text-slate-500 font-medium leading-relaxed pl-8">
+                  {c.desc}
+                </p>
               </div>
             ))}
           </div>
-        </AnimatedSection>
+        </div>
 
-        {/* Call To Action */}
-        <AnimatedSection>
-          <div className="text-center">
-            <h3 className="text-lg sm:text-xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>Design a High-Performance Storefront</h3>
-            <p className="text-sm max-w-xl mx-auto mb-6" style={{ color: "var(--text-secondary)" }}>
-              Work with our lead headless developer to audit your current store metrics, design migration maps, and plan high-performance speed lifts.
-            </p>
+        {/* Practical Applications */}
+        <div className="mb-32 md:mb-48 border-t border-slate-200 pt-16">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-16">Scalability & ROI</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {pillars.map((item) => (
+              <div key={item.name} className="flex flex-col border-l border-slate-200 pl-6 py-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-3 tracking-tight">{item.name}</h3>
+                <p className="text-sm text-slate-500 font-medium leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="border-t border-slate-200 pt-24 pb-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
+            <div>
+              <h2 className="text-4xl sm:text-6xl font-bold tracking-tightest text-[#0f172a] mb-6">
+                Design a High-Performance <br/><span className="italic text-slate-400 font-serif">Storefront.</span>
+              </h2>
+              <p className="text-lg text-slate-500 font-medium max-w-xl">
+                Work with our lead headless developer to audit your current store metrics, design migration maps, and plan speed lifts.
+              </p>
+            </div>
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-bold text-white rounded-full bg-linear-to-r from-electric-blue to-violet hover:shadow-lg transition-all duration-300 hover:scale-[1.02]"
+              className="group inline-flex items-center gap-3 px-8 py-5 bg-[#0f172a] text-white text-[15px] font-bold rounded-sm transition-all hover:bg-slate-800 shrink-0"
             >
-              Book an E-Commerce Scoping Call <ArrowRight size={14} />
+              Book an E-Commerce Scoping Call
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
-        </AnimatedSection>
+        </div>
+
       </div>
     </main>
   );

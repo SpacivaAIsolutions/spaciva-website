@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Send, CheckCircle, Clock, Code2, Shield, ChevronDown, ChevronUp } from "lucide-react";
-import AnimatedSection from "@/components/AnimatedSection";
+import { ArrowRight, CheckCircle, Mail, Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
@@ -24,36 +23,41 @@ const faqs = [
   },
 ];
 
-const trustPoints = [
-  { icon: Code2, label: "Full source code ownership" },
-  { icon: Clock, label: "Reply within 24–48 hours" },
-  { icon: Shield, label: "NDA signed on request" },
-  { icon: CheckCircle, label: "Senior engineers, no middlemen" },
-];
-
-function FAQItem({ faq }: { faq: { q: string; a: string } }) {
+function FAQItem({ faq, idx }: { faq: { q: string; a: string }, idx: number }) {
   const [open, setOpen] = useState(false);
   return (
-    <div
-      className="border rounded-xl overflow-hidden transition-all duration-200"
-      style={{ borderColor: "var(--border-subtle)", background: "var(--bg-card)" }}
-    >
+    <div className="border-b border-slate-200">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-5 py-4 text-left cursor-pointer"
+        className="w-full py-6 flex items-center justify-between group text-left cursor-pointer transition-colors hover:text-blue-600"
       >
-        <span className="text-[13px] font-semibold pr-4" style={{ color: "var(--text-primary)" }}>{faq.q}</span>
-        {open ? (
-          <ChevronUp size={14} className="shrink-0" style={{ color: "var(--text-muted)" }} />
-        ) : (
-          <ChevronDown size={14} className="shrink-0" style={{ color: "var(--text-muted)" }} />
-        )}
-      </button>
-      {open && (
-        <div className="px-5 pb-4 border-t" style={{ borderColor: "var(--border-subtle)" }}>
-          <p className="text-[12px] leading-relaxed pt-3" style={{ color: "var(--text-secondary)" }}>{faq.a}</p>
+        <div className="flex items-center gap-6">
+          <span className="text-xs font-bold text-slate-400 group-hover:text-blue-400 w-4">
+            0{idx + 1}
+          </span>
+          <span className={`text-xl font-bold tracking-tight transition-colors ${open ? 'text-blue-600' : 'text-slate-900 group-hover:text-blue-600'}`}>
+            {faq.q}
+          </span>
         </div>
-      )}
+        <div className={`w-8 h-8 rounded-full border flex items-center justify-center transition-colors shrink-0 ${open ? 'border-blue-600 text-blue-600 bg-blue-50' : 'border-slate-200 text-slate-400 group-hover:border-blue-200 group-hover:text-blue-500'}`}>
+          {open ? <Minus size={14} /> : <Plus size={14} />}
+        </div>
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="overflow-hidden"
+          >
+            <div className="pb-8 pl-14 pr-4 max-w-2xl text-slate-500 text-base leading-relaxed font-medium">
+              {faq.a}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -62,21 +66,9 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({ name: "", email: "", project: "", service: "AI Solutions" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [website, setWebsite] = useState("");
 
-  const inputStyle = {
-    border: "1px solid var(--border-subtle)",
-    background: "var(--bg-secondary)",
-    color: "var(--text-primary)",
-  };
-
-  const focusIn = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    e.currentTarget.style.borderColor = "var(--color-electric-blue)";
-    e.currentTarget.style.boxShadow = "0 0 0 3px rgba(37,99,235,0.08)";
-  };
-  const focusOut = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    e.currentTarget.style.borderColor = "var(--border-subtle)";
-    e.currentTarget.style.boxShadow = "none";
-  };
+  const inputClass = "w-full border-b border-slate-300 py-4 bg-transparent outline-none text-slate-900 placeholder:text-slate-400 focus:border-slate-900 transition-colors text-lg";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -90,6 +82,7 @@ export default function ContactPage() {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
+          website, // Honeypot
           message: `Service Interest: ${formData.service}\n\nProject Description:\n${formData.project}`,
         }),
       });
@@ -108,117 +101,114 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen pt-28 pb-24 relative" style={{ background: "var(--bg-primary)" }}>
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] rounded-full blur-[160px] opacity-40" style={{ background: "radial-gradient(circle at center, var(--gradient-orb-1), transparent 70%)" }} />
-      </div>
+    <main className="min-h-screen pt-36 pb-24 bg-white px-6">
+      <div className="max-w-[1400px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24">
 
-      <div className="max-w-5xl mx-auto px-6 relative z-10">
-        <AnimatedSection>
-          <div className="text-center mb-16">
-            <span className="text-xs font-semibold tracking-widest uppercase mb-3.5 inline-block" style={{ color: "var(--color-electric-blue)" }}>
-              Get in Touch
-            </span>
-            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4 leading-tight" style={{ fontFamily: "var(--font-heading)", color: "var(--text-primary)" }}>
-              Start Your Project
+          {/* Left Panel: Intro & FAQs */}
+          <div>
+            <span className="block text-xs font-bold tracking-widest uppercase text-slate-400 mb-6">Get in Touch</span>
+            <h1 className="text-5xl sm:text-7xl md:text-[80px] font-bold tracking-tightest leading-[1.05] text-[#0f172a] mb-8">
+              Start Your <br /><span className="italic text-slate-400 font-serif">Project.</span>
             </h1>
-            <p className="text-sm sm:text-base max-w-lg mx-auto leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+            <p className="text-xl text-slate-500 font-medium mb-16 max-w-md leading-relaxed">
               Tell us about your project requirements. We will review, scope, and reply within 24 hours.
             </p>
-          </div>
-        </AnimatedSection>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* Left: Trust + FAQ */}
-          <div className="lg:col-span-5 space-y-6">
-            <AnimatedSection delay={0.05}>
-              <div className="p-6 rounded-2xl border mb-6" style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)", boxShadow: "var(--shadow-sm)" }}>
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0" style={{ background: "var(--bg-navy)" }}>
-                    <Mail size={16} className="text-white" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold" style={{ color: "var(--text-primary)" }}>Direct Email</p>
-                    <a href="mailto:spacivaaisolution@gmail.com" className="text-[11px]" style={{ color: "var(--color-electric-blue)" }}>
-                      spacivaaisolution@gmail.com
-                    </a>
-                  </div>
+            <div className="mb-16">
+              <span className="block text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Direct Email</span>
+              <a
+                href="mailto:spacivaaisolution@gmail.com"
+                className="text-2xl font-bold text-slate-900 hover:text-blue-600 transition-colors"
+              >
+                spacivaaisolution@gmail.com
+              </a>
+            </div>
+
+            <div className="mt-16 border-t border-slate-200">
+              <h3 className="text-2xl font-bold text-slate-900 mt-16 mb-8 tracking-tight">Common Questions</h3>
+              <div>
+                {faqs.map((faq, idx) => <FAQItem key={faq.q} faq={faq} idx={idx} />)}
+              </div>
+            </div>
+          </div>
+
+          {/* Right Panel: Form */}
+          <div className="pt-4 lg:pt-16">
+            {submitted ? (
+              <div className="py-12 bg-slate-50 rounded-2xl p-8 text-center border border-slate-100">
+                <div className="inline-flex p-4 rounded-full bg-emerald-100 text-emerald-600 mb-6">
+                  <CheckCircle size={32} />
                 </div>
-                <div className="grid grid-cols-2 gap-3">
-                  {trustPoints.map((tp) => (
-                    <div key={tp.label} className="flex items-center gap-2">
-                      <tp.icon size={13} className="shrink-0" style={{ color: "var(--color-electric-blue)" }} />
-                      <span className="text-[11px] leading-snug" style={{ color: "var(--text-secondary)" }}>{tp.label}</span>
-                    </div>
-                  ))}
+                <h4 className="text-2xl font-bold text-slate-900 mb-2">Request Sent!</h4>
+                <p className="text-slate-500 mb-8 max-w-sm mx-auto">Thank you! Your requirements have been submitted. We will review and reply within 24 hours.</p>
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="text-sm font-bold border-b border-slate-900 pb-1 hover:text-blue-600 hover:border-blue-600 transition-colors"
+                >
+                  Send another message
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+                <input
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className={inputClass}
+                  placeholder="Your Name *"
+                />
+
+                <input
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className={inputClass}
+                  placeholder="Email Address *"
+                />
+
+                <select
+                  value={formData.service}
+                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                  className={`${inputClass} cursor-pointer appearance-none`}
+                >
+                  <option value="AI Solutions">AI Automation Agents</option>
+                  <option value="CRM Development">Custom CRM Systems</option>
+                  <option value="LMS Systems">Enterprise LMS Platforms</option>
+                  <option value="Web Development">Custom Web Applications</option>
+                  <option value="Technical SEO">Search Engine Optimization</option>
+                </select>
+
+                {/* Honeypot */}
+                <div className="hidden" aria-hidden="true">
+                  <input value={website} onChange={(e) => setWebsite(e.target.value)} />
                 </div>
-              </div>
 
-              <h3 className="text-xs font-bold uppercase tracking-wider mb-3 px-1" style={{ color: "var(--text-muted)" }}>
-                Common Questions
-              </h3>
-              <div className="space-y-2">
-                {faqs.map((faq) => <FAQItem key={faq.q} faq={faq} />)}
-              </div>
-            </AnimatedSection>
+                <textarea
+                  required
+                  rows={5}
+                  value={formData.project}
+                  onChange={(e) => setFormData({ ...formData, project: e.target.value })}
+                  className={`${inputClass} resize-none`}
+                  placeholder="Project Description *"
+                />
+
+                <div className="mt-8 flex justify-start">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="group inline-flex items-center gap-3 px-10 py-5 bg-[#0f172a] text-white text-[15px] font-bold rounded-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-800"
+                  >
+                    {isSubmitting ? "Sending..." : "Submit Request"}
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              </form>
+            )}
           </div>
 
-          {/* Right: Form */}
-          <div className="lg:col-span-7">
-            <AnimatedSection delay={0.1}>
-              <div className="p-8 rounded-3xl border" style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)", boxShadow: "var(--shadow-md)" }}>
-                <h3 className="text-base font-bold mb-6" style={{ color: "var(--text-primary)", fontFamily: "var(--font-heading)" }}>
-                  Describe Your Requirements
-                </h3>
-
-                <AnimatePresence mode="wait">
-                  {!submitted ? (
-                    <motion.form key="form" onSubmit={handleSubmit} className="space-y-4" exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2 }}>
-                      <label className="block">
-                        <span className="text-[11px] font-semibold block mb-1.5" style={{ color: "var(--text-muted)" }}>Your Name *</span>
-                        <input type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full text-sm px-4 py-3 rounded-xl outline-none transition-all" style={inputStyle} onFocus={focusIn} onBlur={focusOut} placeholder="e.g. John Doe" />
-                      </label>
-                      <label className="block">
-                        <span className="text-[11px] font-semibold block mb-1.5" style={{ color: "var(--text-muted)" }}>Your Email *</span>
-                        <input type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full text-sm px-4 py-3 rounded-xl outline-none transition-all" style={inputStyle} onFocus={focusIn} onBlur={focusOut} placeholder="e.g. john@company.com" />
-                      </label>
-                      <label className="block">
-                        <span className="text-[11px] font-semibold block mb-1.5" style={{ color: "var(--text-muted)" }}>Service Interest</span>
-                        <select value={formData.service} onChange={(e) => setFormData({ ...formData, service: e.target.value })} className="w-full text-sm px-4 py-3 rounded-xl outline-none transition-all cursor-pointer" style={inputStyle} onFocus={focusIn} onBlur={focusOut}>
-                          <option value="AI Solutions">AI Automation Agents</option>
-                          <option value="CRM Development">Custom CRM Systems</option>
-                          <option value="LMS Systems">Enterprise LMS Platforms</option>
-                          <option value="Web Development">Custom Web Applications</option>
-                          <option value="Technical SEO">Search Engine Optimization</option>
-                        </select>
-                      </label>
-                      <label className="block">
-                        <span className="text-[11px] font-semibold block mb-1.5" style={{ color: "var(--text-muted)" }}>Project Description *</span>
-                        <textarea required rows={5} value={formData.project} onChange={(e) => setFormData({ ...formData, project: e.target.value })} className="w-full text-sm px-4 py-3 rounded-xl outline-none transition-all resize-none" style={inputStyle} onFocus={focusIn} onBlur={focusOut} placeholder="What features or business workflows does the system need to automate?" />
-                      </label>
-                      <button type="submit" disabled={isSubmitting} className="w-full flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-white rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-90" style={{ background: "var(--bg-navy)", boxShadow: "var(--shadow-sm)" }} onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "var(--shadow-md)")} onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "var(--shadow-sm)")}>
-                        {isSubmitting ? "Sending…" : "Submit Request"}
-                        <Send size={14} />
-                      </button>
-                    </motion.form>
-                  ) : (
-                    <motion.div key="success" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.3 }} className="text-center py-10">
-                      <div className="inline-flex p-3 rounded-full mb-4" style={{ background: "rgba(16,185,129,0.1)", color: "#10B981" }}>
-                        <CheckCircle size={32} />
-                      </div>
-                      <h4 className="text-base font-bold mb-2" style={{ color: "var(--text-primary)" }}>Request Sent!</h4>
-                      <p className="text-sm max-w-sm mx-auto leading-relaxed mb-6" style={{ color: "var(--text-secondary)" }}>
-                        Thank you! Your requirements have been submitted. We will review and reply within 24 hours.
-                      </p>
-                      <button onClick={() => setSubmitted(false)} className="px-5 py-2.5 text-sm font-medium rounded-xl border transition-colors" style={{ borderColor: "var(--border-subtle)", color: "var(--text-secondary)" }} onMouseEnter={(e) => (e.currentTarget.style.background = "var(--bg-secondary)")} onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}>
-                        Send Another Message
-                      </button>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            </AnimatedSection>
-          </div>
         </div>
       </div>
     </main>
