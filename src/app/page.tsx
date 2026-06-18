@@ -7,10 +7,10 @@ import CTASection from "@/components/CTASection";
 import { Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Technology & AI Product Engineering Company | SPACIVA",
-  description: "SPACIVA is a technology and AI product engineering company specializing in Generative AI, Healthcare Technology, FinTech Solutions, Enterprise Software, and Scalable SaaS Platforms.",
+  title: "Spaciva Ai",
+  description: "SPACIVA is an AI product engineering company specializing in Generative AI, Enterprise Software, and Scalable SaaS Platforms.",
   openGraph: {
-    title: "SPACIVA — Technology & AI Product Engineering Company",
+    title: "SPACIVA AI",
     description: "We design and build custom Generative AI, Healthcare Tech, FinTech, Enterprise Software, and Scalable SaaS Platforms engineered for your growth.",
     url: "https://spaciva.tech",
     siteName: "SPACIVA",
