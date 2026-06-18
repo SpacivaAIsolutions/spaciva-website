@@ -35,12 +35,12 @@ export default function Footer() {
           {/* Brand column */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-6">
-              <img 
-                src="/spaciva-logo.png" 
-                alt="Spaciva Icon" 
-                className="h-8 w-auto object-contain mix-blend-multiply" 
+              <img
+                src="/spaciva-logo-white.png"
+                alt="Spaciva Icon"
+                className="h-8 w-auto object-contain mix-blend-screen opacity-90"
               />
-              <span className="text-[22px] font-bold tracking-[0.25em] text-[#2563eb] pt-1">
+              <span className="text-[22px] font-bold tracking-[0.25em] text-white pt-1">
                 SPΛCIVΛ
               </span>
             </div>
@@ -142,9 +142,6 @@ export default function Footer() {
         >
           <p className="text-[11px]" style={{ color: "rgba(255,255,255,0.2)" }}>
             © {new Date().getFullYear()} SPACIVA. All rights reserved.
-          </p>
-          <p className="text-[11px]" style={{ color: "rgba(255,255,255,0.2)" }}>
-            Built with Next.js · Deployed on Vercel
           </p>
         </div>
       </div>

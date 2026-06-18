@@ -71,7 +71,7 @@ export default function Portfolio() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 md:gap-y-24">
           {caseStudies.map((study, i) => (
-            <motion.div 
+            <motion.div
               key={study.name}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -85,10 +85,10 @@ export default function Portfolio() {
                   src={study.imageSrc}
                   alt={study.imageAlt}
                   fill
-                  className="object-cover transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:scale-105"
+                  className="object-contain transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                
+
                 {/* View Project Floating CTA */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center text-xs font-bold tracking-widest text-slate-900 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500 ease-[0.16,1,0.3,1] z-20 shadow-xl pointer-events-none">
                   VIEW

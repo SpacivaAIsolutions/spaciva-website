@@ -277,7 +277,7 @@ export default function Navbar() {
               href="/contact"
               className="text-sm font-bold px-6 py-2.5 rounded-sm text-white bg-[#0f172a] hover:bg-slate-800 transition-colors"
             >
-              Get Started
+              Let's Connect
             </a>
           </div>
 
@@ -383,7 +383,7 @@ export default function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className="text-lg font-bold text-center py-4 text-white mt-6 bg-[#0f172a] rounded-sm"
                 >
-                  Get Started
+                  Let's Connect
                 </a>
               </div>
             </motion.div>
