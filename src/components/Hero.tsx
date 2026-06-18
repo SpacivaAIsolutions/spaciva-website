@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Star, BarChart3, Box, Play, CheckCircle2, Zap, Bot, Layout, Terminal, Code2 } from "lucide-react";
+import { ArrowRight, Star, BarChart3, Box, Play, CheckCircle2, Zap, Bot, Layout, Terminal, Code2, Brain, Database, Cloud } from "lucide-react";
 import Image from "next/image";
 
 export default function Hero() {
@@ -45,141 +45,74 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Abstract Mockup Grid (Dstudio Style) */}
+      {/* Informational Capabilities Section */}
       <motion.div
-        initial={{ opacity: 0, y: 60 }}
+        initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 w-full max-w-[1400px] mx-auto px-4 md:px-8 mt-10"
+        transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 w-full max-w-6xl mx-auto px-4 md:px-8 mt-16"
       >
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-[500px] md:h-[600px]">
-
-          {/* Left Column Mockup */}
-          <div className="md:col-span-4 flex flex-col gap-6">
-            <div className="flex-1 bg-white rounded-2xl border border-slate-100 shadow-sm p-6 overflow-hidden relative group hover:shadow-md transition-shadow">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-cyan-400"></div>
-              <div className="flex justify-between items-center mb-6">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded bg-blue-50 flex items-center justify-center text-blue-600">
-                    <Bot size={18} />
-                  </div>
-                  <span className="text-sm font-bold text-slate-800">AI Engine</span>
-                </div>
-                <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">Active</span>
-              </div>
-              <div className="space-y-4">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="w-full bg-slate-50 rounded-lg p-3 flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-slate-300"></div>
-                    <div className="flex-1 h-2 bg-slate-200 rounded-full"></div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="h-[200px] bg-slate-900 rounded-2xl border border-slate-800 shadow-xl p-6 relative overflow-hidden group hover:border-slate-700 transition-colors">
-              <div className="flex justify-between items-center mb-4">
-                <span className="text-xs font-mono text-slate-400">api/v1/generate</span>
-                <div className="flex gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-red-500"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-green-500"></div>
-                </div>
-              </div>
-              <pre className="text-[10px] font-mono text-emerald-400 leading-relaxed">
-                <code>
-                  {`{
-  "status": 200,
-  "response": {
-    "model": "gpt-4-turbo",
-    "tokens": 420,
-    "latency": "120ms"
-  }
-}`}
-                </code>
-              </pre>
-            </div>
-          </div>
-
-          {/* Center Main Mockup */}
-          <div className="md:col-span-5 bg-white rounded-3xl border border-slate-100 shadow-md p-2 overflow-hidden relative hover:shadow-lg transition-shadow">
-            <div className="w-full h-full bg-slate-50 rounded-[20px] border border-slate-100/50 p-6 flex flex-col relative overflow-hidden">
-              {/* Background gradient blur */}
-              <div className="absolute -top-32 -right-32 w-64 h-64 bg-violet-400 opacity-20 blur-[80px] rounded-full"></div>
-              <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-blue-400 opacity-20 blur-[80px] rounded-full"></div>
-
-              <div className="flex items-center justify-between mb-8 z-10">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white shadow-sm">
-                    <Layout size={20} />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-slate-900">Dashboard UI</h3>
-                    <p className="text-[11px] text-slate-500 font-medium">Analytics Overview</p>
-                  </div>
-                </div>
-                <div className="flex -space-x-2">
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-slate-200"></div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Chart Mockup */}
-              <div className="flex-1 bg-white rounded-xl shadow-sm border border-slate-100 p-5 flex flex-col z-10">
-                <div className="flex justify-between items-end mb-6">
-                  <div>
-                    <p className="text-[11px] text-slate-500 font-medium mb-1">Total Revenue</p>
-                    <h4 className="text-2xl font-bold text-slate-900">$124,500.00</h4>
-                  </div>
-                  <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">+14.5%</span>
-                </div>
-
-                <div className="flex-1 flex items-end gap-2">
-                  {[40, 70, 45, 90, 65, 80, 100].map((height, i) => (
-                    <div key={i} className="flex-1 bg-slate-100 rounded-t-sm relative group overflow-hidden">
-                      <div
-                        className="absolute bottom-0 left-0 w-full bg-indigo-500 transition-all duration-1000 group-hover:bg-indigo-600"
-                        style={{ height: `${height}%` }}
-                      ></div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column Mockup */}
-          <div className="md:col-span-3 flex flex-col gap-6">
-            <div className="h-[240px] bg-indigo-600 rounded-2xl p-6 relative overflow-hidden text-white hover:bg-indigo-700 transition-colors">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 blur-[30px] rounded-full"></div>
-              <Layout className="mb-4 text-indigo-300" size={24} />
-              <h4 className="text-lg font-bold mb-2">Scalable Systems</h4>
-              <p className="text-sm text-indigo-200 leading-relaxed">
-                Microservices architecture designed to handle millions of requests flawlessly.
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          {/* AI Block */}
+          <div className="md:col-span-2 bg-[#0f172a] p-10 md:p-14 rounded-sm flex flex-col justify-between group overflow-hidden relative">
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 group-hover:bg-blue-500/20 transition-colors duration-700"></div>
+            <div className="relative z-10">
+              <Brain className="text-blue-400 mb-6" size={40} />
+              <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight">Proprietary AI Agents</h3>
+              <p className="text-slate-400 text-lg max-w-lg leading-relaxed">
+                We build and train custom AI agents using your company's proprietary data. Automate customer support, streamline internal operations, and unlock 24/7 productivity.
               </p>
-
-              <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
-                <div className="flex gap-1">
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} className="w-1.5 h-1.5 rounded-full bg-white opacity-50"></div>
-                  ))}
-                </div>
-                <ArrowRight size={16} className="text-white opacity-80" />
+            </div>
+            <div className="relative z-10 mt-12 flex items-center gap-4">
+              <div className="flex items-center gap-2 text-sm font-semibold text-slate-300">
+                <CheckCircle2 size={16} className="text-blue-400" /> GPT-4 & Claude
+              </div>
+              <div className="flex items-center gap-2 text-sm font-semibold text-slate-300">
+                <CheckCircle2 size={16} className="text-blue-400" /> RAG Architecture
               </div>
             </div>
+          </div>
 
-            <div className="flex-1 bg-white rounded-2xl border border-slate-100 shadow-sm p-6 relative overflow-hidden group hover:shadow-md transition-shadow">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center text-orange-500 shrink-0">
-                  <Code2 size={24} />
-                </div>
-                <div>
-                  <h4 className="text-sm font-bold text-slate-900 mb-1">Custom Components</h4>
-                  <p className="text-[11px] text-slate-500 leading-relaxed">
-                    Pixel-perfect UI built from scratch to match your exact brand guidelines.
-                  </p>
-                </div>
+          {/* Web Apps Block */}
+          <div className="bg-white border border-slate-200 p-10 rounded-sm flex flex-col justify-between group hover:border-slate-300 transition-colors">
+            <div>
+              <Layout className="text-slate-900 mb-6" size={40} />
+              <h3 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">Enterprise Web Apps</h3>
+              <p className="text-slate-600 leading-relaxed">
+                High-performance, scalable web applications built with modern frameworks. We prioritize speed, security, and exceptional user experience.
+              </p>
+            </div>
+            <div className="mt-12 flex flex-wrap gap-2">
+              <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-sm uppercase tracking-wider">Next.js</span>
+              <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-sm uppercase tracking-wider">React</span>
+              <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-sm uppercase tracking-wider">Node.js</span>
+            </div>
+          </div>
+
+          {/* CRM Block */}
+          <div className="bg-white border border-slate-200 p-10 rounded-sm flex flex-col justify-between group hover:border-slate-300 transition-colors">
+            <div>
+              <Database className="text-slate-900 mb-6" size={40} />
+              <h3 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">Custom CRMs</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Ditch the bloated software. We architect custom CRM solutions tailored specifically to your unique sales pipelines and data requirements.
+              </p>
+            </div>
+          </div>
+
+          {/* DevOps Block */}
+          <div className="md:col-span-2 bg-slate-50 border border-slate-200 p-10 md:p-14 rounded-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 group hover:border-slate-300 transition-colors">
+            <div>
+              <Cloud className="text-slate-900 mb-6" size={40} />
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4 tracking-tight">End-to-End Delivery</h3>
+              <p className="text-slate-600 text-lg max-w-xl leading-relaxed">
+                From robust cloud architecture on AWS to secure CI/CD pipelines, we ensure your software is deployed flawlessly and scales infinitely.
+              </p>
+            </div>
+            <div className="shrink-0 hidden md:block">
+              <div className="w-24 h-24 rounded-full border-4 border-slate-200 flex items-center justify-center border-t-blue-500 animate-[spin_4s_linear_infinite]">
+                <Terminal className="text-slate-400" size={32} />
               </div>
             </div>
           </div>
