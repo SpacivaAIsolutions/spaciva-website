@@ -4,6 +4,9 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 export const metadata: Metadata = {
   title: "Professional Web Design Company | High-Converting UI/UX | SPACIVA",
   description: "SPACIVA designs high-converting, modern, and fully custom website layouts, SaaS dashboard wireframes, and premium mobile interfaces.",
+  alternates: {
+    canonical: "/web-design",
+  },
 };
 
 const capabilities = [
@@ -36,7 +39,7 @@ export default function WebDesignPage() {
   return (
     <main className="min-h-screen pt-36 pb-24 bg-white px-6">
       <div className="max-w-[1400px] mx-auto">
-        
+
         {/* Hero Section */}
         <div className="mb-32 md:mb-48 max-w-5xl">
           <span className="block text-xs font-bold tracking-widest uppercase text-slate-400 mb-6">SPACIVA Design Studio</span>
@@ -104,7 +107,7 @@ export default function WebDesignPage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
             <div>
               <h2 className="text-4xl sm:text-6xl font-bold tracking-tightest text-[#0f172a] mb-6">
-                Collaborate with our <br/><span className="italic text-slate-400 font-serif">Lead UI Designer.</span>
+                Collaborate with our <br /><span className="italic text-slate-400 font-serif">Lead UI Designer.</span>
               </h2>
               <p className="text-lg text-slate-500 font-medium max-w-xl">
                 Share your business model. We'll outline visual reference pathways, content grids, and present clickable wireframes within 5 days.

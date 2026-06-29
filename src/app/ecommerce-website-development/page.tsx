@@ -4,6 +4,9 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 export const metadata: Metadata = {
   title: "E-Commerce Website Development | Custom Storefronts | SPACIVA",
   description: "SPACIVA designs and builds custom e-commerce web applications, headless Shopify platforms, headless WooCommerce integrations, and custom subscription models.",
+  alternates: {
+    canonical: "/ecommerce-website-development",
+  },
 };
 
 const capabilities = [

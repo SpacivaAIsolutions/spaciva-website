@@ -4,6 +4,9 @@ import { ArrowRight, CheckCircle, X } from "lucide-react";
 export const metadata: Metadata = {
   title: "Custom CRM Development Company India | Sales Pipeline | SPACIVA",
   description: "SPACIVA builds tailored CRM systems with Kanban pipelines, automated WhatsApp & email follow-ups, and role-based dashboards — no per-seat licensing fees.",
+  alternates: {
+    canonical: "/custom-crm-development",
+  },
 };
 
 const capabilities = [
@@ -41,7 +44,7 @@ export default function CustomCRMDevelopmentPage() {
   return (
     <main className="min-h-screen pt-36 pb-24 bg-white px-6">
       <div className="max-w-[1400px] mx-auto">
-        
+
         {/* Hero Section */}
         <div className="mb-32 md:mb-48 max-w-5xl">
           <span className="block text-xs font-bold tracking-widest uppercase text-slate-400 mb-6">CRM Engineering</span>
@@ -111,7 +114,7 @@ export default function CustomCRMDevelopmentPage() {
         <div className="mb-32 md:mb-48 border-t border-slate-200 pt-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <div>
-              <h3 className="text-2xl font-bold tracking-tight text-slate-400 mb-8">Generic CRM <br/><span className="text-sm font-medium italic text-slate-300">Salesforce, HubSpot</span></h3>
+              <h3 className="text-2xl font-bold tracking-tight text-slate-400 mb-8">Generic CRM <br /><span className="text-sm font-medium italic text-slate-300">Salesforce, HubSpot</span></h3>
               <ul className="space-y-6">
                 {[
                   "Ongoing $50–$300/user/month seat license fees",
@@ -126,7 +129,7 @@ export default function CustomCRMDevelopmentPage() {
               </ul>
             </div>
             <div>
-              <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-8">Custom CRM <br/><span className="text-sm font-medium italic text-slate-400">by SPACIVA</span></h3>
+              <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-8">Custom CRM <br /><span className="text-sm font-medium italic text-slate-400">by SPACIVA</span></h3>
               <ul className="space-y-6">
                 {[
                   "One-time build investment, zero recurring seat fees",
@@ -148,7 +151,7 @@ export default function CustomCRMDevelopmentPage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
             <div>
               <h2 className="text-4xl sm:text-6xl font-bold tracking-tightest text-[#0f172a] mb-6">
-                Build Your <br/><span className="italic text-slate-400 font-serif">Custom CRM.</span>
+                Build Your <br /><span className="italic text-slate-400 font-serif">Custom CRM.</span>
               </h2>
               <p className="text-lg text-slate-500 font-medium max-w-xl">
                 Inquire about building a tailored sales ecosystem. We architect, code, and deploy to your spec with zero recurring seat fees.

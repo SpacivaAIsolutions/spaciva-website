@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "learning management system developer",
     "SCORM LMS India"
   ],
+  alternates: {
+    canonical: "/lms-development-company",
+  },
 };
 
 const capabilities = [

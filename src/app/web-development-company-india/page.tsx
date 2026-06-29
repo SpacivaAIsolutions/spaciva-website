@@ -4,6 +4,9 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 export const metadata: Metadata = {
   title: "Web Development Company India | Next.js & React Experts | SPACIVA Ahmedabad",
   description: "SPACIVA builds high-performance Next.js web applications, dashboards, and portals from Ahmedabad, India. Server-side rendering, CI/CD pipelines, and mobile-first design.",
+  alternates: {
+    canonical: "/web-development-company-india",
+  },
 };
 
 const capabilities = [

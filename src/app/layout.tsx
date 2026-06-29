@@ -18,6 +18,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://spaciva.tech"),
   title: "SPACIVA — AI Solutions & Enterprise Digital Ecosystems",
   description:
     "We engineer custom AI automation agents, custom CRM & LMS platforms, high-performance Web systems, and data-driven SEO growth engines. Elevate your workflows with SPACIVA, a premier AI software agency based in India.",
@@ -36,6 +37,9 @@ export const metadata: Metadata = {
     "custom business software",
     "AI integrations developer"
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "SPACIVA — AI Solutions & Enterprise Digital Ecosystems",
     description:
@@ -43,6 +47,9 @@ export const metadata: Metadata = {
     url: "https://spaciva.tech",
     siteName: "SPACIVA",
     type: "website",
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "",
   },
 };
 

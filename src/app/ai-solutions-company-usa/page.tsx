@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     "AI agency America",
     "custom software development company USA"
   ],
+  alternates: {
+    canonical: "/ai-solutions-company-usa",
+  },
 };
 
 const valueProps = [

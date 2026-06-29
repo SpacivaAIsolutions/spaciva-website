@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     "OpenAI API developer",
     "LangChain developer India"
   ],
+  alternates: {
+    canonical: "/ai-automation-solutions",
+  },
 };
 
 const capabilities = [

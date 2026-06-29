@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     "enterprise software company Dubai",
     "LMS platform UAE"
   ],
+  alternates: {
+    canonical: "/ai-company-in-dubai",
+  },
 };
 
 const pillars = [

@@ -4,6 +4,9 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 export const metadata: Metadata = {
   title: "AI/ML Development Company | Custom Machine Learning Solutions | SPACIVA",
   description: "SPACIVA engineers custom AI & Machine Learning solutions, predictive models, neural networks, and computer vision systems.",
+  alternates: {
+    canonical: "/ai-ml-development",
+  },
 };
 
 const capabilities = [

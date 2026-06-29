@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     "AI agency UK",
     "offshore AI development UK"
   ],
+  alternates: {
+    canonical: "/ai-solutions-company-uk",
+  },
 };
 
 const valueProps = [

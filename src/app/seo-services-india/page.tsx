@@ -4,6 +4,9 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 export const metadata: Metadata = {
   title: "Technical SEO Services India | Search Ranking | SPACIVA",
   description: "SPACIVA delivers data-driven SEO strategies: Core Web Vitals optimization, structured data markup, keyword mapping, and content roadmaps.",
+  alternates: {
+    canonical: "/seo-services-india",
+  },
 };
 
 const capabilities = [

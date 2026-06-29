@@ -5,6 +5,9 @@ import { ArrowRight, BookOpen, Clock, Tag } from "lucide-react";
 export const metadata: Metadata = {
   title: "SPACIVA Blog | Insights on Custom CRM, LMS & AI Solutions",
   description: "Stay ahead with guides, case studies, and engineering strategies for custom CRM development, corporate LMS platforms, Next.js web systems, and AI automation.",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 const blogPosts = [

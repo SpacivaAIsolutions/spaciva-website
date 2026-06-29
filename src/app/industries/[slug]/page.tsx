@@ -457,8 +457,37 @@ const industries: Record<string, IndustryData> = {
   }
 };
 
-export default function IndustryPage({ params }: { params: { slug: string } }) {
-  const data = industries[params.slug];
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const data = industries[slug];
+  if (!data) return {};
+
+  return {
+    title: `${data.title} | SPACIVA`,
+    description: data.metaDesc,
+    keywords: data.keywords,
+    alternates: {
+      canonical: `/industries/${slug}`,
+    },
+    openGraph: {
+      title: `${data.title} | SPACIVA`,
+      description: data.metaDesc,
+      url: `https://spaciva.tech/industries/${slug}`,
+    },
+  };
+}
+
+export default async function IndustryPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const data = industries[slug];
 
   if (!data) {
     notFound();

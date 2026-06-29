@@ -4,6 +4,9 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 export const metadata: Metadata = {
   title: "About SPACIVA | AI Software Agency Based in Ahmedabad, India",
   description: "SPACIVA is an Ahmedabad-based AI software agency engineering custom AI automation, CRM platforms, LMS systems, and web applications.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 const values = [
@@ -43,7 +46,7 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen pt-36 pb-24 bg-white px-6">
       <div className="max-w-[1400px] mx-auto">
-        
+
         {/* Hero Section */}
         <div className="mb-32 md:mb-48 max-w-4xl">
           <span className="block text-xs font-bold tracking-widest uppercase text-slate-400 mb-6">Our Agency</span>
