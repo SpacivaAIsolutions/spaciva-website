@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About SPACIVA | AI Software Agency Based in Ahmedabad, India",
@@ -8,6 +8,9 @@ export const metadata: Metadata = {
     canonical: "/about",
   },
 };
+
+const J = "'Cabinet Grotesk', sans-serif";
+const I = "'Geist Sans', sans-serif";
 
 const values = [
   {
@@ -36,70 +39,78 @@ const expertise = [
 ];
 
 const stats = [
-  { value: "40+", label: "Enterprise Projects Delivered" },
-  { value: "3.2x", label: "Average ROI Delivered" },
-  { value: "98%", label: "Client Retention Rate" },
-  { value: "48h", label: "Response Guarantee" },
+  { value: "12+", label: "Custom Solutions Delivered" },
+  { value: "10+", label: "Businesses Supported" },
+  { value: "100%", label: "Code Ownership" },
+  { value: "24h", label: "Response Guarantee" },
 ];
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen pt-36 pb-24 bg-white px-6">
-      <div className="max-w-[1400px] mx-auto">
+    <main className="theme-redesign min-h-screen pt-28 pb-24 bg-[#F7F6F2] px-5 lg:px-10 text-[#0E0E0C]" style={{ fontFamily: I }}>
+      <div className="max-w-7xl mx-auto">
 
         {/* Hero Section */}
-        <div className="mb-32 md:mb-48 max-w-4xl">
-          <span className="block text-xs font-bold tracking-widest uppercase text-slate-400 mb-6">Our Agency</span>
-          <h1 className="text-5xl sm:text-7xl md:text-[80px] font-bold tracking-tightest leading-[1.05] text-[#0f172a] mb-8">
+        <div className="mb-24 max-w-4xl pt-16">
+          <span className="inline-flex items-center gap-2 mb-6">
+            <span className="w-2 h-2 rounded-full bg-[#FF4D00]" />
+            <span
+              className="text-xs font-semibold text-[#FF4D00] uppercase tracking-[0.14em]"
+              style={{ fontFamily: I }}
+            >
+              Our Agency
+            </span>
+          </span>
+          <h1 className="text-[clamp(2.4rem,6vw,4.5rem)] font-extrabold leading-[1.08] tracking-tight text-[#0E0E0C] mb-8" style={{ fontFamily: J }}>
             Engineered for <br />
-            <span className="italic text-slate-400 font-serif">Enterprise Quality.</span>
+            <span className="italic font-light text-[#6B6A65]">Bespoke Performance.</span>
           </h1>
-          <p className="text-xl text-slate-500 font-medium max-w-2xl leading-relaxed">
-            SPACIVA builds advanced technical solutions that solve complex operations challenges. We combine AI engineering with robust software ecosystems to deliver measurable impact.
+          <p className="text-[#6B6A65] text-lg sm:text-xl leading-relaxed max-w-2xl" style={{ fontFamily: I }}>
+            SPACIVA builds advanced technical solutions that solve complex operational challenges. We combine custom engineering with scalable cloud ecosystems to deliver measurable business impact.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24 mb-32 md:mb-48 border-t border-slate-200 pt-16">
-          {/* Story Column */}
+        {/* Story Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 mb-28 border-t border-black/[0.07] pt-16">
           <div className="lg:col-span-5">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-8">Our Story</h2>
+            <h2 className="text-3xl font-extrabold tracking-tight text-[#0E0E0C]" style={{ fontFamily: J }}>Our Story</h2>
           </div>
-          <div className="lg:col-span-7 space-y-8 text-lg md:text-xl leading-relaxed text-slate-500 font-medium">
+          <div className="lg:col-span-7 space-y-6 text-base sm:text-lg leading-relaxed text-[#6B6A65]" style={{ fontFamily: I }}>
             <p>
-              SPACIVA was founded with a single belief: that enterprise-grade AI and software should be accessible to every ambitious business — not just Fortune 500 companies with eight-figure IT budgets.
+              SPACIVA was founded with a single belief: that high-performance technical systems and custom automation should be built around the way a business operates—not the other way around.
             </p>
             <p>
-              Based in Ahmedabad, Gujarat, we started by building the tools we wished existed for growing businesses: CRM systems that matched real sales processes, AI agents that actually reduced workload, and LMS platforms that employees completed voluntarily.
+              Based in Ahmedabad, Gujarat, we design and build tools that growing businesses actually use to operate and scale: custom management dashboards that match real sales processes, automation flows that eliminate repetitive manual entries, and websites engineered for conversion.
             </p>
             <p>
-              Today, we serve clients across India, the UAE, the United Kingdom, and the United States — delivering 40+ enterprise projects with a 98% client retention rate.
+              Today, we serve partners globally — delivering fully owned, custom solutions with direct developer collaboration, predictable roadmaps, and fixed scopes.
             </p>
           </div>
         </div>
 
         {/* Stats Section */}
-        <div className="mb-32 md:mb-48">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-16">
+        <div className="mb-28">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat) => (
-              <div key={stat.label} className="flex flex-col border-l border-slate-200 pl-6">
-                <span className="text-5xl md:text-7xl font-bold tracking-tighter text-slate-900 mb-2">{stat.value}</span>
-                <span className="text-sm font-bold tracking-widest uppercase text-slate-400">{stat.label}</span>
+              <div key={stat.label} className="flex flex-col border-l border-black/[0.08] pl-6">
+                <span className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#0E0E0C] mb-2" style={{ fontFamily: J }}>{stat.value}</span>
+                <span className="text-xs font-semibold text-[#6B6A65] uppercase tracking-wider" style={{ fontFamily: I }}>{stat.label}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Values Section */}
-        <div className="mb-32 md:mb-48 border-t border-slate-200 pt-16">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-16">Core Values</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16">
+        <div className="mb-28 border-t border-black/[0.07] pt-16">
+          <h2 className="text-3xl font-extrabold tracking-tight text-[#0E0E0C] mb-16" style={{ fontFamily: J }}>Core Values</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
             {values.map((v, i) => (
-              <div key={v.title} className="flex flex-col">
-                <div className="flex items-center gap-4 mb-6">
-                  <span className="text-xs font-bold text-slate-400 w-4">0{i + 1}</span>
-                  <h3 className="text-2xl font-bold tracking-tight text-slate-900">{v.title}</h3>
+              <div key={v.title} className="p-8 bg-white border border-black/[0.06] rounded-3xl shadow-[0_1px_4px_rgba(0,0,0,0.02)] hover:border-[#FF4D00]/20 transition-all duration-300">
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="text-xs font-bold text-[#FF4D00]" style={{ fontFamily: I }}>0{i + 1}</span>
+                  <h3 className="text-lg font-bold tracking-tight text-[#0E0E0C]" style={{ fontFamily: J }}>{v.title}</h3>
                 </div>
-                <p className="text-lg text-slate-500 font-medium leading-relaxed pl-8">
+                <p className="text-sm text-[#6B6A65] leading-relaxed">
                   {v.desc}
                 </p>
               </div>
@@ -108,20 +119,19 @@ export default function AboutPage() {
         </div>
 
         {/* Technical Expertise */}
-        <div className="mb-32 md:mb-48 border-t border-slate-200 pt-16">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-16">Technical Stack</h2>
-          <div className="flex flex-col gap-12">
+        <div className="mb-28 border-t border-black/[0.07] pt-16">
+          <h2 className="text-3xl font-extrabold tracking-tight text-[#0E0E0C] mb-16" style={{ fontFamily: J }}>Technical Capabilities</h2>
+          <div className="flex flex-col gap-8">
             {expertise.map((exp) => (
-              <div key={exp.category} className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 border-b border-slate-100 pb-12 last:border-0">
+              <div key={exp.category} className="grid grid-cols-1 md:grid-cols-12 gap-6 border-b border-black/[0.05] pb-8 last:border-0">
                 <div className="md:col-span-4">
-                  <h3 className="text-xl font-bold tracking-tight text-slate-900">{exp.category}</h3>
+                  <h3 className="text-base font-bold text-[#0E0E0C]" style={{ fontFamily: J }}>{exp.category}</h3>
                 </div>
-                <div className="md:col-span-8 flex flex-wrap gap-x-8 gap-y-4">
+                <div className="md:col-span-8 flex flex-wrap gap-2">
                   {exp.items.map((item) => (
-                    <div key={item} className="flex items-center gap-2">
-                      <CheckCircle size={14} className="text-slate-300" />
-                      <span className="text-lg text-slate-500 font-medium">{item}</span>
-                    </div>
+                    <span key={item} className="text-xs px-3 py-1.5 rounded-full bg-white border border-black/[0.06] text-[#6B6A65] font-medium" style={{ fontFamily: I }}>
+                      {item}
+                    </span>
                   ))}
                 </div>
               </div>
@@ -130,22 +140,23 @@ export default function AboutPage() {
         </div>
 
         {/* CTA */}
-        <div className="border-t border-slate-200 pt-24 pb-12">
+        <div className="border-t border-black/[0.07] pt-20 pb-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
             <div>
-              <h2 className="text-4xl sm:text-6xl font-bold tracking-tightest text-[#0f172a] mb-6">
-                Ready to <span className="italic text-slate-400 font-serif">build?</span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0E0E0C] mb-4" style={{ fontFamily: J }}>
+                Ready to <span className="italic font-light text-[#6B6A65]">build?</span>
               </h2>
-              <p className="text-lg text-slate-500 font-medium max-w-xl">
-                Let's discuss how we can automate your operations and scale your software infrastructure.
+              <p className="text-sm text-[#6B6A65] max-w-xl" style={{ fontFamily: I }}>
+                Let&apos;s discuss how we can automate your operations and engineer your custom software.
               </p>
             </div>
             <a
               href="/contact"
-              className="group inline-flex items-center gap-3 px-8 py-5 bg-[#0f172a] text-white text-[15px] font-bold rounded-sm transition-all hover:bg-slate-800 shrink-0"
+              className="flex items-center gap-2 px-7 py-3.5 rounded-2xl font-bold text-white bg-[#0E0E0C] hover:bg-[#2a2a28] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] text-[15px]"
+              style={{ fontFamily: J }}
             >
               Get in Touch
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4" />
             </a>
           </div>
         </div>

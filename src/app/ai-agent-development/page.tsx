@@ -39,7 +39,7 @@ export default function AIAgentDevelopmentPage() {
   return (
     <main className="min-h-screen pt-36 pb-24 bg-white px-6">
       <div className="max-w-[1400px] mx-auto">
-        
+
         {/* Hero Section */}
         <div className="mb-32 md:mb-48 max-w-5xl">
           <span className="block text-xs font-bold tracking-widest uppercase text-slate-400 mb-6">Agentic AI Workflows</span>
@@ -107,7 +107,7 @@ export default function AIAgentDevelopmentPage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
             <div>
               <h2 className="text-4xl sm:text-6xl font-bold tracking-tightest text-[#0f172a] mb-6">
-                Hire a Senior <br/><span className="italic text-slate-400 font-serif">AI Agent Architect.</span>
+                Hire a Senior <br /><span className="italic text-slate-400 font-serif">AI Agent Architect.</span>
               </h2>
               <p className="text-lg text-slate-500 font-medium max-w-xl">
                 We scope your autonomous pipeline workflows, map token budgets, and design secure human-in-the-loop triggers before code kickoff.

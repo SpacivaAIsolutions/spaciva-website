@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { Inter, Poppins, Plus_Jakarta_Sans } from "next/font/google";
+import LayoutWrapper from "@/components/LayoutWrapper";
 import "./globals.css";
 
 const inter = Inter({
@@ -14,6 +13,13 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["500", "600", "700", "800"],
   variable: "--font-poppins",
+  display: "swap",
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-plus-jakarta-sans",
   display: "swap",
 });
 
@@ -59,13 +65,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
-        <Navbar />
-        <div className="flex-1">
-          {children}
-        </div>
-        <Footer />
+    <html lang="en" className={`${inter.variable} ${poppins.variable} ${plusJakartaSans.variable} h-full antialiased`}>
+      <head>
+        <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,500,400,300&display=swap" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/font/sans.css" rel="stylesheet" />
+      </head>
+      <body className="min-h-full flex flex-col theme-redesign">
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );

@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, CheckCircle, Mail, Plus, Minus } from "lucide-react";
+import { ArrowRight, CheckCircle, ChevronRight } from "lucide-react";
+
+const J = "'Cabinet Grotesk', sans-serif";
+const I = "'Geist Sans', sans-serif";
 
 const faqs = [
   {
@@ -26,21 +29,23 @@ const faqs = [
 function FAQItem({ faq, idx }: { faq: { q: string; a: string }, idx: number }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border-b border-slate-200">
+    <div className="border-b border-black/[0.08]">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full py-6 flex items-center justify-between group text-left cursor-pointer transition-colors hover:text-blue-600"
+        className="w-full py-6 flex items-center justify-between group text-left transition-colors hover:text-[#FF4D00]"
       >
         <div className="flex items-center gap-6">
-          <span className="text-xs font-bold text-slate-400 group-hover:text-blue-400 w-4">
+          <span className="text-xs font-semibold text-[#6B6A65] w-4" style={{ fontFamily: I }}>
             0{idx + 1}
           </span>
-          <span className={`text-xl font-bold tracking-tight transition-colors ${open ? 'text-blue-600' : 'text-slate-900 group-hover:text-blue-600'}`}>
+          <span className="text-base sm:text-lg font-bold tracking-tight text-[#0E0E0C] group-hover:text-[#FF4D00] transition-colors" style={{ fontFamily: J }}>
             {faq.q}
           </span>
         </div>
-        <div className={`w-8 h-8 rounded-full border flex items-center justify-center transition-colors shrink-0 ${open ? 'border-blue-600 text-blue-600 bg-blue-50' : 'border-slate-200 text-slate-400 group-hover:border-blue-200 group-hover:text-blue-500'}`}>
-          {open ? <Minus size={14} /> : <Plus size={14} />}
+        <div className="w-6 h-6 rounded-full border border-black/[0.08] flex items-center justify-center flex-shrink-0 group-hover:border-[#FF4D00]/30 transition-all duration-200">
+          <ChevronRight
+            className={`w-3 h-3 text-[#6B6A65] transition-transform duration-300 ${open ? 'rotate-90 text-[#FF4D00]' : ''}`}
+          />
         </div>
       </button>
       <AnimatePresence>
@@ -52,7 +57,7 @@ function FAQItem({ faq, idx }: { faq: { q: string; a: string }, idx: number }) {
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden"
           >
-            <div className="pb-8 pl-14 pr-4 max-w-2xl text-slate-500 text-base leading-relaxed font-medium">
+            <div className="pb-6 pl-10 pr-4 max-w-2xl text-[#6B6A65] text-sm leading-relaxed" style={{ fontFamily: I }}>
               {faq.a}
             </div>
           </motion.div>
@@ -68,7 +73,7 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [website, setWebsite] = useState("");
 
-  const inputClass = "w-full border-b border-slate-300 py-4 bg-transparent outline-none text-slate-900 placeholder:text-slate-400 focus:border-slate-900 transition-colors text-lg";
+  const inputClass = "w-full border-b border-black/[0.15] py-4 bg-transparent outline-none text-[#0E0E0C] placeholder-[#BBBBBA] focus:border-[#FF4D00] transition-colors text-[15px]";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -101,33 +106,43 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen pt-36 pb-24 bg-white px-6">
-      <div className="max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24">
+    <main className="theme-redesign min-h-screen pt-28 pb-24 bg-[#F7F6F2] px-5 lg:px-10 text-[#0E0E0C]" style={{ fontFamily: I }}>
+      <div className="max-w-7xl mx-auto pt-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_500px] gap-16 lg:gap-24">
 
           {/* Left Panel: Intro & FAQs */}
           <div>
-            <span className="block text-xs font-bold tracking-widest uppercase text-slate-400 mb-6">Get in Touch</span>
-            <h1 className="text-5xl sm:text-7xl md:text-[80px] font-bold tracking-tightest leading-[1.05] text-[#0f172a] mb-8">
-              Start Your <br /><span className="italic text-slate-400 font-serif">Project.</span>
+            <span className="inline-flex items-center gap-2 mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#FF4D00]" />
+              <span
+                className="text-xs font-semibold text-[#FF4D00] uppercase tracking-[0.14em]"
+                style={{ fontFamily: I }}
+              >
+                Get in Touch
+              </span>
+            </span>
+            <h1 className="text-[clamp(2.4rem,6vw,4.5rem)] font-extrabold leading-[1.08] tracking-tight text-[#0E0E0C] mb-8" style={{ fontFamily: J }}>
+              Start Your <br />
+              <span className="italic font-light text-[#6B6A65]">Project.</span>
             </h1>
-            <p className="text-xl text-slate-500 font-medium mb-16 max-w-md leading-relaxed">
+            <p className="text-[#6B6A65] text-base leading-relaxed mb-12 max-w-md" style={{ fontFamily: I }}>
               Tell us about your project requirements. We will review, scope, and reply within 24 hours.
             </p>
 
             <div className="mb-16">
-              <span className="block text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Direct Email</span>
+              <span className="text-[11px] font-bold text-[#6B6A65] uppercase tracking-wider block mb-2" style={{ fontFamily: I }}>Direct Email</span>
               <a
                 href="mailto:spacivaaisolution@gmail.com"
-                className="text-2xl font-bold text-slate-900 hover:text-blue-600 transition-colors"
+                className="text-xl sm:text-2xl font-bold text-[#0E0E0C] hover:text-[#FF4D00] transition-colors"
+                style={{ fontFamily: J }}
               >
                 spacivaaisolution@gmail.com
               </a>
             </div>
 
-            <div className="mt-16 border-t border-slate-200">
-              <h3 className="text-2xl font-bold text-slate-900 mt-16 mb-8 tracking-tight">Common Questions</h3>
-              <div>
+            <div className="mt-16 border-t border-black/[0.08]">
+              <h3 className="text-xl font-bold text-[#0E0E0C] mt-16 mb-8 tracking-tight" style={{ fontFamily: J }}>Common Questions</h3>
+              <div className="border-t border-black/[0.08]">
                 {faqs.map((faq, idx) => <FAQItem key={faq.q} faq={faq} idx={idx} />)}
               </div>
             </div>
@@ -136,21 +151,22 @@ export default function ContactPage() {
           {/* Right Panel: Form */}
           <div className="pt-4 lg:pt-16">
             {submitted ? (
-              <div className="py-12 bg-slate-50 rounded-2xl p-8 text-center border border-slate-100">
-                <div className="inline-flex p-4 rounded-full bg-emerald-100 text-emerald-600 mb-6">
+              <div className="py-12 bg-white rounded-3xl p-8 text-center border border-black/[0.06] shadow-sm">
+                <div className="inline-flex p-4 rounded-full bg-emerald-50 text-emerald-600 mb-6">
                   <CheckCircle size={32} />
                 </div>
-                <h4 className="text-2xl font-bold text-slate-900 mb-2">Request Sent!</h4>
-                <p className="text-slate-500 mb-8 max-w-sm mx-auto">Thank you! Your requirements have been submitted. We will review and reply within 24 hours.</p>
+                <h4 className="text-xl font-bold text-[#0E0E0C] mb-2" style={{ fontFamily: J }}>Request Sent!</h4>
+                <p className="text-[#6B6A65] text-sm mb-8 max-w-sm mx-auto" style={{ fontFamily: I }}>Thank you! Your requirements have been submitted. We will review and reply within 24 hours.</p>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="text-sm font-bold border-b border-slate-900 pb-1 hover:text-blue-600 hover:border-blue-600 transition-colors"
+                  className="text-xs font-semibold text-[#FF4D00] border-b border-[#FF4D00]/40 pb-0.5 hover:text-[#e54400] hover:border-[#e54400] transition-all"
+                  style={{ fontFamily: J }}
                 >
                   Send another message
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-6 p-8 bg-white border border-black/[0.06] rounded-3xl shadow-[0_1px_4px_rgba(0,0,0,0.02)]">
                 <input
                   type="text"
                   required
@@ -158,6 +174,7 @@ export default function ContactPage() {
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className={inputClass}
                   placeholder="Your Name *"
+                  style={{ fontFamily: I }}
                 />
 
                 <input
@@ -167,12 +184,14 @@ export default function ContactPage() {
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className={inputClass}
                   placeholder="Email Address *"
+                  style={{ fontFamily: I }}
                 />
 
                 <select
                   value={formData.service}
                   onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                  className={`${inputClass} cursor-pointer appearance-none`}
+                  className={`${inputClass} cursor-pointer appearance-none bg-white`}
+                  style={{ fontFamily: I }}
                 >
                   <option value="AI Solutions">AI Automation Agents</option>
                   <option value="CRM Development">Custom CRM Systems</option>
@@ -193,16 +212,18 @@ export default function ContactPage() {
                   onChange={(e) => setFormData({ ...formData, project: e.target.value })}
                   className={`${inputClass} resize-none`}
                   placeholder="Project Description *"
+                  style={{ fontFamily: I }}
                 />
 
-                <div className="mt-8 flex justify-start">
+                <div className="mt-4 flex justify-start">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="group inline-flex items-center gap-3 px-10 py-5 bg-[#0f172a] text-white text-[15px] font-bold rounded-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-800"
+                    className="flex items-center gap-2 px-7 py-3.5 rounded-2xl font-bold text-white bg-[#FF4D00] hover:bg-[#e54400] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed w-full justify-center text-[15px]"
+                    style={{ fontFamily: J }}
                   >
                     {isSubmitting ? "Sending..." : "Submit Request"}
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight size={16} />
                   </button>
                 </div>
               </form>

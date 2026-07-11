@@ -1,148 +1,98 @@
-"use client";
+import { Mail, MapPin, Sparkles } from "lucide-react";
 
-import Image from "next/image";
+const J = "'Cabinet Grotesk', sans-serif";
+const I = "'Geist Sans', sans-serif";
 
-const navLinks = [
-  { name: "Solutions", href: "/solutions" },
-  { name: "Work", href: "/#portfolio" },
-  { name: "About Us", href: "/about" },
-  { name: "Blog", href: "/blog" },
-  { name: "Contact", href: "/contact" },
-];
-
-const serviceLinks = [
-  { name: "AI/ML Development", href: "/ai-ml-development" },
-  { name: "AI Agent Development", href: "/ai-agent-development" },
-  { name: "Web Design Services", href: "/web-design" },
-  { name: "Web Application Development", href: "/web-development-company-india" },
-  { name: "Custom CRM Development", href: "/custom-crm-development" },
-  { name: "SEO Services India", href: "/seo-services-india" },
-  { name: "E-Commerce Website", href: "/ecommerce-website-development" }
-];
-
-const geoLinks = [
-  { name: "AI Company in Dubai", href: "/ai-company-in-dubai" },
-  { name: "AI Solutions UK", href: "/ai-solutions-company-uk" },
-  { name: "AI Solutions USA", href: "/ai-solutions-company-usa" },
-];
+const FOOT = {
+  Services: [
+    { name: "AI/ML Development", href: "/ai-ml-development" },
+    { name: "AI Agent Development", href: "/ai-agent-development" },
+    { name: "Web App Development", href: "/web-development-company-india" },
+    { name: "Custom CRM", href: "/custom-crm-development" },
+    { name: "SEO Services", href: "/seo-services-india" },
+    { name: "E-Commerce", href: "/ecommerce-website-development" },
+  ],
+  Industries: [
+    { name: "AI & GenAI", href: "/#industries" },
+    { name: "Healthcare", href: "/industries/healthcare" },
+    { name: "Retail & E-commerce", href: "/industries/retail-ecommerce" },
+    { name: "Education & E-learning", href: "/industries/education-elearning" },
+    { name: "Real Estate", href: "/industries/real-estate" },
+  ],
+  Company: [
+    { name: "About Us", href: "/about" },
+    { name: "Our Work", href: "/#portfolio" },
+    { name: "Contact", href: "/contact" },
+    { name: "Careers (We are hiring)", href: "/contact" },
+  ],
+  Legal: [
+    { name: "Sitemap", href: "/sitemap.xml" },
+    { name: "Privacy Policy", href: "/contact" },
+    { name: "Terms of Service", href: "/contact" },
+  ],
+};
 
 export default function Footer() {
   return (
-    <footer style={{ background: "var(--bg-navy)" }}>
-      <div className="max-w-6xl mx-auto px-6 pt-16 pb-10">
-        {/* Top grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-14">
-          {/* Brand column */}
-          <div className="sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-2 mb-6">
-              <img
-                src="/spaciva-logo-white.png"
-                alt="Spaciva Icon"
-                className="h-8 w-auto object-contain mix-blend-screen opacity-90"
-              />
-              <span className="text-[22px] font-bold tracking-[0.25em] text-white pt-1">
-                SPΛCIVΛ
-              </span>
+    <footer className="bg-[#0E0E0C] pt-16 pb-10">
+      <div className="max-w-7xl mx-auto px-5 lg:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 mb-12">
+          {/* Brand */}
+          <div>
+            <div className="flex items-center gap-2.5 mb-5">
+              <img src="/spaciva-logo-white.png" alt="Spaciva" className="h-7 w-auto object-contain" />
             </div>
-            <p className="text-[13px] leading-relaxed mb-5" style={{ color: "rgba(255,255,255,0.42)" }}>
-              We engineer custom AI automation, CRM platforms, LMS systems, and high-performance web applications for modern businesses worldwide.
-            </p>
-            <p className="text-[11px] font-medium" style={{ color: "rgba(255,255,255,0.24)" }}>
-              Ahmedabad, India · Serving{" "}
-              <a href="/web-development-company-india" className="hover:text-white/80 transition-colors">India</a>,{" "}
-              <a href="/ai-company-in-dubai" className="hover:text-white/80 transition-colors">UAE</a>,{" "}
-              <a href="/ai-solutions-company-uk" className="hover:text-white/80 transition-colors">UK</a> &amp;{" "}
-              <a href="/ai-solutions-company-usa" className="hover:text-white/80 transition-colors">USA</a>
-            </p>
-          </div>
-
-          {/* Navigate */}
-          <div>
-            <h4 className="text-[10px] font-semibold uppercase tracking-wider mb-5" style={{ color: "rgba(255,255,255,0.35)" }}>
-              Navigate
-            </h4>
-            <ul className="space-y-3">
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-[13px] transition-colors duration-200"
-                    style={{ color: "rgba(255,255,255,0.45)" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-[10px] font-semibold uppercase tracking-wider mb-5" style={{ color: "rgba(255,255,255,0.35)" }}>
-              Services
-            </h4>
-            <ul className="space-y-3">
-              {serviceLinks.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-[13px] transition-colors duration-200"
-                    style={{ color: "rgba(255,255,255,0.45)" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Global + Contact */}
-          <div>
-            <h4 className="text-[10px] font-semibold uppercase tracking-wider mb-5" style={{ color: "rgba(255,255,255,0.35)" }}>
-              Global Offices
-            </h4>
-            <ul className="space-y-3 mb-8">
-              {geoLinks.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-[13px] transition-colors duration-200"
-                    style={{ color: "rgba(255,255,255,0.45)" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <h4 className="text-[10px] font-semibold uppercase tracking-wider mb-3" style={{ color: "rgba(255,255,255,0.35)" }}>
-              Contact
-            </h4>
-            <a
-              href="mailto:spacivaaisolution@gmail.com"
-              className="text-[12px] transition-colors duration-200 break-all"
-              style={{ color: "rgba(255,255,255,0.45)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}
+            <p
+              className="text-white/40 text-sm leading-relaxed max-w-[220px] mb-6"
+              style={{ fontFamily: I }}
             >
-              spacivaaisolution@gmail.com
-            </a>
+              We build technology that fits the way your business works.
+            </p>
+            <div className="flex items-center gap-2 text-white/30 text-xs mb-2">
+              <Mail className="w-3 h-3" />
+              <span style={{ fontFamily: I }}>spacivaaisolution@gmail.com</span>
+            </div>
+            <div className="flex items-center gap-2 text-white/30 text-xs">
+              <MapPin className="w-3 h-3" />
+              <span style={{ fontFamily: I }}>Ahmedabad, India</span>
+            </div>
+          </div>
+
+          {/* Links */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+            {Object.entries(FOOT).map(([group, links]) => (
+              <div key={group}>
+                <div
+                  className="text-[11px] font-semibold text-white/30 uppercase tracking-[0.12em] mb-5"
+                  style={{ fontFamily: I }}
+                >
+                  {group}
+                </div>
+                <ul className="space-y-3">
+                  {links.map((l) => (
+                    <li key={l.name}>
+                      <a
+                        href={l.href}
+                        className="text-sm text-white/40 hover:text-white transition-colors duration-150"
+                        style={{ fontFamily: I }}
+                      >
+                        {l.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div
-          className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
-        >
-          <p className="text-[11px]" style={{ color: "rgba(255,255,255,0.2)" }}>
-            © {new Date().getFullYear()} SPACIVA. All rights reserved.
-          </p>
+        <div className="border-t border-white/[0.06] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <span className="text-xs text-white/25" style={{ fontFamily: I }}>
+            © {new Date().getFullYear()} Spaciva Technologies. All rights reserved.
+          </span>
+          <span className="text-xs text-white/25" style={{ fontFamily: I }}>
+            Built in Ahmedabad · Delivered globally
+          </span>
         </div>
       </div>
     </footer>
