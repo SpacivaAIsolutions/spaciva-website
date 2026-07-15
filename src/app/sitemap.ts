@@ -66,19 +66,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/industries/retail-ecommerce`,
+      url: `${baseUrl}/industries/logistics-transportation`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/industries/education-elearning`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/industries/real-estate`,
+      url: `${baseUrl}/industries/manufacturing-it-services`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,

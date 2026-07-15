@@ -15,9 +15,8 @@ const FOOT = {
   Industries: [
     { name: "AI & GenAI", href: "/#industries" },
     { name: "Healthcare", href: "/industries/healthcare" },
-    { name: "Retail & E-commerce", href: "/industries/retail-ecommerce" },
-    { name: "Education & E-learning", href: "/industries/education-elearning" },
-    { name: "Real Estate", href: "/industries/real-estate" },
+    { name: "Logistics & Transport", href: "/industries/logistics-transportation" },
+    { name: "Manufacturing IT", href: "/industries/manufacturing-it-services" },
   ],
   Company: [
     { name: "About Us", href: "/about" },
