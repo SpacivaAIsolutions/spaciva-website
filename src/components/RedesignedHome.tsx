@@ -81,10 +81,9 @@ function Hero() {
       <div className="absolute right-0 top-0 w-[55vw] h-full bg-gradient-to-bl from-[#FF4D00]/10 via-[#FFB347]/6 to-transparent pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 lg:px-10 w-full">
-        <div className="grid lg:grid-cols-[1fr_400px] gap-16 items-center pt-8 pb-20 lg:pt-10 lg:pb-28">
-          {/* Left */}
-          <div>
-
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center pt-8 pb-20 lg:pt-10 lg:pb-28">
+          {/* Left copy */}
+          <div className="lg:col-span-7">
             <motion.h1
               initial={{ opacity: 0, y: 36 }}
               animate={{ opacity: 1, y: 0 }}
@@ -159,45 +158,26 @@ function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: floating service cards */}
+          {/* Right: Premium Mockup Image */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="hidden lg:flex flex-col gap-3"
+            initial={{ opacity: 0, scale: 0.96, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-5 w-full flex justify-center"
           >
-            {[
-              { label: "Business Websites", sub: "Corporate · E-Commerce · Redesigns", color: "#FF4D00" },
-              { label: "Custom Software", sub: "CRMs · ERPs · Operations Dashboards", color: "#0E0E0C" },
-              { label: "AI Automation", sub: "Chatbots · WhatsApp · Workflows", color: "#7C3AED" },
-              { label: "Mobile Apps", sub: "iOS & Android Applications", color: "#059669" },
-              { label: "Ongoing Support", sub: "Maintenance & Technical Partner", color: "#3B82F6" },
-            ].map((card, i) => (
-              <motion.div
-                key={card.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.55 + i * 0.1 }}
-                className="flex items-center gap-4 px-5 py-4 bg-white rounded-2xl border border-black/[0.07] shadow-[0_2px_12px_rgba(0,0,0,0.06)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.1)] transition-shadow duration-200 cursor-default"
-              >
-                <div
-                  className="w-9 h-9 rounded-xl flex-shrink-0 flex items-center justify-center"
-                  style={{ background: card.color + "14" }}
-                >
-                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: card.color }} />
-                </div>
-                <div>
-                  <div className="text-[13px] font-semibold text-[#0E0E0C]" style={{ fontFamily: J }}>
-                    {card.label}
-                  </div>
-                  <div className="text-[11px] text-[#6B6A65] mt-0.5" style={{ fontFamily: I }}>
-                    {card.sub}
-                  </div>
-                </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#BBBBBA] ml-auto" />
-              </motion.div>
-            ))}
+            <div className="relative w-full max-w-[480px] lg:max-w-none rounded-3xl overflow-hidden border border-black/[0.06] shadow-[0_20px_50px_rgba(0,0,0,0.06)] bg-[#F3F2EE] p-2.5">
+              <div className="rounded-2xl overflow-hidden bg-white aspect-[4/3] relative">
+                <img
+                  src="/hero-mockup.png"
+                  alt="Spaciva Custom Dashboard"
+                  className="w-full h-full object-cover transform hover:scale-[1.015] transition-transform duration-500"
+                />
+              </div>
+              {/* Subtle accent border */}
+              <div className="absolute inset-0 rounded-3xl border border-[#FF4D00]/10 pointer-events-none" />
+            </div>
           </motion.div>
+
         </div>
       </div>
     </section>
@@ -758,7 +738,7 @@ const CASE_STUDIES = [
     solution: "Engineered a custom AI coaching agent using advanced LLM pipelines, RAG context retrieval, and low-latency API integration.",
     outcome: "A production-ready wellness product that remembers user history, provides personalized support, and runs securely.",
     demoLink: "https://wildmind.ai",
-    img: "photo-1620712943543-bcc4688e7485",
+    img: "/qms-case-study.png",
   },
   {
     name: "Siddhraj",
@@ -771,7 +751,7 @@ const CASE_STUDIES = [
     solution: "Developed a custom multi-tenant B2B CRM with integrated sales automation, automatic property tracking, and role-based permissions.",
     outcome: "Streamlined sales pipeline with 100% data control and zero monthly subscription costs per seat.",
     demoLink: "#",
-    img: "photo-1486325212027-8081e485255e",
+    img: "/crm-case-study.png",
   },
   {
     name: "Vachnamrut",
@@ -784,7 +764,7 @@ const CASE_STUDIES = [
     solution: "Designed a bespoke LMS with an auto-grading engine, custom quiz builders, and highly optimized content caching.",
     outcome: "Improved administrator efficiency, faster course completion rates, and reliable performance during peak exam hours.",
     demoLink: "#",
-    img: "photo-1501504905252-473c47e087f8",
+    img: "/lms-case-study.png",
   },
   {
     name: "Unoloft",
@@ -797,7 +777,7 @@ const CASE_STUDIES = [
     solution: "Re-engineered front-end code with Next.js static site generation, optimized image assets, and performed technical SEO tuning.",
     outcome: "Tripled organic search traffic in 90 days and achieved perfect Google Lighthouse performance scores.",
     demoLink: "#",
-    img: "photo-1460925895917-afdab827c52f",
+    img: "/hero-mockup.png",
   },
 ];
 
@@ -815,7 +795,7 @@ function CaseStudyCard({ p, i }: { p: typeof CASE_STUDIES[0]; i: number }) {
         {/* Image */}
         <div className="relative overflow-hidden bg-[#E0DED9] h-72">
           <img
-            src={`https://images.unsplash.com/${p.img}?w=800&h=400&fit=crop&auto=format`}
+            src={p.img}
             alt={p.name}
             className="w-full h-full object-cover opacity-70 group-hover:opacity-85 group-hover:scale-[1.02] transition-all duration-500"
           />
