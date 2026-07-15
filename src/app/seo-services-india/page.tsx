@@ -59,7 +59,7 @@ export default function SEOServicesIndiaPage() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        
+
         {/* Hero Section */}
         <div className="mb-24 max-w-4xl pt-12">
           <span className="inline-flex items-center gap-2 mb-6">
