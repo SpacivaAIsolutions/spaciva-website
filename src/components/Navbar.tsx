@@ -3,61 +3,100 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { ArrowRight, Menu, X, ChevronDown, Cpu, Database, Globe, Smartphone } from "lucide-react";
+import { ArrowRight, Menu, X, ChevronDown, Cpu, Database, Globe, Smartphone, Cloud, PenTool, Zap, BarChart3 } from "lucide-react";
 
 const NAV = [
-  {
-    name: "Solutions",
-    href: "/#solutions",
-    hasMegaMenu: true,
-    type: "solutions"
-  },
-  {
-    name: "Industries",
-    href: "/#industries",
-    hasMegaMenu: true,
-    type: "industries"
-  },
-  { name: "Contact", href: "/contact" },
+  { name: "Services", href: "/#services", hasMegaMenu: true, type: "services" },
+  { name: "Industries", href: "/#industries", hasMegaMenu: true, type: "industries" },
+  { name: "Contact", href: "/contact", hasMegaMenu: false },
 ];
 
 const MEGA_MENUS = {
-  solutions: [
+  services: [
     {
-      title: "AI Automation",
-      items: ["Chatbots", "WhatsApp Bots", "Workflows", "LLMs"],
+      title: "AI & Machine Learning",
       icon: Cpu,
       color: "text-purple-600",
-      bg: "bg-purple-100"
+      bg: "bg-purple-100",
+      items: ["AI Agents", "AI Chatbots", "Generative AI", "RAG Systems", "Custom LLMs", "AI Automation"]
+    },
+    {
+      title: "Web Engineering",
+      icon: Globe,
+      color: "text-blue-600",
+      bg: "bg-blue-100",
+      items: ["Business Websites", "Enterprise Portals", "SaaS Platforms", "E-Commerce", "Progressive Web Apps"]
+    },
+    {
+      title: "Mobile Development",
+      icon: Smartphone,
+      color: "text-emerald-600",
+      bg: "bg-emerald-100",
+      items: ["iOS Apps", "Android Apps", "Flutter Development", "React Native", "Enterprise Mobile Apps"]
     },
     {
       title: "Custom Software",
-      items: ["CRMs", "ERPs", "Dashboards"],
       icon: Database,
-      color: "text-blue-600",
-      bg: "bg-blue-100"
-    },
-    {
-      title: "Web Applications",
-      items: ["Corporate", "E-Commerce", "SaaS"],
-      icon: Globe,
       color: "text-indigo-600",
-      bg: "bg-indigo-100"
+      bg: "bg-indigo-100",
+      items: ["CRM Development", "ERP Systems", "HRMS", "Inventory Management", "Internal Business Tools", "Custom Dashboards"]
     },
     {
-      title: "Mobile Apps",
-      items: ["iOS Apps", "Android Apps", "React Native"],
-      icon: Smartphone,
-      color: "text-emerald-600",
-      bg: "bg-emerald-100"
+      title: "Cloud & DevOps",
+      icon: Cloud,
+      color: "text-cyan-600",
+      bg: "bg-cyan-100",
+      items: ["AWS", "Azure", "Docker", "Kubernetes", "CI/CD", "Monitoring", "Infrastructure Automation"]
+    },
+    {
+      title: "Product Design",
+      icon: PenTool,
+      color: "text-pink-600",
+      bg: "bg-pink-100",
+      items: ["UI/UX Design", "Product Strategy", "Design Systems", "UX Research", "Wireframing", "Prototyping"]
+    },
+    {
+      title: "Business Automation",
+      icon: Zap,
+      color: "text-orange-600",
+      bg: "bg-orange-100",
+      items: ["Workflow Automation", "WhatsApp Automation", "Email Automation", "CRM Automation", "Document Automation", "AI Assistants"]
+    },
+    {
+      title: "Data & Analytics",
+      icon: BarChart3,
+      color: "text-teal-600",
+      bg: "bg-teal-100",
+      items: ["Business Intelligence", "Dashboards", "Data Warehousing", "ETL Pipelines", "Predictive Analytics"]
     }
   ],
+  solutions: [
+    { title: "Business Growth", desc: "Scale operations & revenue" },
+    { title: "AI Automation", desc: "Intelligent workflows" },
+    { title: "Workflow Automation", desc: "Streamline daily tasks" },
+    { title: "WhatsApp Automation", desc: "Engage customers 24/7" },
+    { title: "CRM Solutions", desc: "Manage client relationships" },
+    { title: "HR Management", desc: "Modernize workforce tools" },
+    { title: "Inventory Management", desc: "Real-time stock tracking" },
+    { title: "Lead Management", desc: "Convert more prospects" },
+    { title: "Customer Support AI", desc: "Automated helpdesk" },
+    { title: "Knowledge Base AI", desc: "Instant information retrieval" },
+    { title: "Document Processing", desc: "Automated data extraction" },
+    { title: "Analytics Dashboard", desc: "Data-driven insights" },
+  ],
   industries: [
-    { title: "Healthcare", desc: "Patient portals & telemedicine" },
-    { title: "Fintech", desc: "Secure payment gateways & apps" },
-    { title: "Real Estate", desc: "Property management solutions" },
-    { title: "E-Commerce", desc: "Scalable online retail platforms" },
-    { title: "Startups", desc: "MVPs and rapid scaling" }
+    { title: "Healthcare", href: "/industries/healthcare" },
+    { title: "Finance & FinTech", href: "/industries/finance" },
+    { title: "Manufacturing", href: "/industries/manufacturing" },
+    { title: "Retail & E-Commerce", href: "/industries/retail" },
+    { title: "Real Estate", href: "/industries/real-estate" },
+    { title: "Education", href: "/industries/education" },
+    { title: "Logistics", href: "/industries/logistics" },
+    { title: "Hospitality", href: "/industries/hospitality" },
+    { title: "Energy & Utilities", href: "/industries/energy" },
+    { title: "Construction", href: "/industries/construction" },
+    { title: "Government", href: "/industries/government" },
+    { title: "Startups", href: "/industries/startups" }
   ]
 };
 
@@ -92,18 +131,41 @@ function MobileNavItem({ n, setOpen }: { n: any, setOpen: any }) {
             className="overflow-hidden px-4"
           >
             <div className="py-2 pl-4 border-l-2 border-[#E2E8F0] ml-2 flex flex-col gap-4">
+              {n.type === 'services' && MEGA_MENUS.services.map((srv, idx) => (
+                <div key={idx} className="flex flex-col gap-2">
+                  <div className="flex items-center gap-3">
+                    <srv.icon className={cn("w-4 h-4", srv.color)} />
+                    <span className="font-bold text-sm text-gray-900">{srv.title}</span>
+                  </div>
+                  <div className="flex flex-col gap-1.5 ml-7">
+                    {srv.items.map((item, i) => (
+                      <span key={i} className="text-xs text-gray-500 hover:text-[#7C3AED] cursor-pointer">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
               {n.type === 'solutions' && MEGA_MENUS.solutions.map((sol, idx) => (
                 <div key={idx} className="flex flex-col">
                   <span className="font-bold text-sm text-gray-900">{sol.title}</span>
-                  <span className="text-xs text-gray-500 mt-0.5">{sol.items.join(', ')}</span>
+                  <span className="text-xs text-gray-500 mt-0.5">{sol.desc}</span>
                 </div>
               ))}
-              {n.type === 'industries' && MEGA_MENUS.industries.map((ind, idx) => (
-                <div key={idx} className="flex flex-col">
-                  <span className="font-bold text-sm text-gray-900">{ind.title}</span>
-                  <span className="text-xs text-gray-500 mt-0.5">{ind.desc}</span>
-                </div>
-              ))}
+              {n.type === 'industries' && (
+                <>
+                  {MEGA_MENUS.industries.map((ind, idx) => (
+                    <a key={idx} href={ind.href} onClick={() => setOpen(false)} className="flex flex-col">
+                      <span className="font-bold text-sm text-gray-900 hover:text-[#7C3AED] transition-colors">{ind.title}</span>
+                    </a>
+                  ))}
+                  <div className="mt-2 pt-4 border-t border-gray-100">
+                    <a href="/industries" className="text-sm font-bold text-[#7C3AED] flex items-center gap-2">
+                      Explore All Industries <ArrowRight className="w-4 h-4" />
+                    </a>
+                  </div>
+                </>
+              )}
             </div>
           </motion.div>
         )}
@@ -267,33 +329,59 @@ export default function Navbar() {
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 style={{ transformOrigin: 'top center' }}
               >
+                {hoveredMenu === 'services' && (
+                  <div className="grid grid-cols-4 gap-x-8 gap-y-10">
+                    {MEGA_MENUS.services.map((srv, idx) => (
+                      <div key={idx} className="flex flex-col">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center shrink-0", srv.bg)}>
+                            <srv.icon className={cn("w-5 h-5", srv.color)} />
+                          </div>
+                          <h4 className="font-bold text-gray-900">{srv.title}</h4>
+                        </div>
+                        <ul className="space-y-2.5 ml-[52px]">
+                          {srv.items.map((item, i) => (
+                            <li key={i} className="text-sm font-medium text-gray-500 hover:text-[#7C3AED] cursor-pointer transition-colors">
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
                 {hoveredMenu === 'solutions' && (
-                  <div className="grid grid-cols-4 gap-8">
+                  <div className="grid grid-cols-4 gap-6">
                     {MEGA_MENUS.solutions.map((sol, idx) => (
-                      <div key={idx} className="flex gap-4 group/item cursor-pointer p-2 rounded-2xl hover:bg-gray-50 transition-colors">
-                        <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center shrink-0", sol.bg)}>
-                          <sol.icon className={cn("w-6 h-6", sol.color)} />
-                        </div>
-                        <div>
-                          <h4 className="font-bold text-gray-900 mb-1 group-hover/item:text-[#7C3AED] transition-colors">{sol.title}</h4>
-                          <p className="text-xs text-gray-500">{sol.items.join(' • ')}</p>
-                        </div>
+                      <div key={idx} className="group/item cursor-pointer p-3 -m-3 rounded-xl hover:bg-gray-50 transition-colors">
+                        <h4 className="font-bold text-gray-900 mb-1 group-hover/item:text-[#7C3AED] transition-colors flex items-center justify-between">
+                          {sol.title}
+                          <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-[#7C3AED]" />
+                        </h4>
+                        <p className="text-xs text-gray-500 line-clamp-1">{sol.desc}</p>
                       </div>
                     ))}
                   </div>
                 )}
 
                 {hoveredMenu === 'industries' && (
-                  <div className="grid grid-cols-5 gap-6">
-                    {MEGA_MENUS.industries.map((ind, idx) => (
-                      <div key={idx} className="p-4 rounded-2xl hover:bg-gray-50 cursor-pointer transition-colors group/item">
-                        <h4 className="font-bold text-gray-900 mb-1 flex items-center justify-between">
-                          {ind.title}
-                          <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-[#7C3AED]" />
-                        </h4>
-                        <p className="text-xs text-gray-500">{ind.desc}</p>
-                      </div>
-                    ))}
+                  <div className="flex flex-col">
+                    <div className="grid grid-cols-4 gap-4 mb-6">
+                      {MEGA_MENUS.industries.map((ind, idx) => (
+                        <a key={idx} href={ind.href} className="group/item py-3 px-4 rounded-xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100 block">
+                          <h4 className="font-bold text-gray-900 group-hover/item:text-[#7C3AED] transition-colors flex items-center justify-between">
+                            {ind.title}
+                            <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-[#7C3AED]" />
+                          </h4>
+                        </a>
+                      ))}
+                    </div>
+                    <div className="pt-6 border-t border-gray-100 flex justify-end">
+                      <a href="/industries" className="text-sm font-bold text-[#7C3AED] flex items-center gap-2 hover:gap-3 transition-all">
+                        Explore All Industries <ArrowRight className="w-4 h-4" />
+                      </a>
+                    </div>
                   </div>
                 )}
               </motion.div>
