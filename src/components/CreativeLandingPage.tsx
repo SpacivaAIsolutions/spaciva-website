@@ -504,6 +504,11 @@ function FooterSection() {
                 <path fill="#ffffff" d="M16.9,4H7.1C5.4,4,4,5.4,4,7.1v9.8C4,18.6,5.4,20,7.1,20h9.8c1.7,0,3.1-1.4,3.1-3.1V7.1C20,5.4,18.6,4,16.9,4z M18,16.9c0,0.6-0.5,1.1-1.1,1.1H7.1C6.5,18,6,17.5,6,16.9V7.1C6,6.5,6.5,6,7.1,6h9.8C17.5,6,18,6.5,18,7.1V16.9z" />
               </svg>
             </a>
+            <a href="https://www.linkedin.com/in/spaciva-ai-solution-6b3626412/" target="_blank" rel="noreferrer" className="hover:scale-110 transition-transform origin-left text-[#0077b5]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </a>
           </div>
         </div>
 
