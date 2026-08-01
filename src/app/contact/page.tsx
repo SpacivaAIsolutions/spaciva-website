@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Mail, Phone, MapPin, Calendar, MessageSquare, Lightbulb, HelpCircle, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import Script from "next/script";
 
 function cn(...c: (string | undefined | false)[]) {
   return c.filter(Boolean).join(" ");
@@ -46,6 +47,8 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-white text-[#0F172A] overflow-hidden selection:bg-[#7C3AED]/20 selection:text-[#7C3AED] flex flex-col font-sans relative">
+      <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+      <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
 
       {/* Background Dot Grid */}
       <div
@@ -109,15 +112,18 @@ export default function ContactPage() {
                   </p>
                 </div>
 
-                <a
-                  href="https://calendly.com"
-                  target="_blank"
-                  rel="noreferrer"
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (typeof window !== 'undefined' && (window as any).Calendly) {
+                      (window as any).Calendly.initPopupWidget({ url: 'https://calendly.com/spacivasolution/30min' });
+                    }
+                  }}
                   className="mt-2 px-8 py-4 rounded-full bg-[#7C3AED] text-white font-bold text-base hover:bg-[#6D28D9] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-[#7C3AED]/30 flex items-center gap-2 group"
                 >
                   Let's Talk Business
                   <ExternalLink className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </a>
+                </button>
               </div>
             </motion.div>
 
