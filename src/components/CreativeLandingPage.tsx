@@ -130,31 +130,35 @@ function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Dark Stats Bar */}
+        {/* Creative Feature Pills */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-10 bg-[#0F172A] rounded-3xl w-full max-w-xl relative overflow-hidden flex shadow-2xl shadow-[#0F172A]/10 mx-auto lg:mx-0"
+          className="mt-12 flex flex-col sm:flex-row flex-wrap gap-4 mx-auto lg:mx-0 w-full max-w-2xl"
         >
-          <div className="absolute top-0 right-0 w-64 h-full bg-gradient-to-l from-[#1E293B] to-transparent pointer-events-none" />
-          <div className="absolute -top-24 -left-12 w-48 h-48 bg-[#7C3AED]/10 rounded-full blur-2xl pointer-events-none" />
+          {/* Transparent Development */}
+          <div className="flex items-center gap-3 bg-white/60 backdrop-blur-md border border-gray-200/50 rounded-2xl px-5 py-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(124,58,237,0.1)] hover:-translate-y-1 transition-all duration-300 group cursor-default">
+            <div className="w-8 h-8 rounded-full bg-[#7C3AED]/10 flex items-center justify-center text-[#7C3AED] group-hover:bg-[#7C3AED] group-hover:text-white transition-colors duration-300">
+              <svg fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+            </div>
+            <span className="text-[#0F172A] font-bold text-[13px] tracking-wide">Transparent Development</span>
+          </div>
 
-          <div className="relative z-10 flex w-full">
-            <div className="bg-[#7C3AED] py-5 px-6 md:px-8 flex flex-col justify-center rounded-r-3xl relative z-20 min-w-[160px]">
-              <div className="flex flex-col mb-3">
-                <span className="text-white/80 text-[10px] uppercase font-bold tracking-wider leading-tight">Custom Solutions<br />Delivered</span>
-                <span className="text-white font-extrabold text-2xl">12+</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-white/80 text-[10px] uppercase font-bold tracking-wider leading-tight">Businesses<br />Supported</span>
-                <span className="text-white font-extrabold text-2xl">12+</span>
-              </div>
+          {/* Weekly Progress Updates */}
+          <div className="flex items-center gap-3 bg-white/60 backdrop-blur-md border border-gray-200/50 rounded-2xl px-5 py-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(124,58,237,0.1)] hover:-translate-y-1 transition-all duration-300 group cursor-default">
+            <div className="w-8 h-8 rounded-full bg-[#7C3AED]/10 flex items-center justify-center text-[#7C3AED] group-hover:bg-[#7C3AED] group-hover:text-white transition-colors duration-300">
+              <svg fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>
             </div>
-            <div className="py-6 px-8 md:px-10 flex flex-col justify-center relative z-10">
-              <span className="text-white/70 text-xs font-bold tracking-wide mb-1">Code Ownership</span>
-              <span className="text-white font-extrabold text-4xl md:text-5xl tracking-tight">100%</span>
+            <span className="text-[#0F172A] font-bold text-[13px] tracking-wide">Weekly Progress Updates</span>
+          </div>
+
+          {/* Scalable Architecture */}
+          <div className="flex items-center gap-3 bg-white/60 backdrop-blur-md border border-gray-200/50 rounded-2xl px-5 py-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(124,58,237,0.1)] hover:-translate-y-1 transition-all duration-300 group cursor-default">
+            <div className="w-8 h-8 rounded-full bg-[#7C3AED]/10 flex items-center justify-center text-[#7C3AED] group-hover:bg-[#7C3AED] group-hover:text-white transition-colors duration-300">
+              <svg fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M6 6.878V6a2.25 2.25 0 012.25-2.25h7.5A2.25 2.25 0 0118 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 004.5 9v.878m13.5-3A2.25 2.25 0 0119.5 9v.878m0 0a2.246 2.246 0 00-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0121 12v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6c0-.98.626-1.813 1.5-2.122" /></svg>
             </div>
+            <span className="text-[#0F172A] font-bold text-[13px] tracking-wide">Scalable Architecture</span>
           </div>
         </motion.div>
       </div>
@@ -264,7 +268,7 @@ function WhatWeDoSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`group flex flex-col bg-[#0E0E0C] rounded-[2rem] p-6 lg:p-8 border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.2)] shadow-[#7C3AED]/5 hover:border-[#7C3AED]/40 hover:shadow-[#7C3AED]/20 transition-all duration-500 overflow-hidden relative ${spanClass}`}
+                className={`group flex flex-col bg-white/[0.03] backdrop-blur-xl rounded-[2rem] p-6 lg:p-8 border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_30px_rgba(0,0,0,0.2)] hover:bg-white/[0.06] hover:border-[#7C3AED]/40 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_30px_rgba(124,58,237,0.2)] transition-all duration-500 overflow-hidden relative ${spanClass}`}
               >
                 {/* Decorative glowing orb inside the card */}
                 <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#7C3AED]/10 rounded-full blur-3xl pointer-events-none transition-all duration-700 group-hover:bg-[#7C3AED]/30 group-hover:scale-150" />

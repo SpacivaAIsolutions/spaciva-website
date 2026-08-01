@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll } from "framer-motion";
+import { usePathname } from "next/navigation";
 import { ArrowRight, Menu, X, ChevronDown, Cpu, Database, Globe, Smartphone } from "lucide-react";
 
 const NAV = [
@@ -112,6 +113,10 @@ function MobileNavItem({ n, setOpen }: { n: any, setOpen: any }) {
 }
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isLandingPage = pathname === "/";
+  const { scrollYProgress } = useScroll();
+
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
@@ -163,9 +168,37 @@ export default function Navbar() {
 
           {/* Desktop links */}
           <nav className={cn(
-            "hidden md:flex items-center gap-1 h-[48px] px-3 rounded-full backdrop-blur-md shadow-sm transition-all duration-300 border",
+            "hidden md:flex items-center gap-1 h-[48px] px-3 rounded-full backdrop-blur-md shadow-sm transition-all duration-300 border relative",
             scrolled || isDark ? (isDark ? "bg-[#0F172A]/40 border-white/10" : "bg-white/60 border-gray-200/50") : "bg-transparent border-transparent"
           )}>
+            {/* Scroll Progress Border */}
+            {isLandingPage && (
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ overflow: 'visible' }}>
+                <defs>
+                  <linearGradient id="nav-progress-gradient" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stopColor="#3B82F6" />
+                    <stop offset="50%" stopColor="#7C3AED" />
+                    <stop offset="100%" stopColor="#EC4899" />
+                  </linearGradient>
+                </defs>
+                {/* Faint track so it's visible by default */}
+                <rect
+                  x="0" y="0" width="100%" height="100%" rx="24"
+                  fill="none"
+                  stroke={isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.05)"}
+                  strokeWidth="2.5"
+                />
+                {/* Colorful progress line */}
+                <motion.rect
+                  x="0" y="0" width="100%" height="100%" rx="24"
+                  fill="none"
+                  stroke="url(#nav-progress-gradient)"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  style={{ pathLength: scrollYProgress }}
+                />
+              </svg>
+            )}
             {NAV.map((n) => (
               <div
                 key={n.name}
@@ -175,14 +208,22 @@ export default function Navbar() {
                 <a
                   href={n.href}
                   className={cn(
-                    "px-4 py-2 text-sm rounded-full font-semibold transition-all duration-150 flex items-center gap-1",
+                    "px-4 py-2 text-sm rounded-full font-semibold transition-all duration-150 flex items-center relative",
                     isDark
-                      ? "text-white/80 hover:text-white hover:bg-white/10"
-                      : "text-[#334155] hover:text-[#7C3AED] hover:bg-[#F8FAFC]"
+                      ? "text-white/80 hover:text-white hover:bg-white/5"
+                      : "text-[#334155] hover:text-[#7C3AED] hover:bg-black/5"
                   )}
                 >
-                  {n.name}
-                  {n.hasMegaMenu && <ChevronDown className={cn("w-4 h-4 opacity-70 transition-transform duration-300", hoveredMenu === n.type && "rotate-180")} />}
+                  <span className="relative">
+                    {n.name}
+                    {n.hasMegaMenu && (
+                      <span className={cn(
+                        "absolute -bottom-1 left-0 right-0 h-[2px] transition-all duration-300 ease-out rounded-full origin-center",
+                        hoveredMenu === n.type ? "opacity-0 scale-x-50" : "opacity-100 scale-x-100",
+                        isDark ? "bg-white/30" : "bg-gray-300"
+                      )} />
+                    )}
+                  </span>
                 </a>
               </div>
             ))}
@@ -219,11 +260,11 @@ export default function Navbar() {
           <AnimatePresence>
             {hoveredMenu && (
               <motion.div
-                initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 10, scale: 0.98 }}
-                transition={{ duration: 0.2 }}
-                className="absolute top-[70px] left-5 right-5 lg:left-10 lg:right-10 bg-white rounded-3xl shadow-2xl shadow-[#7C3AED]/10 border border-[#E2E8F0] p-8 cursor-default before:absolute before:-top-6 before:left-0 before:right-0 before:h-6 before:content-[''] before:bg-transparent"
+                initial={{ opacity: 0, scaleY: 0 }}
+                animate={{ opacity: 1, scaleY: 1 }}
+                exit={{ opacity: 0, scaleY: 0 }}
+                className="absolute top-[60px] left-5 right-5 lg:left-10 lg:right-10 bg-white rounded-3xl shadow-2xl shadow-[#7C3AED]/10 border border-[#E2E8F0] p-8 cursor-default"
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 style={{ transformOrigin: 'top center' }}
               >
                 {hoveredMenu === 'solutions' && (
@@ -290,6 +331,6 @@ export default function Navbar() {
           )}
         </AnimatePresence>
       </div>
-    </motion.header>
+    </motion.header >
   );
 }
