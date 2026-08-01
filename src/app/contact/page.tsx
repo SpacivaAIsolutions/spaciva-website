@@ -1,79 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, CheckCircle, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, CheckCircle, Mail, Phone, MapPin, Calendar, MessageSquare, Lightbulb, HelpCircle, ExternalLink } from "lucide-react";
+import Navbar from "@/components/Navbar";
 
-const J = "'Cabinet Grotesk', sans-serif";
-const I = "'Geist Sans', sans-serif";
-
-const faqs = [
-  {
-    q: "How does the engagement process start?",
-    a: "We start with a 30-minute scoping call to map out your software requirements, database needs, or AI integration goals. Following this, we deliver a technical roadmap and MVP specification document.",
-  },
-  {
-    q: "Do you sign Non-Disclosure Agreements (NDAs)?",
-    a: "Yes. We respect intellectual property. We sign standard NDAs before discussing custom project databases, API architectures, or private client systems.",
-  },
-  {
-    q: "Do we own the custom source code?",
-    a: "Yes. Unlike generic SaaS portals, you receive 100% full codebase ownership of the custom CRM, LMS, or web portals we build, allowing you to scale or host without recurring seat license fees.",
-  },
-  {
-    q: "What is your typical development cycle?",
-    a: "A custom landing page or SEO setup typically takes 2–3 weeks. More complex AI pipelines, corporate training LMS interfaces, or sales CRM modules take 4–8 weeks to deliver a verified, fully operational build.",
-  },
-];
-
-function FAQItem({ faq, idx }: { faq: { q: string; a: string }, idx: number }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="border-b border-black/[0.08]">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full py-6 flex items-center justify-between group text-left transition-colors hover:text-[#FF4D00]"
-      >
-        <div className="flex items-center gap-6">
-          <span className="text-xs font-semibold text-[#6B6A65] w-4" style={{ fontFamily: I }}>
-            0{idx + 1}
-          </span>
-          <span className="text-base sm:text-lg font-bold tracking-tight text-[#0E0E0C] group-hover:text-[#FF4D00] transition-colors" style={{ fontFamily: J }}>
-            {faq.q}
-          </span>
-        </div>
-        <div className="w-6 h-6 rounded-full border border-black/[0.08] flex items-center justify-center flex-shrink-0 group-hover:border-[#FF4D00]/30 transition-all duration-200">
-          <ChevronRight
-            className={`w-3 h-3 text-[#6B6A65] transition-transform duration-300 ${open ? 'rotate-90 text-[#FF4D00]' : ''}`}
-          />
-        </div>
-      </button>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden"
-          >
-            <div className="pb-6 pl-10 pr-4 max-w-2xl text-[#6B6A65] text-sm leading-relaxed" style={{ fontFamily: I }}>
-              {faq.a}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
+function cn(...c: (string | undefined | false)[]) {
+  return c.filter(Boolean).join(" ");
 }
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({ name: "", email: "", project: "", service: "AI Solutions" });
+  const [formData, setFormData] = useState({ name: "", email: "", project: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [website, setWebsite] = useState("");
-
-  const inputClass = "w-full border-b border-black/[0.15] py-4 bg-transparent outline-none text-[#0E0E0C] placeholder-[#BBBBBA] focus:border-[#FF4D00] transition-colors text-[15px]";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -88,150 +28,258 @@ export default function ContactPage() {
           name: formData.name,
           email: formData.email,
           website, // Honeypot
-          message: `Service Interest: ${formData.service}\n\nProject Description:\n${formData.project}`,
+          message: `Project Description:\n${formData.project}`,
         }),
       });
       const data = await response.json().catch(() => null);
       if (response.ok && data?.ok) {
         setSubmitted(true);
-        setFormData({ name: "", email: "", project: "", service: "AI Solutions" });
+        setFormData({ name: "", email: "", project: "" });
       } else {
         alert(data?.error || "Failed to submit request. Please try again.");
       }
-    } catch {
-      alert("Something went wrong. Please check your internet connection and try again.");
-    } finally {
-      setIsSubmitting(false);
+    } catch (err) {
+      alert("An error occurred. Please try again later.");
     }
+    setIsSubmitting(false);
   };
 
   return (
-    <main className="theme-redesign min-h-screen pt-28 pb-24 bg-[#F7F6F2] px-5 lg:px-10 text-[#0E0E0C]" style={{ fontFamily: I }}>
-      <div className="max-w-7xl mx-auto pt-16">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_500px] gap-16 lg:gap-24">
+    <div className="min-h-screen bg-white text-[#0F172A] overflow-hidden selection:bg-[#7C3AED]/20 selection:text-[#7C3AED] flex flex-col font-sans relative">
 
-          {/* Left Panel: Intro & FAQs */}
-          <div>
-            <span className="inline-flex items-center gap-2 mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#FF4D00]" />
-              <span
-                className="text-xs font-semibold text-[#FF4D00] uppercase tracking-[0.14em]"
-                style={{ fontFamily: I }}
-              >
-                Get in Touch
-              </span>
-            </span>
-            <h1 className="text-[clamp(2.4rem,6vw,4.5rem)] font-extrabold leading-[1.08] tracking-tight text-[#0E0E0C] mb-8" style={{ fontFamily: J }}>
-              Start Your <br />
-              <span className="italic font-light text-[#6B6A65]">Project.</span>
-            </h1>
-            <p className="text-[#6B6A65] text-base leading-relaxed mb-12 max-w-md" style={{ fontFamily: I }}>
-              Tell us about your project requirements. We will review, scope, and reply within 24 hours.
-            </p>
+      {/* Background Dot Grid */}
+      <div
+        className="fixed inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, #E2E8F0 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+        }}
+      />
 
-            <div className="mb-16">
-              <span className="text-[11px] font-bold text-[#6B6A65] uppercase tracking-wider block mb-2" style={{ fontFamily: I }}>Direct Email</span>
-              <a
-                href="mailto:spacivaaisolution@gmail.com"
-                className="text-xl sm:text-2xl font-bold text-[#0E0E0C] hover:text-[#FF4D00] transition-colors"
-                style={{ fontFamily: J }}
-              >
-                spacivaaisolution@gmail.com
-              </a>
-            </div>
+      {/* Soft gradient blobs for visual interest */}
+      <div className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#7C3AED]/5 rounded-full blur-[120px] pointer-events-none z-0" />
+      <div className="fixed top-[20%] right-[-10%] w-[40%] h-[40%] bg-[#4F46E5]/5 rounded-full blur-[100px] pointer-events-none z-0" />
 
-            <div className="mt-16 border-t border-black/[0.08]">
-              <h3 className="text-xl font-bold text-[#0E0E0C] mt-16 mb-8 tracking-tight" style={{ fontFamily: J }}>Common Questions</h3>
-              <div className="border-t border-black/[0.08]">
-                {faqs.map((faq, idx) => <FAQItem key={faq.q} faq={faq} idx={idx} />)}
+      {/* Embedded Navbar */}
+      <div className="relative z-50">
+        <Navbar />
+      </div>
+
+      <main className="flex-1 w-full pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto relative z-10 flex flex-col gap-12">
+
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center max-w-3xl mx-auto flex flex-col items-center"
+        >
+
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-[#0F172A]">
+            Tell Us the Problem. We'll Design the <span className="text-[#7C3AED]">Solution.</span>
+          </h1>
+          <p className="text-lg text-[#334155] font-medium leading-relaxed max-w-2xl mx-auto">
+            Forget the buzzwords. AI, apps, automation, or software—we'll recommend what actually fits your business.
+          </p>
+        </motion.div>
+
+        {/* Two Column Layout: Call & Message Side by Side */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-6xl mx-auto mt-4">
+
+          {/* Left Column: Call Card & Contact Info */}
+          <div className="flex flex-col gap-8">
+            {/* Priority 1: Meeting Button Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="w-full relative"
+            >
+              {/* Glowing border effect */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#7C3AED] to-[#4F46E5] rounded-[32px] blur opacity-20 pointer-events-none" />
+
+              <div className="relative bg-white/80 backdrop-blur-xl border border-[#E2E8F0] rounded-3xl p-8 md:p-10 shadow-2xl shadow-[#7C3AED]/10 flex flex-col items-center text-center gap-4 h-full">
+                <div className="w-16 h-16 bg-[#F5F3FF] rounded-2xl flex items-center justify-center mb-2">
+                  <Calendar className="w-8 h-8 text-[#7C3AED]" />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-extrabold text-[#0F172A] mb-2">Schedule Your Discovery Call</h2>
+                  <p className="text-[#334155] font-medium text-sm max-w-md mx-auto">
+                    Find a time that works best for you. We'll jump on a quick 30-minute chat to discuss your business needs and how we can help.
+                  </p>
+                </div>
+
+                <a
+                  href="https://calendly.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-2 px-8 py-4 rounded-full bg-[#7C3AED] text-white font-bold text-base hover:bg-[#6D28D9] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-[#7C3AED]/30 flex items-center gap-2 group"
+                >
+                  Let's Talk Business
+                  <ExternalLink className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
               </div>
-            </div>
+            </motion.div>
+
+            {/* Alternate CTAs Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="bg-white/80 backdrop-blur-md border border-[#E2E8F0] rounded-3xl p-8 flex flex-col gap-4 shadow-xl shadow-slate-200/50"
+            >
+              <h3 className="text-xl font-bold mb-2 text-[#0F172A]">How can we help?</h3>
+
+              <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="w-full group bg-[#F8FAFC] hover:bg-[#F1F5F9] border border-[#E2E8F0] rounded-2xl p-4 flex items-center justify-between transition-all">
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-full bg-[#F5F3FF] flex items-center justify-center">
+                    <MessageSquare className="w-5 h-5 text-[#7C3AED]" />
+                  </div>
+                  <span className="font-bold text-[#0F172A] group-hover:text-[#7C3AED] transition-colors">Let's Talk</span>
+                </div>
+                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#7C3AED] group-hover:translate-x-1 transition-all" />
+              </button>
+
+              <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="w-full group bg-[#F8FAFC] hover:bg-[#F1F5F9] border border-[#E2E8F0] rounded-2xl p-4 flex items-center justify-between transition-all">
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center">
+                    <Lightbulb className="w-5 h-5 text-indigo-600" />
+                  </div>
+                  <span className="font-bold text-[#0F172A] group-hover:text-indigo-600 transition-colors">Discuss Ideas</span>
+                </div>
+                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-indigo-600 group-hover:translate-x-1 transition-all" />
+              </button>
+            </motion.div>
           </div>
 
-          {/* Right Panel: Form */}
-          <div className="pt-4 lg:pt-16">
-            {submitted ? (
-              <div className="py-12 bg-white rounded-3xl p-8 text-center border border-black/[0.06] shadow-sm">
-                <div className="inline-flex p-4 rounded-full bg-emerald-50 text-emerald-600 mb-6">
-                  <CheckCircle size={32} />
-                </div>
-                <h4 className="text-xl font-bold text-[#0E0E0C] mb-2" style={{ fontFamily: J }}>Request Sent!</h4>
-                <p className="text-[#6B6A65] text-sm mb-8 max-w-sm mx-auto" style={{ fontFamily: I }}>Thank you! Your requirements have been submitted. We will review and reply within 24 hours.</p>
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="text-xs font-semibold text-[#FF4D00] border-b border-[#FF4D00]/40 pb-0.5 hover:text-[#e54400] hover:border-[#e54400] transition-all"
-                  style={{ fontFamily: J }}
+          {/* Right Column: Form & Info */}
+          <div className="flex flex-col gap-8">
+
+            {/* Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="bg-white/80 backdrop-blur-md border border-[#E2E8F0] rounded-3xl p-8 relative overflow-hidden shadow-xl shadow-slate-200/50 flex-1 flex flex-col justify-center"
+            >
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#7C3AED]/5 rounded-full blur-3xl pointer-events-none" />
+
+              <h2 className="text-3xl font-bold mb-2 text-[#0F172A]">Or Drop Us a Message</h2>
+              <p className="text-[#334155] mb-8 font-medium">Prefer writing? Fill out the form below and we'll get back to you within 24 hours.</p>
+
+              {submitted ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="bg-[#F5F3FF] border border-[#7C3AED]/20 rounded-2xl p-8 flex flex-col items-center justify-center text-center py-20"
                 >
-                  Send another message
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-6 p-8 bg-white border border-black/[0.06] rounded-3xl shadow-[0_1px_4px_rgba(0,0,0,0.02)]">
-                <input
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className={inputClass}
-                  placeholder="Your Name *"
-                  style={{ fontFamily: I }}
-                />
+                  <div className="w-16 h-16 bg-[#7C3AED]/10 rounded-full flex items-center justify-center mb-4">
+                    <CheckCircle className="w-8 h-8 text-[#7C3AED]" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2 text-[#0F172A]">Request Received!</h3>
+                  <p className="text-[#334155]">Thank you for reaching out. We will review your project details and respond shortly.</p>
+                  <button
+                    onClick={() => setSubmitted(false)}
+                    className="mt-8 px-6 py-2 rounded-full border border-[#E2E8F0] text-[#0F172A] hover:bg-gray-50 transition-colors font-medium text-sm bg-white"
+                  >
+                    Send another message
+                  </button>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="flex flex-col gap-6 relative z-10">
+                  <input type="text" name="website" value={website} onChange={(e) => setWebsite(e.target.value)} className="hidden" tabIndex={-1} autoComplete="off" />
 
-                <input
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className={inputClass}
-                  placeholder="Email Address *"
-                  style={{ fontFamily: I }}
-                />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="flex flex-col gap-2">
+                      <label className="text-sm font-bold text-[#334155]">Full Name</label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        placeholder="Jane Doe"
+                        className="w-full bg-white border border-[#E2E8F0] rounded-xl px-5 py-4 outline-none text-[#0F172A] placeholder-gray-400 focus:border-[#7C3AED] focus:ring-4 focus:ring-[#7C3AED]/10 transition-all shadow-sm"
+                      />
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <label className="text-sm font-bold text-[#334155]">Email Address</label>
+                      <input
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="jane@company.com"
+                        className="w-full bg-white border border-[#E2E8F0] rounded-xl px-5 py-4 outline-none text-[#0F172A] placeholder-gray-400 focus:border-[#7C3AED] focus:ring-4 focus:ring-[#7C3AED]/10 transition-all shadow-sm"
+                      />
+                    </div>
+                  </div>
 
-                <select
-                  value={formData.service}
-                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                  className={`${inputClass} cursor-pointer appearance-none bg-white`}
-                  style={{ fontFamily: I }}
-                >
-                  <option value="AI Solutions">AI Automation Agents</option>
-                  <option value="CRM Development">Custom CRM Systems</option>
-                  <option value="LMS Systems">Enterprise LMS Platforms</option>
-                  <option value="Web Development">Custom Web Applications</option>
-                  <option value="Technical SEO">Search Engine Optimization</option>
-                </select>
+                  <div className="flex flex-col gap-2">
+                    <label className="text-sm font-bold text-[#334155]">Project Details</label>
+                    <textarea
+                      required
+                      value={formData.project}
+                      onChange={(e) => setFormData({ ...formData, project: e.target.value })}
+                      placeholder="Tell us about your challenges, goals, and what you're looking to build..."
+                      rows={4}
+                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-5 py-4 outline-none text-[#0F172A] placeholder-gray-400 focus:border-[#7C3AED] focus:ring-4 focus:ring-[#7C3AED]/10 transition-all resize-none shadow-sm"
+                    />
+                  </div>
 
-                {/* Honeypot */}
-                <div className="hidden" aria-hidden="true">
-                  <input value={website} onChange={(e) => setWebsite(e.target.value)} />
-                </div>
-
-                <textarea
-                  required
-                  rows={5}
-                  value={formData.project}
-                  onChange={(e) => setFormData({ ...formData, project: e.target.value })}
-                  className={`${inputClass} resize-none`}
-                  placeholder="Project Description *"
-                  style={{ fontFamily: I }}
-                />
-
-                <div className="mt-4 flex justify-start">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="flex items-center gap-2 px-7 py-3.5 rounded-2xl font-bold text-white bg-[#FF4D00] hover:bg-[#e54400] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed w-full justify-center text-[15px]"
-                    style={{ fontFamily: J }}
+                    className="mt-2 w-full h-[60px] rounded-full bg-[#7C3AED] text-white font-bold text-lg hover:bg-[#6D28D9] hover:scale-[1.01] active:scale-[0.99] transition-all shadow-xl shadow-[#7C3AED]/20 flex items-center justify-center gap-3 disabled:opacity-70 disabled:hover:scale-100"
                   >
-                    {isSubmitting ? "Sending..." : "Submit Request"}
-                    <ArrowRight size={16} />
+                    {isSubmitting ? (
+                      <span className="flex items-center gap-2">
+                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        Sending...
+                      </span>
+                    ) : (
+                      <>
+                        Send Inquiry
+                        <ArrowRight className="w-5 h-5" />
+                      </>
+                    )}
                   </button>
-                </div>
-              </form>
-            )}
-          </div>
+                </form>
+              )}
+            </motion.div>
 
+            {/* Contact Info Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              className="bg-white/80 backdrop-blur-md border border-[#E2E8F0] rounded-3xl p-8 flex flex-col gap-6 shadow-xl shadow-slate-200/50"
+            >
+              <h3 className="text-xl font-bold text-[#0F172A]">Direct Contact</h3>
+
+              <div className="flex flex-col sm:flex-row gap-6 justify-between">
+                <a href="mailto:hello@spaciva.com" className="flex items-center gap-4 group">
+                  <div className="w-12 h-12 rounded-full bg-[#F8FAFC] flex items-center justify-center shrink-0 group-hover:bg-[#F5F3FF] transition-colors">
+                    <Mail className="w-5 h-5 text-gray-500 group-hover:text-[#7C3AED] transition-colors" />
+                  </div>
+                  <div>
+                    <p className="text-[#0F172A] font-medium">hello@spaciva.com</p>
+                  </div>
+                </a>
+
+                <a href="tel:+1234567890" className="flex items-center gap-4 group">
+                  <div className="w-12 h-12 rounded-full bg-[#F8FAFC] flex items-center justify-center shrink-0 group-hover:bg-[#F5F3FF] transition-colors">
+                    <Phone className="w-5 h-5 text-gray-500 group-hover:text-[#7C3AED] transition-colors" />
+                  </div>
+                  <div>
+                    <p className="text-[#0F172A] font-medium">+1 (234) 567-890</p>
+                  </div>
+                </a>
+              </div>
+            </motion.div>
+
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
   );
 }

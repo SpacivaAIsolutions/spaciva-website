@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import RedesignedHome from "@/components/RedesignedHome";
+import CreativeLandingPage from "@/components/CreativeLandingPage";
 
 export const metadata: Metadata = {
-  title: "Spaciva Ai",
+  title: "Spaciva Solutions",
   description: "SPACIVA is an AI product engineering company specializing in Generative AI, Enterprise Software, and Scalable SaaS Platforms.",
   alternates: {
     canonical: "/",
@@ -44,7 +44,7 @@ export default function Home() {
         }}
       />
 
-      <RedesignedHome />
+      <CreativeLandingPage />
     </main>
   );
 }

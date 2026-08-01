@@ -57,6 +57,12 @@ export const metadata: Metadata = {
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "",
   },
+  icons: {
+    icon: [
+      { url: "/logos/Artboard%2010.svg", media: "(prefers-color-scheme: light)" },
+      { url: "/logos/Artboard%209.svg", media: "(prefers-color-scheme: dark)" },
+    ],
+  },
 };
 
 export default function RootLayout({
