@@ -15,6 +15,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
-    }
+    },
+    ...[
+      "healthcare",
+      "fintech",
+      "manufacturing",
+      "retail-ecommerce",
+      "real-estate",
+      "education",
+      "logistics",
+      "hospitality",
+      "energy-utilities",
+      "construction",
+      "government",
+      "startups",
+    ].map((industry) => ({
+      url: `${baseUrl}/industries/${industry}`,
+      lastModified: new Date(),
+      changeFrequency: "daily" as const,
+      priority: 0.8,
+    })),
   ];
 }
