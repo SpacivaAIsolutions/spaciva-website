@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, Mail, Phone, MapPin, Calendar, MessageSquare, Lightbulb, HelpCircle, ExternalLink } from "lucide-react";
+import { ArrowRight, CheckCircle, Mail, MapPin, Calendar, MessageSquare, Lightbulb, HelpCircle, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Script from "next/script";
 
@@ -263,21 +263,12 @@ export default function ContactPage() {
               <h3 className="text-xl font-bold text-[#0F172A]">Direct Contact</h3>
 
               <div className="flex flex-col sm:flex-row gap-6 justify-between">
-                <a href="mailto:hello@spaciva.com" className="flex items-center gap-4 group">
+                <a href="mailto:spacivaaisolution@gmail.com" className="flex items-center gap-4 group">
                   <div className="w-12 h-12 rounded-full bg-[#F8FAFC] flex items-center justify-center shrink-0 group-hover:bg-[#F5F3FF] transition-colors">
                     <Mail className="w-5 h-5 text-gray-500 group-hover:text-[#7C3AED] transition-colors" />
                   </div>
                   <div>
-                    <p className="text-[#0F172A] font-medium">hello@spaciva.com</p>
-                  </div>
-                </a>
-
-                <a href="tel:+1234567890" className="flex items-center gap-4 group">
-                  <div className="w-12 h-12 rounded-full bg-[#F8FAFC] flex items-center justify-center shrink-0 group-hover:bg-[#F5F3FF] transition-colors">
-                    <Phone className="w-5 h-5 text-gray-500 group-hover:text-[#7C3AED] transition-colors" />
-                  </div>
-                  <div>
-                    <p className="text-[#0F172A] font-medium">+1 (234) 567-890</p>
+                    <p className="text-[#0F172A] font-medium">spacivaaisolution@gmail.com</p>
                   </div>
                 </a>
               </div>

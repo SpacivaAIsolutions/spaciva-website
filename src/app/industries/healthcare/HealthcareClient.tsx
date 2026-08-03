@@ -175,18 +175,28 @@ export default function HealthcareClient() {
               <Stethoscope className="w-4 h-4" />
               Healthcare Technology Solutions
             </div>
-            
+
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6">
               Custom Healthcare Software That Improves <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] to-blue-600">Patient Care</span> and Operational Efficiency
             </h1>
-            
+
             <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl leading-relaxed">
               From hospitals and clinics to healthcare startups and laboratories, Spaciva designs secure, scalable, and AI-powered healthcare software that simplifies operations, enhances patient experiences, and supports long-term digital transformation.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4">
-              <a href="/contact" className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#7C3AED] text-white font-bold text-center hover:bg-[#6D28D9] hover:shadow-lg hover:shadow-[#7C3AED]/20 transition-all flex items-center justify-center gap-2">
-                Book a Healthcare Consultation <ArrowRight className="w-5 h-5" />
+              <a href="/contact" className="group relative w-full sm:w-auto pl-6 pr-2 py-2 h-[56px] rounded-full bg-[#7C3AED] text-white font-bold hover:bg-[#6D28D9] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-between gap-4 shadow-xl shadow-[#7C3AED]/20 overflow-hidden">
+                <div className="relative h-6 w-[200px] overflow-hidden flex items-center">
+                  <span className="absolute inset-0 flex items-center transition-transform duration-300 group-hover:-translate-y-full text-left whitespace-nowrap">
+                    Book a Strategy Call
+                  </span>
+                  <span className="absolute inset-0 flex items-center translate-y-full transition-transform duration-300 group-hover:translate-y-0 text-left whitespace-nowrap">
+                    Let's Talk Business
+                  </span>
+                </div>
+                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 z-10 transition-transform duration-300 group-hover:translate-x-1">
+                  <ArrowRight className="w-5 h-5 text-[#7C3AED]" />
+                </div>
               </a>
               <a href="#solutions" className="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-[#0F172A] border border-gray-200 font-bold text-center hover:bg-gray-50 transition-all flex items-center justify-center gap-2">
                 View Healthcare Solutions
@@ -218,7 +228,7 @@ export default function HealthcareClient() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {CHALLENGES.map((challenge, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -241,7 +251,7 @@ export default function HealthcareClient() {
       <section id="solutions" className="py-24 bg-[#0F172A] text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5" />
         <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-[#7C3AED]/10 to-transparent" />
-        
+
         <div className="max-w-7xl mx-auto px-5 lg:px-10 relative">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-extrabold mb-6">Our Healthcare Solutions</h2>
@@ -250,7 +260,7 @@ export default function HealthcareClient() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {SOLUTIONS.map((sol, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -291,7 +301,7 @@ export default function HealthcareClient() {
               <p className="text-lg text-gray-600 mb-8">
                 Reduce administrative overhead, enhance diagnostic accuracy, and provide 24/7 patient support with our custom AI integrations tailored for the medical industry.
               </p>
-              
+
               <div className="grid grid-cols-2 gap-4">
                 {AI_SOLUTIONS.map((ai, idx) => (
                   <div key={idx} className="flex items-center gap-3 p-4 rounded-2xl bg-gray-50 border border-gray-100 font-semibold text-gray-900">
@@ -301,16 +311,16 @@ export default function HealthcareClient() {
                 ))}
               </div>
             </div>
-            
+
             <div className="lg:w-1/2 relative w-full h-[500px] bg-gradient-to-br from-purple-100 to-blue-50 rounded-[3rem] border border-gray-100 flex items-center justify-center overflow-hidden">
               <div className="absolute w-[600px] h-[600px] bg-white/40 blur-3xl rounded-full" />
               {/* Abstract AI / Health Graphic */}
-              <motion.div 
+              <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
                 className="relative z-10 w-64 h-64 border-[40px] border-dashed border-blue-500/20 rounded-full flex items-center justify-center"
               >
-                <motion.div 
+                <motion.div
                   animate={{ rotate: -360 }}
                   transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                   className="w-32 h-32 bg-gradient-to-tr from-[#7C3AED] to-blue-500 rounded-full blur-md flex items-center justify-center"
@@ -327,7 +337,7 @@ export default function HealthcareClient() {
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-5 lg:px-10">
           <div className="grid lg:grid-cols-2 gap-16">
-            
+
             {/* Services */}
             <div>
               <h2 className="text-3xl font-extrabold mb-8">Services We Provide</h2>
@@ -361,10 +371,10 @@ export default function HealthcareClient() {
       <section className="py-24 bg-white border-y border-gray-100">
         <div className="max-w-5xl mx-auto px-5 lg:px-10 text-center">
           <h2 className="text-3xl md:text-5xl font-extrabold mb-16">Our Healthcare Workflow</h2>
-          
+
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0 relative">
             <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-100 -translate-y-1/2 -z-10" />
-            
+
             {["Discovery", "Compliance Planning", "UX Design", "Development", "Testing", "Deployment", "Support"].map((step, idx) => (
               <div key={idx} className="flex flex-col items-center gap-4 bg-white px-2">
                 <div className="w-12 h-12 rounded-full bg-[#7C3AED] text-white flex items-center justify-center font-bold text-lg shadow-xl shadow-[#7C3AED]/20">
@@ -381,7 +391,7 @@ export default function HealthcareClient() {
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-5 lg:px-10">
           <div className="grid lg:grid-cols-2 gap-16">
-            
+
             <div>
               <h2 className="text-3xl font-extrabold mb-8">Industries Within Healthcare</h2>
               <div className="grid grid-cols-2 gap-3">
@@ -447,14 +457,14 @@ export default function HealthcareClient() {
 
           <div className="space-y-4">
             {FAQS.map((faq, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className={cn(
                   "border rounded-2xl overflow-hidden transition-all duration-300",
                   openFaq === idx ? "border-[#7C3AED] bg-purple-50/30" : "border-gray-200 bg-white hover:border-purple-200"
                 )}
               >
-                <button 
+                <button
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
                   className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-gray-900"
                 >
@@ -484,14 +494,24 @@ export default function HealthcareClient() {
       <section className="py-24 bg-[#0F172A] text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-[#7C3AED]/20 to-blue-600/20" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#7C3AED]/30 blur-[100px] rounded-full mix-blend-screen pointer-events-none" />
-        
+
         <div className="max-w-4xl mx-auto px-5 text-center relative z-10">
           <h2 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">Building the Future of Healthcare Technology Starts Here</h2>
           <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
             Whether you're launching a healthcare startup, modernizing hospital operations, or exploring AI-powered healthcare solutions, our team can help you design and build the right platform.
           </p>
-          <a href="/contact" className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-white text-[#0F172A] font-extrabold text-lg hover:bg-gray-100 hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-white/10">
-            Book a Healthcare Strategy Call <ArrowRight className="w-5 h-5" />
+          <a href="/contact" className="group relative w-full sm:w-auto pl-6 pr-2 py-2 h-[64px] rounded-full bg-[#7C3AED] text-white font-bold hover:bg-[#6D28D9] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-between gap-4 shadow-xl shadow-[#7C3AED]/20 overflow-hidden mx-auto inline-flex">
+            <div className="relative h-6 w-[270px] overflow-hidden flex items-center justify-center text-lg">
+              <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-full whitespace-nowrap">
+                Book a Healthcare Strategy Call
+              </span>
+              <span className="absolute inset-0 flex items-center justify-center translate-y-full transition-transform duration-300 group-hover:translate-y-0 whitespace-nowrap">
+                Let's Talk Business
+              </span>
+            </div>
+            <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shrink-0 z-10 transition-transform duration-300 group-hover:translate-x-1">
+              <ArrowRight className="w-6 h-6 text-[#7C3AED]" />
+            </div>
           </a>
         </div>
       </section>

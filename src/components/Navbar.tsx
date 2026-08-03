@@ -86,14 +86,14 @@ const MEGA_MENUS = {
   ],
   industries: [
     { title: "Healthcare", href: "/industries/healthcare" },
-    { title: "Finance & FinTech", href: "/industries/finance" },
+    { title: "Finance & FinTech", href: "/industries/fintech" },
     { title: "Manufacturing", href: "/industries/manufacturing" },
-    { title: "Retail & E-Commerce", href: "/industries/retail" },
+    { title: "Retail & E-Commerce", href: "/industries/retail-ecommerce" },
     { title: "Real Estate", href: "/industries/real-estate" },
     { title: "Education", href: "/industries/education" },
     { title: "Logistics", href: "/industries/logistics" },
     { title: "Hospitality", href: "/industries/hospitality" },
-    { title: "Energy & Utilities", href: "/industries/energy" },
+    { title: "Energy & Utilities", href: "/industries/energy-utilities" },
     { title: "Construction", href: "/industries/construction" },
     { title: "Government", href: "/industries/government" },
     { title: "Startups", href: "/industries/startups" }
