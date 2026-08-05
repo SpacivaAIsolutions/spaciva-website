@@ -8,6 +8,7 @@ import { ArrowRight, Menu, X, ChevronDown, Cpu, Database, Globe, Smartphone, Clo
 const NAV = [
   { name: "Services", href: "/#services", hasMegaMenu: true, type: "services" },
   { name: "Industries", href: "/#industries", hasMegaMenu: true, type: "industries" },
+  { name: "Case Studies", href: "/#case-studies", hasMegaMenu: true, type: "caseStudies" },
   { name: "Contact", href: "/contact", hasMegaMenu: false },
 ];
 
@@ -97,6 +98,10 @@ const MEGA_MENUS = {
     { title: "Construction", href: "/industries/construction" },
     { title: "Government", href: "/industries/government" },
     { title: "Startups", href: "/industries/startups" }
+  ],
+  caseStudies: [
+    { title: "Unified Accounting", href: "/case-studies/unified-accounting", desc: "Multi-Platform Sync" },
+    { title: "PartsFlow", href: "/case-studies/partsflow", desc: "Spare Parts Inventory" }
   ]
 };
 
@@ -162,6 +167,21 @@ function MobileNavItem({ n, setOpen }: { n: any, setOpen: any }) {
                   <div className="mt-2 pt-4 border-t border-gray-100">
                     <a href="/industries" className="text-sm font-bold text-[#7C3AED] flex items-center gap-2">
                       Explore All Industries <ArrowRight className="w-4 h-4" />
+                    </a>
+                  </div>
+                </>
+              )}
+              {n.type === 'caseStudies' && (
+                <>
+                  {MEGA_MENUS.caseStudies.map((cs, idx) => (
+                    <a key={idx} href={cs.href} onClick={() => setOpen(false)} className="flex flex-col mb-4">
+                      <span className="font-bold text-sm text-gray-900 hover:text-[#7C3AED] transition-colors">{cs.title}</span>
+                      <span className="text-xs text-gray-500 mt-0.5">{cs.desc}</span>
+                    </a>
+                  ))}
+                  <div className="pt-2 border-t border-gray-100">
+                    <a href="/case-studies" className="text-sm font-bold text-[#7C3AED] flex items-center gap-2">
+                      Explore All Case Studies <ArrowRight className="w-4 h-4" />
                     </a>
                   </div>
                 </>
@@ -380,6 +400,27 @@ export default function Navbar() {
                     <div className="pt-6 border-t border-gray-100 flex justify-end">
                       <a href="/industries" className="text-sm font-bold text-[#7C3AED] flex items-center gap-2 hover:gap-3 transition-all">
                         Explore All Industries <ArrowRight className="w-4 h-4" />
+                      </a>
+                    </div>
+                  </div>
+                )}
+
+                {hoveredMenu === 'caseStudies' && (
+                  <div className="flex flex-col">
+                    <div className="grid grid-cols-2 gap-6 mb-6">
+                      {MEGA_MENUS.caseStudies.map((cs, idx) => (
+                        <a key={idx} href={cs.href} className="group/item p-4 rounded-xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100 block">
+                          <h4 className="font-bold text-gray-900 mb-1 group-hover/item:text-[#7C3AED] transition-colors flex items-center justify-between">
+                            {cs.title}
+                            <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-[#7C3AED]" />
+                          </h4>
+                          <p className="text-xs text-gray-500">{cs.desc}</p>
+                        </a>
+                      ))}
+                    </div>
+                    <div className="pt-6 border-t border-gray-100 flex justify-end">
+                      <a href="/case-studies" className="text-sm font-bold text-[#7C3AED] flex items-center gap-2 hover:gap-3 transition-all">
+                        Explore All Case Studies <ArrowRight className="w-4 h-4" />
                       </a>
                     </div>
                   </div>

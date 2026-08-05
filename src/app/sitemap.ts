@@ -35,5 +35,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily" as const,
       priority: 0.8,
     })),
+    ...[
+      "unified-accounting",
+      "partsflow",
+    ].map((cs) => ({
+      url: `${baseUrl}/case-studies/${cs}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.9,
+    })),
   ];
 }
