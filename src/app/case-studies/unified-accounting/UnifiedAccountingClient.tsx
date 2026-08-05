@@ -70,18 +70,18 @@ const SOLUTION_FEATURES = [
 ];
 
 const PLATFORMS = [
-  { title: "QuickBooks Online", desc: "100+ integration patterns. App-store-ready OAuth. Certified-style QBO entity sync." },
-  { title: "QuickBooks Desktop", desc: "Legacy and modern connectivity. Desktop-to-cloud migration expertise." },
-  { title: "Xero", desc: "Invoice, contact, and payment sync. Built for UK, AU, and accounting-forward teams." },
-  { title: "Sage", desc: "Sage 50, Sage Intacct, Sage Business Cloud. Multi-version support." },
-  { title: "NetSuite", desc: "SuiteTalk / REST. Custom records and saved-search-driven ERP sync." },
-  { title: "Business Central", desc: "Dynamics 365 Business Central API. Microsoft finance & operations stacks." },
-  { title: "MYOB", desc: "Australian market accounting sync for SMB and mid-market SaaS." },
-  { title: "FreshBooks", desc: "Invoice and expense sync. Time-tracking-friendly service workflows." },
-  { title: "Zoho Books", desc: "Zoho Financial Suite connectivity for products already in the Zoho ecosystem." },
-  { title: "Wave", desc: "Free accounting platform integration for SMB-focused SaaS products." },
-  { title: "ClearBooks", desc: "UK market accounting platform. MTD-aware compliance patterns." },
-  { title: "Odoo", desc: "Open-source ERP integration. Custom module hooks for Odoo finance." }
+  { title: "QuickBooks Online", desc: "100+ integration patterns. App-store-ready OAuth. Certified-style QBO entity sync.", iconUrl: "https://www.google.com/s2/favicons?domain=quickbooks.intuit.com&sz=128" },
+  { title: "QuickBooks Desktop", desc: "Legacy and modern connectivity. Desktop-to-cloud migration expertise.", iconUrl: "https://www.google.com/s2/favicons?domain=intuit.com&sz=128" },
+  { title: "Xero", desc: "Invoice, contact, and payment sync. Built for UK, AU, and accounting-forward teams.", iconUrl: "https://www.google.com/s2/favicons?domain=xero.com&sz=128" },
+  { title: "Sage", desc: "Sage 50, Sage Intacct, Sage Business Cloud. Multi-version support.", iconUrl: "https://www.google.com/s2/favicons?domain=sage.com&sz=128" },
+  { title: "NetSuite", desc: "SuiteTalk / REST. Custom records and saved-search-driven ERP sync.", iconUrl: "https://www.google.com/s2/favicons?domain=netsuite.com&sz=128" },
+  { title: "Business Central", desc: "Dynamics 365 Business Central API. Microsoft finance & operations stacks.", iconUrl: "https://www.google.com/s2/favicons?domain=microsoft.com&sz=128" },
+  { title: "MYOB", desc: "Australian market accounting sync for SMB and mid-market SaaS.", iconUrl: "https://www.google.com/s2/favicons?domain=myob.com&sz=128" },
+  { title: "FreshBooks", desc: "Invoice and expense sync. Time-tracking-friendly service workflows.", iconUrl: "https://www.google.com/s2/favicons?domain=freshbooks.com&sz=128" },
+  { title: "Zoho Books", desc: "Zoho Financial Suite connectivity for products already in the Zoho ecosystem.", iconUrl: "https://www.google.com/s2/favicons?domain=zoho.com&sz=128" },
+  { title: "Wave", desc: "Free accounting platform integration for SMB-focused SaaS products.", iconUrl: "https://www.google.com/s2/favicons?domain=waveapps.com&sz=128" },
+  { title: "ClearBooks", desc: "UK market accounting platform. MTD-aware compliance patterns.", iconUrl: "https://www.google.com/s2/favicons?domain=clearbooks.co.uk&sz=128" },
+  { title: "Odoo", desc: "Open-source ERP integration. Custom module hooks for Odoo finance.", iconUrl: "https://www.google.com/s2/favicons?domain=odoo.com&sz=128" }
 ];
 
 const ARCHITECTURE = [
@@ -118,10 +118,7 @@ export default function UnifiedAccountingClient() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-slate-900 text-white">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5" />
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-blue-600/20 to-transparent rounded-full blur-3xl pointer-events-none" />
-
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-white text-slate-900">
         <div className="max-w-7xl mx-auto px-5 lg:px-10 relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -129,15 +126,15 @@ export default function UnifiedAccountingClient() {
             transition={{ duration: 0.5 }}
             className="max-w-4xl"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-sm font-semibold mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold mb-6">
               FinTech · Accounting Integrations
             </div>
-            
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6">
-              Unified Accounting <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-[#9F7AEA]">Integration</span>
+
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 text-slate-900">
+              Unified Accounting <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-[#7C3AED]">Integration</span>
             </h1>
-            
-            <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-3xl leading-relaxed">
+
+            <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-3xl leading-relaxed">
               A multi-platform sync layer so product and ops teams connect once and keep vendors, invoices, and payments aligned across the world’s leading accounting and ERP systems — QuickBooks, Xero, Sage, NetSuite, Business Central, MYOB, FreshBooks, Zoho Books, Wave, ClearBooks, Odoo, and more — without brittle one-off connectors or expensive per-user iPaaS fees.
             </p>
 
@@ -155,10 +152,7 @@ export default function UnifiedAccountingClient() {
                   <ArrowRight className="w-5 h-5 text-[#7C3AED]" />
                 </div>
               </a>
-              <div className="flex items-center gap-2 text-sm font-bold text-green-400 bg-green-400/10 px-5 py-3 rounded-full border border-green-400/20">
-                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                Live in production
-              </div>
+
             </div>
           </motion.div>
         </div>
@@ -186,17 +180,17 @@ export default function UnifiedAccountingClient() {
               <div className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-4">01. Problem</div>
               <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-slate-900 leading-tight">Every ledger spoke a different dialect.</h2>
               <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                Finance and product teams were juggling CSV exports, fragile custom scripts, and expensive third-party connectors just to keep vendors, invoices, and payments consistent across QuickBooks, Xero, Sage, NetSuite, Business Central, and a long tail of regional ledgers. 
+                Finance and product teams were juggling CSV exports, fragile custom scripts, and expensive third-party connectors just to keep vendors, invoices, and payments consistent across QuickBooks, Xero, Sage, NetSuite, Business Central, and a long tail of regional ledgers.
               </p>
               <p className="text-lg text-slate-600 leading-relaxed">
                 Each platform had its own auth model, rate limits, and entity shapes — so "sync" usually meant partial updates, silent failures, and month-end fire drills. The business needed an owned integration layer: one sync engine, modular adapters, and credentials that never leaked.
               </p>
             </div>
-            
+
             <div className="lg:w-2/3">
               <div className="grid sm:grid-cols-2 gap-6">
                 {PROBLEM_FEATURES.map((feature, idx) => (
-                  <motion.div 
+                  <motion.div
                     key={idx}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -218,7 +212,7 @@ export default function UnifiedAccountingClient() {
       {/* Section 02 & 03: Solution & What We Built */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-5 lg:px-10">
-          
+
           <div className="max-w-3xl mb-24">
             <div className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-4">02. Solution</div>
             <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-slate-900 leading-tight">One sync engine. Adapters for every ledger that matters.</h2>
@@ -233,7 +227,7 @@ export default function UnifiedAccountingClient() {
           <div>
             <div className="text-sm font-bold text-[#7C3AED] uppercase tracking-widest mb-4">03. What we built</div>
             <h2 className="text-3xl md:text-4xl font-extrabold mb-12 text-slate-900">Production plumbing for multi-ledger finance.</h2>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {SOLUTION_FEATURES.map((feature, idx) => (
                 <div key={idx} className="p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:border-blue-200 transition-colors">
@@ -260,8 +254,8 @@ export default function UnifiedAccountingClient() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {PLATFORMS.map((platform, idx) => (
               <div key={idx} className="p-6 bg-slate-800/50 rounded-2xl border border-slate-700/50 hover:bg-slate-800 transition-colors">
-                <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
-                  <Database className="w-5 h-5 text-blue-400" />
+                <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4 overflow-hidden">
+                  <img src={platform.iconUrl} alt={platform.title} className="w-6 h-6 object-contain" />
                 </div>
                 <h4 className="font-bold text-white mb-2">{platform.title}</h4>
                 <p className="text-xs text-slate-400 leading-relaxed">{platform.desc}</p>
