@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { ArrowRight, Menu, X, ChevronDown, Cpu, Database, Globe, Smartphone, Cloud, PenTool, Zap, BarChart3 } from "lucide-react";
+import { ArrowRight, Menu, X, ChevronDown, Cpu, Database, Globe, Cloud } from "lucide-react";
 
 const NAV = [
   { name: "Services", href: "/#services", hasMegaMenu: true, type: "services" },
@@ -15,60 +15,66 @@ const NAV = [
 const MEGA_MENUS = {
   services: [
     {
-      title: "AI & Machine Learning",
+      title: "AI Automation & Agents",
+      tagline: "AI that runs your busywork.",
       icon: Cpu,
       color: "text-purple-600",
       bg: "bg-purple-100",
-      items: ["AI Agents", "AI Chatbots", "Generative AI", "RAG Systems", "Custom LLMs", "AI Automation"]
+      items: [
+        "AI Agents",
+        "AI Chatbots (RAG-powered)",
+        "Workflow Automation",
+        "Document & Invoice Processing",
+        "Email & Inbox Automation",
+        "WhatsApp Automation",
+        "CRM Automation",
+        "AI Assistants",
+        "Generative AI & Custom LLMs"
+      ]
     },
     {
-      title: "Web Engineering",
-      icon: Globe,
-      color: "text-blue-600",
-      bg: "bg-blue-100",
-      items: ["Business Websites", "Enterprise Portals", "SaaS Platforms", "E-Commerce", "Progressive Web Apps"]
-    },
-    {
-      title: "Mobile Development",
-      icon: Smartphone,
-      color: "text-emerald-600",
-      bg: "bg-emerald-100",
-      items: ["iOS Apps", "Android Apps", "Flutter Development", "React Native", "Enterprise Mobile Apps"]
-    },
-    {
-      title: "Custom Software",
+      title: "Custom Software & Internal Tools",
+      tagline: "The systems your operations run on.",
       icon: Database,
       color: "text-indigo-600",
       bg: "bg-indigo-100",
-      items: ["CRM Development", "ERP Systems", "HRMS", "Inventory Management", "Internal Business Tools", "Custom Dashboards"]
+      items: [
+        "CRM Development",
+        "Custom Dashboards",
+        "Internal Business Tools",
+        "ERP Systems",
+        "Inventory Management",
+        "Business Intelligence"
+      ]
     },
     {
-      title: "Cloud & DevOps",
+      title: "Web & Product Engineering",
+      tagline: "The engineering behind it all.",
+      icon: Globe,
+      color: "text-blue-600",
+      bg: "bg-blue-100",
+      items: [
+        "Web Applications (Next.js / React)",
+        "SaaS Platforms",
+        "Enterprise Portals",
+        "Progressive Web Apps",
+        "UI/UX Design",
+        "Product Strategy"
+      ]
+    },
+    {
+      title: "Cloud, Data & Managed Services",
+      tagline: "Built to scale, monitored monthly.",
       icon: Cloud,
       color: "text-cyan-600",
       bg: "bg-cyan-100",
-      items: ["AWS", "Azure", "Docker", "Kubernetes", "CI/CD", "Monitoring", "Infrastructure Automation"]
-    },
-    {
-      title: "Product Design",
-      icon: PenTool,
-      color: "text-pink-600",
-      bg: "bg-pink-100",
-      items: ["UI/UX Design", "Product Strategy", "Design Systems", "UX Research", "Wireframing", "Prototyping"]
-    },
-    {
-      title: "Business Automation",
-      icon: Zap,
-      color: "text-orange-600",
-      bg: "bg-orange-100",
-      items: ["Workflow Automation", "WhatsApp Automation", "Email Automation", "CRM Automation", "Document Automation", "AI Assistants"]
-    },
-    {
-      title: "Data & Analytics",
-      icon: BarChart3,
-      color: "text-teal-600",
-      bg: "bg-teal-100",
-      items: ["Business Intelligence", "Dashboards", "Data Warehousing", "ETL Pipelines", "Predictive Analytics"]
+      items: [
+        "Cloud & DevOps (AWS, Docker, CI/CD)",
+        "Infrastructure & Monitoring",
+        "Data Warehousing & ETL Pipelines",
+        "Predictive Analytics",
+        "Ongoing Maintenance & AI Monitoring (retainer)"
+      ]
     }
   ],
   solutions: [
@@ -86,18 +92,72 @@ const MEGA_MENUS = {
     { title: "Analytics Dashboard", desc: "Data-driven insights" },
   ],
   industries: [
-    { title: "Healthcare", href: "/industries/healthcare" },
-    { title: "Finance & FinTech", href: "/industries/fintech" },
-    { title: "Manufacturing", href: "/industries/manufacturing" },
-    { title: "Retail & E-Commerce", href: "/industries/retail-ecommerce" },
-    { title: "Real Estate", href: "/industries/real-estate" },
-    { title: "Education", href: "/industries/education" },
-    { title: "Logistics", href: "/industries/logistics" },
-    { title: "Hospitality", href: "/industries/hospitality" },
-    { title: "Energy & Utilities", href: "/industries/energy-utilities" },
-    { title: "Construction", href: "/industries/construction" },
-    { title: "Government", href: "/industries/government" },
-    { title: "Startups", href: "/industries/startups" }
+    {
+      title: "Agencies & Marketing",
+      segments: [
+        "Marketing & Advertising Agencies",
+        "Design & Creative Studios",
+        "SEO & Growth Agencies",
+        "Web & Development Agencies",
+        "PR & Content Agencies",
+        "White-Label Partners"
+      ]
+    },
+    {
+      title: "Professional Services",
+      segments: [
+        "Consulting Firms",
+        "Legal & Law Firms",
+        "Accounting & Finance",
+        "Recruiting & Staffing",
+        "Coaching & Advisory",
+        "B2B Service Providers"
+      ]
+    },
+    {
+      title: "Retail & E-Commerce",
+      segments: [
+        "Shopify & DTC Brands",
+        "Online Marketplaces",
+        "Subscription Commerce",
+        "Retail Operations",
+        "Customer Support Automation",
+        "Inventory & Order Management"
+      ]
+    },
+    {
+      title: "Startups & SaaS",
+      segments: [
+        "Funded Startups (Seed–Series A)",
+        "SaaS Platforms",
+        "AI Product Teams",
+        "MVP & Rapid Builds",
+        "Internal Tooling",
+        "Founder-Led Teams"
+      ]
+    },
+    {
+      title: "Manufacturing",
+      segments: [
+        "Industrial Manufacturing",
+        "Chemicals & Materials",
+        "Production Dashboards",
+        "Ops & Workflow Automation",
+        "Inventory Systems",
+        "Internal Business Tools"
+      ]
+    },
+    {
+      title: "Real Estate",
+      segments: [
+        "Residential Real Estate",
+        "Commercial Real Estate",
+        "Real Estate CRM",
+        "Property Management",
+        "Lead Automation",
+        "Client & Listing Portals"
+      ]
+    }
   ],
   caseStudies: [
     { title: "Unified Accounting", href: "/case-studies/unified-accounting", desc: "Multi-Platform Sync" },
@@ -107,6 +167,42 @@ const MEGA_MENUS = {
 
 function cn(...c: (string | undefined | false)[]) {
   return c.filter(Boolean).join(" ");
+}
+
+function MobileIndustryAccordion({ industry }: { industry: { title: string; segments: string[] } }) {
+  const [expanded, setExpanded] = useState(false);
+  return (
+    <div className="flex flex-col">
+      <button
+        type="button"
+        onClick={() => setExpanded(!expanded)}
+        className="flex items-center justify-between gap-3 py-1 text-left"
+      >
+        <span className="font-bold text-sm leading-snug text-[#0F172A]">{industry.title}</span>
+        <ChevronDown className={cn("w-4 h-4 shrink-0 opacity-50 transition-transform", expanded && "rotate-180")} />
+      </button>
+
+      <AnimatePresence initial={false}>
+        {expanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="overflow-hidden"
+          >
+            <div className="flex flex-col pt-1 pb-1">
+              {industry.segments.map((segment, i) => (
+                <span key={i} className="py-1 text-xs font-medium leading-snug text-[#64748B]">
+                  {segment}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
 }
 
 function MobileNavItem({ n, setOpen }: { n: any, setOpen: any }) {
@@ -137,14 +233,19 @@ function MobileNavItem({ n, setOpen }: { n: any, setOpen: any }) {
           >
             <div className="py-2 pl-4 border-l-2 border-[#E2E8F0] ml-2 flex flex-col gap-4">
               {n.type === 'services' && MEGA_MENUS.services.map((srv, idx) => (
-                <div key={idx} className="flex flex-col gap-2">
-                  <div className="flex items-center gap-3">
-                    <srv.icon className={cn("w-4 h-4", srv.color)} />
-                    <span className="font-bold text-sm text-gray-900">{srv.title}</span>
+                <div key={idx} className="flex flex-col">
+                  <div className="flex items-center gap-2.5">
+                    <div className={cn("w-7 h-7 rounded-lg flex items-center justify-center shrink-0", srv.bg)}>
+                      <srv.icon className={cn("w-3.5 h-3.5", srv.color)} />
+                    </div>
+                    <span className="font-bold text-sm leading-snug text-[#0F172A]">
+                      {srv.title}
+                    </span>
                   </div>
-                  <div className="flex flex-col gap-1.5 ml-7">
+                  <span className="mt-1.5 ml-[38px] text-[11px] font-medium leading-relaxed text-gray-400">{srv.tagline}</span>
+                  <div className="flex flex-col ml-[38px] mt-2">
                     {srv.items.map((item, i) => (
-                      <span key={i} className="text-xs text-gray-500 hover:text-[#7C3AED] cursor-pointer">
+                      <span key={i} className="py-1 text-xs font-medium leading-snug text-[#64748B] hover:text-[#7C3AED] cursor-pointer transition-colors">
                         {item}
                       </span>
                     ))}
@@ -160,14 +261,20 @@ function MobileNavItem({ n, setOpen }: { n: any, setOpen: any }) {
               {n.type === 'industries' && (
                 <>
                   {MEGA_MENUS.industries.map((ind, idx) => (
-                    <a key={idx} href={ind.href} onClick={() => setOpen(false)} className="flex flex-col">
-                      <span className="font-bold text-sm text-gray-900 hover:text-[#7C3AED] transition-colors">{ind.title}</span>
-                    </a>
+                    <MobileIndustryAccordion key={idx} industry={ind} />
                   ))}
                   <div className="mt-2 pt-4 border-t border-gray-100">
-                    <a href="/industries" className="text-sm font-bold text-[#7C3AED] flex items-center gap-2">
-                      Explore All Industries <ArrowRight className="w-4 h-4" />
-                    </a>
+                    <p className="text-xs leading-relaxed text-gray-400">
+                      We also work with select clients in other industries —{" "}
+                      <a
+                        href="/contact"
+                        onClick={() => setOpen(false)}
+                        className="font-semibold text-[#7C3AED] inline-flex items-center gap-1"
+                      >
+                        Let&apos;s talk
+                        <ArrowRight className="w-3 h-3" />
+                      </a>
+                    </p>
                   </div>
                 </>
               )}
@@ -244,7 +351,7 @@ export default function Navbar() {
             <img
               src={isDark ? "/logos/white.svg" : "/logos/darklogo.svg"}
               alt="Spaciva"
-              className="h-12 md:h-[56px] w-auto object-contain transition-all duration-300 scale-125 md:scale-[1.4] origin-left"
+              className="h-10 sm:h-12 md:h-14 w-auto object-contain transition-all duration-300"
             />
           </a>
 
@@ -319,7 +426,7 @@ export default function Navbar() {
             >
               <div className="relative h-5 w-[110px] overflow-hidden">
                 <span className="absolute inset-0 flex items-center transition-transform duration-300 group-hover:-translate-y-full">
-                  Let's Talk
+                  Let&apos;s Talk
                 </span>
                 <span className="absolute inset-0 flex items-center translate-y-full transition-transform duration-300 group-hover:translate-y-0">
                   About Solution
@@ -332,7 +439,12 @@ export default function Navbar() {
           </div>
 
           {/* Mobile menu trigger */}
-          <button className={cn("md:hidden p-2", isDark ? "text-white" : "text-[#0E0E0C]")} onClick={() => setOpen(!open)}>
+          <button
+            className={cn("md:hidden -mr-2 flex h-11 w-11 items-center justify-center", isDark ? "text-white" : "text-[#0E0E0C]")}
+            onClick={() => setOpen(!open)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+          >
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
@@ -345,23 +457,33 @@ export default function Navbar() {
                 initial={{ opacity: 0, scaleY: 0 }}
                 animate={{ opacity: 1, scaleY: 1 }}
                 exit={{ opacity: 0, scaleY: 0 }}
-                className="absolute top-[60px] left-5 right-5 lg:left-10 lg:right-10 bg-white rounded-3xl shadow-2xl shadow-[#7C3AED]/10 border border-[#E2E8F0] p-8 cursor-default"
+                className="absolute top-[60px] left-5 right-5 lg:left-10 lg:right-10 bg-white rounded-3xl shadow-2xl shadow-[#7C3AED]/10 border border-[#E2E8F0] p-5 md:p-6 lg:p-8 cursor-default max-h-[min(80vh,720px)] overflow-y-auto"
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 style={{ transformOrigin: 'top center' }}
               >
                 {hoveredMenu === 'services' && (
-                  <div className="grid grid-cols-4 gap-x-8 gap-y-10">
+                  // -m-4 lets each column carry its own p-4 without widening the
+                  // panel's outer padding, so cards can have hover/active surfaces.
+                  // Subgrid rows size to the tallest column, so icons, titles,
+                  // taglines and lists stay on shared baselines however titles wrap.
+                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 grid-rows-none xl:grid-rows-[auto_auto_auto_1fr] gap-x-1 gap-y-2 -m-4">
                     {MEGA_MENUS.services.map((srv, idx) => (
-                      <div key={idx} className="flex flex-col">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center shrink-0", srv.bg)}>
-                            <srv.icon className={cn("w-5 h-5", srv.color)} />
-                          </div>
-                          <h4 className="font-bold text-gray-900">{srv.title}</h4>
+                      <div
+                        key={idx}
+                        className="flex flex-col xl:grid xl:grid-rows-subgrid xl:row-span-4 gap-0 p-4 rounded-2xl transition-colors duration-200 hover:bg-[#F8FAFC]"
+                      >
+                        <div className={cn("w-11 h-11 rounded-xl flex items-center justify-center shrink-0", srv.bg)}>
+                          <srv.icon className={cn("w-5 h-5", srv.color)} />
                         </div>
-                        <ul className="space-y-2.5 ml-[52px]">
+                        <h4 className="mt-3.5 text-[15px] font-bold leading-snug tracking-tight text-[#0F172A]">
+                          {srv.title}
+                        </h4>
+                        <p className="mt-1.5 text-xs font-medium leading-relaxed text-gray-400">
+                          {srv.tagline}
+                        </p>
+                        <ul className="mt-3 pt-3 border-t border-[#E2E8F0]">
                           {srv.items.map((item, i) => (
-                            <li key={i} className="text-sm font-medium text-gray-500 hover:text-[#7C3AED] cursor-pointer transition-colors">
+                            <li key={i} className="-mx-2 px-2 py-1.5 rounded-lg text-[13px] font-medium leading-snug text-[#64748B] cursor-pointer transition-colors hover:text-[#7C3AED] hover:bg-white">
                               {item}
                             </li>
                           ))}
@@ -372,7 +494,7 @@ export default function Navbar() {
                 )}
 
                 {hoveredMenu === 'solutions' && (
-                  <div className="grid grid-cols-4 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6">
                     {MEGA_MENUS.solutions.map((sol, idx) => (
                       <div key={idx} className="group/item cursor-pointer p-3 -m-3 rounded-xl hover:bg-gray-50 transition-colors">
                         <h4 className="font-bold text-gray-900 mb-1 group-hover/item:text-[#7C3AED] transition-colors flex items-center justify-between">
@@ -387,27 +509,39 @@ export default function Navbar() {
 
                 {hoveredMenu === 'industries' && (
                   <div className="flex flex-col">
-                    <div className="grid grid-cols-4 gap-4 mb-6">
+                    {/* 2 columns on tablet, 3 on desktop, all 6 across once the
+                        panel is wide enough to keep segment names on one line */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 gap-x-1 gap-y-2 -m-4">
                       {MEGA_MENUS.industries.map((ind, idx) => (
-                        <a key={idx} href={ind.href} className="group/item py-3 px-4 rounded-xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100 block">
-                          <h4 className="font-bold text-gray-900 group-hover/item:text-[#7C3AED] transition-colors flex items-center justify-between">
+                        <div key={idx} className="flex flex-col p-4 rounded-2xl transition-colors duration-200 hover:bg-[#F8FAFC]">
+                          <h4 className="text-[15px] font-bold leading-snug tracking-tight text-[#0F172A]">
                             {ind.title}
-                            <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-[#7C3AED]" />
                           </h4>
-                        </a>
+                          <ul className="mt-3 pt-3 border-t border-[#E2E8F0]">
+                            {ind.segments.map((segment, i) => (
+                              <li key={i} className="-mx-2 px-2 py-1.5 rounded-lg text-[13px] font-medium leading-snug text-[#64748B] cursor-default">
+                                {segment}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       ))}
                     </div>
-                    <div className="pt-6 border-t border-gray-100 flex justify-end">
-                      <a href="/industries" className="text-sm font-bold text-[#7C3AED] flex items-center gap-2 hover:gap-3 transition-all">
-                        Explore All Industries <ArrowRight className="w-4 h-4" />
-                      </a>
+                    <div className="mt-6 pt-6 border-t border-gray-100">
+                      <p className="text-sm text-slate-500">
+                        We also work with select clients in other industries —{" "}
+                        <a href="/contact" className="font-semibold text-[#7C3AED] hover:text-[#6D28D9] transition-colors inline-flex items-center gap-1">
+                          Let&apos;s talk
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </a>
+                      </p>
                     </div>
                   </div>
                 )}
 
                 {hoveredMenu === 'caseStudies' && (
                   <div className="flex flex-col">
-                    <div className="grid grid-cols-2 gap-6 mb-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-6">
                       {MEGA_MENUS.caseStudies.map((cs, idx) => (
                         <a key={idx} href={cs.href} className="group/item p-4 rounded-xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100 block">
                           <h4 className="font-bold text-gray-900 mb-1 group-hover/item:text-[#7C3AED] transition-colors flex items-center justify-between">
@@ -437,20 +571,20 @@ export default function Navbar() {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="md:hidden bg-white/95 backdrop-blur-xl border-t border-[#E2E8F0] shadow-2xl absolute top-[64px] left-0 w-full overflow-hidden"
+              className="md:hidden bg-white/95 backdrop-blur-xl border-t border-[#E2E8F0] shadow-2xl absolute top-[64px] left-0 w-full max-h-[min(80dvh,640px)] overflow-y-auto overscroll-contain"
             >
-              <div className="flex flex-col gap-1 py-4 px-5">
+              <div className="flex flex-col gap-1 py-4 px-4 sm:px-5">
                 {NAV.map((n) => (
                   <MobileNavItem key={n.name} n={n} setOpen={setOpen} />
                 ))}
-                <div className="px-4 pt-4 pb-2 flex flex-col gap-2">
+                <div className="px-2 sm:px-4 pt-4 pb-2 flex flex-col gap-2">
                   <a
                     href="/contact"
                     onClick={() => setOpen(false)}
                     className="flex items-center justify-center gap-3 py-2 pl-6 pr-2 rounded-full text-sm font-bold bg-[#7C3AED] text-white shadow-lg shadow-[#7C3AED]/20"
                   >
-                    Let's Talk
-                    <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                    Let&apos;s Talk
+                    <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shrink-0">
                       <ArrowRight className="w-4 h-4 text-[#7C3AED]" />
                     </div>
                   </a>

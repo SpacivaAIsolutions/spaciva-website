@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, RefreshCcw, Layers, Database, Lock, CheckCircle2, Server, Cloud, Code, GitMerge, FileText, Zap, ShieldCheck } from "lucide-react";
-import Navbar from "@/components/Navbar";
+import { RefreshCcw, Layers, Database, Lock, CheckCircle2, Server, Cloud, Code, GitMerge, FileText, Zap, ShieldCheck } from "lucide-react";
 import Footer from "@/components/Footer";
+import AnimatedCtaButton from "@/components/AnimatedCtaButton";
 
 const METRICS = [
   { num: "12+", lbl: "Accounting & ERP platforms" },
@@ -115,10 +115,8 @@ const OUTCOMES = [
 export default function UnifiedAccountingClient() {
   return (
     <div className="min-h-screen bg-white text-[#0F172A] selection:bg-[#7C3AED]/20 selection:text-[#7C3AED] font-sans">
-      <Navbar />
-
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-white text-slate-900">
+      <section className="relative pt-28 pb-16 md:pt-40 md:pb-28 overflow-hidden bg-white text-slate-900">
         <div className="max-w-7xl mx-auto px-5 lg:px-10 relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -139,19 +137,11 @@ export default function UnifiedAccountingClient() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4">
-              <a href="/contact" className="group relative w-full sm:w-auto pl-6 pr-2 py-2 h-[56px] rounded-full bg-[#7C3AED] text-white font-bold hover:bg-[#6D28D9] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-between gap-4 shadow-xl shadow-[#7C3AED]/20 overflow-hidden">
-                <div className="relative h-6 w-[200px] overflow-hidden flex items-center">
-                  <span className="absolute inset-0 flex items-center transition-transform duration-300 group-hover:-translate-y-full text-left whitespace-nowrap">
-                    Start a similar project
-                  </span>
-                  <span className="absolute inset-0 flex items-center translate-y-full transition-transform duration-300 group-hover:translate-y-0 text-left whitespace-nowrap">
-                    Let's Talk Business
-                  </span>
-                </div>
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 z-10 transition-transform duration-300 group-hover:translate-x-1">
-                  <ArrowRight className="w-5 h-5 text-[#7C3AED]" />
-                </div>
-              </a>
+              <AnimatedCtaButton
+                href="/contact"
+                label="Start a similar project"
+                hoverLabel="Let's Talk Business"
+              />
 
             </div>
           </motion.div>
@@ -161,11 +151,11 @@ export default function UnifiedAccountingClient() {
       {/* Metrics */}
       <section className="py-12 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-5 lg:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 divide-x divide-slate-100">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
             {METRICS.map((metric, idx) => (
-              <div key={idx} className={idx === 0 ? "" : "pl-6"}>
-                <div className="text-3xl font-extrabold text-[#7C3AED] mb-1">{metric.num}</div>
-                <div className="text-sm font-bold text-slate-600 uppercase tracking-wide">{metric.lbl}</div>
+              <div key={idx} className="min-w-0">
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#7C3AED] mb-1">{metric.num}</div>
+                <div className="text-xs sm:text-sm font-bold text-slate-600 uppercase tracking-wide leading-snug">{metric.lbl}</div>
               </div>
             ))}
           </div>
@@ -173,9 +163,9 @@ export default function UnifiedAccountingClient() {
       </section>
 
       {/* Section 01: Problem */}
-      <section className="py-24 bg-slate-50 relative">
+      <section className="py-16 md:py-24 bg-slate-50 relative">
         <div className="max-w-7xl mx-auto px-5 lg:px-10">
-          <div className="flex flex-col lg:flex-row gap-16">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
             <div className="lg:w-1/3">
               <div className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-4">01. Problem</div>
               <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-slate-900 leading-tight">Every ledger spoke a different dialect.</h2>
@@ -210,7 +200,7 @@ export default function UnifiedAccountingClient() {
       </section>
 
       {/* Section 02 & 03: Solution & What We Built */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-5 lg:px-10">
 
           <div className="max-w-3xl mb-24">
@@ -243,7 +233,7 @@ export default function UnifiedAccountingClient() {
       </section>
 
       {/* Section 03b: Platforms */}
-      <section className="py-24 bg-slate-900 text-white">
+      <section className="py-16 md:py-24 bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-5 lg:px-10">
           <div className="max-w-3xl mb-16">
             <div className="text-sm font-bold text-[#7C3AED] uppercase tracking-widest mb-4">03b. Platforms we support</div>
@@ -266,7 +256,7 @@ export default function UnifiedAccountingClient() {
       </section>
 
       {/* Section 04: Architecture */}
-      <section className="py-24 bg-white border-b border-slate-100">
+      <section className="py-16 md:py-24 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-5 lg:px-10">
           <div className="max-w-3xl mb-16">
             <div className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-4">04. Architecture</div>
@@ -298,7 +288,7 @@ export default function UnifiedAccountingClient() {
       </section>
 
       {/* Section 05: Outcome */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-16 md:py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-5 lg:px-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="text-sm font-bold text-[#7C3AED] uppercase tracking-widest mb-4">05. Outcome</div>
@@ -320,11 +310,10 @@ export default function UnifiedAccountingClient() {
       {/* Next Project Nav */}
       <section className="py-12 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-5 lg:px-10">
-          <div className="flex justify-between items-center">
-            <div />
-            <a href="/case-studies/partsflow" className="text-right group block hover:bg-slate-50 p-6 rounded-2xl transition-colors">
+          <div className="flex flex-col sm:flex-row sm:justify-end sm:items-center gap-4">
+            <a href="/case-studies/partsflow" className="text-left sm:text-right group block hover:bg-slate-50 p-4 sm:p-6 rounded-2xl transition-colors min-w-0">
               <span className="text-sm font-bold text-blue-600 block mb-2 uppercase tracking-wide">Next project →</span>
-              <span className="text-2xl font-extrabold text-slate-900 block mb-1">PartsFlow</span>
+              <span className="text-xl sm:text-2xl font-extrabold text-slate-900 block mb-1">PartsFlow</span>
               <span className="text-slate-500">Spare Parts Inventory</span>
             </a>
           </div>

@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ShoppingBag, Search, Store, Brain, Shield, Cloud, Smartphone, Database, Zap, CheckCircle2, ChevronRight, BarChart, Settings, Box, RefreshCw, Eye, ShieldCheck, Wrench, Package, FileText, Monitor, Cpu, ChevronDown, List, Layers, LineChart, MessageSquare, Briefcase, Calendar, Users, ShoppingCart, Tag, Heart, CreditCard, Gift, Truck } from "lucide-react";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AnimatedCtaButton from "@/components/AnimatedCtaButton";
 
 function cn(...c: (string | undefined | false)[]) {
   return c.filter(Boolean).join(" ");
@@ -230,10 +230,8 @@ export default function RetailEcommerceClient() {
 
   return (
     <div className="min-h-screen bg-white text-[#0F172A] selection:bg-[#7C3AED]/20 selection:text-[#7C3AED] font-sans">
-      <Navbar />
-
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-slate-50">
+      <section className="relative pt-28 pb-16 md:pt-40 md:pb-28 overflow-hidden bg-slate-50">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-100/50 via-slate-50 to-slate-50 -z-10" />
         <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[#7C3AED]/5 rounded-full blur-3xl -z-10" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-500/5 rounded-full blur-3xl -z-10" />
@@ -259,19 +257,11 @@ export default function RetailEcommerceClient() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4">
-              <a href="/contact" className="group relative w-full sm:w-auto pl-6 pr-2 py-2 h-[56px] rounded-full bg-[#7C3AED] text-white font-bold hover:bg-[#6D28D9] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-between gap-4 shadow-xl shadow-[#7C3AED]/20 overflow-hidden">
-                <div className="relative h-6 w-[220px] overflow-hidden flex items-center">
-                  <span className="absolute inset-0 flex items-center transition-transform duration-300 group-hover:-translate-y-full text-left whitespace-nowrap">
-                    Book a Retail Consultation
-                  </span>
-                  <span className="absolute inset-0 flex items-center translate-y-full transition-transform duration-300 group-hover:translate-y-0 text-left whitespace-nowrap">
-                    Let's Talk Business
-                  </span>
-                </div>
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 z-10 transition-transform duration-300 group-hover:translate-x-1">
-                  <ArrowRight className="w-5 h-5 text-[#7C3AED]" />
-                </div>
-              </a>
+              <AnimatedCtaButton
+                href="/contact"
+                label="Book a Retail Consultation"
+                hoverLabel="Let's Talk Business"
+              />
               <a href="#solutions" className="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-slate-900 border border-slate-200 font-bold text-center hover:bg-slate-50 transition-all flex items-center justify-center gap-2">
                 Explore Retail Solutions
               </a>
@@ -281,7 +271,7 @@ export default function RetailEcommerceClient() {
       </section>
 
       {/* Challenges */}
-      <section className="py-24 bg-white relative">
+      <section className="py-16 md:py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-5 lg:px-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-extrabold mb-6">Digital Challenges Retail Businesses Face</h2>
@@ -310,7 +300,7 @@ export default function RetailEcommerceClient() {
       </section>
 
       {/* Solutions */}
-      <section id="solutions" className="py-24 bg-slate-900 text-white relative overflow-hidden">
+      <section id="solutions" className="py-16 md:py-24 bg-slate-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5" />
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-blue-600/20 to-transparent rounded-full blur-3xl pointer-events-none" />
 
@@ -342,12 +332,12 @@ export default function RetailEcommerceClient() {
       </section>
 
       {/* AI Solutions for Retail */}
-      <section className="py-24 bg-white relative">
+      <section className="py-16 md:py-24 bg-white relative">
         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#7C3AED]/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-5 lg:px-10 relative">
-          <div className="flex flex-col lg:flex-row gap-16 items-start">
-            <div className="lg:w-1/3 sticky top-32">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
+            <div className="lg:w-1/3 lg:sticky lg:top-32">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-50 text-purple-700 text-sm font-semibold mb-6">
                 <Brain className="w-4 h-4" />
                 Artificial Intelligence
@@ -389,9 +379,9 @@ export default function RetailEcommerceClient() {
       </section>
 
       {/* Industries & Services */}
-      <section className="py-24 bg-slate-50 border-y border-slate-100">
+      <section className="py-16 md:py-24 bg-slate-50 border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-5 lg:px-10">
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
 
             <div>
               <h2 className="text-3xl font-extrabold mb-8 text-slate-900">Industries We Serve</h2>
@@ -420,18 +410,18 @@ export default function RetailEcommerceClient() {
       </section>
 
       {/* Development Process */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-5 lg:px-10 text-center">
           <h2 className="text-3xl md:text-5xl font-extrabold mb-16 text-slate-900">Development Process</h2>
 
-          <div className="flex flex-wrap justify-center items-center gap-4 relative">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center items-stretch sm:items-center gap-3 sm:gap-4 relative">
             {["Retail Discovery", "Business Workflow Analysis", "Commerce Architecture", "UI/UX Design", "Development", "Testing", "Launch", "Continuous Optimization"].map((step, idx, arr) => (
-              <div key={idx} className="flex items-center">
-                <div className="bg-slate-900 text-white font-bold px-6 py-3 rounded-full shadow-lg text-sm whitespace-nowrap">
+              <div key={idx} className="flex items-center w-full sm:w-auto">
+                <div className="bg-slate-900 text-white font-bold px-5 sm:px-6 py-3 rounded-full shadow-lg text-sm w-full sm:w-auto text-center sm:whitespace-nowrap">
                   {step}
                 </div>
                 {idx < arr.length - 1 && (
-                  <ArrowRight className="w-5 h-5 mx-2 text-slate-300" />
+                  <ArrowRight className="hidden sm:block w-5 h-5 mx-2 text-slate-300 shrink-0" />
                 )}
               </div>
             ))}
@@ -440,9 +430,9 @@ export default function RetailEcommerceClient() {
       </section>
 
       {/* Why Spaciva & Tech Stack */}
-      <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-slate-900 text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 lg:px-10 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
 
             <div>
               <h2 className="text-3xl md:text-4xl font-extrabold mb-8">Why Retail Businesses Partner With Spaciva</h2>
@@ -507,7 +497,7 @@ export default function RetailEcommerceClient() {
       </section>
 
       {/* FAQs */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-3xl mx-auto px-5 lg:px-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-slate-900">Frequently Asked Questions</h2>
@@ -524,9 +514,7 @@ export default function RetailEcommerceClient() {
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-slate-900"
-                >
-                  {faq.q}
+                  className="w-full text-left px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-3 sm:gap-4 font-bold text-slate-900"><span className="min-w-0 text-sm sm:text-base leading-snug">{faq.q}</span>
                   <ChevronDown className={cn("w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0", openFaq === idx && "rotate-180 text-blue-600")} />
                 </button>
                 <AnimatePresence>
@@ -549,7 +537,7 @@ export default function RetailEcommerceClient() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-slate-50 relative overflow-hidden border-t border-slate-200">
+      <section className="py-16 md:py-24 bg-slate-50 relative overflow-hidden border-t border-slate-200">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/10 blur-[100px] rounded-full pointer-events-none" />
 
         <div className="max-w-4xl mx-auto px-5 text-center relative z-10">
@@ -557,19 +545,13 @@ export default function RetailEcommerceClient() {
           <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
             Whether you're launching a new online store, modernizing your retail operations, or building an AI-powered commerce platform, Spaciva helps you create digital experiences that increase sales and improve customer satisfaction.
           </p>
-          <a href="/contact" className="group relative w-full sm:w-auto pl-6 pr-2 py-2 h-[64px] rounded-full bg-[#7C3AED] text-white font-bold hover:bg-[#6D28D9] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-between gap-4 shadow-xl shadow-[#7C3AED]/20 overflow-hidden mx-auto inline-flex">
-            <div className="relative h-6 w-[230px] overflow-hidden flex items-center justify-center text-lg">
-              <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-full whitespace-nowrap">
-                Start Your Retail Project
-              </span>
-              <span className="absolute inset-0 flex items-center justify-center translate-y-full transition-transform duration-300 group-hover:translate-y-0 whitespace-nowrap">
-                Let's Talk Business
-              </span>
-            </div>
-            <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shrink-0 z-10 transition-transform duration-300 group-hover:translate-x-1">
-              <ArrowRight className="w-6 h-6 text-[#7C3AED]" />
-            </div>
-          </a>
+          <AnimatedCtaButton
+            href="/contact"
+            label="Start Your Retail Project"
+            hoverLabel="Let's Talk Business"
+            size="lg"
+            className="mx-auto"
+          />
         </div>
       </section>
 

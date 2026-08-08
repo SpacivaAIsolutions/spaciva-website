@@ -24,16 +24,16 @@ const FOOTER_LINKS = {
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-[#E2E8F0] pt-20 pb-10 px-6 md:px-12 w-full">
-      <div className="max-w-[1800px] 2xl:px-16 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
-        <div className="lg:col-span-2">
+      <div className="max-w-[1800px] 2xl:px-16 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-12 mb-16">
+        <div className="sm:col-span-2 lg:col-span-2">
           <div className="flex items-center gap-3 mb-6 -ml-2">
-            <img src="/logos/darklogo.svg" alt="Spaciva" className="h-20 w-auto object-contain scale-125 md:scale-[1.4] origin-left" />
+            <img src="/logos/darklogo.svg" alt="Spaciva" className="h-14 sm:h-16 md:h-20 w-auto object-contain" />
           </div>
           <p className="text-[#334155] mb-6 max-w-sm">
             Engineered for growth. We build custom software, AI agents, and web applications for ambitious brands worldwide.
           </p>
           <div className="flex gap-4">
-            <a href="https://www.instagram.com/spaciva.tech/" target="_blank" rel="noreferrer" className="hover:scale-110 transition-transform origin-left">
+            <a href="https://www.instagram.com/spaciva.tech/" target="_blank" rel="noreferrer" aria-label="Spaciva on Instagram" className="flex items-center justify-center w-11 h-11 -m-1.5 hover:scale-110 transition-transform">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                 <defs>
                   <radialGradient id="ig-grad" cx="30%" cy="100%" r="120%" fx="30%" fy="100%">
@@ -50,7 +50,7 @@ export default function Footer() {
                 <path fill="#ffffff" d="M16.9,4H7.1C5.4,4,4,5.4,4,7.1v9.8C4,18.6,5.4,20,7.1,20h9.8c1.7,0,3.1-1.4,3.1-3.1V7.1C20,5.4,18.6,4,16.9,4z M18,16.9c0,0.6-0.5,1.1-1.1,1.1H7.1C6.5,18,6,17.5,6,16.9V7.1C6,6.5,6.5,6,7.1,6h9.8C17.5,6,18,6.5,18,7.1V16.9z" />
               </svg>
             </a>
-            <a href="https://www.linkedin.com/in/spaciva-ai-solution-6b3626412/" target="_blank" rel="noreferrer" className="hover:scale-110 transition-transform origin-left text-[#0077b5]">
+            <a href="https://www.linkedin.com/in/spaciva-ai-solution-6b3626412/" target="_blank" rel="noreferrer" aria-label="Spaciva on LinkedIn" className="flex items-center justify-center w-11 h-11 -m-1.5 hover:scale-110 transition-transform text-[#0077b5]">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
               </svg>
@@ -61,10 +61,10 @@ export default function Footer() {
         {Object.entries(FOOTER_LINKS).map(([category, links]) => (
           <div key={category}>
             <h4 className="font-bold text-[#0F172A] mb-4">{category}</h4>
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col gap-1">
               {links.map(link => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-[#334155] hover:text-[#7C3AED] transition-colors font-medium text-sm">
+                  <Link href={link.href} className="flex items-center min-h-11 -my-0.5 text-[#334155] hover:text-[#7C3AED] transition-colors font-medium text-sm">
                     {link.name}
                   </Link>
                 </li>

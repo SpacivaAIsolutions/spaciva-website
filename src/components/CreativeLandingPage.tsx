@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import AnimatedCtaButton from "@/components/AnimatedCtaButton";
 import {
   ArrowRight, ArrowUpRight, Sparkles, Code2, Cpu, Smartphone,
   Cloud, PenTool, CheckCircle2, ChevronDown, Building2,
@@ -93,34 +93,26 @@ const FAQS = [
 
 function HeroSection() {
   return (
-    <section className="px-6 md:px-12 max-w-[1800px] 2xl:px-16 mx-auto pt-24 pb-24 lg:pt-32 lg:pb-32 flex flex-col lg:flex-row items-start gap-16">
+    <section className="px-5 sm:px-6 md:px-12 max-w-[1800px] 2xl:px-16 mx-auto pt-24 pb-16 sm:pb-24 lg:pt-32 lg:pb-32 flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
       <div className="flex-1 text-center lg:text-left flex flex-col justify-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h1 className="text-[3rem] md:text-[4.5rem] leading-[1.1] font-extrabold tracking-tight mb-6 text-[#0F172A]">
-            Let's Turn Your Business Challenges Into <span className="text-[#7C3AED]">Smart Solutions.</span>
+          <h1 className="text-[2rem] sm:text-[2.75rem] md:text-[4rem] lg:text-[4.5rem] leading-[1.1] font-extrabold tracking-tight mb-6 text-[#0F172A]">
+            Let&apos;s Turn Your Business Challenges Into <span className="text-[#7C3AED]">Smart Solutions.</span>
           </h1>
           <p className="text-lg md:text-xl text-[#334155] max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed font-medium">
             From the first conversation to deployment, we help you make confident technology decisions that support long-term growth.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-            <Link href="/contact" className="group relative w-full sm:w-auto pl-6 pr-2 py-2 h-[56px] rounded-full bg-[#7C3AED] text-white font-bold hover:bg-[#6D28D9] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-between gap-4 shadow-xl shadow-[#7C3AED]/20 overflow-hidden">
-              <div className="relative h-6 w-[150px] overflow-hidden flex items-center">
-                <span className="absolute inset-0 flex items-center transition-transform duration-300 group-hover:-translate-y-full">
-                  Discuss Your Idea
-                </span>
-                <span className="absolute inset-0 flex items-center translate-y-full transition-transform duration-300 group-hover:translate-y-0">
-                  Get Solution
-                </span>
-              </div>
-              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 z-10 transition-transform duration-300 group-hover:translate-x-1">
-                <ArrowRight className="w-5 h-5 text-[#7C3AED]" />
-              </div>
-            </Link>
+            <AnimatedCtaButton
+              href="/contact"
+              label="Discuss Your Idea"
+              hoverLabel="Get Solution"
+            />
           </div>
         </motion.div>
 
@@ -167,9 +159,9 @@ function HeroSection() {
               transition={{ duration: 0.5, delay: 0.3 + index * 0.1, ease: [0.22, 1, 0.36, 1] }}
               className={`flex items-center justify-between bg-white rounded-3xl p-5 border border-[#E2E8F0] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-[#C4B5FD] transition-all duration-300 cursor-default group transform ${index % 2 === 0 ? 'lg:-translate-x-4' : 'lg:translate-x-4'}`}
             >
-              <div className="flex items-center gap-5">
+              <div className="flex items-center gap-4 sm:gap-5 min-w-0">
                 <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110"
+                  className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110"
                   style={{ backgroundColor: service.bg }}
                 >
                   <div
@@ -177,12 +169,12 @@ function HeroSection() {
                     style={{ backgroundColor: service.color }}
                   />
                 </div>
-                <div>
-                  <h3 className="font-bold text-[#0F172A] text-lg mb-0.5">{service.title}</h3>
-                  <p className="text-sm font-medium text-[#334155]">{service.desc}</p>
+                <div className="min-w-0">
+                  <h3 className="font-bold text-[#0F172A] text-base sm:text-lg mb-0.5">{service.title}</h3>
+                  <p className="text-xs sm:text-sm font-medium text-[#334155]">{service.desc}</p>
                 </div>
               </div>
-              <ArrowRight className="w-5 h-5 text-[#94A3B8] group-hover:text-[#7C3AED] group-hover:translate-x-1 transition-all" />
+              <ArrowRight className="w-5 h-5 shrink-0 ml-3 text-[#94A3B8] group-hover:text-[#7C3AED] group-hover:translate-x-1 transition-all" />
             </motion.div>
           ))}
         </div>
@@ -251,7 +243,7 @@ function WhatWeDoSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
           {WHAT_WE_DO.map((service, index) => {
-            let spanClass = "md:col-span-4";
+            let spanClass = "md:col-span-6 lg:col-span-4";
             if (index === 0) spanClass = "md:col-span-12 lg:col-span-8 lg:row-span-2";
             if (index === 1 || index === 2) spanClass = "md:col-span-6 lg:col-span-4";
 
@@ -389,8 +381,8 @@ function FAQItem({ faq, isOpen, onClick }: { faq: typeof FAQS[0], isOpen: boolea
         className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
         onClick={onClick}
       >
-        <span className="font-bold text-lg text-[#0F172A]">{faq.q}</span>
-        <ChevronDown className={`w-5 h-5 text-[#7C3AED] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+        <span className="flex-1 min-w-0 pr-3 font-bold text-base sm:text-lg text-[#0F172A]">{faq.q}</span>
+        <ChevronDown className={`w-5 h-5 shrink-0 text-[#7C3AED] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
       </button>
       <AnimatePresence>
         {isOpen && (
@@ -437,11 +429,11 @@ function FAQSection() {
 function CTASection() {
   return (
     <section id="cta" className="px-6 md:px-12 max-w-[1800px] 2xl:px-16 mx-auto pb-24">
-      <div className="bg-[#0F172A] rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl">
+      <div className="bg-[#0F172A] rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-10 md:p-20 text-center relative overflow-hidden shadow-2xl">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#7C3AED]/30 via-[#0F172A]/0 to-[#0F172A]/0 pointer-events-none" />
 
         <div className="relative z-10 max-w-2xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-white">
             Not Sure What to Build or How to Scale your business ?
           </h2>
           <p className="text-lg text-white/70 mb-10 font-medium">
@@ -449,19 +441,11 @@ function CTASection() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact" className="group relative w-full sm:w-auto pl-6 pr-2 py-2 h-[56px] rounded-full bg-[#7C3AED] text-white font-bold hover:bg-[#6D28D9] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-between gap-4 shadow-xl shadow-[#7C3AED]/20 overflow-hidden">
-              <div className="relative h-6 w-[150px] overflow-hidden flex items-center">
-                <span className="absolute inset-0 flex items-center transition-transform duration-300 group-hover:-translate-y-full text-left">
-                  Discuss Your Idea
-                </span>
-                <span className="absolute inset-0 flex items-center translate-y-full transition-transform duration-300 group-hover:translate-y-0 text-left">
-                  Get Solution
-                </span>
-              </div>
-              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 z-10 transition-transform duration-300 group-hover:translate-x-1">
-                <ArrowRight className="w-5 h-5 text-[#7C3AED]" />
-              </div>
-            </Link>
+            <AnimatedCtaButton
+              href="/contact"
+              label="Discuss Your Idea"
+              hoverLabel="Get Solution"
+            />
           </div>
         </div>
       </div>

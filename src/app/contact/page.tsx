@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Mail, MapPin, Calendar, MessageSquare, Lightbulb, HelpCircle, ExternalLink } from "lucide-react";
-import Navbar from "@/components/Navbar";
 import Script from "next/script";
 
 function cn(...c: (string | undefined | false)[]) {
@@ -63,11 +62,6 @@ export default function ContactPage() {
       <div className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#7C3AED]/5 rounded-full blur-[120px] pointer-events-none z-0" />
       <div className="fixed top-[20%] right-[-10%] w-[40%] h-[40%] bg-[#4F46E5]/5 rounded-full blur-[100px] pointer-events-none z-0" />
 
-      {/* Embedded Navbar */}
-      <div className="relative z-50">
-        <Navbar />
-      </div>
-
       <main className="flex-1 w-full pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto relative z-10 flex flex-col gap-12">
 
         {/* Header Section */}
@@ -78,8 +72,8 @@ export default function ContactPage() {
           className="text-center max-w-3xl mx-auto flex flex-col items-center"
         >
 
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-[#0F172A]">
-            Tell Us the Problem. We'll Design the <span className="text-[#7C3AED]">Solution.</span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-[#0F172A]">
+            Tell Us the Problem. We&apos;ll Design the <span className="text-[#7C3AED]">Solution.</span>
           </h1>
           <p className="text-lg text-[#334155] font-medium leading-relaxed max-w-2xl mx-auto">
             Forget the buzzwords. AI, apps, automation, or software—we'll recommend what actually fits your business.
@@ -101,7 +95,7 @@ export default function ContactPage() {
               {/* Glowing border effect */}
               <div className="absolute -inset-1 bg-gradient-to-r from-[#7C3AED] to-[#4F46E5] rounded-[32px] blur opacity-20 pointer-events-none" />
 
-              <div className="relative bg-white/80 backdrop-blur-xl border border-[#E2E8F0] rounded-3xl p-8 md:p-10 shadow-2xl shadow-[#7C3AED]/10 flex flex-col items-center text-center gap-4 h-full">
+              <div className="relative bg-white/80 backdrop-blur-xl border border-[#E2E8F0] rounded-3xl p-5 sm:p-8 md:p-10 shadow-2xl shadow-[#7C3AED]/10 flex flex-col items-center text-center gap-4 h-full">
                 <div className="w-16 h-16 bg-[#F5F3FF] rounded-2xl flex items-center justify-center mb-2">
                   <Calendar className="w-8 h-8 text-[#7C3AED]" />
                 </div>
@@ -119,10 +113,10 @@ export default function ContactPage() {
                       (window as any).Calendly.initPopupWidget({ url: 'https://calendly.com/spacivasolution/30min' });
                     }
                   }}
-                  className="mt-2 px-8 py-4 rounded-full bg-[#7C3AED] text-white font-bold text-base hover:bg-[#6D28D9] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-[#7C3AED]/30 flex items-center gap-2 group"
+                  className="mt-2 w-full sm:w-auto justify-center px-8 py-4 rounded-full bg-[#7C3AED] text-white font-bold text-base hover:bg-[#6D28D9] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-[#7C3AED]/30 flex items-center gap-2 group"
                 >
-                  Let's Talk Business
-                  <ExternalLink className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  Let&apos;s Talk Business
+                  <ExternalLink className="w-5 h-5 group-hover:translate-x-1 transition-transform shrink-0" />
                 </button>
               </div>
             </motion.div>
@@ -132,7 +126,7 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-white/80 backdrop-blur-md border border-[#E2E8F0] rounded-3xl p-8 flex flex-col gap-4 shadow-xl shadow-slate-200/50"
+              className="bg-white/80 backdrop-blur-md border border-[#E2E8F0] rounded-3xl p-5 sm:p-8 flex flex-col gap-4 shadow-xl shadow-slate-200/50"
             >
               <h3 className="text-xl font-bold mb-2 text-[#0F172A]">How can we help?</h3>
 
@@ -166,7 +160,7 @@ export default function ContactPage() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-white/80 backdrop-blur-md border border-[#E2E8F0] rounded-3xl p-8 relative overflow-hidden shadow-xl shadow-slate-200/50 flex-1 flex flex-col justify-center"
+              className="bg-white/80 backdrop-blur-md border border-[#E2E8F0] rounded-3xl p-5 sm:p-8 relative overflow-hidden shadow-xl shadow-slate-200/50 flex-1 flex flex-col justify-center"
             >
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#7C3AED]/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -258,17 +252,17 @@ export default function ContactPage() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-white/80 backdrop-blur-md border border-[#E2E8F0] rounded-3xl p-8 flex flex-col gap-6 shadow-xl shadow-slate-200/50"
+              className="bg-white/80 backdrop-blur-md border border-[#E2E8F0] rounded-3xl p-5 sm:p-8 flex flex-col gap-6 shadow-xl shadow-slate-200/50"
             >
               <h3 className="text-xl font-bold text-[#0F172A]">Direct Contact</h3>
 
               <div className="flex flex-col sm:flex-row gap-6 justify-between">
-                <a href="mailto:spacivaaisolution@gmail.com" className="flex items-center gap-4 group">
+                <a href="mailto:spacivaaisolution@gmail.com" className="flex items-center gap-4 group min-w-0">
                   <div className="w-12 h-12 rounded-full bg-[#F8FAFC] flex items-center justify-center shrink-0 group-hover:bg-[#F5F3FF] transition-colors">
                     <Mail className="w-5 h-5 text-gray-500 group-hover:text-[#7C3AED] transition-colors" />
                   </div>
-                  <div>
-                    <p className="text-[#0F172A] font-medium">spacivaaisolution@gmail.com</p>
+                  <div className="min-w-0">
+                    <p className="text-[#0F172A] font-medium break-all">spacivaaisolution@gmail.com</p>
                   </div>
                 </a>
               </div>

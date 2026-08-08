@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Activity, Shield, Cloud, Smartphone, Database, HeartPulse, Brain, Zap, CheckCircle2, ChevronRight, MessageSquare, Microscope, Calendar, Clock, Lock, FileText, Pill, Users, Stethoscope, Video, LineChart, ChevronDown, Monitor, Cpu } from "lucide-react";
-import Navbar from "@/components/Navbar";
+import { Activity, Shield, Cloud, Smartphone, Database, HeartPulse, Brain, Zap, CheckCircle2, ChevronRight, MessageSquare, Microscope, Calendar, Clock, Lock, FileText, Pill, Users, Stethoscope, Video, LineChart, ChevronDown, Monitor, Cpu } from "lucide-react";
 import Footer from "@/components/Footer";
+import AnimatedCtaButton from "@/components/AnimatedCtaButton";
 
 function cn(...c: (string | undefined | false)[]) {
   return c.filter(Boolean).join(" ");
@@ -156,10 +156,8 @@ export default function HealthcareClient() {
 
   return (
     <div className="min-h-screen bg-white text-[#0F172A] selection:bg-[#7C3AED]/20 selection:text-[#7C3AED] font-sans">
-      <Navbar />
-
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+      <section className="relative pt-28 pb-16 md:pt-40 md:pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-purple-100 via-white to-white -z-10" />
         <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[#7C3AED]/5 rounded-full blur-3xl -z-10" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-3xl -z-10" />
@@ -185,19 +183,11 @@ export default function HealthcareClient() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4">
-              <a href="/contact" className="group relative w-full sm:w-auto pl-6 pr-2 py-2 h-[56px] rounded-full bg-[#7C3AED] text-white font-bold hover:bg-[#6D28D9] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-between gap-4 shadow-xl shadow-[#7C3AED]/20 overflow-hidden">
-                <div className="relative h-6 w-[200px] overflow-hidden flex items-center">
-                  <span className="absolute inset-0 flex items-center transition-transform duration-300 group-hover:-translate-y-full text-left whitespace-nowrap">
-                    Book a Strategy Call
-                  </span>
-                  <span className="absolute inset-0 flex items-center translate-y-full transition-transform duration-300 group-hover:translate-y-0 text-left whitespace-nowrap">
-                    Let's Talk Business
-                  </span>
-                </div>
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 z-10 transition-transform duration-300 group-hover:translate-x-1">
-                  <ArrowRight className="w-5 h-5 text-[#7C3AED]" />
-                </div>
-              </a>
+              <AnimatedCtaButton
+                href="/contact"
+                label="Book a Strategy Call"
+                hoverLabel="Let's Talk Business"
+              />
               <a href="#solutions" className="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-[#0F172A] border border-gray-200 font-bold text-center hover:bg-gray-50 transition-all flex items-center justify-center gap-2">
                 View Healthcare Solutions
               </a>
@@ -219,7 +209,7 @@ export default function HealthcareClient() {
       </section>
 
       {/* Challenges */}
-      <section className="py-24 bg-white relative">
+      <section className="py-16 md:py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-5 lg:px-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-extrabold mb-6">Challenges Healthcare Organizations Face</h2>
@@ -248,7 +238,7 @@ export default function HealthcareClient() {
       </section>
 
       {/* Solutions */}
-      <section id="solutions" className="py-24 bg-[#0F172A] text-white relative overflow-hidden">
+      <section id="solutions" className="py-16 md:py-24 bg-[#0F172A] text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5" />
         <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-[#7C3AED]/10 to-transparent" />
 
@@ -289,9 +279,9 @@ export default function HealthcareClient() {
       </section>
 
       {/* AI for Healthcare */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-5 lg:px-10">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
             <div className="lg:w-1/2">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold mb-6">
                 <Brain className="w-4 h-4" />
@@ -302,17 +292,17 @@ export default function HealthcareClient() {
                 Reduce administrative overhead, enhance diagnostic accuracy, and provide 24/7 patient support with our custom AI integrations tailored for the medical industry.
               </p>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {AI_SOLUTIONS.map((ai, idx) => (
-                  <div key={idx} className="flex items-center gap-3 p-4 rounded-2xl bg-gray-50 border border-gray-100 font-semibold text-gray-900">
+                  <div key={idx} className="flex items-center gap-3 p-4 rounded-2xl bg-gray-50 border border-gray-100 font-semibold text-gray-900 min-w-0">
                     <Zap className="w-5 h-5 text-blue-500 shrink-0" />
-                    <span className="text-sm">{ai}</span>
+                    <span className="text-sm leading-snug">{ai}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="lg:w-1/2 relative w-full h-[500px] bg-gradient-to-br from-purple-100 to-blue-50 rounded-[3rem] border border-gray-100 flex items-center justify-center overflow-hidden">
+            <div className="lg:w-1/2 relative w-full h-[280px] sm:h-[400px] lg:h-[500px] bg-gradient-to-br from-purple-100 to-blue-50 rounded-[2rem] sm:rounded-[3rem] border border-gray-100 flex items-center justify-center overflow-hidden">
               <div className="absolute w-[600px] h-[600px] bg-white/40 blur-3xl rounded-full" />
               {/* Abstract AI / Health Graphic */}
               <motion.div
@@ -334,9 +324,9 @@ export default function HealthcareClient() {
       </section>
 
       {/* Services Used & Why Spaciva */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-5 lg:px-10">
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
 
             {/* Services */}
             <div>
@@ -368,19 +358,19 @@ export default function HealthcareClient() {
       </section>
 
       {/* Workflow Timeline */}
-      <section className="py-24 bg-white border-y border-gray-100">
+      <section className="py-16 md:py-24 bg-white border-y border-gray-100">
         <div className="max-w-5xl mx-auto px-5 lg:px-10 text-center">
           <h2 className="text-3xl md:text-5xl font-extrabold mb-16">Our Healthcare Workflow</h2>
 
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0 relative">
-            <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-100 -translate-y-1/2 -z-10" />
+          <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-7 gap-6 relative">
+            <div className="hidden xl:block absolute top-[24px] left-0 w-full h-1 bg-gray-100 -z-10" />
 
             {["Discovery", "Compliance Planning", "UX Design", "Development", "Testing", "Deployment", "Support"].map((step, idx) => (
-              <div key={idx} className="flex flex-col items-center gap-4 bg-white px-2">
-                <div className="w-12 h-12 rounded-full bg-[#7C3AED] text-white flex items-center justify-center font-bold text-lg shadow-xl shadow-[#7C3AED]/20">
+              <div key={idx} className="flex flex-col items-center gap-3 bg-white px-2">
+                <div className="w-12 h-12 rounded-full bg-[#7C3AED] text-white flex items-center justify-center font-bold text-lg shadow-xl shadow-[#7C3AED]/20 shrink-0">
                   {idx + 1}
                 </div>
-                <span className="font-bold text-gray-900">{step}</span>
+                <span className="font-bold text-gray-900 text-sm sm:text-base text-center leading-snug">{step}</span>
               </div>
             ))}
           </div>
@@ -388,16 +378,16 @@ export default function HealthcareClient() {
       </section>
 
       {/* Industries & Tech Stack */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-5 lg:px-10">
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
 
             <div>
               <h2 className="text-3xl font-extrabold mb-8">Industries Within Healthcare</h2>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {["Hospitals", "Clinics", "Medical Startups", "Diagnostic Labs", "Pharmacies", "Dental Clinics", "Mental Health", "Veterinary", "HealthTech", "Insurance Providers"].map((ind, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-gray-700 font-medium">
-                    <ChevronRight className="w-4 h-4 text-[#7C3AED]" /> {ind}
+                  <div key={idx} className="flex items-center gap-2 text-gray-700 font-medium min-w-0">
+                    <ChevronRight className="w-4 h-4 text-[#7C3AED] shrink-0" /> {ind}
                   </div>
                 ))}
               </div>
@@ -408,7 +398,7 @@ export default function HealthcareClient() {
               <div className="space-y-6">
                 <div>
                   <h4 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Frontend</h4>
-                  <div className="flex gap-3 text-sm font-semibold text-gray-900">
+                  <div className="flex flex-wrap gap-3 text-sm font-semibold text-gray-900">
                     <span className="px-3 py-1.5 bg-white rounded-lg border border-gray-200">Next.js</span>
                     <span className="px-3 py-1.5 bg-white rounded-lg border border-gray-200">React</span>
                     <span className="px-3 py-1.5 bg-white rounded-lg border border-gray-200">Flutter</span>
@@ -416,7 +406,7 @@ export default function HealthcareClient() {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Backend</h4>
-                  <div className="flex gap-3 text-sm font-semibold text-gray-900">
+                  <div className="flex flex-wrap gap-3 text-sm font-semibold text-gray-900">
                     <span className="px-3 py-1.5 bg-white rounded-lg border border-gray-200">Node.js</span>
                     <span className="px-3 py-1.5 bg-white rounded-lg border border-gray-200">Python</span>
                     <span className="px-3 py-1.5 bg-white rounded-lg border border-gray-200">Go</span>
@@ -424,7 +414,7 @@ export default function HealthcareClient() {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">AI</h4>
-                  <div className="flex gap-3 text-sm font-semibold text-gray-900">
+                  <div className="flex flex-wrap gap-3 text-sm font-semibold text-gray-900">
                     <span className="px-3 py-1.5 bg-white rounded-lg border border-gray-200">OpenAI</span>
                     <span className="px-3 py-1.5 bg-white rounded-lg border border-gray-200">Claude</span>
                     <span className="px-3 py-1.5 bg-white rounded-lg border border-gray-200">Gemini</span>
@@ -449,7 +439,7 @@ export default function HealthcareClient() {
       </section>
 
       {/* FAQs */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-3xl mx-auto px-5 lg:px-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-extrabold mb-6">Frequently Asked Questions</h2>
@@ -466,9 +456,7 @@ export default function HealthcareClient() {
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-gray-900"
-                >
-                  {faq.q}
+                  className="w-full text-left px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-3 sm:gap-4 font-bold text-gray-900"><span className="min-w-0 text-sm sm:text-base leading-snug">{faq.q}</span>
                   <ChevronDown className={cn("w-5 h-5 text-gray-400 transition-transform duration-300 shrink-0", openFaq === idx && "rotate-180 text-[#7C3AED]")} />
                 </button>
                 <AnimatePresence>
@@ -491,7 +479,7 @@ export default function HealthcareClient() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-[#0F172A] text-white relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-[#0F172A] text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-[#7C3AED]/20 to-blue-600/20" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#7C3AED]/30 blur-[100px] rounded-full mix-blend-screen pointer-events-none" />
 
@@ -500,19 +488,13 @@ export default function HealthcareClient() {
           <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
             Whether you're launching a healthcare startup, modernizing hospital operations, or exploring AI-powered healthcare solutions, our team can help you design and build the right platform.
           </p>
-          <a href="/contact" className="group relative w-full sm:w-auto pl-6 pr-2 py-2 h-[64px] rounded-full bg-[#7C3AED] text-white font-bold hover:bg-[#6D28D9] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-between gap-4 shadow-xl shadow-[#7C3AED]/20 overflow-hidden mx-auto inline-flex">
-            <div className="relative h-6 w-[270px] overflow-hidden flex items-center justify-center text-lg">
-              <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-full whitespace-nowrap">
-                Book a Healthcare Strategy Call
-              </span>
-              <span className="absolute inset-0 flex items-center justify-center translate-y-full transition-transform duration-300 group-hover:translate-y-0 whitespace-nowrap">
-                Let's Talk Business
-              </span>
-            </div>
-            <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shrink-0 z-10 transition-transform duration-300 group-hover:translate-x-1">
-              <ArrowRight className="w-6 h-6 text-[#7C3AED]" />
-            </div>
-          </a>
+          <AnimatedCtaButton
+            href="/contact"
+            label="Book a Healthcare Strategy Call"
+            hoverLabel="Let's Talk Business"
+            size="lg"
+            className="mx-auto"
+          />
         </div>
       </section>
 
