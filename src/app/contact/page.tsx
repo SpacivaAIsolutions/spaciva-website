@@ -257,12 +257,12 @@ export default function ContactPage() {
               <h3 className="text-xl font-bold text-[#0F172A]">Direct Contact</h3>
 
               <div className="flex flex-col sm:flex-row gap-6 justify-between">
-                <a href="mailto:spacivaaisolution@gmail.com" className="flex items-center gap-4 group min-w-0">
+                <a href="mailto:hello@spaciva.tech" className="flex items-center gap-4 group min-w-0">
                   <div className="w-12 h-12 rounded-full bg-[#F8FAFC] flex items-center justify-center shrink-0 group-hover:bg-[#F5F3FF] transition-colors">
                     <Mail className="w-5 h-5 text-gray-500 group-hover:text-[#7C3AED] transition-colors" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[#0F172A] font-medium break-all">spacivaaisolution@gmail.com</p>
+                    <p className="text-[#0F172A] font-medium break-all">hello@spaciva.tech</p>
                   </div>
                 </a>
               </div>

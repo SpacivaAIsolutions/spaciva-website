@@ -6,9 +6,9 @@ import { usePathname } from "next/navigation";
 import { ArrowRight, Menu, X, ChevronDown, Cpu, Database, Globe, Cloud } from "lucide-react";
 
 const NAV = [
-  { name: "Services", href: "/#services", hasMegaMenu: true, type: "services" },
+  { name: "Services", href: "/#what-we-do", hasMegaMenu: true, type: "services" },
   { name: "Industries", href: "/#industries", hasMegaMenu: true, type: "industries" },
-  { name: "Case Studies", href: "/#case-studies", hasMegaMenu: true, type: "caseStudies" },
+  { name: "Case Studies", href: "/case-studies/partsflow", hasMegaMenu: true, type: "caseStudies" },
   { name: "Contact", href: "/contact", hasMegaMenu: false },
 ];
 
@@ -281,16 +281,11 @@ function MobileNavItem({ n, setOpen }: { n: any, setOpen: any }) {
               {n.type === 'caseStudies' && (
                 <>
                   {MEGA_MENUS.caseStudies.map((cs, idx) => (
-                    <a key={idx} href={cs.href} onClick={() => setOpen(false)} className="flex flex-col mb-4">
+                    <a key={idx} href={cs.href} onClick={() => setOpen(false)} className="flex flex-col mb-4 last:mb-0">
                       <span className="font-bold text-sm text-gray-900 hover:text-[#7C3AED] transition-colors">{cs.title}</span>
                       <span className="text-xs text-gray-500 mt-0.5">{cs.desc}</span>
                     </a>
                   ))}
-                  <div className="pt-2 border-t border-gray-100">
-                    <a href="/case-studies" className="text-sm font-bold text-[#7C3AED] flex items-center gap-2">
-                      Explore All Case Studies <ArrowRight className="w-4 h-4" />
-                    </a>
-                  </div>
                 </>
               )}
             </div>
@@ -350,7 +345,7 @@ export default function Navbar() {
           <a href="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity -ml-2">
             <img
               src={isDark ? "/logos/white.svg" : "/logos/darklogo.svg"}
-              alt="Spaciva"
+              alt="Spaciva AI"
               className="h-10 sm:h-12 md:h-14 w-auto object-contain transition-all duration-300"
             />
           </a>
@@ -541,7 +536,7 @@ export default function Navbar() {
 
                 {hoveredMenu === 'caseStudies' && (
                   <div className="flex flex-col">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                       {MEGA_MENUS.caseStudies.map((cs, idx) => (
                         <a key={idx} href={cs.href} className="group/item p-4 rounded-xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100 block">
                           <h4 className="font-bold text-gray-900 mb-1 group-hover/item:text-[#7C3AED] transition-colors flex items-center justify-between">
@@ -551,11 +546,6 @@ export default function Navbar() {
                           <p className="text-xs text-gray-500">{cs.desc}</p>
                         </a>
                       ))}
-                    </div>
-                    <div className="pt-6 border-t border-gray-100 flex justify-end">
-                      <a href="/case-studies" className="text-sm font-bold text-[#7C3AED] flex items-center gap-2 hover:gap-3 transition-all">
-                        Explore All Case Studies <ArrowRight className="w-4 h-4" />
-                      </a>
                     </div>
                   </div>
                 )}

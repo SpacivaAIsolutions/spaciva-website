@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import CreativeLandingPage from "@/components/CreativeLandingPage";
 
 export const metadata: Metadata = {
-  title: "Spaciva Solutions",
-  description: "SPACIVA is an AI product engineering company specializing in Generative AI, Enterprise Software, and Scalable SaaS Platforms.",
+  title: "AI Automation for Agencies & DTC Brands | Spaciva AI",
+  description: "Spaciva builds custom AI agents and automations for agencies, professional-services firms, and e-commerce brands in the US and UK. Fixed scope, fixed price, monitored monthly.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "SPACIVA AI",
-    description: "We design and build custom Generative AI, Healthcare Tech, FinTech, Enterprise Software, and Scalable SaaS Platforms engineered for your growth.",
+    title: "AI Automation for Agencies & DTC Brands | Spaciva AI",
+    description: "Spaciva builds custom AI agents and automations for agencies, professional-services firms, and e-commerce brands in the US and UK. Fixed scope, fixed price, monitored monthly.",
     url: "https://spaciva.tech",
-    siteName: "SPACIVA",
+    siteName: "Spaciva AI",
   },
 };
 
@@ -25,11 +25,11 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "SPACIVA",
+            "name": "Spaciva AI",
             "url": "https://spaciva.tech",
-            "logo": "https://spaciva.tech/spaciva-logo.png",
-            "description": "Custom AI automation agents, CRM platforms, LMS systems, and web applications for businesses in India, UAE, UK & USA.",
-            "email": "spacivaaisolution@gmail.com",
+            "logo": "https://spaciva.tech/logos/darklogo.svg",
+            "description": "AI automation and software engineering for agencies, professional-services firms, and DTC brands. Custom AI agents, internal tools, and monthly-monitored automations, based in Ahmedabad, India.",
+            "email": "hello@spaciva.tech",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Ahmedabad",
@@ -37,7 +37,10 @@ export default function Home() {
               "addressCountry": "IN"
             },
             "areaServed": ["IN", "AE", "GB", "US"],
-            "sameAs": [],
+            "sameAs": [
+              "https://www.linkedin.com/company/spaciva-ai/",
+              "https://www.instagram.com/spaciva.tech/"
+            ],
             "foundingDate": "2023",
             "numberOfEmployees": { "@type": "QuantitativeValue", "value": "5-15" }
           }),

@@ -1,88 +1,92 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedCtaButton from "@/components/AnimatedCtaButton";
 import {
-  ArrowRight, ArrowUpRight, Sparkles, Code2, Cpu, Smartphone,
-  Cloud, PenTool, CheckCircle2, ChevronDown, Building2,
-  HeartPulse, GraduationCap, Factory, Landmark, ShoppingBag,
-  Truck, Rocket, Hotel, Shield
+  ArrowRight, Sparkles, Code2, Cpu, ShieldCheck,
+  CheckCircle2, ChevronDown, Building2, Factory,
+  ShoppingBag, Rocket, Briefcase,
 } from "lucide-react";
+
+function cn(...c: (string | undefined | false)[]) {
+  return c.filter(Boolean).join(" ");
+}
 
 // --- DATA ---
 
 const WHAT_WE_DO = [
   {
-    title: "AI Solutions",
-    skills: ["LLMs", "AI Agents", "Automation"],
+    title: "AI Automation & Agents",
+    body: "Support agents trained on your own docs. Lead intake, qualification and routing. Invoice and document processing. Automated client reporting. Built to run in production and monitored monthly.",
+    // TODO: client to confirm a real starting price. Per spec, if unavailable, render "Live in 3 weeks" alone.
+    priceLine: "Live in 3 weeks",
+    tags: ["LLMs", "AI Agents", "RAG", "n8n"],
     icon: Cpu,
     color: "#7C3AED",
   },
   {
-    title: "Web Applications",
-    skills: ["React", "Next.js", "Node.js"],
+    title: "Custom Software & Internal Tools",
+    body: "CRMs, dashboards, portals, and web apps, the engineering layer automation needs underneath it. Full code ownership on final payment.",
+    tags: ["React", "Next.js", "Node.js", "Postgres"],
     icon: Code2,
     color: "#4F46E5",
   },
   {
-    title: "Mobile Apps",
-    skills: ["Flutter", "React Native"],
-    icon: Smartphone,
-    color: "#5B21B6",
-  },
-  {
-    title: "UI/UX Design",
-    skills: ["Research", "Wireframes", "Design Systems"],
-    icon: PenTool,
-    color: "#C4B5FD",
-  },
-  {
-    title: "Cloud & DevOps",
-    skills: ["AWS", "Docker", "CI/CD"],
-    icon: Cloud,
+    title: "Monitoring & Maintenance",
+    body: "A monthly plan on every system we build: uptime monitoring, model and prompt tuning, updates, and small feature work, with a named engineer who knows your setup.",
+    tags: ["AWS", "Monitoring", "CI/CD"],
+    icon: ShieldCheck,
     color: "#334155",
   },
-  {
-    title: "Custom Software",
-    skills: ["ERP", "CRM", "Internal Tools"],
-    icon: Sparkles,
-    color: "#7C3AED",
-  }
 ];
 
 const HERO_SERVICES = [
-  { title: "Business Websites", desc: "Corporate · E-Commerce · Redesigns", color: "#F97316", bg: "#FFF7ED" },
-  { title: "Custom Software", desc: "CRMs · ERPs · Operations Dashboards", color: "#0F172A", bg: "#F1F5F9" },
-  { title: "AI Automation", desc: "Chatbots · WhatsApp · Workflows", color: "#7C3AED", bg: "#F5F3FF" },
-  { title: "Mobile Apps", desc: "iOS & Android Applications", color: "#10B981", bg: "#ECFDF5" },
-  { title: "Ongoing Support", desc: "Maintenance & Technical Partner", color: "#3B82F6", bg: "#EFF6FF" },
+  { title: "AI Automation", desc: "Support agents · Lead routing · Invoice processing", color: "#7C3AED", bg: "#F5F3FF" },
+  { title: "Custom Software", desc: "CRMs · Internal tools · Ops dashboards", color: "#0F172A", bg: "#F1F5F9" },
+  { title: "Ongoing Support", desc: "Monthly monitoring, tuning & maintenance", color: "#3B82F6", bg: "#EFF6FF" },
 ];
 
 const WHY_CHOOSE_US = [
-  "Senior Engineers",
-  "AI-first Development",
-  "Fast Delivery",
-  "Scalable Architecture",
-  "Security Focused",
-  "Long-term Support"
+  "You work with the engineers, not an account manager",
+  "Full code and model ownership on final payment",
+  "Most automations are live in 3 weeks",
+  // TODO: client to confirm real US/UK daily-overlap hours; using the spec's stated fallback until then.
+  "Video calls in your working hours, not ours",
+  "NDA before discovery, standard MSA and SOW",
+  "Every build includes monthly monitoring and tuning",
 ];
 
+// Order matters: the first three are the primary niches and must render first at every breakpoint.
+// Agencies / Professional Services / E-Commerce link out to dedicated industry pages that don't exist
+// yet, so those three render as non-interactive until the pages ship (per spec: don't link to a 404,
+// don't create stub pages). The other three already have live pages, so they link through.
 const INDUSTRIES = [
-  { name: "Healthcare", icon: HeartPulse },
-  { name: "Education", icon: GraduationCap },
-  { name: "Manufacturing", icon: Factory },
-  { name: "Finance", icon: Landmark },
-  { name: "Real Estate", icon: Building2 },
-  { name: "Retail", icon: ShoppingBag },
-  { name: "Logistics", icon: Truck },
-  { name: "Startups", icon: Rocket },
-  { name: "Hospitality", icon: Hotel },
-  { name: "Government", icon: Shield },
+  { name: "Agencies", icon: Rocket, href: undefined },
+  { name: "Professional Services", icon: Briefcase, href: undefined },
+  { name: "E-Commerce", icon: ShoppingBag, href: undefined },
+  { name: "Startups & SaaS", icon: Sparkles, href: "/industries/startups" },
+  { name: "Manufacturing", icon: Factory, href: "/industries/manufacturing" },
+  { name: "Real Estate", icon: Building2, href: "/industries/real-estate" },
 ];
 
 const FAQS = [
-  { q: "How does your pricing work?", a: "We offer transparent, milestone-based pricing tailored to your specific project requirements. For ongoing work, we also provide dedicated team retainers." },
+  {
+    q: "How does your pricing work?",
+    a: "Our core offers are fixed-scope packages with a stated price and timeline, so you know the cost before you commit. Ongoing work is billed as a simple monthly plan. We don't bill hourly by default.",
+  },
+  // TODO: client to confirm real starting prices ($X setup, $Y/month) and add a "How much does a
+  // typical project cost?" FAQ here once pricing is confirmed (spec: omit the question entirely
+  // rather than answer vaguely — a non-answer is worse than silence).
+  {
+    q: "How do you work with clients in different time zones?",
+    a: "We're based in Ahmedabad, India, and stay available for video calls in your US Eastern or UK working hours, not ours. You get a written update every Friday plus a short Loom walkthrough of what moved.",
+  },
+  {
+    q: "What happens after a project launches?",
+    a: "Every system we build includes a monthly plan: uptime monitoring, model and prompt tuning, dependency updates, and small feature work, with a named engineer who knows your setup. AI systems drift over time, and that's the nature of the technology, so we scope for it upfront rather than treating it as an afterthought.",
+  },
   { q: "What is your typical timeline?", a: "Most MVPs and core web applications are delivered within 6 to 12 weeks. Complex enterprise or AI solutions may take 3 to 6 months depending on the scope." },
   { q: "Who owns the code?", a: "You do. Upon project completion and final payment, 100% of the intellectual property and source code is transferred to your company." },
   { q: "Do you sign NDAs?", a: "Absolutely. We are happy to sign a Non-Disclosure Agreement before any initial discovery calls or code audits to protect your ideas." },
@@ -93,7 +97,7 @@ const FAQS = [
 
 function HeroSection() {
   return (
-    <section className="px-5 sm:px-6 md:px-12 max-w-[1800px] 2xl:px-16 mx-auto pt-24 pb-16 sm:pb-24 lg:pt-32 lg:pb-32 flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
+    <section className="px-5 sm:px-6 md:px-12 max-w-[1800px] 2xl:px-16 mx-auto pt-24 pb-16 sm:pb-24 lg:pt-32 lg:pb-32 flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16">
       <div className="flex-1 text-center lg:text-left flex flex-col justify-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -101,19 +105,28 @@ function HeroSection() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <h1 className="text-[2rem] sm:text-[2.75rem] md:text-[4rem] lg:text-[4.5rem] leading-[1.1] font-extrabold tracking-tight mb-6 text-[#0F172A]">
-            Let&apos;s Turn Your Business Challenges Into <span className="text-[#7C3AED]">Smart Solutions.</span>
+            AI automation that runs <span className="text-[#7C3AED]">your busywork</span>
           </h1>
           <p className="text-lg md:text-xl text-[#334155] max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed font-medium">
-            From the first conversation to deployment, we help you make confident technology decisions that support long-term growth.
+            We build custom AI agents and automations for agencies, professional-services firms, and DTC brands in the US and UK, integrated with the tools you already use, and monitored by us every month.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start">
             <AnimatedCtaButton
               href="/contact"
-              label="Discuss Your Idea"
-              hoverLabel="Get Solution"
+              label="Book a 30-minute call"
+              hoverLabel="Let's Talk"
             />
+            <a
+              href="#services"
+              className="inline-flex items-center gap-1.5 font-bold text-[#0F172A] hover:text-[#7C3AED] transition-colors"
+            >
+              See how it works
+              <ArrowRight className="w-4 h-4" />
+            </a>
           </div>
+          {/* TODO: client to confirm a real "systems live" count. Per spec, omit the proof line
+              entirely rather than approximate one, so it stays out until that number exists. */}
         </motion.div>
 
         {/* Creative Feature Pills */}
@@ -123,34 +136,34 @@ function HeroSection() {
           transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className="mt-12 flex flex-col sm:flex-row flex-wrap gap-4 mx-auto lg:mx-0 w-full max-w-2xl"
         >
-          {/* Transparent Development */}
-          <div className="flex items-center gap-3 bg-white/60 backdrop-blur-md border border-gray-200/50 rounded-2xl px-5 py-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(124,58,237,0.1)] hover:-translate-y-1 transition-all duration-300 group cursor-default">
-            <div className="w-8 h-8 rounded-full bg-[#7C3AED]/10 flex items-center justify-center text-[#7C3AED] group-hover:bg-[#7C3AED] group-hover:text-white transition-colors duration-300">
-              <svg fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-            </div>
-            <span className="text-[#0F172A] font-bold text-[13px] tracking-wide">Transparent Development</span>
-          </div>
-
-          {/* Weekly Progress Updates */}
+          {/* Weekly written updates + Loom walkthrough */}
           <div className="flex items-center gap-3 bg-white/60 backdrop-blur-md border border-gray-200/50 rounded-2xl px-5 py-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(124,58,237,0.1)] hover:-translate-y-1 transition-all duration-300 group cursor-default">
             <div className="w-8 h-8 rounded-full bg-[#7C3AED]/10 flex items-center justify-center text-[#7C3AED] group-hover:bg-[#7C3AED] group-hover:text-white transition-colors duration-300">
               <svg fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>
             </div>
-            <span className="text-[#0F172A] font-bold text-[13px] tracking-wide">Weekly Progress Updates</span>
+            <span className="text-[#0F172A] font-bold text-[13px] tracking-wide">Weekly written updates + Loom walkthrough</span>
           </div>
 
-          {/* Scalable Architecture */}
+          {/* Fixed scope, fixed price */}
+          <div className="flex items-center gap-3 bg-white/60 backdrop-blur-md border border-gray-200/50 rounded-2xl px-5 py-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(124,58,237,0.1)] hover:-translate-y-1 transition-all duration-300 group cursor-default">
+            <div className="w-8 h-8 rounded-full bg-[#7C3AED]/10 flex items-center justify-center text-[#7C3AED] group-hover:bg-[#7C3AED] group-hover:text-white transition-colors duration-300">
+              <svg fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+            </div>
+            <span className="text-[#0F172A] font-bold text-[13px] tracking-wide">Fixed scope, fixed price</span>
+          </div>
+
+          {/* You own the code */}
           <div className="flex items-center gap-3 bg-white/60 backdrop-blur-md border border-gray-200/50 rounded-2xl px-5 py-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(124,58,237,0.1)] hover:-translate-y-1 transition-all duration-300 group cursor-default">
             <div className="w-8 h-8 rounded-full bg-[#7C3AED]/10 flex items-center justify-center text-[#7C3AED] group-hover:bg-[#7C3AED] group-hover:text-white transition-colors duration-300">
               <svg fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M6 6.878V6a2.25 2.25 0 012.25-2.25h7.5A2.25 2.25 0 0118 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 004.5 9v.878m13.5-3A2.25 2.25 0 0119.5 9v.878m0 0a2.246 2.246 0 00-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0121 12v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6c0-.98.626-1.813 1.5-2.122" /></svg>
             </div>
-            <span className="text-[#0F172A] font-bold text-[13px] tracking-wide">Scalable Architecture</span>
+            <span className="text-[#0F172A] font-bold text-[13px] tracking-wide">You own the code</span>
           </div>
         </motion.div>
       </div>
 
       <div className="flex-1 w-full max-w-lg lg:max-w-none relative mt-12 lg:mt-0">
-        <div className="flex flex-col gap-4 relative z-10 pl-0 lg:pl-12">
+        <div className="flex flex-col gap-5 relative z-10 pl-0 lg:pl-12">
           {HERO_SERVICES.map((service, index) => (
             <motion.div
               key={service.title}
@@ -200,7 +213,7 @@ function PartnersSection() {
   return (
     <section className="py-10 bg-white border-t border-[#E2E8F0] shadow-sm relative z-20 overflow-hidden">
       <div className="max-w-[1800px] 2xl:px-16 mx-auto px-6 md:px-12 relative">
-        <p className="text-center text-sm font-bold text-[#94A3B8] uppercase tracking-wider mb-8">Trusted by ambitious brands worldwide</p>
+        <p className="text-center text-sm font-bold text-[#94A3B8] uppercase tracking-wider mb-8">Trusted by teams in the US, UK, and India</p>
 
         {/* Gradient fades for smooth edges */}
         <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
@@ -214,16 +227,38 @@ function PartnersSection() {
           >
             {/* Render 2 identical sets for seamless infinite scroll */}
             {[1, 2].map((set) => (
-              <div key={set} className="flex items-center gap-12 md:gap-20 pr-12 md:pr-20">
+              <div key={set} className="flex items-end gap-12 md:gap-20 pr-12 md:pr-20">
                 {partners.map((p, idx) => (
-                  p.type === 'text'
-                    ? <span key={idx} className={`${p.className} whitespace-nowrap px-4`}>{p.name}</span>
-                    : <img key={idx} src={p.logo} alt={p.name} className={`${p.className} w-auto max-w-none`} />
+                  <div key={idx} className="flex flex-col items-center gap-2">
+                    {p.type === 'text'
+                      ? <span className={`${p.className} whitespace-nowrap px-4`}>{p.name}</span>
+                      : <img src={p.logo} alt={p.name} className={`${p.className} w-auto max-w-none`} />}
+                    {p.type !== 'text' && (
+                      <span className="text-xs font-semibold text-[#94A3B8] whitespace-nowrap">{p.name}</span>
+                    )}
+                  </div>
                 ))}
               </div>
             ))}
           </motion.div>
         </div>
+
+        {/*
+          TODO: client to supply a testimonial that contains a specific number (hours saved,
+          percentage reduction, time-to-completion). Per spec, do not ship this block with a vague
+          quote ("great to work with") — that occupies proof real estate without providing proof.
+          Uncomment and fill in once a real quote is available.
+
+        <div className="mt-14 max-w-[680px] mx-auto text-center">
+          <p className="text-xl md:text-2xl font-medium text-[#0F172A] leading-relaxed">
+            "[Testimonial quote, must contain a specific number, e.g. hours saved per week,
+            percentage reduction, or time-to-completion.]"
+          </p>
+          <p className="mt-4 text-sm font-bold text-[#334155]">
+            [Full name], [Job title] — [Company]
+          </p>
+        </div>
+        */}
       </div>
     </section>
   );
@@ -238,14 +273,12 @@ function WhatWeDoSection() {
       <div className="px-6 md:px-12 max-w-[1800px] 2xl:px-16 mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-white">What We Do</h2>
-          <p className="text-white/60 font-medium max-w-2xl mx-auto text-lg">We engineer powerful digital products, from advanced AI automation to high-performance corporate applications.</p>
+          <p className="text-white/60 font-medium max-w-2xl mx-auto text-lg">We&apos;re not a full-service agency. We do three things, in this order.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {WHAT_WE_DO.map((service, index) => {
-            let spanClass = "md:col-span-6 lg:col-span-4";
-            if (index === 0) spanClass = "md:col-span-12 lg:col-span-8 lg:row-span-2";
-            if (index === 1 || index === 2) spanClass = "md:col-span-6 lg:col-span-4";
+            const big = index === 0;
 
             return (
               <motion.div
@@ -254,7 +287,10 @@ function WhatWeDoSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`group flex flex-col bg-white/[0.03] backdrop-blur-xl rounded-[2rem] p-6 lg:p-8 border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_30px_rgba(0,0,0,0.2)] hover:bg-white/[0.06] hover:border-[#7C3AED]/40 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_30px_rgba(124,58,237,0.2)] transition-all duration-500 overflow-hidden relative ${spanClass}`}
+                className={`group flex flex-col bg-white/[0.03] backdrop-blur-xl rounded-[2rem] p-6 lg:p-8 border transition-all duration-500 overflow-hidden relative ${big
+                  ? "md:col-span-2 border-[#7C3AED]/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_40px_rgba(124,58,237,0.15)]"
+                  : "border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_30px_rgba(0,0,0,0.2)] hover:bg-white/[0.06] hover:border-[#7C3AED]/40"
+                  }`}
               >
                 {/* Decorative glowing orb inside the card */}
                 <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#7C3AED]/10 rounded-full blur-3xl pointer-events-none transition-all duration-700 group-hover:bg-[#7C3AED]/30 group-hover:scale-150" />
@@ -263,26 +299,24 @@ function WhatWeDoSection() {
                   <service.icon className="w-6 h-6 text-white" />
                 </div>
 
-                <div className="relative z-10 mt-auto">
-                  <h3 className="font-bold text-white text-2xl lg:text-3xl mb-4">{service.title}</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {service.skills.map(skill => (
-                      <span key={skill} className="px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-white/70 border border-white/10 group-hover:border-white/20 group-hover:text-white transition-colors duration-300">
-                        {skill}
+                <div className="relative z-10">
+                  <h3 className={`font-bold text-white mb-4 ${big ? "text-2xl lg:text-3xl" : "text-xl lg:text-2xl"}`}>{service.title}</h3>
+                  <p className={`text-white/60 leading-relaxed ${big ? "max-w-2xl" : ""}`}>{service.body}</p>
+
+                  {"priceLine" in service && service.priceLine && (
+                    <span className="inline-flex items-center mt-5 px-4 py-1.5 rounded-full border border-[#7C3AED]/40 bg-[#7C3AED]/10 text-[#C4B5FD] font-bold text-sm">
+                      {service.priceLine}
+                    </span>
+                  )}
+
+                  <div className="flex flex-wrap gap-2 mt-5">
+                    {service.tags.map(tag => (
+                      <span key={tag} className="px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-white/50 border border-white/10 group-hover:border-white/20 group-hover:text-white/70 transition-colors duration-300">
+                        {tag}
                       </span>
                     ))}
                   </div>
                 </div>
-
-                {/* Abstract Data Visualization inside the big AI Solutions card */}
-                {index === 0 && (
-                  <div className="absolute bottom-8 right-8 w-1/3 h-1/3 hidden lg:flex flex-col justify-end gap-3 opacity-40 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
-                    <div className="w-full h-1 bg-gradient-to-r from-transparent via-[#7C3AED] to-white rounded-full blur-[0.5px]" />
-                    <div className="w-4/5 h-1 bg-gradient-to-r from-transparent via-[#7C3AED] to-white rounded-full blur-[0.5px] ml-auto" />
-                    <div className="w-11/12 h-1 bg-gradient-to-r from-transparent via-[#7C3AED] to-white rounded-full blur-[0.5px] ml-auto" />
-                    <div className="w-3/4 h-1 bg-gradient-to-r from-transparent via-[#7C3AED] to-white rounded-full blur-[0.5px] ml-auto" />
-                  </div>
-                )}
               </motion.div>
             )
           })}
@@ -302,45 +336,29 @@ function WhyChooseUsSection() {
           <p className="text-[#334155] font-medium max-w-2xl mx-auto">We focus on measurable outcomes and technical excellence.</p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="flex flex-col gap-6">
-            {WHY_CHOOSE_US.map((reason, index) => (
-              <motion.div
-                key={reason}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex items-center gap-4 bg-white p-5 rounded-2xl border border-[#E2E8F0] shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="w-10 h-10 rounded-full bg-[#7C3AED]/10 flex items-center justify-center flex-shrink-0">
-                  <CheckCircle2 className="w-5 h-5 text-[#7C3AED]" />
-                </div>
-                <span className="font-bold text-[#0F172A] text-lg">{reason}</span>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative w-full h-[500px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl border border-[#E2E8F0] bg-white hidden md:block"
-          >
-            {/* Minimal Browser Frame */}
-            <div className="h-10 bg-[#F1F5F9] border-b border-[#E2E8F0] flex items-center px-4 gap-2">
-              <div className="w-3 h-3 rounded-full bg-red-400" />
-              <div className="w-3 h-3 rounded-full bg-amber-400" />
-              <div className="w-3 h-3 rounded-full bg-green-400" />
-            </div>
-            {/* Image */}
-            <img
-              src="/dashboard-mockup.png"
-              alt="SaaS Dashboard Analytics"
-              className="w-full h-[calc(100%-2.5rem)] object-cover object-bottom"
-            />
-          </motion.div>
+        {/*
+          The dashboard mockup image previously here (/dashboard-mockup.png) has visible
+          design-template placeholder text baked into the image itself ("Feature Section",
+          "Minimal typography: Inter") plus garbled fake data. Per the rewrite spec, priority
+          is to ship without it: removed and the section now runs single-column across the
+          full width until a real product screenshot exists.
+        */}
+        <div className="grid sm:grid-cols-2 gap-5 max-w-4xl mx-auto">
+          {WHY_CHOOSE_US.map((reason, index) => (
+            <motion.div
+              key={reason}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="flex items-start gap-4 bg-white p-5 rounded-2xl border border-[#E2E8F0] shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div className="w-10 h-10 rounded-full bg-[#7C3AED]/10 flex items-center justify-center flex-shrink-0">
+                <CheckCircle2 className="w-5 h-5 text-[#7C3AED]" />
+              </div>
+              <span className="font-bold text-[#0F172A] text-base sm:text-lg leading-snug">{reason}</span>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
@@ -349,26 +367,41 @@ function WhyChooseUsSection() {
 
 function IndustriesSection() {
   return (
-    <section className="px-6 md:px-12 max-w-[1800px] 2xl:px-16 mx-auto py-24">
+    <section id="industries" className="px-6 md:px-12 max-w-[1800px] 2xl:px-16 mx-auto py-24">
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-[#0F172A]">Industries We Serve</h2>
-        <p className="text-[#334155] font-medium max-w-2xl mx-auto">Transforming operations across global sectors.</p>
+        <p className="text-[#334155] font-medium max-w-2xl mx-auto">We build deepest where visual, repetitive, and manual workflows are the bottleneck.</p>
       </div>
 
       <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-        {INDUSTRIES.map((industry, index) => (
-          <motion.div
-            key={industry.name}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.3, delay: index * 0.05 }}
-            className="flex items-center gap-3 bg-white border border-[#E2E8F0] shadow-sm rounded-full px-6 py-3 hover:border-[#7C3AED] hover:shadow-md transition-all duration-300 cursor-default"
-          >
-            <industry.icon className="w-5 h-5 text-[#7C3AED]" />
-            <span className="font-bold text-[#0F172A] text-sm">{industry.name}</span>
-          </motion.div>
-        ))}
+        {INDUSTRIES.map((industry, index) => {
+          const chipClass = cn(
+            "flex items-center gap-3 bg-white border border-[#E2E8F0] shadow-sm rounded-full px-6 py-3 transition-all duration-300",
+            industry.href ? "hover:border-[#7C3AED] hover:shadow-md cursor-pointer" : "cursor-default"
+          );
+          const content = (
+            <>
+              <industry.icon className="w-5 h-5 text-[#7C3AED]" />
+              <span className="font-bold text-[#0F172A] text-sm">{industry.name}</span>
+            </>
+          );
+
+          return (
+            <motion.div
+              key={industry.name}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+            >
+              {industry.href ? (
+                <Link href={industry.href} className={chipClass}>{content}</Link>
+              ) : (
+                <div className={chipClass}>{content}</div>
+              )}
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );
@@ -402,11 +435,28 @@ function FAQItem({ faq, isOpen, onClick }: { faq: typeof FAQS[0], isOpen: boolea
   );
 }
 
+const FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.a,
+    },
+  })),
+};
+
 function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
     <section className="px-6 md:px-12 max-w-3xl mx-auto pt-8 pb-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
+      />
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-[#0F172A]">Common Questions</h2>
         <p className="text-[#334155] font-medium">Everything you need to know about working with us.</p>
@@ -434,17 +484,17 @@ function CTASection() {
 
         <div className="relative z-10 max-w-2xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-white">
-            Not Sure What to Build or How to Scale your business ?
+            Tell us what&apos;s eating your team&apos;s time.
           </h2>
           <p className="text-lg text-white/70 mb-10 font-medium">
-            Every successful product starts with clarity. Share your business challenge, and we'll help you define the right strategy, choose the right technology, and build a solution that scales.
+            Book a 30-minute call. We&apos;ll look at your workflow, tell you honestly whether automation is worth building, and give you a fixed price if it is.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <AnimatedCtaButton
               href="/contact"
-              label="Discuss Your Idea"
-              hoverLabel="Get Solution"
+              label="Book a discovery call"
+              hoverLabel="Let's Talk"
             />
           </div>
         </div>

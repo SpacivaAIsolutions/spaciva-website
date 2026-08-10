@@ -25,34 +25,25 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://spaciva.tech"),
-  title: "SPACIVA — AI Solutions & Enterprise Digital Ecosystems",
+  title: "AI Automation for Agencies & DTC Brands | Spaciva AI",
   description:
-    "We engineer custom AI automation agents, custom CRM & LMS platforms, high-performance Web systems, and data-driven SEO growth engines. Elevate your workflows with SPACIVA, a premier AI software agency based in India.",
-  keywords: [
-    "AI solution company",
-    "India based AI company",
-    "AI solutions agency India",
-    "custom CRM development",
-    "custom LMS platform development",
-    "AI automation developer",
-    "enterprise software development Ahmedabad",
-    "Next.js web development agency",
-    "technical SEO company India",
-    "SPACIVA AI",
-    "SPACIVA solutions",
-    "custom business software",
-    "AI integrations developer"
-  ],
+    "Spaciva builds custom AI agents and automations for agencies, professional-services firms, and e-commerce brands in the US and UK. Fixed scope, fixed price, monitored monthly.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "SPACIVA — AI Solutions & Enterprise Digital Ecosystems",
+    title: "AI Automation for Agencies & DTC Brands | Spaciva AI",
     description:
-      "We engineer custom AI automation agents, custom CRM & LMS platforms, high-performance Web systems, and data-driven SEO growth engines.",
+      "Spaciva builds custom AI agents and automations for agencies, professional-services firms, and e-commerce brands in the US and UK. Fixed scope, fixed price, monitored monthly.",
     url: "https://spaciva.tech",
-    siteName: "SPACIVA",
+    siteName: "Spaciva AI",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Automation for Agencies & DTC Brands | Spaciva AI",
+    description:
+      "Spaciva builds custom AI agents and automations for agencies, professional-services firms, and e-commerce brands in the US and UK. Fixed scope, fixed price, monitored monthly.",
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "",

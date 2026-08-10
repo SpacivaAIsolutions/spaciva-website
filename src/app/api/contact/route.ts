@@ -27,7 +27,10 @@ export async function POST(request: Request) {
     );
   }
 
-  const to = process.env.RESEND_TO || "spacivaaisolution@gmail.com";
+  // Falls back to hello@spaciva.tech only when RESEND_TO isn't set. Every contact-form lead
+  // is delivered here, so confirm this inbox is real and monitored before launch, or set
+  // RESEND_TO to override it.
+  const to = process.env.RESEND_TO || "hello@spaciva.tech";
   const from = process.env.RESEND_FROM || "onboarding@resend.dev";
 
   let body: ContactPayload;
