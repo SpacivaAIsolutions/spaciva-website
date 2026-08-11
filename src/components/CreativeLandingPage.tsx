@@ -25,6 +25,7 @@ const WHAT_WE_DO = [
     tags: ["LLMs", "AI Agents", "RAG", "n8n"],
     icon: Cpu,
     color: "#7C3AED",
+    href: "/services/ai-agent-development",
   },
   {
     title: "Custom Software & Internal Tools",
@@ -279,19 +280,10 @@ function WhatWeDoSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {WHAT_WE_DO.map((service, index) => {
             const big = index === 0;
+            const href = "href" in service ? service.href : undefined;
 
-            return (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`group flex flex-col bg-white/[0.03] backdrop-blur-xl rounded-[2rem] p-6 lg:p-8 border transition-all duration-500 overflow-hidden relative ${big
-                  ? "md:col-span-2 border-[#7C3AED]/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_40px_rgba(124,58,237,0.15)]"
-                  : "border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_30px_rgba(0,0,0,0.2)] hover:bg-white/[0.06] hover:border-[#7C3AED]/40"
-                  }`}
-              >
+            const cardInner = (
+              <>
                 {/* Decorative glowing orb inside the card */}
                 <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#7C3AED]/10 rounded-full blur-3xl pointer-events-none transition-all duration-700 group-hover:bg-[#7C3AED]/30 group-hover:scale-150" />
 
@@ -317,6 +309,22 @@ function WhatWeDoSection() {
                     ))}
                   </div>
                 </div>
+              </>
+            );
+
+            return (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`group flex flex-col bg-white/[0.03] backdrop-blur-xl rounded-[2rem] p-6 lg:p-8 border transition-all duration-500 overflow-hidden relative ${big
+                  ? "md:col-span-2 border-[#7C3AED]/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_40px_rgba(124,58,237,0.15)]"
+                  : "border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_30px_rgba(0,0,0,0.2)] hover:bg-white/[0.06] hover:border-[#7C3AED]/40"
+                  }`}
+              >
+                {href ? <Link href={href} className="contents">{cardInner}</Link> : cardInner}
               </motion.div>
             )
           })}

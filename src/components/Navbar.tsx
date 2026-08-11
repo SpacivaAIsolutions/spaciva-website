@@ -21,15 +21,15 @@ const MEGA_MENUS = {
       color: "text-purple-600",
       bg: "bg-purple-100",
       items: [
-        "AI Agents",
-        "AI Chatbots (RAG-powered)",
-        "Workflow Automation",
-        "Document & Invoice Processing",
-        "Email & Inbox Automation",
-        "WhatsApp Automation",
-        "CRM Automation",
-        "AI Assistants",
-        "Generative AI & Custom LLMs"
+        { label: "AI Agents", href: "/services/ai-agent-development" },
+        { label: "AI Chatbots (RAG-powered)" },
+        { label: "Workflow Automation" },
+        { label: "Document & Invoice Processing" },
+        { label: "Email & Inbox Automation" },
+        { label: "WhatsApp Automation" },
+        { label: "CRM Automation" },
+        { label: "AI Assistants" },
+        { label: "Generative AI & Custom LLMs" }
       ]
     },
     {
@@ -39,12 +39,12 @@ const MEGA_MENUS = {
       color: "text-indigo-600",
       bg: "bg-indigo-100",
       items: [
-        "CRM Development",
-        "Custom Dashboards",
-        "Internal Business Tools",
-        "ERP Systems",
-        "Inventory Management",
-        "Business Intelligence"
+        { label: "CRM Development" },
+        { label: "Custom Dashboards" },
+        { label: "Internal Business Tools" },
+        { label: "ERP Systems" },
+        { label: "Inventory Management" },
+        { label: "Business Intelligence" }
       ]
     },
     {
@@ -54,12 +54,12 @@ const MEGA_MENUS = {
       color: "text-blue-600",
       bg: "bg-blue-100",
       items: [
-        "Web Applications (Next.js / React)",
-        "SaaS Platforms",
-        "Enterprise Portals",
-        "Progressive Web Apps",
-        "UI/UX Design",
-        "Product Strategy"
+        { label: "Web Applications (Next.js / React)" },
+        { label: "SaaS Platforms" },
+        { label: "Enterprise Portals" },
+        { label: "Progressive Web Apps" },
+        { label: "UI/UX Design" },
+        { label: "Product Strategy" }
       ]
     },
     {
@@ -69,11 +69,11 @@ const MEGA_MENUS = {
       color: "text-cyan-600",
       bg: "bg-cyan-100",
       items: [
-        "Cloud & DevOps (AWS, Docker, CI/CD)",
-        "Infrastructure & Monitoring",
-        "Data Warehousing & ETL Pipelines",
-        "Predictive Analytics",
-        "Ongoing Maintenance & AI Monitoring (retainer)"
+        { label: "Cloud & DevOps (AWS, Docker, CI/CD)" },
+        { label: "Infrastructure & Monitoring" },
+        { label: "Data Warehousing & ETL Pipelines" },
+        { label: "Predictive Analytics" },
+        { label: "Ongoing Maintenance & AI Monitoring (retainer)" }
       ]
     }
   ],
@@ -245,9 +245,15 @@ function MobileNavItem({ n, setOpen }: { n: any, setOpen: any }) {
                   <span className="mt-1.5 ml-[38px] text-[11px] font-medium leading-relaxed text-gray-400">{srv.tagline}</span>
                   <div className="flex flex-col ml-[38px] mt-2">
                     {srv.items.map((item, i) => (
-                      <span key={i} className="py-1 text-xs font-medium leading-snug text-[#64748B] hover:text-[#7C3AED] cursor-pointer transition-colors">
-                        {item}
-                      </span>
+                      item.href ? (
+                        <a key={i} href={item.href} onClick={() => setOpen(false)} className="py-1 text-xs font-medium leading-snug text-[#7C3AED] hover:underline transition-colors">
+                          {item.label}
+                        </a>
+                      ) : (
+                        <span key={i} className="py-1 text-xs font-medium leading-snug text-[#64748B]">
+                          {item.label}
+                        </span>
+                      )
                     ))}
                   </div>
                 </div>
@@ -478,8 +484,16 @@ export default function Navbar() {
                         </p>
                         <ul className="mt-3 pt-3 border-t border-[#E2E8F0]">
                           {srv.items.map((item, i) => (
-                            <li key={i} className="-mx-2 px-2 py-1.5 rounded-lg text-[13px] font-medium leading-snug text-[#64748B] cursor-pointer transition-colors hover:text-[#7C3AED] hover:bg-white">
-                              {item}
+                            <li key={i}>
+                              {item.href ? (
+                                <a href={item.href} className="-mx-2 px-2 py-1.5 rounded-lg text-[13px] font-bold leading-snug text-[#7C3AED] transition-colors hover:bg-white block">
+                                  {item.label}
+                                </a>
+                              ) : (
+                                <span className="-mx-2 px-2 py-1.5 rounded-lg text-[13px] font-medium leading-snug text-[#64748B] block">
+                                  {item.label}
+                                </span>
+                              )}
                             </li>
                           ))}
                         </ul>
