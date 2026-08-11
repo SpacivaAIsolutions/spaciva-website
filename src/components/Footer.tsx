@@ -24,7 +24,7 @@ const FOOTER_LINKS = {
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-[#E2E8F0] pt-20 pb-10 px-6 md:px-12 w-full">
-      <div className="max-w-[1800px] 2xl:px-16 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-12 mb-16">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-12 mb-16">
         <div className="sm:col-span-2 lg:col-span-2">
           <div className="flex items-center gap-3 mb-6 -ml-2">
             <img src="/logos/darklogo.svg" alt="Spaciva AI" className="h-14 sm:h-16 md:h-20 w-auto object-contain" />
@@ -80,7 +80,7 @@ export default function Footer() {
         ))}
       </div>
 
-      <div className="max-w-[1800px] 2xl:px-16 mx-auto border-t border-[#E2E8F0] pt-8 flex flex-col md:flex-row items-center justify-center md:justify-between gap-4">
+      <div className="max-w-7xl mx-auto border-t border-[#E2E8F0] pt-8 flex flex-col md:flex-row items-center justify-center md:justify-between gap-4">
         <p className="text-sm text-[#334155] font-medium">
           © {new Date().getFullYear()} Spaciva. All rights reserved.
         </p>

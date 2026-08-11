@@ -97,7 +97,7 @@ const FAQS = [
 
 function HeroSection() {
   return (
-    <section className="px-5 sm:px-6 md:px-12 max-w-[1800px] 2xl:px-16 mx-auto pt-24 pb-16 sm:pb-24 lg:pt-32 lg:pb-32 flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16">
+    <section className="px-5 sm:px-6 md:px-12 max-w-7xl mx-auto pt-24 pb-16 sm:pb-24 lg:pt-32 lg:pb-32 flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16">
       <div className="flex-1 text-center lg:text-left flex flex-col justify-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -212,7 +212,7 @@ function PartnersSection() {
 
   return (
     <section className="py-10 bg-white border-t border-[#E2E8F0] shadow-sm relative z-20 overflow-hidden">
-      <div className="max-w-[1800px] 2xl:px-16 mx-auto px-6 md:px-12 relative">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative">
         <p className="text-center text-sm font-bold text-[#94A3B8] uppercase tracking-wider mb-8">Trusted by teams in the US, UK, and India</p>
 
         {/* Gradient fades for smooth edges */}
@@ -266,11 +266,11 @@ function PartnersSection() {
 
 function WhatWeDoSection() {
   return (
-    <section id="what-we-do" className="bg-[#0E0E0C] py-20 relative overflow-hidden">
+    <section id="what-we-do" className="bg-[#0E0E0C] py-16 md:py-24 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-[#7C3AED]/10 to-transparent pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-tr from-[#7C3AED]/10 to-transparent pointer-events-none" />
 
-      <div className="px-6 md:px-12 max-w-[1800px] 2xl:px-16 mx-auto relative z-10">
+      <div className="px-6 md:px-12 max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-white">What We Do</h2>
           <p className="text-white/60 font-medium max-w-2xl mx-auto text-lg">We&apos;re not a full-service agency. We do three things, in this order.</p>
@@ -328,9 +328,9 @@ function WhatWeDoSection() {
 
 function WhyChooseUsSection() {
   return (
-    <section className="bg-[#F8FAFC] py-24 relative overflow-hidden border-y border-[#E2E8F0]">
+    <section className="bg-[#F8FAFC] py-16 md:py-24 relative overflow-hidden border-y border-[#E2E8F0]">
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#7C3AED]/5 to-transparent pointer-events-none" />
-      <div className="px-6 md:px-12 max-w-[1800px] 2xl:px-16 mx-auto relative z-10">
+      <div className="px-6 md:px-12 max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-[#0E0E0C]">Why Choose Us</h2>
           <p className="text-[#334155] font-medium max-w-2xl mx-auto">We focus on measurable outcomes and technical excellence.</p>
@@ -367,7 +367,7 @@ function WhyChooseUsSection() {
 
 function IndustriesSection() {
   return (
-    <section id="industries" className="px-6 md:px-12 max-w-[1800px] 2xl:px-16 mx-auto py-24">
+    <section id="industries" className="px-6 md:px-12 max-w-7xl mx-auto py-16 md:py-24">
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-[#0F172A]">Industries We Serve</h2>
         <p className="text-[#334155] font-medium max-w-2xl mx-auto">We build deepest where visual, repetitive, and manual workflows are the bottleneck.</p>
@@ -452,7 +452,7 @@ function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="px-6 md:px-12 max-w-3xl mx-auto pt-8 pb-24">
+    <section className="px-6 md:px-12 max-w-3xl mx-auto pt-8 pb-16 md:pb-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
@@ -478,7 +478,7 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section id="cta" className="px-6 md:px-12 max-w-[1800px] 2xl:px-16 mx-auto pb-24">
+    <section id="cta" className="px-6 md:px-12 max-w-7xl mx-auto pb-16 md:pb-24">
       <div className="bg-[#0F172A] rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-10 md:p-20 text-center relative overflow-hidden shadow-2xl">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#7C3AED]/30 via-[#0F172A]/0 to-[#0F172A]/0 pointer-events-none" />
 

@@ -332,7 +332,7 @@ export default function RealEstateClient() {
 
       {/* AI Solutions */}
       <section className="py-16 md:py-24 bg-white relative">
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#7C3AED]/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[260px] h-[260px] md:w-[500px] md:h-[500px] bg-[#7C3AED]/5 rounded-full blur-3xl pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-5 lg:px-10 relative">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
@@ -482,7 +482,7 @@ export default function RealEstateClient() {
       </section>
 
       {/* KPIs */}
-      <section className="py-20 bg-blue-600 text-white">
+      <section className="py-16 md:py-24 bg-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-5 lg:px-10 text-center">
           <h2 className="text-2xl font-bold mb-10 text-white/90 uppercase tracking-wider">Key Business Metrics We Optimize</h2>
           <div className="flex flex-wrap justify-center gap-4">
@@ -593,7 +593,7 @@ export default function RealEstateClient() {
       </section>
 
       {/* SEO Long Form Content */}
-      <section className="py-20 bg-slate-50 border-t border-slate-200">
+      <section className="py-16 md:py-24 bg-slate-50 border-t border-slate-200">
         <div className="max-w-4xl mx-auto px-5 lg:px-10 prose prose-lg prose-slate text-slate-600">
           <h2 className="text-2xl font-bold text-slate-900 mb-4">Custom Real Estate Software Development & PropTech Solutions</h2>
           <p className="mb-6 leading-relaxed">

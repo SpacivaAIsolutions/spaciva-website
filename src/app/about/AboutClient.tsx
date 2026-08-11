@@ -269,7 +269,7 @@ export default function AboutClient() {
         </section>
 
         {/* Why We Exist */}
-        <section className="py-20 md:py-28 px-6 md:px-12 max-w-3xl mx-auto">
+        <section className="py-16 md:py-24 px-6 md:px-12 max-w-3xl mx-auto">
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-8 text-[#0F172A]">
               Most automation projects die in the handover.
@@ -292,7 +292,7 @@ export default function AboutClient() {
         </section>
 
         {/* What We Actually Do */}
-        <section className="bg-[#0E0E0C] py-20 md:py-28 relative overflow-hidden">
+        <section className="bg-[#0E0E0C] py-16 md:py-24 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-[#7C3AED]/10 to-transparent pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-tr from-[#7C3AED]/10 to-transparent pointer-events-none" />
 
@@ -338,7 +338,7 @@ export default function AboutClient() {
         </section>
 
         {/* How We Work */}
-        <section className="py-20 md:py-28 px-6 md:px-12 max-w-3xl mx-auto">
+        <section className="py-16 md:py-24 px-6 md:px-12 max-w-3xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-[#0F172A]">How We Work</h2>
             <p className="text-[#334155] font-medium max-w-xl mx-auto">A fixed sequence, every time, with no surprises about what happens next.</p>
@@ -370,7 +370,7 @@ export default function AboutClient() {
         </section>
 
         {/* Why Teams Choose Us */}
-        <section className="bg-slate-50 py-20 md:py-28 border-y border-[#E2E8F0]">
+        <section className="bg-slate-50 py-16 md:py-24 border-y border-[#E2E8F0]">
           <div className="px-6 md:px-12 max-w-7xl mx-auto">
             <div className="text-center mb-16 max-w-2xl mx-auto">
               <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-[#0F172A]">Why Teams Choose Us</h2>
@@ -408,7 +408,7 @@ export default function AboutClient() {
         </section>
 
         {/* Where We Are — commented out until real address/email/phone are supplied; uncomment and fill in Fill() values before launch
-        <section className="bg-slate-50 py-20 md:py-28 border-y border-[#E2E8F0]">
+        <section className="bg-slate-50 py-16 md:py-24 border-y border-[#E2E8F0]">
           <div className="px-6 md:px-12 max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
               <motion.div
@@ -446,7 +446,7 @@ export default function AboutClient() {
         */}
 
         {/* FAQ */}
-        <section className="px-6 md:px-12 max-w-3xl mx-auto pt-20 md:pt-28 pb-8">
+        <section className="px-6 md:px-12 max-w-3xl mx-auto pt-16 md:pt-24 pb-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-[#0F172A]">Frequently Asked Questions</h2>
             <p className="text-[#334155] font-medium">Everything you need to know about working with us.</p>

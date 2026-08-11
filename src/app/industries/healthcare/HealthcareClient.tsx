@@ -534,7 +534,7 @@ export default function HealthcareClient() {
       </section>
 
       {/* SEO Long Form Content */}
-      <section className="py-20 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-5 lg:px-10 prose prose-lg prose-purple text-gray-600">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Driving Digital Transformation in Healthcare</h2>
           <p className="mb-6">

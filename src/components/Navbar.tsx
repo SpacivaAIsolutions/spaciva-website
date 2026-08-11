@@ -339,7 +339,7 @@ export default function Navbar() {
       transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
       className="fixed top-4 left-0 right-0 z-50 transition-all duration-300 pointer-events-none"
     >
-      <div className="max-w-[1800px] mx-auto px-5 lg:px-10 2xl:px-16 pointer-events-auto relative" onMouseLeave={() => setHoveredMenu(null)}>
+      <div className="max-w-7xl mx-auto px-5 lg:px-10 pointer-events-auto relative" onMouseLeave={() => setHoveredMenu(null)}>
         <div className="flex items-center justify-between h-[64px]">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity -ml-2">
