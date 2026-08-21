@@ -20,7 +20,7 @@ const PARTNERS = [
   { name: "Siddhraj", logo: "/partnerslogo/siddhraj.jpeg", className: "h-14 md:h-16" },
   { name: "Unoloft", logo: "/partnerslogo/unoloft.webp", className: "h-7 md:h-8" },
   { name: "Kofeko", logo: "/partnerslogo/Kofeko.svg", className: "h-4 md:h-5" },
-  { name: "Aditya Chemicals", logo: "/partnerslogo/adityachemicals.svg", className: "h-8 md:h-10" },
+
   { name: "3nStar", logo: "/partnerslogo/3nstar.png", className: "h-7 md:h-9" },
   { name: "Veda", logo: "/partnerslogo/veda.webp", className: "h-9 md:h-11" },
   { name: "Cerata", logo: "/partnerslogo/cerata.webp", className: "h-8 md:h-10" },

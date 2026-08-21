@@ -202,7 +202,7 @@ function PartnersSection() {
     { type: 'img', name: "Siddhraj", logo: "/partnerslogo/siddhraj.jpeg", className: "h-20 md:h-28 lg:h-32 object-contain mix-blend-darken shrink-0" },
     { type: 'img', name: "Unoloft", logo: "/partnerslogo/unoloft.webp", className: "h-8 md:h-10 lg:h-11 object-contain shrink-0" },
     { type: 'img', name: "Kofeko", logo: "/partnerslogo/Kofeko.svg", className: "h-5 md:h-6 lg:h-7 object-contain shrink-0" },
-    { type: 'img', name: "Aditya Chemicals", logo: "/partnerslogo/adityachemicals.svg", className: "h-10 md:h-12 lg:h-14 object-contain shrink-0" },
+
     { type: 'img', name: "3nStar", logo: "/partnerslogo/3nstar.png", className: "h-8 md:h-10 lg:h-12 object-contain shrink-0" },
     { type: 'img', name: "Veda", logo: "/partnerslogo/veda.webp", className: "h-12 md:h-16 lg:h-20 object-contain mix-blend-darken shrink-0" },
     { type: 'img', name: "Cerata", logo: "/partnerslogo/cerata.webp", className: "h-10 md:h-12 lg:h-14 object-contain shrink-0" },
