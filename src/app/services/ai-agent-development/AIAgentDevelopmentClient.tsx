@@ -441,6 +441,19 @@ export default function AIAgentDevelopmentClient() {
         </div>
       </section>
 
+      {/* Cross-link — honest steer toward the cheaper option when it's the right one */}
+      <section className="py-10 bg-slate-50 border-y border-[#E2E8F0]">
+        <div className="max-w-3xl mx-auto px-5 lg:px-10 text-center">
+          <p className="text-slate-600">
+            Not every problem needs judgement calls. If the steps are known in advance, plain{" "}
+            <Link href="/services/workflow-automation" className="font-bold text-[#7C3AED] hover:underline">
+              workflow automation
+            </Link>{" "}
+            is cheaper and faster to build, and it&apos;s where we start most clients.
+          </p>
+        </div>
+      </section>
+
       {/* Mid-page CTA — dark, short */}
       <section className="py-12 md:py-16 bg-[#0F172A]">
         <div className="max-w-3xl mx-auto px-5 lg:px-10 text-center">
@@ -508,6 +521,20 @@ export default function AIAgentDevelopmentClient() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Cross-link — an agent acts; a chatbot answers. Steer visitors who just want the latter. */}
+      <section className="py-10 bg-white border-y border-[#E2E8F0]">
+        <div className="max-w-3xl mx-auto px-5 lg:px-10 text-center">
+          <p className="text-slate-600">
+            Just need it to answer questions from your docs, with sources, and hand off when it can&apos;t?
+            That&apos;s a{" "}
+            <Link href="/services/rag-chatbot-development" className="font-bold text-[#7C3AED] hover:underline">
+              RAG chatbot
+            </Link>
+            , a simpler, cheaper build than a full agent.
+          </p>
         </div>
       </section>
 

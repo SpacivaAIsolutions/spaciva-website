@@ -22,8 +22,8 @@ const MEGA_MENUS = {
       bg: "bg-purple-100",
       items: [
         { label: "AI Agents", href: "/services/ai-agent-development" },
-        { label: "AI Chatbots (RAG-powered)" },
-        { label: "Workflow Automation" },
+        { label: "AI Chatbots (RAG-powered)", href: "/services/rag-chatbot-development" },
+        { label: "Workflow Automation", href: "/services/workflow-automation" },
         { label: "Document & Invoice Processing" },
         { label: "Email & Inbox Automation" },
         { label: "WhatsApp Automation" },
