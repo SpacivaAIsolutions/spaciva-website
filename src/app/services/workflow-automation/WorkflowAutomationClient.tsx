@@ -7,24 +7,17 @@ import {
   ArrowRight, ArrowDown, Users, Briefcase, ShoppingBag, Settings,
   Zap, Bot, CheckCircle2, Circle, XCircle, Bell,
   MessageSquare, FolderKanban, Database,
+  Workflow, Shuffle, GitBranch, Code2, Contact, TrendingUp, Cloud, LayoutGrid, PhoneCall,
+  Hash, Mail, Inbox, MessageCircle, FileText, CheckSquare, ListTodo, Calendar, Grid3x3, AppWindow,
+  ShoppingCart, Package, CreditCard, Receipt, Calculator, Server, HardDrive, Sheet, BarChart3,
 } from "lucide-react";
 import Footer from "@/components/Footer";
+import TrustStrip from "@/components/TrustStrip";
 import AnimatedCtaButton from "@/components/AnimatedCtaButton";
 
 function cn(...c: (string | undefined | false)[]) {
   return c.filter(Boolean).join(" ");
 }
-
-const PARTNERS = [
-  { name: "Siddhraj", logo: "/partnerslogo/siddhraj.jpeg", className: "h-14 md:h-16" },
-  { name: "Unoloft", logo: "/partnerslogo/unoloft.webp", className: "h-7 md:h-8" },
-  { name: "Kofeko", logo: "/partnerslogo/Kofeko.svg", className: "h-4 md:h-5" },
-  { name: "3nStar", logo: "/partnerslogo/3nstar.png", className: "h-7 md:h-9" },
-  { name: "Veda", logo: "/partnerslogo/veda.webp", className: "h-9 md:h-11" },
-  { name: "Cerata", logo: "/partnerslogo/cerata.webp", className: "h-8 md:h-10" },
-  { name: "Shubham", logo: "/partnerslogo/shubham.png", className: "h-8 md:h-10" },
-  { name: "Consultup India", logo: "/partnerslogo/consultupindia.webp", className: "h-8 md:h-10" },
-];
 
 const BEFORE_STEPS = [
   "Someone checks the inbox",
@@ -124,12 +117,58 @@ const STEPS = [
 ];
 
 const TOOL_GROUPS = [
-  { category: "Automation platforms", icon: Zap, tools: ["n8n", "Make", "Zapier", "Custom Python & Node services"] },
-  { category: "CRM and sales", icon: Users, tools: ["HubSpot", "Pipedrive", "Salesforce", "Zoho", "Close"] },
-  { category: "Comms", icon: MessageSquare, tools: ["Slack", "Gmail", "Outlook", "WhatsApp Business"] },
-  { category: "Project and docs", icon: FolderKanban, tools: ["Notion", "Asana", "ClickUp", "Monday", "Airtable", "Google Workspace"] },
-  { category: "Commerce and billing", icon: ShoppingBag, tools: ["Shopify", "WooCommerce", "Stripe", "QuickBooks", "Xero"] },
-  { category: "Data", icon: Database, tools: ["Postgres", "MySQL", "Google Sheets", "BigQuery"] },
+  {
+    category: "Automation platforms", icon: Zap, tools: [
+      { name: "n8n", icon: Workflow },
+      { name: "Make", icon: Shuffle },
+      { name: "Zapier", icon: GitBranch },
+      { name: "Custom Python & Node services", icon: Code2 },
+    ],
+  },
+  {
+    category: "CRM and sales", icon: Users, tools: [
+      { name: "HubSpot", icon: Contact },
+      { name: "Pipedrive", icon: TrendingUp },
+      { name: "Salesforce", icon: Cloud },
+      { name: "Zoho", icon: LayoutGrid },
+      { name: "Close", icon: PhoneCall },
+    ],
+  },
+  {
+    category: "Comms", icon: MessageSquare, tools: [
+      { name: "Slack", icon: Hash },
+      { name: "Gmail", icon: Mail },
+      { name: "Outlook", icon: Inbox },
+      { name: "WhatsApp Business", icon: MessageCircle },
+    ],
+  },
+  {
+    category: "Project and docs", icon: FolderKanban, tools: [
+      { name: "Notion", icon: FileText },
+      { name: "Asana", icon: CheckSquare },
+      { name: "ClickUp", icon: ListTodo },
+      { name: "Monday", icon: Calendar },
+      { name: "Airtable", icon: Grid3x3 },
+      { name: "Google Workspace", icon: AppWindow },
+    ],
+  },
+  {
+    category: "Commerce and billing", icon: ShoppingBag, tools: [
+      { name: "Shopify", icon: ShoppingCart },
+      { name: "WooCommerce", icon: Package },
+      { name: "Stripe", icon: CreditCard },
+      { name: "QuickBooks", icon: Receipt },
+      { name: "Xero", icon: Calculator },
+    ],
+  },
+  {
+    category: "Data", icon: Database, tools: [
+      { name: "Postgres", icon: Server },
+      { name: "MySQL", icon: HardDrive },
+      { name: "Google Sheets", icon: Sheet },
+      { name: "BigQuery", icon: BarChart3 },
+    ],
+  },
 ];
 
 const WHERE_WRONG = [
@@ -404,25 +443,7 @@ export default function WorkflowAutomationClient() {
       </section>
 
       {/* Trust strip */}
-      <section className="py-10 bg-white border-y border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-5 lg:px-10">
-          <p className="text-center text-sm font-bold text-[#94A3B8] uppercase tracking-wider mb-8">
-            Trusted by teams in the US, UK, and India
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14">
-            {PARTNERS.map((p) => (
-              <div key={p.name} className="flex flex-col items-center gap-2">
-                <img
-                  src={p.logo}
-                  alt={p.name}
-                  className={cn(p.className, "w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300")}
-                />
-                <span className="text-xs font-semibold text-[#94A3B8]">{p.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TrustStrip sectionClassName="py-10 bg-white border-y border-[#E2E8F0]" fadeFrom="white" />
 
       <div className="max-w-7xl mx-auto px-5 lg:px-10 relative">
         <div className="lg:grid lg:grid-cols-[200px_1fr] lg:gap-16">
@@ -584,11 +605,11 @@ export default function WorkflowAutomationClient() {
                     </div>
                     <div className="flex flex-col gap-1">
                       {group.tools.map((tool) => (
-                        <div key={tool} className="flex items-center gap-2.5 py-1">
-                          <span className="w-6 h-6 rounded-full bg-slate-100 text-slate-500 text-[11px] font-bold flex items-center justify-center shrink-0">
-                            {tool.charAt(0)}
+                        <div key={tool.name} className="flex items-center gap-2.5 py-1">
+                          <span className="w-6 h-6 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center shrink-0">
+                            <tool.icon className="w-3.5 h-3.5" />
                           </span>
-                          <span className="text-sm font-medium text-slate-600">{tool}</span>
+                          <span className="text-sm font-medium text-slate-600">{tool.name}</span>
                         </div>
                       ))}
                     </div>

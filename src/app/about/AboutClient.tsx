@@ -10,6 +10,7 @@ import {
 import Footer from "@/components/Footer";
 import AnimatedCtaButton from "@/components/AnimatedCtaButton";
 import AnimatedSection from "@/components/AnimatedSection";
+import TrustStrip from "@/components/TrustStrip";
 
 function cn(...c: (string | undefined | false)[]) {
   return c.filter(Boolean).join(" ");
@@ -28,18 +29,6 @@ function Fill({ children }: { children: React.ReactNode }) {
     </span>
   );
 }
-
-const PARTNERS = [
-  { name: "Siddhraj", logo: "/partnerslogo/siddhraj.jpeg", className: "h-14 md:h-16" },
-  { name: "Unoloft", logo: "/partnerslogo/unoloft.webp", className: "h-7 md:h-8" },
-  { name: "Kofeko", logo: "/partnerslogo/Kofeko.svg", className: "h-4 md:h-5" },
-
-  { name: "3nStar", logo: "/partnerslogo/3nstar.png", className: "h-7 md:h-9" },
-  { name: "Veda", logo: "/partnerslogo/veda.webp", className: "h-9 md:h-11" },
-  { name: "Cerata", logo: "/partnerslogo/cerata.webp", className: "h-8 md:h-10" },
-  { name: "Shubham", logo: "/partnerslogo/shubham.png", className: "h-8 md:h-10" },
-  { name: "Consultup India", logo: "/partnerslogo/consultupindia.webp", className: "h-8 md:h-10" },
-];
 
 const WHAT_WE_DO = [
   {
@@ -250,23 +239,7 @@ export default function AboutClient() {
         </section>
 
         {/* Proof strip */}
-        <section className="py-10 bg-slate-50 border-y border-[#E2E8F0]">
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <p className="text-center text-sm font-bold text-[#94A3B8] uppercase tracking-wider mb-8">
-              Trusted by teams in India, the UK, the US, and the UAE
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14">
-              {PARTNERS.map((p) => (
-                <img
-                  key={p.name}
-                  src={p.logo}
-                  alt={p.name}
-                  className={cn(p.className, "w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300")}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
+        <TrustStrip sectionClassName="py-10 bg-slate-50 border-y border-[#E2E8F0]" containerClassName="max-w-7xl mx-auto px-6 md:px-12" fadeFrom="slate-50" />
 
         {/* Why We Exist */}
         <section className="py-16 md:py-24 px-6 md:px-12 max-w-3xl mx-auto">

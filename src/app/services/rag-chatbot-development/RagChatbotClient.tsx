@@ -9,24 +9,16 @@ import {
   Scale, ChevronDown,
   Users, Briefcase, Rocket, Tag, Clock, Code2, KeyRound, RefreshCw,
   Globe, Database, ArrowLeftRight,
+  AppWindow, MessageCircle, Hash, Video, LifeBuoy, Mail, HardDrive, FileText, FolderOpen,
+  LayoutGrid, ShoppingCart, File, CircleHelp, MessageSquare, Contact, Inbox,
 } from "lucide-react";
 import Footer from "@/components/Footer";
+import TrustStrip from "@/components/TrustStrip";
 import AnimatedCtaButton from "@/components/AnimatedCtaButton";
 
 function cn(...c: (string | undefined | false)[]) {
   return c.filter(Boolean).join(" ");
 }
-
-const PARTNERS = [
-  { name: "Siddhraj", logo: "/partnerslogo/siddhraj.jpeg", className: "h-14 md:h-16" },
-  { name: "Unoloft", logo: "/partnerslogo/unoloft.webp", className: "h-7 md:h-8" },
-  { name: "Kofeko", logo: "/partnerslogo/Kofeko.svg", className: "h-4 md:h-5" },
-  { name: "3nStar", logo: "/partnerslogo/3nstar.png", className: "h-7 md:h-9" },
-  { name: "Veda", logo: "/partnerslogo/veda.webp", className: "h-9 md:h-11" },
-  { name: "Cerata", logo: "/partnerslogo/cerata.webp", className: "h-8 md:h-10" },
-  { name: "Shubham", logo: "/partnerslogo/shubham.png", className: "h-8 md:h-10" },
-  { name: "Consultup India", logo: "/partnerslogo/consultupindia.webp", className: "h-8 md:h-10" },
-];
 
 const WHAT_WE_BUILD = [
   {
@@ -167,9 +159,38 @@ const PROCESS = [
 ];
 
 const CHANNEL_GROUPS = [
-  { category: "Channels", icon: Globe, items: ["Your website", "WhatsApp", "Slack", "Microsoft Teams", "Your helpdesk", "Email"] },
-  { category: "Content sources", icon: Database, items: ["Google Drive", "Notion", "Confluence", "SharePoint", "Your CMS", "Shopify", "PDFs", "Your help centre"] },
-  { category: "Handoff into", icon: ArrowLeftRight, items: ["Zendesk", "Intercom", "Freshdesk", "HubSpot", "Slack", "A shared inbox"] },
+  {
+    category: "Channels", icon: Globe, items: [
+      { name: "Your website", icon: AppWindow },
+      { name: "WhatsApp", icon: MessageCircle },
+      { name: "Slack", icon: Hash },
+      { name: "Microsoft Teams", icon: Video },
+      { name: "Your helpdesk", icon: LifeBuoy },
+      { name: "Email", icon: Mail },
+    ],
+  },
+  {
+    category: "Content sources", icon: Database, items: [
+      { name: "Google Drive", icon: HardDrive },
+      { name: "Notion", icon: FileText },
+      { name: "Confluence", icon: BookOpen },
+      { name: "SharePoint", icon: FolderOpen },
+      { name: "Your CMS", icon: LayoutGrid },
+      { name: "Shopify", icon: ShoppingCart },
+      { name: "PDFs", icon: File },
+      { name: "Your help centre", icon: CircleHelp },
+    ],
+  },
+  {
+    category: "Handoff into", icon: ArrowLeftRight, items: [
+      { name: "Zendesk", icon: LifeBuoy },
+      { name: "Intercom", icon: MessageSquare },
+      { name: "Freshdesk", icon: Headset },
+      { name: "HubSpot", icon: Contact },
+      { name: "Slack", icon: Hash },
+      { name: "A shared inbox", icon: Inbox },
+    ],
+  },
 ];
 
 // Matches the homepage's industry set exactly, the same four verticals used on the AI Agent page,
@@ -350,25 +371,7 @@ export default function RagChatbotClient() {
       </section>
 
       {/* Trust strip — muted */}
-      <section className="py-10 bg-white border-y border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-5 lg:px-10">
-          <p className="text-center text-sm font-bold text-[#94A3B8] uppercase tracking-wider mb-8">
-            Trusted by teams in the US, UK, and India
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14">
-            {PARTNERS.map((p) => (
-              <div key={p.name} className="flex flex-col items-center gap-2">
-                <img
-                  src={p.logo}
-                  alt={p.name}
-                  className={cn(p.className, "w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300")}
-                />
-                <span className="text-xs font-semibold text-[#94A3B8]">{p.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TrustStrip sectionClassName="py-10 bg-white border-y border-[#E2E8F0]" fadeFrom="white" />
 
       {/* What RAG means — light, single column, larger body type, no diagram */}
       <section id="what-rag-means" className="py-16 md:py-24 bg-white scroll-mt-24">
@@ -675,12 +678,12 @@ export default function RagChatbotClient() {
                   <h3 className="font-bold text-slate-900">{group.category}</h3>
                 </div>
                 <div className="flex flex-col gap-1">
-                  {group.items.map((tool) => (
-                    <div key={tool} className="flex items-center gap-2.5 py-1">
-                      <span className="w-6 h-6 rounded-full bg-slate-100 text-slate-500 text-[11px] font-bold flex items-center justify-center shrink-0">
-                        {tool.charAt(0)}
+                  {group.items.map((item) => (
+                    <div key={item.name} className="flex items-center gap-2.5 py-1">
+                      <span className="w-6 h-6 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center shrink-0">
+                        <item.icon className="w-3.5 h-3.5" />
                       </span>
-                      <span className="text-sm font-medium text-slate-600">{tool}</span>
+                      <span className="text-sm font-medium text-slate-600">{item.name}</span>
                     </div>
                   ))}
                 </div>
