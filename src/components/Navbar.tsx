@@ -24,9 +24,9 @@ const MEGA_MENUS = {
         { label: "AI Agents", href: "/services/ai-agent-development" },
         { label: "AI Chatbots (RAG-powered)", href: "/services/rag-chatbot-development" },
         { label: "Workflow Automation", href: "/services/workflow-automation" },
-        { label: "Document & Invoice Processing" },
-        { label: "Email & Inbox Automation" },
-        { label: "WhatsApp Automation" },
+        { label: "Document & Invoice Processing", href: "/services/document-invoice-processing" },
+        { label: "Email & Inbox Automation", href: "/services/email-inbox-automation" },
+        { label: "WhatsApp Automation", href: "/services/whatsapp-automation" },
         { label: "CRM Automation" },
         { label: "AI Assistants" },
         { label: "Generative AI & Custom LLMs" }

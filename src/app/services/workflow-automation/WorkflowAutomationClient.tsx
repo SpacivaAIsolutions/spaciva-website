@@ -684,7 +684,18 @@ export default function WorkflowAutomationClient() {
                 Need it to answer questions instead of run a process? That&apos;s a{" "}
                 <Link href="/services/rag-chatbot-development" className="font-bold text-[#7C3AED] hover:underline">
                   RAG chatbot
-                </Link>, the third option.
+                </Link>. And if what you actually need is invoices and contracts read and posted
+                rather than a workflow triggered, that&apos;s{" "}
+                <Link href="/services/document-invoice-processing" className="font-bold text-[#7C3AED] hover:underline">
+                  document processing
+                </Link>. And if the problem is really just the inbox, sorting and drafting mail
+                as it arrives, that&apos;s{" "}
+                <Link href="/services/email-inbox-automation" className="font-bold text-[#7C3AED] hover:underline">
+                  email and inbox automation
+                </Link>. And if your customers already message you on{" "}
+                <Link href="/services/whatsapp-automation" className="font-bold text-[#7C3AED] hover:underline">
+                  WhatsApp
+                </Link>, the same logic just runs there instead.
               </p>
             </section>
 

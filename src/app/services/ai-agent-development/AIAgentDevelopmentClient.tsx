@@ -495,7 +495,7 @@ export default function AIAgentDevelopmentClient() {
         </div>
       </section>
 
-      {/* Cross-link — an agent acts; a chatbot answers. Steer visitors who just want the latter. */}
+      {/* Cross-link — an agent acts; a chatbot answers; document processing just reads and files. */}
       <section className="py-10 bg-white border-y border-[#E2E8F0]">
         <div className="max-w-3xl mx-auto px-5 lg:px-10 text-center">
           <p className="text-slate-600">
@@ -504,7 +504,20 @@ export default function AIAgentDevelopmentClient() {
             <Link href="/services/rag-chatbot-development" className="font-bold text-[#7C3AED] hover:underline">
               RAG chatbot
             </Link>
-            , a simpler, cheaper build than a full agent.
+            , a simpler, cheaper build than a full agent. If the job is just reading invoices
+            or contracts and posting the fields, that&apos;s{" "}
+            <Link href="/services/document-invoice-processing" className="font-bold text-[#7C3AED] hover:underline">
+              document processing
+            </Link>
+            . And if it&apos;s just sorting and drafting replies to mail that arrives, that&apos;s{" "}
+            <Link href="/services/email-inbox-automation" className="font-bold text-[#7C3AED] hover:underline">
+              email and inbox automation
+            </Link>
+            , no judgement calls required. Any of these can run on{" "}
+            <Link href="/services/whatsapp-automation" className="font-bold text-[#7C3AED] hover:underline">
+              WhatsApp
+            </Link>{" "}
+            too, it&apos;s a channel, not a different job.
           </p>
         </div>
       </section>
