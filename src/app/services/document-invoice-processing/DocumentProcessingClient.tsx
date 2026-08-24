@@ -613,6 +613,17 @@ export default function DocumentProcessingClient() {
             <Link href="/services/ai-agent-development" className="font-bold text-[#7C3AED] hover:underline">AI agents</Link>{" "}
             make judgement calls where the next step isn&apos;t fixed in advance. Most document-processing projects are workflow automation with an extraction layer in front, which is exactly what this page is.
           </p>
+          <p className="mt-4 text-slate-500 text-sm">
+            The extraction model, confidence scoring, and evaluation underneath this page is its own layer, covered on{" "}
+            <Link href="/services/generative-ai-custom-llms" className="font-bold text-[#7C3AED] hover:underline">
+              Generative AI &amp; Custom LLMs
+            </Link>
+            . And if the destination for that data is specifically your ERP, the connection itself is its own scope, covered on{" "}
+            <Link href="/services/erp-systems" className="font-bold text-[#7C3AED] hover:underline">
+              ERP systems
+            </Link>
+            .
+          </p>
         </div>
       </section>
 

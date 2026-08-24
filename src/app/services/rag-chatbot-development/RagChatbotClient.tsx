@@ -602,6 +602,22 @@ export default function RagChatbotClient() {
           <p className="mt-8 text-slate-600 leading-relaxed max-w-[680px]">
             Fine-tuning on your own documents to &quot;teach it your business&quot; is the most common expensive mistake we see. It&apos;s slow, it goes stale the day your content changes, and it doesn&apos;t give you sources.
           </p>
+
+          <p className="mt-4 text-slate-600 leading-relaxed max-w-[680px]">
+            One more distinction worth having: a chatbot answers a single question well. If your team wants something conversational that also drafts, summarises, and pulls context from your CRM or project tools while a person stays in charge of acting on it, that&apos;s an{" "}
+            <Link href="/services/ai-assistants" className="font-bold text-[#7C3AED] hover:underline">
+              AI assistant
+            </Link>
+            , internal-facing and built for a different job than this page.
+          </p>
+
+          <p className="mt-4 text-slate-500 text-sm max-w-[680px]">
+            Want to know how the retrieval and model layer underneath a chatbot actually works?{" "}
+            <Link href="/services/generative-ai-custom-llms" className="font-bold text-[#7C3AED] hover:underline">
+              Generative AI &amp; Custom LLMs
+            </Link>{" "}
+            is the engineering foundation this page is built on.
+          </p>
         </div>
       </section>
 

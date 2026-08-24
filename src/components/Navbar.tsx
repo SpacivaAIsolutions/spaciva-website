@@ -27,10 +27,10 @@ const MEGA_MENUS = {
         { label: "Document & Invoice Processing", href: "/services/document-invoice-processing" },
         { label: "Email & Inbox Automation", href: "/services/email-inbox-automation" },
         { label: "WhatsApp Automation", href: "/services/whatsapp-automation" },
-        { label: "CRM Automation" },
-        { label: "AI Assistants" },
-        { label: "Generative AI & Custom LLMs" }
-      ]
+        { label: "CRM Automation", href: "/services/crm-automation" },
+        { label: "AI Assistants", href: "/services/ai-assistants" },
+        { label: "Generative AI & Custom LLMs", href: "/services/generative-ai-custom-llms" }
+      ] as { label: string; href?: string }[]
     },
     {
       title: "Custom Software & Internal Tools",
@@ -39,13 +39,13 @@ const MEGA_MENUS = {
       color: "text-indigo-600",
       bg: "bg-indigo-100",
       items: [
-        { label: "CRM Development" },
-        { label: "Custom Dashboards" },
-        { label: "Internal Business Tools" },
-        { label: "ERP Systems" },
-        { label: "Inventory Management" },
-        { label: "Business Intelligence" }
-      ]
+        { label: "CRM Development", href: "/services/crm-development" },
+        { label: "Custom Dashboards", href: "/services/custom-dashboards" },
+        { label: "Internal Business Tools", href: "/services/internal-business-tools" },
+        { label: "ERP Systems", href: "/services/erp-systems" },
+        { label: "Inventory Management", href: "/services/inventory-management" },
+        { label: "Business Intelligence", href: "/services/business-intelligence" }
+      ] as { label: string; href?: string }[]
     },
     {
       title: "Web & Product Engineering",
@@ -60,7 +60,7 @@ const MEGA_MENUS = {
         { label: "Progressive Web Apps" },
         { label: "UI/UX Design" },
         { label: "Product Strategy" }
-      ]
+      ] as { label: string; href?: string }[]
     },
     {
       title: "Cloud, Data & Managed Services",
@@ -74,7 +74,7 @@ const MEGA_MENUS = {
         { label: "Data Warehousing & ETL Pipelines" },
         { label: "Predictive Analytics" },
         { label: "Ongoing Maintenance & AI Monitoring (retainer)" }
-      ]
+      ] as { label: string; href?: string }[]
     }
   ],
   solutions: [

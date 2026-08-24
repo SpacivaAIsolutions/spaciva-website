@@ -652,7 +652,9 @@ export default function EmailInboxClient() {
                 <Link href="/services/ai-agent-development" className="font-bold text-[#7C3AED] hover:underline">AI agents</Link>{" "}
                 make judgement calls where the next step isn&apos;t fixed in advance. Email and inbox automation, on this page, handles mail that arrives: sorting, routing, drafting, logging. If your customers reach you on{" "}
                 <Link href="/services/whatsapp-automation" className="font-bold text-[#7C3AED] hover:underline">WhatsApp</Link>{" "}
-                instead of email, the same sorting and drafting logic applies there too.
+                instead of email, the same sorting and drafting logic applies there too. And if what&apos;s actually
+                broken is the record those messages should be updating, that&apos;s{" "}
+                <Link href="/services/crm-automation" className="font-bold text-[#7C3AED] hover:underline">CRM automation</Link>.
               </p>
             </section>
 

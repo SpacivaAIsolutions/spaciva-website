@@ -499,7 +499,12 @@ export default function AIAgentDevelopmentClient() {
       <section className="py-10 bg-white border-y border-[#E2E8F0]">
         <div className="max-w-3xl mx-auto px-5 lg:px-10 text-center">
           <p className="text-slate-600">
-            Just need it to answer questions from your docs, with sources, and hand off when it can&apos;t?
+            An agent on this page acts end to end, unattended. If you&apos;d rather a person stayed the
+            last step, reviewing and approving instead of the system acting alone, that&apos;s an{" "}
+            <Link href="/services/ai-assistants" className="font-bold text-[#7C3AED] hover:underline">
+              AI assistant
+            </Link>
+            , cheaper, faster to build, and where most clients should start. Just need it to answer questions from your docs, with sources, and hand off when it can&apos;t?
             That&apos;s a{" "}
             <Link href="/services/rag-chatbot-development" className="font-bold text-[#7C3AED] hover:underline">
               RAG chatbot
@@ -517,7 +522,22 @@ export default function AIAgentDevelopmentClient() {
             <Link href="/services/whatsapp-automation" className="font-bold text-[#7C3AED] hover:underline">
               WhatsApp
             </Link>{" "}
-            too, it&apos;s a channel, not a different job.
+            too, it&apos;s a channel, not a different job. And if the actual problem is that your{" "}
+            <Link href="/services/crm-automation" className="font-bold text-[#7C3AED] hover:underline">
+              CRM
+            </Link>{" "}
+            is half-empty and nobody trusts the data in it, that&apos;s worth fixing before anything gets built on top of it.
+          </p>
+          <p className="text-slate-500 text-sm mt-4">
+            Curious about the model, retrieval, and evaluation layer underneath any of this?{" "}
+            <Link href="/services/generative-ai-custom-llms" className="font-bold text-[#7C3AED] hover:underline">
+              Generative AI &amp; Custom LLMs
+            </Link>{" "}
+            covers the engineering foundation directly. And if the actual ask is just to{" "}
+            <Link href="/services/custom-dashboards" className="font-bold text-[#7C3AED] hover:underline">
+              see the state of the business
+            </Link>{" "}
+            rather than have something act on it, that&apos;s a dashboard, not an agent.
           </p>
         </div>
       </section>

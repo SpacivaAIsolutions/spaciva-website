@@ -695,7 +695,22 @@ export default function WorkflowAutomationClient() {
                 </Link>. And if your customers already message you on{" "}
                 <Link href="/services/whatsapp-automation" className="font-bold text-[#7C3AED] hover:underline">
                   WhatsApp
-                </Link>, the same logic just runs there instead.
+                </Link>, the same logic just runs there instead. And if the workflows keep breaking
+                because the CRM record feeding them is wrong or missing, that&apos;s{" "}
+                <Link href="/services/crm-automation" className="font-bold text-[#7C3AED] hover:underline">
+                  CRM automation
+                </Link>, fix the source before automating around it. And if what you actually need
+                is to see the state of the business rather than move data between tools, that&apos;s{" "}
+                <Link href="/services/custom-dashboards" className="font-bold text-[#7C3AED] hover:underline">
+                  custom dashboards
+                </Link>, a different job, though most dashboard projects need this page&apos;s work first.
+              </p>
+              <p className="text-slate-500 text-sm mt-4">
+                And if your team needs a place to actually do the work, enter it, track it, approve it, not
+                just have it move between systems, that&apos;s{" "}
+                <Link href="/services/internal-business-tools" className="font-bold text-[#7C3AED] hover:underline">
+                  internal business tools
+                </Link>. Most internal tools end up containing this page&apos;s work, not replacing it.
               </p>
             </section>
 
