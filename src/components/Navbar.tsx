@@ -313,26 +313,34 @@ export default function Navbar() {
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
 
   useEffect(() => {
+    // CSS selectors that identify dark-background containers across the site.
+    // Covers bg-[#0F172A], bg-[#0E0E0C], and any element whose computed
+    // background-color is sufficiently dark.
+    const DARK_BG_SELECTORS = [
+      '[class*="bg-[#0F172A"]',
+      '[class*="bg-[#0E0E0C"]',
+      '[class*="bg-[#0f172a"]',
+      '[class*="bg-[#0e0e0c"]',
+    ].join(', ');
+
     const fn = () => {
       setScrolled(window.scrollY > 24);
 
       let dark = false;
-      const navBottom = 80;
+      const probeY = 40; // vertical centre of the navbar
 
-      const whatWeDo = document.getElementById("what-we-do");
-      if (whatWeDo) {
-        const rect = whatWeDo.getBoundingClientRect();
-        if (rect.top <= navBottom && rect.bottom >= navBottom) dark = true;
-      }
-
-      const cta = document.getElementById("cta");
-      if (cta) {
-        const rect = cta.getBoundingClientRect();
-        if (rect.top <= navBottom && rect.bottom >= navBottom) dark = true;
-      }
+      // Check every dark-background element on the page
+      const darkEls = document.querySelectorAll(DARK_BG_SELECTORS);
+      darkEls.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= probeY && rect.bottom >= probeY) {
+          dark = true;
+        }
+      });
 
       setIsDark(dark);
     };
+
     window.addEventListener("scroll", fn);
     fn();
     return () => window.removeEventListener("scroll", fn);
