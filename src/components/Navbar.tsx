@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { ArrowRight, Menu, X, ChevronDown, Cpu, Database, Globe, Cloud, Stethoscope, Landmark, Building2, ShoppingBag, Factory, Rocket } from "lucide-react";
+import { ArrowRight, Menu, X, ChevronDown, Cpu, Database, Globe, Cloud } from "lucide-react";
 
 const NAV = [
   { name: "Services", href: "/#what-we-do", hasMegaMenu: true, type: "services" },
@@ -93,30 +93,18 @@ const MEGA_MENUS = {
   industries: [
     {
       title: "Healthcare",
-      tagline: "Patient care and operational efficiency.",
-      icon: Stethoscope,
-      color: "text-rose-600",
-      bg: "bg-rose-100",
       items: [
         { label: "Healthcare Software", href: "/industries/healthcare" }
       ] as { label: string; href?: string }[]
     },
     {
       title: "Fintech",
-      tagline: "Banking and payments, built secure.",
-      icon: Landmark,
-      color: "text-emerald-600",
-      bg: "bg-emerald-100",
       items: [
         { label: "Fintech Software", href: "/industries/fintech" }
       ] as { label: string; href?: string }[]
     },
     {
       title: "Real Estate & Hospitality",
-      tagline: "Property, guests, and bookings.",
-      icon: Building2,
-      color: "text-blue-600",
-      bg: "bg-blue-100",
       items: [
         { label: "Real Estate", href: "/industries/real-estate" },
         { label: "Hospitality", href: "/industries/hospitality" }
@@ -124,10 +112,6 @@ const MEGA_MENUS = {
     },
     {
       title: "Retail & Logistics",
-      tagline: "Commerce and the supply chain behind it.",
-      icon: ShoppingBag,
-      color: "text-amber-600",
-      bg: "bg-amber-100",
       items: [
         { label: "Retail & E-commerce", href: "/industries/retail-ecommerce" },
         { label: "Logistics", href: "/industries/logistics" }
@@ -135,10 +119,6 @@ const MEGA_MENUS = {
     },
     {
       title: "Industrial & Infrastructure",
-      tagline: "Manufacturing, construction, and energy.",
-      icon: Factory,
-      color: "text-slate-600",
-      bg: "bg-slate-200",
       items: [
         { label: "Manufacturing", href: "/industries/manufacturing" },
         { label: "Construction", href: "/industries/construction" },
@@ -147,10 +127,6 @@ const MEGA_MENUS = {
     },
     {
       title: "Startups & Public Sector",
-      tagline: "Startups, education, and government.",
-      icon: Rocket,
-      color: "text-purple-600",
-      bg: "bg-purple-100",
       items: [
         { label: "Startups & SaaS", href: "/industries/startups" },
         { label: "Education", href: "/industries/education" },
@@ -531,29 +507,25 @@ export default function Navbar() {
 
                 {hoveredMenu === 'industries' && (
                   <div className="flex flex-col">
-                    {/* 2 columns on tablet, 3 on desktop, all 6 across once the
-                        panel is wide enough to keep labels on one line */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 gap-x-1 gap-y-2 -m-4">
+                    {/* Flat directory style: bold header, plain list, no icon badge, no card
+                        box. Uneven column lengths (1 to 3 links) don't need row-alignment
+                        tricks here — there's no divider or box edge for them to misalign
+                        against, so a short and a tall column both just read as plain lists. */}
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-8">
                       {MEGA_MENUS.industries.map((ind, idx) => (
-                        <div key={idx} className="flex flex-col p-4 rounded-2xl transition-colors duration-200 hover:bg-[#F8FAFC]">
-                          <div className={cn("w-11 h-11 rounded-xl flex items-center justify-center shrink-0", ind.bg)}>
-                            <ind.icon className={cn("w-5 h-5", ind.color)} />
-                          </div>
-                          <h4 className="mt-3.5 text-[15px] font-bold leading-snug tracking-tight text-[#0F172A]">
+                        <div key={idx} className="flex flex-col">
+                          <h4 className="text-[15px] font-bold leading-snug tracking-tight text-[#0F172A] mb-3">
                             {ind.title}
                           </h4>
-                          <p className="mt-1.5 text-xs font-medium leading-relaxed text-gray-400">
-                            {ind.tagline}
-                          </p>
-                          <ul className="mt-3 pt-3 border-t border-[#E2E8F0]">
+                          <ul className="flex flex-col gap-2.5">
                             {ind.items.map((item, i) => (
                               <li key={i}>
                                 {item.href ? (
-                                  <a href={item.href} className="-mx-2 px-2 py-1.5 rounded-lg text-[13px] font-bold leading-snug text-[#7C3AED] transition-colors hover:bg-white block">
+                                  <a href={item.href} className="text-[13px] font-medium leading-snug text-[#475569] hover:text-[#7C3AED] transition-colors block">
                                     {item.label}
                                   </a>
                                 ) : (
-                                  <span className="-mx-2 px-2 py-1.5 rounded-lg text-[13px] font-medium leading-snug text-[#64748B] block">
+                                  <span className="text-[13px] font-medium leading-snug text-[#94A3B8] block">
                                     {item.label}
                                   </span>
                                 )}
@@ -563,7 +535,7 @@ export default function Navbar() {
                         </div>
                       ))}
                     </div>
-                    <div className="mt-6 pt-6 border-t border-gray-100">
+                    <div className="mt-8 pt-6 border-t border-gray-100">
                       <p className="text-sm text-slate-500">
                         We also work with select clients in other industries —{" "}
                         <a href="/contact" className="font-semibold text-[#7C3AED] hover:text-[#6D28D9] transition-colors inline-flex items-center gap-1">

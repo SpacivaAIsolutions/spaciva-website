@@ -160,7 +160,7 @@ export default function HealthcareClient() {
       <section className="relative pt-28 pb-16 md:pt-40 md:pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-purple-100 via-white to-white -z-10" />
         <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[#7C3AED]/5 rounded-full blur-3xl -z-10" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-3xl -z-10" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#7C3AED]/5 rounded-full blur-3xl -z-10" />
 
         <div className="max-w-7xl mx-auto px-5 lg:px-10 relative">
           <motion.div
@@ -283,7 +283,7 @@ export default function HealthcareClient() {
         <div className="max-w-7xl mx-auto px-5 lg:px-10">
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
             <div className="lg:w-1/2">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 text-[#7C3AED] text-sm font-semibold mb-6">
                 <Brain className="w-4 h-4" />
                 Next-Gen Automation
               </div>
