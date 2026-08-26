@@ -8,7 +8,7 @@ import {
   Package, Database, ShoppingBag, Scale, Tag,
   Truck, Factory, Warehouse,
   Zap, RefreshCw, History, RotateCw,
-  Building2, ClipboardList, LayoutDashboard, Workflow, Link2, Barcode,
+  Building2, ClipboardList, LayoutDashboard, Workflow, Link2, Barcode, Code2,
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import TrustStrip from "@/components/TrustStrip";
@@ -62,7 +62,7 @@ const TABS = [
       { title: "Purchase order and receiving workflow", desc: "POs raised against reorder logic, receipted line by line or in bulk, with discrepancies flagged at the dock rather than discovered at month-end." },
       { title: "Backorder and allocation rules", desc: "When stock is short, who gets it, decided by rules you set rather than by whoever emails first." },
     ],
-    note: "Supplier documents can flow in through document and invoice processing.",
+    note: "Supplier documents can flow in through ",
     noteLink: { href: "/services/document-invoice-processing", label: "document and invoice processing" },
   },
   {
@@ -74,6 +74,8 @@ const TABS = [
       { title: "Batch, lot, and expiry tracking", desc: "Full traceability where you need to answer “which customers got this batch,” including FEFO picking where expiry matters." },
       { title: "Production-aware reorder points", desc: "Reorder logic that accounts for committed builds, not just current sales velocity." },
     ],
+    note: "Reorder points here are rules, driven by current velocity and lead times. Forecasting demand ahead of a seasonal swing or a promotion is a different, probabilistic problem, that's ",
+    noteLink: { href: "/services/predictive-analytics", label: "predictive analytics" },
   },
   {
     label: "Multi-warehouse & 3PL",
@@ -167,6 +169,7 @@ const ROUTING = [
   { title: "Internal business tools", desc: "One team needs a screen for one job, a receiving app, a returns desk tool, rather than a whole inventory system.", icon: ClipboardList, href: "/services/internal-business-tools" },
   { title: "Custom dashboards", desc: "You need to see stock position, ageing, and dead capital, read-only, without changing how anything is recorded.", icon: LayoutDashboard, href: "/services/custom-dashboards" },
   { title: "Workflow automation", desc: "The systems are fine and they just need to talk. Often the cheapest real fix here.", icon: Workflow, href: "/services/workflow-automation" },
+  { title: "Web applications", desc: "The engineering underneath all of these. If you're evaluating who can build custom software at all, not just this shape of it.", icon: Code2, href: "/services/web-applications" },
 ];
 
 const PRICING_TIERS = [
@@ -292,7 +295,7 @@ function TabbedExplorer() {
             </div>
             {tab.noteLink && (
               <p className="text-sm text-slate-500 leading-relaxed bg-white border border-dashed border-slate-200 rounded-xl px-4 py-3">
-                Supplier documents can flow in through{" "}
+                {tab.note}
                 <Link href={tab.noteLink.href} className="font-bold text-[#7C3AED] hover:underline">{tab.noteLink.label}</Link>.
               </p>
             )}
@@ -719,7 +722,8 @@ export default function InventoryManagementClient() {
               </div>
 
               <p className="mt-8 text-slate-600 max-w-[680px]">
-                Every build includes monitoring for the first month. After that it&apos;s a monthly fee and you can stop any time, you keep the source code, the data, and the documentation either way.
+                Every build includes monitoring for the first month. After that it&apos;s a monthly fee,{" "}
+                <Link href="/services/ai-monitoring-maintenance" className="font-bold text-[#7C3AED] hover:underline">see what that covers</Link>, and you can stop any time, you keep the source code, the data, and the documentation either way.
               </p>
             </section>
 

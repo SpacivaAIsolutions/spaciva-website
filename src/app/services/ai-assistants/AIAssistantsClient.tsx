@@ -741,6 +741,9 @@ export default function AIAssistantsClient() {
             />
           ))}
         </div>
+        <p className="mt-6 text-slate-500 text-sm max-w-[680px] mx-auto text-center">
+          <Link href="/services/ai-monitoring-maintenance" className="font-bold text-[#7C3AED] hover:underline">See what the monthly plan actually covers</Link> — the coverage-gap and source-freshness work that keeps an assistant from quietly degrading.
+        </p>
       </section>
 
       {/* Closing CTA — dark, full-bleed */}

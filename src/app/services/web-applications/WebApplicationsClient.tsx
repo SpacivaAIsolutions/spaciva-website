@@ -9,7 +9,7 @@ import {
   Rocket, GitBranch, LifeBuoy, Gauge,
   FolderGit2, Server, FileText, FileSignature,
   Hammer, Users, Sliders, Send, Clock,
-  ClipboardList, LayoutDashboard, Home, Building2, Boxes, Workflow, LineChart,
+  ClipboardList, LayoutDashboard, Home, Building2, Boxes, Workflow, LineChart, Repeat,
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import AnimatedCtaButton from "@/components/AnimatedCtaButton";
@@ -40,7 +40,7 @@ const WE_DONT_BUILD = [
   { title: "Marketing websites and brochure sites", desc: "If what you need is five pages and a contact form, a good Webflow or WordPress developer will do it faster and for a fraction of what we'd charge. We'd be a poor use of your money and we'll say so on the call." },
   { title: "Native mobile apps", desc: "We build responsive and progressive web applications that work properly on phones. If you specifically need App Store and Play Store native builds, you want a mobile specialist." },
   { title: "Staff augmentation", desc: "We don't place developers into your team on a monthly rate. We take defined scopes at fixed prices and carry the delivery risk ourselves, that's the whole model, and it doesn't bend." },
-  { title: "Design-only engagements", desc: "We design what we build, and we build well from designs you bring. We don't take standalone UI design projects." },
+  { title: "Standalone visual design and branding projects", desc: "We design what we build, and we build well from designs you bring. Logos, brand identity, and marketing sites aren't our field.", linkPrefix: "For product design and UX audits, that's ", link: { href: "/guides/ux-for-internal-software", label: "UI/UX design" }, linkSuffix: "." },
 ];
 
 const ENGAGEMENT_SHAPES = [
@@ -126,7 +126,7 @@ const STACK_TABS = [
 
 const DONT_BUILD_WHEN = "It's a marketing site, Webflow or WordPress, faster and cheaper. Your process still fits a no-code tool and is still changing shape monthly, stay on Airtable or Retool until it stops. An off-the-shelf product exists that does 80% of what you need and the remaining 20% is preference rather than necessity, buy it. You need something in two weeks, no custom build meets that, and anyone who says otherwise is quoting version one of something else.";
 
-const BUILD_CUSTOM_WHEN = "Per-seat or per-record pricing has stopped making sense at your scale. The logic has outgrown what a builder can express. You need permissions matching your org rather than a platform's model. You need deep integration with systems no platform reaches. Performance has degraded as your data grew. The application is customer-facing and it's your product, not your admin. Or the data can't sit on someone else's platform.";
+const BUILD_CUSTOM_WHEN = "Per-seat or per-record pricing has stopped making sense at your scale. The logic has outgrown what a builder can express. You need permissions matching your org rather than a platform's model. You need deep integration with systems no platform reaches. Performance has degraded as your data grew. Or the data can't sit on someone else's platform.";
 
 const BUY_TABLE = [
   { label: "Time to first version", nocode: "Days to weeks", custom: "Scoped and quoted after the run-in" },
@@ -150,6 +150,7 @@ const OFFSHORE_ITEMS = [
 ];
 
 const ROUTING = [
+  { title: "SaaS platforms", desc: "The application is customer-facing, sold to many customers on subscription, not used by your own organisation. Multi-tenancy and billing change the engineering.", icon: Repeat, href: "/services/saas-platforms" },
   { title: "Internal business tools", desc: "A place your team does a specific piece of work. Portals, admin panels, trackers, approval systems.", icon: ClipboardList, href: "/services/internal-business-tools" },
   { title: "Custom dashboards", desc: "Read-only visibility across systems that don't currently talk to each other.", icon: LayoutDashboard, href: "/services/custom-dashboards" },
   { title: "CRM development", desc: "When the subject is specifically customers, deals, and pipeline.", icon: Home, href: "/services/crm-development" },
@@ -157,6 +158,7 @@ const ROUTING = [
   { title: "Inventory management", desc: "One accurate stock number across channels and locations.", icon: Boxes, href: "/services/inventory-management" },
   { title: "Workflow automation", desc: "Something happens without anyone opening anything. If nobody needs a screen, this is cheaper and faster.", icon: Workflow, href: "/services/workflow-automation" },
   { title: "Business intelligence", desc: "The warehouse and metric layer underneath several dashboards, not one application.", icon: LineChart, href: "/services/business-intelligence" },
+  { title: "Client portals", desc: "The application is for people outside your organisation, clients, vendors, partners, or members, self-serving rather than being served by your team.", icon: Users, href: "/services/client-portals" },
 ];
 
 const ENGAGEMENT_MODELS = [
@@ -457,7 +459,16 @@ export default function WebApplicationsClient() {
                 {WE_DONT_BUILD.map((item) => (
                   <div key={item.title}>
                     <h4 className="font-bold text-white mb-1.5">{item.title}</h4>
-                    <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
+                    <p className="text-white/60 text-sm leading-relaxed">
+                      {item.desc}
+                      {item.link && (
+                        <>
+                          {" "}{item.linkPrefix}
+                          <Link href={item.link.href} className="font-bold text-[#C4B5FD] hover:underline">{item.link.label}</Link>
+                          {item.linkSuffix}
+                        </>
+                      )}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -551,6 +562,10 @@ export default function WebApplicationsClient() {
               <blockquote className="mt-4 border-l-4 border-[#7C3AED] bg-[#F5F3FF] rounded-r-2xl px-6 py-6 text-slate-900 font-bold leading-snug">
                 If a vendor can&apos;t produce this list for a project they&apos;ve finished, the project isn&apos;t finished. Ask for it before you sign, from us and from anyone else you&apos;re considering.
               </blockquote>
+              <p className="mt-6 text-slate-500 text-sm">
+                Already have an application and the infrastructure is the problem?{" "}
+                <Link href="/services/cloud-devops" className="font-bold text-[#7C3AED] hover:underline">See cloud &amp; DevOps</Link>.
+              </p>
             </section>
 
             {/* How the work runs — a scope run-in, then a repeating two-week loop with the
@@ -715,8 +730,12 @@ export default function WebApplicationsClient() {
           ))}
         </div>
 
-        <p className="text-white/60 max-w-[720px]">
+        <p className="text-white/60 max-w-[720px] mb-4">
           <span className="font-bold text-white">Honest answer:</span> plenty of &quot;we need a web app&quot; enquiries are an automation and a dashboard standing next to each other. That&apos;s a smaller, faster, lower-risk project, and we&apos;d rather say so on the first call than build you an application you didn&apos;t need.
+        </p>
+        <p className="text-white/60 max-w-[720px]">
+          And if what you&apos;re actually building is sold to many customers on subscription rather than used inside your own organisation, that&apos;s{" "}
+          <Link href="/services/saas-platforms" className="font-bold text-[#C4B5FD] hover:underline">SaaS platforms</Link>, a different set of engineering concerns, multi-tenancy and billing chief among them.
         </p>
       </section>
 
@@ -737,7 +756,8 @@ export default function WebApplicationsClient() {
         </div>
 
         <p className="mt-8 text-white/50 text-sm max-w-[720px]">
-          Every build includes monitoring for the first month. After that it&apos;s a monthly fee and you can stop any time, you keep everything in the handover manifest either way. If your own team takes over, we hand over properly rather than leaving them to reverse-engineer it.
+          Every build includes monitoring for the first month. After that it&apos;s a monthly fee,{" "}
+          <Link href="/services/ai-monitoring-maintenance" className="font-bold text-[#7C3AED] hover:underline">see what that covers</Link>, and you can stop any time, you keep everything in the handover manifest either way. If your own team takes over, we hand over properly rather than leaving them to reverse-engineer it.
         </p>
       </section>
 

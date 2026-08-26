@@ -434,7 +434,7 @@ export default function CrmDevelopmentClient() {
                   Custom software needs maintenance. Dependencies get security updates, browsers change, integrations break when a provider changes an API, and your business will need features you can&apos;t currently anticipate.
                 </p>
                 <p className="text-slate-700 font-semibold leading-relaxed max-w-[720px]">
-                  Budget for it as a permanent line item, not a contingency. Anyone who quotes you a custom CRM as a one-off build cost is either not planning to be there afterwards or hasn&apos;t told you yet. Our monthly plan is scoped in from day one for exactly that reason, and if you&apos;d rather your own team maintains it, we&apos;ll hand over documentation built for that.
+                  Budget for it as a permanent line item, not a contingency. Anyone who quotes you a custom CRM as a one-off build cost is either not planning to be there afterwards or hasn&apos;t told you yet. Our monthly plan is scoped in from day one for exactly that reason (<Link href="/services/ai-monitoring-maintenance" className="font-bold text-[#7C3AED] hover:underline">see what it covers</Link>), and if you&apos;d rather your own team maintains it, we&apos;ll hand over documentation built for that.
                 </p>
               </div>
             </section>
@@ -560,7 +560,8 @@ export default function CrmDevelopmentClient() {
           <Link href="/services/ai-assistants" className="font-bold text-[#C4B5FD] hover:underline">AI assistants</Link>{" "}
           and{" "}
           <Link href="/services/generative-ai-custom-llms" className="font-bold text-[#C4B5FD] hover:underline">Generative AI &amp; Custom LLMs</Link>{" "}
-          cover that layer directly.
+          cover that layer directly. And a custom CRM is one shape of a bigger question, if you&apos;re still evaluating who can build custom software at all, that&apos;s{" "}
+          <Link href="/services/web-applications" className="font-bold text-[#C4B5FD] hover:underline">web application development</Link>.
         </p>
       </section>
 

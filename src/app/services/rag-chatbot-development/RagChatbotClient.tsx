@@ -768,6 +768,9 @@ export default function RagChatbotClient() {
               </motion.div>
             ))}
           </div>
+          <p className="mt-8 text-slate-600 max-w-[680px]">
+            <Link href="/services/ai-monitoring-maintenance" className="font-bold text-[#7C3AED] hover:underline">See what the monthly plan actually covers</Link>, month to month, cancel any time, and everything keeps running.
+          </p>
         </div>
       </section>
 

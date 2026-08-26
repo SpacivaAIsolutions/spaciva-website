@@ -8,7 +8,7 @@ import {
   Sheet, PieChart, LayoutDashboard, Layers,
   Database, Ruler, Search, LineChart, ShieldCheck,
   Unlock, Server, GitBranch, Activity, FolderGit2, Code2, BarChart3, Workflow, Link2,
-  Building2, Package, ClipboardList,
+  Building2, Package, ClipboardList, TrendingUp,
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import AnimatedCtaButton from "@/components/AnimatedCtaButton";
@@ -58,10 +58,10 @@ const MATURITY_GATE = [
 ];
 
 const WHAT_WE_BUILD = [
-  { title: "The warehouse", icon: Database, desc: "One place where data from every system lands, modelled properly, with history retained even where the source system overwrites. Postgres, BigQuery, or ClickHouse depending on your volume and budget, and we'll pick the cheapest one that works, because we don't earn anything on the choice.", bestFor: "everyone at rung three or above. This is the foundation the rest sits on." },
+  { title: "The warehouse", icon: Database, desc: "One place where data from every system lands and stays, modelled properly. We'll pick whichever engine is cheapest for your volume, because we earn nothing on the choice.", bestFor: "everyone at rung three or above. This is the foundation the rest sits on.", linkPrefix: "Building the pipelines that land it there is its own scope, see ", link: { href: "/services/data-warehousing-etl", label: "data warehousing & ETL" }, linkSuffix: "." },
   { title: "The metric layer", icon: Ruler, desc: "Every metric defined once, in version-controlled code, with the definition visible to anyone reading a number. “Active customer,” “net revenue,” “churn,” agreed across departments and enforced by the system rather than by memory. Typically dbt or an equivalent.", bestFor: "any company where two teams have ever disagreed about a number in a meeting. So, any company." },
   { title: "Self-serve analytics", icon: Search, desc: "A BI tool your team can actually use, Metabase, Superset, Looker Studio, or Power BI if you already own the licences, connected to the modelled layer so people explore safely. Every answer comes from the same definitions, so self-serve doesn't mean self-invented.", bestFor: "teams where an analyst has become a queue." },
-  { title: "Analysis and modelling", icon: LineChart, desc: "Cohorts, retention, forecasting, margin by segment, customer lifetime value, inventory ageing, the questions that need modelling rather than a chart. Built into the warehouse as reusable models, not delivered as a one-off slide.", bestFor: "teams who've hit the ceiling of what a dashboard can express." },
+  { title: "Analysis and modelling", icon: LineChart, desc: "Cohorts, retention, margin by segment, inventory ageing, the questions that need modelling rather than a chart, not a forecast. Built into the warehouse as reusable models, not delivered as a one-off slide.", bestFor: "teams who've hit the ceiling of what a dashboard can express.", linkPrefix: "Estimating what happens next rather than describing what already did, forecasting, lifetime value, churn risk, is ", link: { href: "/services/predictive-analytics", label: "predictive analytics" }, linkSuffix: ", a different scope with a different error bar." },
   { title: "Governance and ownership", icon: ShieldCheck, desc: "Access control, data lineage, documented definitions, freshness monitoring, and a written answer to “who owns this metric.” Unglamorous, and it is the difference between a warehouse that's trusted in year two and one that isn't.", bestFor: "everyone, and it's the piece most often cut from a quote. We include it." },
 ];
 
@@ -139,16 +139,18 @@ const TOOL_GROUPS = [
 
 const ROUTING = [
   { title: "Business intelligence", desc: "You need to answer questions you haven't thought of yet, repeatedly, without an analyst in the loop.", icon: LineChart, current: true },
+  { title: "Predictive analytics", desc: "You want to know what's likely to happen next, not just what's true now, churn, demand, revenue, with an error bar attached.", icon: TrendingUp, href: "/services/predictive-analytics" },
   { title: "Custom dashboards", desc: "You need to see a known set of things for a known audience. If you can list your questions on one hand, buy a dashboard, not a warehouse.", icon: LayoutDashboard, href: "/services/custom-dashboards" },
   { title: "ERP systems", desc: "The financial and operational system of record. BI reads from it; it isn't BI.", icon: Building2, href: "/services/erp-systems" },
   { title: "Inventory management", desc: "The stock number being right across channels. An accuracy problem, not an analysis one.", icon: Package, href: "/services/inventory-management" },
   { title: "Internal business tools", desc: "A place work gets recorded. If your data is bad because nobody enters it consistently, this comes first.", icon: ClipboardList, href: "/services/internal-business-tools" },
   { title: "Workflow automation", desc: "Something happens without anyone opening anything. If a number should trigger an action rather than be looked at, automate it.", icon: Workflow, href: "/services/workflow-automation" },
+  { title: "Web applications", desc: "The engineering underneath all of these. If you're evaluating who can build custom software at all, not just this shape of it.", icon: Code2, href: "/services/web-applications" },
 ];
 
 const ENGAGEMENT_MODELS = [
   { label: "Foundation build", bestFor: "Rung three, dashboards exist and every new question has become a project", includes: "Warehouse, ingestion from your core sources, the metric layer for your core definitions, one BI tool connected, and your team trained on it. Includes the first month of monitoring", from: "Scoped and quoted after the source audit" },
-  { label: "Foundation plus analysis", bestFor: "Teams who've hit what a dashboard can express and need the questions modelled, not charted", includes: "Everything above plus the modelling work that needs actual analysis: cohorts, retention, forecasting, margin by segment, lifetime value, built as reusable models rather than one-off reports", from: "Priced once we know the analysis you need" },
+  { label: "Foundation plus analysis", bestFor: "Teams who've hit what a dashboard can express and need the questions modelled, not charted", includes: "Everything above plus the modelling work that needs actual analysis: cohorts, retention, margin by segment, inventory ageing, built as reusable models rather than one-off reports. Forecasting and lifetime value prediction are scoped separately, under predictive analytics", from: "Priced once we know the analysis you need" },
   { label: "Ongoing data partner", bestFor: "Teams without an internal data hire yet, and a cheaper way to find out what that hire would need to be", includes: "Freshness monitoring, source changes handled, new metrics and models as questions evolve, and a set amount of analysis work each month", from: "A monthly plan sized to your data" },
 ];
 
@@ -178,7 +180,7 @@ const FAQS = [
 const SERVICE_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "Business Intelligence & Data Warehouse Development",
+  name: "Business Intelligence & Analytics Development",
   provider: {
     "@type": "Organization",
     name: "Spaciva AI",
@@ -186,7 +188,7 @@ const SERVICE_SCHEMA = {
   },
   areaServed: ["US", "GB", "IN", "AE"],
   description:
-    "Business intelligence foundations: data warehouse, version-controlled metric layer, self-serve analytics, and governance. No reseller commissions, fixed price.",
+    "Business intelligence foundations: version-controlled metric layer, self-serve analytics, and governance on top of a modelled warehouse. No reseller commissions, fixed price.",
 };
 
 const FAQ_SCHEMA = {
@@ -412,7 +414,16 @@ export default function BusinessIntelligenceClient() {
                   <item.icon className="w-6 h-6 text-[#7C3AED]" />
                 </div>
                 <h3 className="text-lg font-bold mb-3 text-slate-900">{item.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed mb-5">{item.desc}</p>
+                <p className="text-slate-600 text-sm leading-relaxed mb-5">
+                  {item.desc}
+                  {item.link && (
+                    <>
+                      {" "}{item.linkPrefix}
+                      <Link href={item.link.href} className="font-bold text-[#7C3AED] hover:underline">{item.link.label}</Link>
+                      {item.linkSuffix}
+                    </>
+                  )}
+                </p>
                 <p className="mt-auto pt-5 border-t border-slate-200 text-xs font-semibold text-slate-500">
                   Best for: {item.bestFor}
                 </p>
@@ -421,9 +432,8 @@ export default function BusinessIntelligenceClient() {
           </div>
 
           <p className="mt-10 text-slate-600 max-w-[720px]">
-            Getting data into the warehouse on a schedule is{" "}
-            <Link href="/services/workflow-automation" className="font-bold text-[#7C3AED] hover:underline">workflow automation</Link>{" "}
-            wearing a different hat, and it&apos;s cheaper as its own scope. If your data is already centralised and clean, say so on the call, the project gets substantially smaller and we&apos;ll tell you so before you commit.
+            Getting data into the warehouse on a schedule, from every source, reliably, is{" "}
+            <Link href="/services/data-warehousing-etl" className="font-bold text-[#7C3AED] hover:underline">data warehousing &amp; ETL</Link>, and it&apos;s priced as its own scope. If your data is already centralised and clean, say so on the call, the project gets substantially smaller and we&apos;ll tell you so before you commit.
           </p>
         </div>
       </section>
@@ -604,7 +614,7 @@ export default function BusinessIntelligenceClient() {
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4 text-slate-900">Is BI actually what you need?</h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             {ROUTING.map((item) => {
               const inner = (
                 <>
@@ -654,7 +664,8 @@ export default function BusinessIntelligenceClient() {
           </div>
 
           <p className="mt-8 text-slate-600 max-w-[720px]">
-            Every build includes monitoring for the first month. After that it&apos;s a monthly fee and you can stop any time, you keep the warehouse, the models, the definitions, and the documentation either way. If you hire an analyst, we hand over to them properly.
+            Every build includes monitoring for the first month. After that it&apos;s a monthly fee,{" "}
+            <Link href="/services/ai-monitoring-maintenance" className="font-bold text-[#7C3AED] hover:underline">see what that covers</Link>, and you can stop any time, you keep the warehouse, the models, the definitions, and the documentation either way. If you hire an analyst, we hand over to them properly.
           </p>
         </div>
       </section>

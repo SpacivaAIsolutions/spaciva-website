@@ -712,6 +712,12 @@ export default function WorkflowAutomationClient() {
                   internal business tools
                 </Link>. Most internal tools end up containing this page&apos;s work, not replacing it.
               </p>
+              <p className="text-slate-500 text-sm mt-4">
+                And if you&apos;re still evaluating who can build custom software at all, not just this shape of it, that&apos;s{" "}
+                <Link href="/services/web-applications" className="font-bold text-[#7C3AED] hover:underline">
+                  web application development
+                </Link>, the engineering underneath everything on this list.
+              </p>
             </section>
 
             {/* FAQ — two-column plain list, no accordion, everything visible on load */}
@@ -725,6 +731,9 @@ export default function WorkflowAutomationClient() {
                   </div>
                 ))}
               </div>
+              <p className="mt-8 text-slate-500 text-sm max-w-[680px]">
+                <Link href="/services/ai-monitoring-maintenance" className="font-bold text-[#7C3AED] hover:underline">See what the monthly plan actually covers</Link>, the tuning work that keeps automations from quietly breaking as your process changes.
+              </p>
             </section>
           </div>
         </div>

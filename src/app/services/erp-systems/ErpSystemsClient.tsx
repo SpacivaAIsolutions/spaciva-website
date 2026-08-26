@@ -8,7 +8,7 @@ import {
   Building2, ShoppingBag, Users, Landmark, Truck, BarChart3, FileText,
   Link2, Puzzle, Boxes,
   ClipboardCheck, Target, Fingerprint, AlertOctagon, Gauge, GitCompare,
-  Home, ClipboardList, LayoutDashboard, Workflow,
+  Home, ClipboardList, LayoutDashboard, Workflow, Code2,
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import AnimatedCtaButton from "@/components/AnimatedCtaButton";
@@ -141,6 +141,7 @@ const ROUTING = [
   { title: "Custom dashboards", desc: "Read-only visibility across the ERP and everything around it, without touching the ERP itself.", icon: LayoutDashboard, href: "/services/custom-dashboards" },
   { title: "Workflow automation", desc: "Something happens without anyone opening anything. Plenty of “ERP integration” enquiries are this, at a fraction of the cost.", icon: Workflow, href: "/services/workflow-automation" },
   { title: "Document & invoice processing", desc: "Getting supplier documents into the ERP without anyone retyping them. The most common thing an ERP buyer actually needs next.", icon: FileText, href: "/services/document-invoice-processing" },
+  { title: "Web applications", desc: "The engineering underneath all of these. If you're evaluating who can build custom software at all, not just this shape of it.", icon: Code2, href: "/services/web-applications" },
 ];
 
 const ENGAGEMENT_MODELS = [
@@ -655,7 +656,8 @@ export default function ErpSystemsClient() {
           </div>
 
           <p className="mt-8 text-slate-600 max-w-[720px]">
-            Every build includes monitoring for the first month. After that it&apos;s a monthly fee for monitoring, reconciliation review, vendor API changes, and small feature work, and you can stop any time. You keep the source code, the integration configuration, and the documentation either way.
+            Every build includes monitoring for the first month. After that it&apos;s a monthly fee for monitoring, reconciliation review, vendor API changes, and small feature work,{" "}
+            <Link href="/services/ai-monitoring-maintenance" className="font-bold text-[#7C3AED] hover:underline">see what that covers</Link>, and you can stop any time. You keep the source code, the integration configuration, and the documentation either way.
           </p>
         </div>
       </section>

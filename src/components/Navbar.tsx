@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { ArrowRight, Menu, X, ChevronDown, Cpu, Database, Globe, Cloud } from "lucide-react";
+import { ArrowRight, Menu, X, ChevronDown, Cpu, Database, Globe, Cloud, Stethoscope, Landmark, Building2, ShoppingBag, Factory, Rocket } from "lucide-react";
 
 const NAV = [
   { name: "Services", href: "/#what-we-do", hasMegaMenu: true, type: "services" },
@@ -54,12 +54,12 @@ const MEGA_MENUS = {
       color: "text-blue-600",
       bg: "bg-blue-100",
       items: [
-        { label: "Web Applications (Next.js / React)" },
-        { label: "SaaS Platforms" },
-        { label: "Enterprise Portals" },
+        { label: "Web Applications (Next.js / React)", href: "/services/web-applications" },
+        { label: "SaaS Platforms", href: "/services/saas-platforms" },
+        { label: "Client Portals", href: "/services/client-portals" },
         { label: "Progressive Web Apps" },
-        { label: "UI/UX Design" },
-        { label: "Product Strategy" }
+        { label: "UI/UX Design", href: "/guides/ux-for-internal-software" },
+        { label: "Product Strategy", href: "/services/discovery-sprint" }
       ] as { label: string; href?: string }[]
     },
     {
@@ -69,11 +69,10 @@ const MEGA_MENUS = {
       color: "text-cyan-600",
       bg: "bg-cyan-100",
       items: [
-        { label: "Cloud & DevOps (AWS, Docker, CI/CD)" },
-        { label: "Infrastructure & Monitoring" },
-        { label: "Data Warehousing & ETL Pipelines" },
-        { label: "Predictive Analytics" },
-        { label: "Ongoing Maintenance & AI Monitoring (retainer)" }
+        { label: "Cloud & DevOps (AWS, Docker, CI/CD)", href: "/services/cloud-devops" },
+        { label: "Data Warehousing & ETL Pipelines", href: "/services/data-warehousing-etl" },
+        { label: "Predictive Analytics", href: "/services/predictive-analytics" },
+        { label: "Ongoing Maintenance & AI Monitoring (retainer)", href: "/services/ai-monitoring-maintenance" }
       ] as { label: string; href?: string }[]
     }
   ],
@@ -93,70 +92,70 @@ const MEGA_MENUS = {
   ],
   industries: [
     {
-      title: "Agencies & Marketing",
-      segments: [
-        "Marketing & Advertising Agencies",
-        "Design & Creative Studios",
-        "SEO & Growth Agencies",
-        "Web & Development Agencies",
-        "PR & Content Agencies",
-        "White-Label Partners"
-      ]
+      title: "Healthcare",
+      tagline: "Patient care and operational efficiency.",
+      icon: Stethoscope,
+      color: "text-rose-600",
+      bg: "bg-rose-100",
+      items: [
+        { label: "Healthcare Software", href: "/industries/healthcare" }
+      ] as { label: string; href?: string }[]
     },
     {
-      title: "Professional Services",
-      segments: [
-        "Consulting Firms",
-        "Legal & Law Firms",
-        "Accounting & Finance",
-        "Recruiting & Staffing",
-        "Coaching & Advisory",
-        "B2B Service Providers"
-      ]
+      title: "Fintech",
+      tagline: "Banking and payments, built secure.",
+      icon: Landmark,
+      color: "text-emerald-600",
+      bg: "bg-emerald-100",
+      items: [
+        { label: "Fintech Software", href: "/industries/fintech" }
+      ] as { label: string; href?: string }[]
     },
     {
-      title: "Retail & E-Commerce",
-      segments: [
-        "Shopify & DTC Brands",
-        "Online Marketplaces",
-        "Subscription Commerce",
-        "Retail Operations",
-        "Customer Support Automation",
-        "Inventory & Order Management"
-      ]
+      title: "Real Estate & Hospitality",
+      tagline: "Property, guests, and bookings.",
+      icon: Building2,
+      color: "text-blue-600",
+      bg: "bg-blue-100",
+      items: [
+        { label: "Real Estate", href: "/industries/real-estate" },
+        { label: "Hospitality", href: "/industries/hospitality" }
+      ] as { label: string; href?: string }[]
     },
     {
-      title: "Startups & SaaS",
-      segments: [
-        "Funded Startups (Seed–Series A)",
-        "SaaS Platforms",
-        "AI Product Teams",
-        "MVP & Rapid Builds",
-        "Internal Tooling",
-        "Founder-Led Teams"
-      ]
+      title: "Retail & Logistics",
+      tagline: "Commerce and the supply chain behind it.",
+      icon: ShoppingBag,
+      color: "text-amber-600",
+      bg: "bg-amber-100",
+      items: [
+        { label: "Retail & E-commerce", href: "/industries/retail-ecommerce" },
+        { label: "Logistics", href: "/industries/logistics" }
+      ] as { label: string; href?: string }[]
     },
     {
-      title: "Manufacturing",
-      segments: [
-        "Industrial Manufacturing",
-        "Chemicals & Materials",
-        "Production Dashboards",
-        "Ops & Workflow Automation",
-        "Inventory Systems",
-        "Internal Business Tools"
-      ]
+      title: "Industrial & Infrastructure",
+      tagline: "Manufacturing, construction, and energy.",
+      icon: Factory,
+      color: "text-slate-600",
+      bg: "bg-slate-200",
+      items: [
+        { label: "Manufacturing", href: "/industries/manufacturing" },
+        { label: "Construction", href: "/industries/construction" },
+        { label: "Energy & Utilities", href: "/industries/energy-utilities" }
+      ] as { label: string; href?: string }[]
     },
     {
-      title: "Real Estate",
-      segments: [
-        "Residential Real Estate",
-        "Commercial Real Estate",
-        "Real Estate CRM",
-        "Property Management",
-        "Lead Automation",
-        "Client & Listing Portals"
-      ]
+      title: "Startups & Public Sector",
+      tagline: "Startups, education, and government.",
+      icon: Rocket,
+      color: "text-purple-600",
+      bg: "bg-purple-100",
+      items: [
+        { label: "Startups & SaaS", href: "/industries/startups" },
+        { label: "Education", href: "/industries/education" },
+        { label: "Government", href: "/industries/government" }
+      ] as { label: string; href?: string }[]
     }
   ],
   caseStudies: [
@@ -169,7 +168,7 @@ function cn(...c: (string | undefined | false)[]) {
   return c.filter(Boolean).join(" ");
 }
 
-function MobileIndustryAccordion({ industry }: { industry: { title: string; segments: string[] } }) {
+function MobileIndustryAccordion({ industry, setOpen }: { industry: { title: string; items: { label: string; href?: string }[] }; setOpen: (v: boolean) => void }) {
   const [expanded, setExpanded] = useState(false);
   return (
     <div className="flex flex-col">
@@ -192,10 +191,16 @@ function MobileIndustryAccordion({ industry }: { industry: { title: string; segm
             className="overflow-hidden"
           >
             <div className="flex flex-col pt-1 pb-1">
-              {industry.segments.map((segment, i) => (
-                <span key={i} className="py-1 text-xs font-medium leading-snug text-[#64748B]">
-                  {segment}
-                </span>
+              {industry.items.map((item, i) => (
+                item.href ? (
+                  <a key={i} href={item.href} onClick={() => setOpen(false)} className="py-1 text-xs font-medium leading-snug text-[#7C3AED] hover:underline transition-colors">
+                    {item.label}
+                  </a>
+                ) : (
+                  <span key={i} className="py-1 text-xs font-medium leading-snug text-[#64748B]">
+                    {item.label}
+                  </span>
+                )
               ))}
             </div>
           </motion.div>
@@ -267,7 +272,7 @@ function MobileNavItem({ n, setOpen }: { n: any, setOpen: any }) {
               {n.type === 'industries' && (
                 <>
                   {MEGA_MENUS.industries.map((ind, idx) => (
-                    <MobileIndustryAccordion key={idx} industry={ind} />
+                    <MobileIndustryAccordion key={idx} industry={ind} setOpen={setOpen} />
                   ))}
                   <div className="mt-2 pt-4 border-t border-gray-100">
                     <p className="text-xs leading-relaxed text-gray-400">
@@ -527,17 +532,31 @@ export default function Navbar() {
                 {hoveredMenu === 'industries' && (
                   <div className="flex flex-col">
                     {/* 2 columns on tablet, 3 on desktop, all 6 across once the
-                        panel is wide enough to keep segment names on one line */}
+                        panel is wide enough to keep labels on one line */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 gap-x-1 gap-y-2 -m-4">
                       {MEGA_MENUS.industries.map((ind, idx) => (
                         <div key={idx} className="flex flex-col p-4 rounded-2xl transition-colors duration-200 hover:bg-[#F8FAFC]">
-                          <h4 className="text-[15px] font-bold leading-snug tracking-tight text-[#0F172A]">
+                          <div className={cn("w-11 h-11 rounded-xl flex items-center justify-center shrink-0", ind.bg)}>
+                            <ind.icon className={cn("w-5 h-5", ind.color)} />
+                          </div>
+                          <h4 className="mt-3.5 text-[15px] font-bold leading-snug tracking-tight text-[#0F172A]">
                             {ind.title}
                           </h4>
+                          <p className="mt-1.5 text-xs font-medium leading-relaxed text-gray-400">
+                            {ind.tagline}
+                          </p>
                           <ul className="mt-3 pt-3 border-t border-[#E2E8F0]">
-                            {ind.segments.map((segment, i) => (
-                              <li key={i} className="-mx-2 px-2 py-1.5 rounded-lg text-[13px] font-medium leading-snug text-[#64748B] cursor-default">
-                                {segment}
+                            {ind.items.map((item, i) => (
+                              <li key={i}>
+                                {item.href ? (
+                                  <a href={item.href} className="-mx-2 px-2 py-1.5 rounded-lg text-[13px] font-bold leading-snug text-[#7C3AED] transition-colors hover:bg-white block">
+                                    {item.label}
+                                  </a>
+                                ) : (
+                                  <span className="-mx-2 px-2 py-1.5 rounded-lg text-[13px] font-medium leading-snug text-[#64748B] block">
+                                    {item.label}
+                                  </span>
+                                )}
                               </li>
                             ))}
                           </ul>

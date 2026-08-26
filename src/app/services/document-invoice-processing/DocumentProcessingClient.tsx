@@ -672,6 +672,9 @@ export default function DocumentProcessingClient() {
             />
           ))}
         </div>
+        <p className="mt-6 text-slate-500 text-sm max-w-[680px] mx-auto text-center">
+          <Link href="/services/ai-monitoring-maintenance" className="font-bold text-[#7C3AED] hover:underline">See what the monthly plan actually covers</Link>, the tuning work that keeps accuracy from decaying as supplier formats change.
+        </p>
       </section>
 
       {/* Closing CTA — dark, full-bleed */}

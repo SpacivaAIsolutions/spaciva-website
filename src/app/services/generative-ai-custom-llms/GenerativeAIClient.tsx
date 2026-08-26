@@ -628,6 +628,9 @@ export default function GenerativeAIClient() {
             </div>
           ))}
         </div>
+        <p className="mt-4 text-white/40 text-sm max-w-[680px] mx-auto text-center">
+          <Link href="/services/ai-monitoring-maintenance" className="font-bold text-[#C4B5FD] hover:underline">See what the monthly plan actually covers</Link> once a model is in production.
+        </p>
       </section>
 
       {/* Closing CTA — Template C's third distinct treatment: a light bordered card on the

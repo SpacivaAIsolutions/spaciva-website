@@ -44,8 +44,9 @@ const WHAT_WE_DO = [
   },
   {
     title: "Ongoing monitoring and maintenance",
-    desc: "A monthly plan attached to every system we build: uptime monitoring, model and prompt tuning, dependency updates, small feature work, and a named engineer who knows your setup.",
+    desc: "A monthly plan attached to every system we build: uptime monitoring, dependency updates, small feature work, and a named engineer who knows your setup.",
     icon: ShieldCheck,
+    link: { href: "/services/ai-monitoring-maintenance", label: "See what's included" },
   },
 ];
 
@@ -73,7 +74,7 @@ const HOW_WE_WORK = [
   {
     step: "05",
     title: "We stay on",
-    desc: "After launch we monitor accuracy and uptime, retrain and retune against drift, and extend the system as your workflows change. This is the part most vendors skip.",
+    desc: "After launch we monitor uptime, watch for the signs that a system needs retuning, and extend it as your workflows change. This is the part most vendors skip.",
   },
 ];
 
@@ -129,7 +130,7 @@ const FAQS = [
   },
   {
     q: "What happens after a project launches?",
-    a: "Every system we build comes with a monthly plan: monitoring, tuning, updates, and small feature work, with a named engineer who knows your setup. AI systems drift, and that's not a failure case. It's the nature of the technology, and it's why we scope for it upfront.",
+    a: "Every system we build comes with a monthly plan: uptime monitoring, updates, and small feature work, with a named engineer who knows your setup. AI systems drift, and that's not a failure case. It's the nature of the technology, and the plan is built to catch it and respond, not just to keep the lights on.",
   },
   {
     q: "Will you sign an NDA?",
@@ -303,6 +304,11 @@ export default function AboutClient() {
                       {item.title}
                     </h3>
                     <p className="text-white/60 leading-relaxed max-w-2xl">{item.desc}</p>
+                    {item.link && (
+                      <Link href={item.link.href} className="inline-flex items-center gap-1.5 mt-4 font-bold text-[#C4B5FD] hover:text-white transition-colors">
+                        {item.link.label}
+                      </Link>
+                    )}
                   </div>
                 </motion.div>
               ))}

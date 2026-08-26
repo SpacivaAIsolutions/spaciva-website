@@ -26,7 +26,7 @@ const LADDER = [
 ];
 
 const WHAT_WE_BUILD = [
-  { title: "Client and customer portals", bestFor: "agencies and professional-services firms fielding the same status question weekly.", desc: "A branded login where your clients see their own projects, documents, invoices, and status, instead of emailing to ask. Cuts the “quick update?” messages more than any automation will." },
+  { title: "Employee and internal portals", bestFor: "growing teams where HR, IT, or ops requests arrive over Slack and get lost.", desc: "A branded login for your own staff, leave and expense requests, equipment asks, policy documents, and a directory of who owns what, in one place instead of a manager's inbox. For anything client, vendor, or partner-facing, that's", link: { href: "/services/client-portals", label: "client portals" }, linkSuffix: ", a different access model entirely." },
   { title: "Admin panels and back offices", bestFor: "any team where “can you just update this in the database?” is a real sentence.", desc: "The internal screen behind your product or operation: search records, fix data, issue refunds, override a status, resolve an exception. Built with roles and an audit trail, so support can act without database access." },
   { title: "Approval and request systems", bestFor: "teams where approvals stall invisibly and nobody can say where.", desc: "Purchase requests, discounts, leave, expenses, and content sign-off routed to the right approver, escalated when they sit too long, and logged when resolved. The chain lives in the tool rather than in a mail thread nobody can find." },
   { title: "Inventory and asset trackers", bestFor: "distributors, field teams, and anyone reconciling two spreadsheets monthly.", desc: "Stock, equipment, or assets tracked with movement history, thresholds, and alerts. Who has it, where it went, what's running low, and when it was last checked." },
@@ -108,6 +108,7 @@ const ROUTING = [
   { title: "Inventory management", desc: "One team needing a receiving app or a returns desk tool is an internal tool. The stock number being wrong everywhere is a sync problem, not a screen.", icon: Boxes, href: "/services/inventory-management" },
   { title: "Workflow automation", desc: "You need something to happen without anyone opening anything. If the steps are known in advance and nobody needs a screen, this is cheaper and faster.", icon: Workflow, href: "/services/workflow-automation" },
   { title: "AI agents", desc: "Judgement is required where the next step isn't fixed in advance. Most tools don't need one; a few need one in exactly one step.", icon: Bot, href: "/services/ai-agent-development" },
+  { title: "Web applications", desc: "The engineering underneath all of these. If you're evaluating who can build custom software at all, not just this shape of it.", icon: Code2, href: "/services/web-applications" },
 ];
 
 const ENGAGEMENT_MODELS = [
@@ -672,7 +673,8 @@ export default function InternalBusinessToolsClient() {
         </div>
 
         <p className="mt-8 text-white/50 text-sm max-w-[720px]">
-          Every build includes monitoring for the first month. After that it&apos;s a monthly fee and you can stop any time, you keep the code, the database, and the documentation either way. If your own team takes it over, we hand over properly rather than leaving them to reverse-engineer it.
+          Every build includes monitoring for the first month. After that it&apos;s a monthly fee,{" "}
+          <Link href="/services/ai-monitoring-maintenance" className="font-bold text-[#7C3AED] hover:underline">see what that covers</Link>, and you can stop any time, you keep the code, the database, and the documentation either way. If your own team takes it over, we hand over properly rather than leaving them to reverse-engineer it.
         </p>
       </section>
 

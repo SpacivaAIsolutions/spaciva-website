@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import BusinessIntelligenceClient from "./BusinessIntelligenceClient";
 
-const TITLE = "Business Intelligence & Data Warehouse Services | Spaciva AI";
+const TITLE = "Business Intelligence & Analytics Development | Spaciva AI";
 const DESCRIPTION =
-  "We build the data foundation behind BI — warehouse, modelled metrics, self-serve analytics. No reseller commissions. Fixed price, and you own the whole stack.";
+  "We build the metric layer and self-serve analytics on top of your data — modelled, version-controlled, and governed. No reseller commissions. Fixed price, and you own the whole stack.";
 
 export const metadata: Metadata = {
   title: TITLE,

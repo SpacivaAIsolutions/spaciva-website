@@ -47,7 +47,7 @@ const WHAT_WE_DO = [
 const HERO_SERVICES = [
   { title: "AI Automation", desc: "Support agents · Lead routing · Invoice processing", color: "#7C3AED", bg: "#F5F3FF" },
   { title: "Custom Software", desc: "CRMs · Internal tools · Ops dashboards", color: "#0F172A", bg: "#F1F5F9" },
-  { title: "Ongoing Support", desc: "Monthly monitoring, tuning & maintenance", color: "#3B82F6", bg: "#EFF6FF" },
+  { title: "Ongoing Support", desc: "Monthly monitoring, tuning & maintenance", color: "#3B82F6", bg: "#EFF6FF", href: "/services/ai-monitoring-maintenance" },
 ];
 
 const WHY_CHOOSE_US = [
@@ -166,32 +166,47 @@ function HeroSection() {
 
       <div className="flex-1 w-full max-w-lg lg:max-w-none relative mt-12 lg:mt-0">
         <div className="flex flex-col gap-5 relative z-10 pl-0 lg:pl-12">
-          {HERO_SERVICES.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 + index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className={`flex items-center justify-between bg-white rounded-3xl p-5 border border-[#E2E8F0] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-[#C4B5FD] transition-all duration-300 cursor-default group transform ${index % 2 === 0 ? 'lg:-translate-x-4' : 'lg:translate-x-4'}`}
-            >
-              <div className="flex items-center gap-4 sm:gap-5 min-w-0">
-                <div
-                  className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110"
-                  style={{ backgroundColor: service.bg }}
-                >
+          {HERO_SERVICES.map((service, index) => {
+            const content = (
+              <>
+                <div className="flex items-center gap-4 sm:gap-5 min-w-0">
                   <div
-                    className="w-4 h-4 rounded-full shadow-sm"
-                    style={{ backgroundColor: service.color }}
-                  />
+                    className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110"
+                    style={{ backgroundColor: service.bg }}
+                  >
+                    <div
+                      className="w-4 h-4 rounded-full shadow-sm"
+                      style={{ backgroundColor: service.color }}
+                    />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="font-bold text-[#0F172A] text-base sm:text-lg mb-0.5">{service.title}</h3>
+                    <p className="text-xs sm:text-sm font-medium text-[#334155]">{service.desc}</p>
+                  </div>
                 </div>
-                <div className="min-w-0">
-                  <h3 className="font-bold text-[#0F172A] text-base sm:text-lg mb-0.5">{service.title}</h3>
-                  <p className="text-xs sm:text-sm font-medium text-[#334155]">{service.desc}</p>
-                </div>
-              </div>
-              <ArrowRight className="w-5 h-5 shrink-0 ml-3 text-[#94A3B8] group-hover:text-[#7C3AED] group-hover:translate-x-1 transition-all" />
-            </motion.div>
-          ))}
+                <ArrowRight className="w-5 h-5 shrink-0 ml-3 text-[#94A3B8] group-hover:text-[#7C3AED] group-hover:translate-x-1 transition-all" />
+              </>
+            );
+            return (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 + index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className={`bg-white rounded-3xl border border-[#E2E8F0] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-[#C4B5FD] transition-all duration-300 group transform ${index % 2 === 0 ? 'lg:-translate-x-4' : 'lg:translate-x-4'}`}
+              >
+                {service.href ? (
+                  <Link href={service.href} className="flex items-center justify-between p-5 cursor-pointer">
+                    {content}
+                  </Link>
+                ) : (
+                  <div className="flex items-center justify-between p-5 cursor-default">
+                    {content}
+                  </div>
+                )}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

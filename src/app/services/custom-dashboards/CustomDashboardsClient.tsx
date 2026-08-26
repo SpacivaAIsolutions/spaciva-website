@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import {
   ArrowRight, ChevronDown,
   Database, Workflow, Archive, LayoutDashboard,
-  Bot, Home, Cloud, ClipboardList, Building2, Boxes, LineChart,
+  Bot, Home, Cloud, ClipboardList, Building2, Boxes, LineChart, Code2, Users,
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import AnimatedCtaButton from "@/components/AnimatedCtaButton";
@@ -90,6 +90,8 @@ const ROUTING = [
   { title: "ERP systems", desc: "The dashboard reads out of it, it doesn't replace it. If nothing's connecting your ERP to the rest of the business yet, that's the prior step.", icon: Building2, href: "/services/erp-systems" },
   { title: "Inventory management", desc: "If the actual problem is the stock number itself, sync and accuracy, not visibility, fix that first, then read it out here.", icon: Boxes, href: "/services/inventory-management" },
   { title: "AI agents", desc: "The next step depends on judgement rather than a rule, not a fixed report.", icon: Bot, href: "/services/ai-agent-development" },
+  { title: "Web applications", desc: "The engineering underneath all of these. If you're evaluating who can build custom software at all, not just this shape of it.", icon: Code2, href: "/services/web-applications" },
+  { title: "Client portals", desc: "People outside your organisation need to look something up on their own schedule, not just see a report you send them.", icon: Users, href: "/services/client-portals" },
 ];
 
 const WHERE_WRONG = [
@@ -418,8 +420,9 @@ export default function CustomDashboardsClient() {
               </blockquote>
 
               <p className="mt-6 text-slate-600 leading-relaxed max-w-[680px]">
-                This covers what one dashboard needs. Reconciling data across systems, a modelled warehouse, and metric definitions everyone agrees on, so the fifth and tenth dashboard cost almost nothing, is a bigger foundation with its own page:{" "}
-                <Link href="/services/business-intelligence" className="font-bold text-[#7C3AED] hover:underline">business intelligence</Link>.
+                This covers what one dashboard needs. Reconciling data across systems into one modelled warehouse, so the fifth and tenth dashboard cost almost nothing, is a bigger foundation with its own page:{" "}
+                <Link href="/services/data-warehousing-etl" className="font-bold text-[#7C3AED] hover:underline">data warehousing &amp; ETL</Link>. Agreeing what the numbers in that warehouse mean, so two dashboards never contradict each other, is{" "}
+                <Link href="/services/business-intelligence" className="font-bold text-[#7C3AED] hover:underline">business intelligence</Link>, layered on top of it.
               </p>
             </section>
 
@@ -604,7 +607,8 @@ export default function CustomDashboardsClient() {
         </div>
 
         <p className="mt-8 text-white/50 text-sm max-w-[720px]">
-          Every build includes monitoring for the first month. After that it&apos;s a monthly fee and you can stop any time, you keep the code, the pipeline, the data model, and the documentation either way.
+          Every build includes monitoring for the first month. After that it&apos;s a monthly fee,{" "}
+          <Link href="/services/ai-monitoring-maintenance" className="font-bold text-[#7C3AED] hover:underline">see what that covers</Link>, and you can stop any time, you keep the code, the pipeline, the data model, and the documentation either way.
         </p>
       </section>
 

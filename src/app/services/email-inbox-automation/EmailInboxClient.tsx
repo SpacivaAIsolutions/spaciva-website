@@ -669,6 +669,9 @@ export default function EmailInboxClient() {
                   </div>
                 ))}
               </div>
+              <p className="mt-8 text-slate-500 text-sm max-w-[680px]">
+                <Link href="/services/ai-monitoring-maintenance" className="font-bold text-[#7C3AED] hover:underline">See what the monthly plan actually covers</Link>, the tuning work that keeps routing accuracy from drifting as your mail changes.
+              </p>
             </section>
           </div>
         </div>
