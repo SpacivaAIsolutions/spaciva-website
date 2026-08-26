@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { ArrowRight, Menu, X, ChevronDown, Cpu, Database, Globe, Cloud } from "lucide-react";
+import { ArrowRight, Menu, X, ChevronDown } from "lucide-react";
 
 const NAV = [
   { name: "Services", href: "/#what-we-do", hasMegaMenu: true, type: "services" },
@@ -16,10 +16,6 @@ const MEGA_MENUS = {
   services: [
     {
       title: "AI Automation & Agents",
-      tagline: "AI that runs your busywork.",
-      icon: Cpu,
-      color: "text-purple-600",
-      bg: "bg-purple-100",
       items: [
         { label: "AI Agents", href: "/services/ai-agent-development" },
         { label: "AI Chatbots (RAG-powered)", href: "/services/rag-chatbot-development" },
@@ -34,10 +30,6 @@ const MEGA_MENUS = {
     },
     {
       title: "Custom Software & Internal Tools",
-      tagline: "The systems your operations run on.",
-      icon: Database,
-      color: "text-indigo-600",
-      bg: "bg-indigo-100",
       items: [
         { label: "CRM Development", href: "/services/crm-development" },
         { label: "Custom Dashboards", href: "/services/custom-dashboards" },
@@ -49,10 +41,6 @@ const MEGA_MENUS = {
     },
     {
       title: "Web & Product Engineering",
-      tagline: "The engineering behind it all.",
-      icon: Globe,
-      color: "text-blue-600",
-      bg: "bg-blue-100",
       items: [
         { label: "Web Applications (Next.js / React)", href: "/services/web-applications" },
         { label: "SaaS Platforms", href: "/services/saas-platforms" },
@@ -64,10 +52,6 @@ const MEGA_MENUS = {
     },
     {
       title: "Cloud, Data & Managed Services",
-      tagline: "Built to scale, monitored monthly.",
-      icon: Cloud,
-      color: "text-cyan-600",
-      bg: "bg-cyan-100",
       items: [
         { label: "Cloud & DevOps (AWS, Docker, CI/CD)", href: "/services/cloud-devops" },
         { label: "Data Warehousing & ETL Pipelines", href: "/services/data-warehousing-etl" },
@@ -75,20 +59,6 @@ const MEGA_MENUS = {
         { label: "Ongoing Maintenance & AI Monitoring (retainer)", href: "/services/ai-monitoring-maintenance" }
       ] as { label: string; href?: string }[]
     }
-  ],
-  solutions: [
-    { title: "Business Growth", desc: "Scale operations & revenue" },
-    { title: "AI Automation", desc: "Intelligent workflows" },
-    { title: "Workflow Automation", desc: "Streamline daily tasks" },
-    { title: "WhatsApp Automation", desc: "Engage customers 24/7" },
-    { title: "CRM Solutions", desc: "Manage client relationships" },
-    { title: "HR Management", desc: "Modernize workforce tools" },
-    { title: "Inventory Management", desc: "Real-time stock tracking" },
-    { title: "Lead Management", desc: "Convert more prospects" },
-    { title: "Customer Support AI", desc: "Automated helpdesk" },
-    { title: "Knowledge Base AI", desc: "Instant information retrieval" },
-    { title: "Document Processing", desc: "Automated data extraction" },
-    { title: "Analytics Dashboard", desc: "Data-driven insights" },
   ],
   industries: [
     {
@@ -169,11 +139,11 @@ function MobileIndustryAccordion({ industry, setOpen }: { industry: { title: str
             <div className="flex flex-col pt-1 pb-1">
               {industry.items.map((item, i) => (
                 item.href ? (
-                  <a key={i} href={item.href} onClick={() => setOpen(false)} className="py-1 text-xs font-medium leading-snug text-[#7C3AED] hover:underline transition-colors">
+                  <a key={i} href={item.href} onClick={() => setOpen(false)} className="py-1 text-xs font-medium leading-snug text-[#475569] hover:text-[#7C3AED] transition-colors">
                     {item.label}
                   </a>
                 ) : (
-                  <span key={i} className="py-1 text-xs font-medium leading-snug text-[#64748B]">
+                  <span key={i} className="py-1 text-xs font-medium leading-snug text-[#94A3B8]">
                     {item.label}
                   </span>
                 )
@@ -215,34 +185,22 @@ function MobileNavItem({ n, setOpen }: { n: any, setOpen: any }) {
             <div className="py-2 pl-4 border-l-2 border-[#E2E8F0] ml-2 flex flex-col gap-4">
               {n.type === 'services' && MEGA_MENUS.services.map((srv, idx) => (
                 <div key={idx} className="flex flex-col">
-                  <div className="flex items-center gap-2.5">
-                    <div className={cn("w-7 h-7 rounded-lg flex items-center justify-center shrink-0", srv.bg)}>
-                      <srv.icon className={cn("w-3.5 h-3.5", srv.color)} />
-                    </div>
-                    <span className="font-bold text-sm leading-snug text-[#0F172A]">
-                      {srv.title}
-                    </span>
-                  </div>
-                  <span className="mt-1.5 ml-[38px] text-[11px] font-medium leading-relaxed text-gray-400">{srv.tagline}</span>
-                  <div className="flex flex-col ml-[38px] mt-2">
+                  <span className="font-bold text-sm leading-snug text-[#0F172A]">
+                    {srv.title}
+                  </span>
+                  <div className="flex flex-col mt-2">
                     {srv.items.map((item, i) => (
                       item.href ? (
-                        <a key={i} href={item.href} onClick={() => setOpen(false)} className="py-1 text-xs font-medium leading-snug text-[#7C3AED] hover:underline transition-colors">
+                        <a key={i} href={item.href} onClick={() => setOpen(false)} className="py-1 text-xs font-medium leading-snug text-[#475569] hover:text-[#7C3AED] transition-colors">
                           {item.label}
                         </a>
                       ) : (
-                        <span key={i} className="py-1 text-xs font-medium leading-snug text-[#64748B]">
+                        <span key={i} className="py-1 text-xs font-medium leading-snug text-[#94A3B8]">
                           {item.label}
                         </span>
                       )
                     ))}
                   </div>
-                </div>
-              ))}
-              {n.type === 'solutions' && MEGA_MENUS.solutions.map((sol, idx) => (
-                <div key={idx} className="flex flex-col">
-                  <span className="font-bold text-sm text-gray-900">{sol.title}</span>
-                  <span className="text-xs text-gray-500 mt-0.5">{sol.desc}</span>
                 </div>
               ))}
               {n.type === 'industries' && (
@@ -269,8 +227,8 @@ function MobileNavItem({ n, setOpen }: { n: any, setOpen: any }) {
                 <>
                   {MEGA_MENUS.caseStudies.map((cs, idx) => (
                     <a key={idx} href={cs.href} onClick={() => setOpen(false)} className="flex flex-col mb-4 last:mb-0">
-                      <span className="font-bold text-sm text-gray-900 hover:text-[#7C3AED] transition-colors">{cs.title}</span>
-                      <span className="text-xs text-gray-500 mt-0.5">{cs.desc}</span>
+                      <span className="font-bold text-sm text-[#0F172A] hover:text-[#7C3AED] transition-colors">{cs.title}</span>
+                      <span className="text-xs text-[#94A3B8] mt-0.5">{cs.desc}</span>
                     </a>
                   ))}
                 </>
@@ -452,54 +410,29 @@ export default function Navbar() {
                 style={{ transformOrigin: 'top center' }}
               >
                 {hoveredMenu === 'services' && (
-                  // -m-4 lets each column carry its own p-4 without widening the
-                  // panel's outer padding, so cards can have hover/active surfaces.
-                  // Subgrid rows size to the tallest column, so icons, titles,
-                  // taglines and lists stay on shared baselines however titles wrap.
-                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 grid-rows-none xl:grid-rows-[auto_auto_auto_1fr] gap-x-1 gap-y-2 -m-4">
+                  // Flat directory style, matching Industries: bold header, plain list,
+                  // no icon badge, no card box. Kept as the one shared dropdown template.
+                  <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-8">
                     {MEGA_MENUS.services.map((srv, idx) => (
-                      <div
-                        key={idx}
-                        className="flex flex-col xl:grid xl:grid-rows-subgrid xl:row-span-4 gap-0 p-4 rounded-2xl transition-colors duration-200 hover:bg-[#F8FAFC]"
-                      >
-                        <div className={cn("w-11 h-11 rounded-xl flex items-center justify-center shrink-0", srv.bg)}>
-                          <srv.icon className={cn("w-5 h-5", srv.color)} />
-                        </div>
-                        <h4 className="mt-3.5 text-[15px] font-bold leading-snug tracking-tight text-[#0F172A]">
+                      <div key={idx} className="flex flex-col">
+                        <h4 className="text-[15px] font-bold leading-snug tracking-tight text-[#0F172A] mb-3">
                           {srv.title}
                         </h4>
-                        <p className="mt-1.5 text-xs font-medium leading-relaxed text-gray-400">
-                          {srv.tagline}
-                        </p>
-                        <ul className="mt-3 pt-3 border-t border-[#E2E8F0]">
+                        <ul className="flex flex-col gap-2.5">
                           {srv.items.map((item, i) => (
                             <li key={i}>
                               {item.href ? (
-                                <a href={item.href} className="-mx-2 px-2 py-1.5 rounded-lg text-[13px] font-bold leading-snug text-[#7C3AED] transition-colors hover:bg-white block">
+                                <a href={item.href} className="text-[13px] font-medium leading-snug text-[#475569] hover:text-[#7C3AED] transition-colors block">
                                   {item.label}
                                 </a>
                               ) : (
-                                <span className="-mx-2 px-2 py-1.5 rounded-lg text-[13px] font-medium leading-snug text-[#64748B] block">
+                                <span className="text-[13px] font-medium leading-snug text-[#94A3B8] block">
                                   {item.label}
                                 </span>
                               )}
                             </li>
                           ))}
                         </ul>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {hoveredMenu === 'solutions' && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6">
-                    {MEGA_MENUS.solutions.map((sol, idx) => (
-                      <div key={idx} className="group/item cursor-pointer p-3 -m-3 rounded-xl hover:bg-gray-50 transition-colors">
-                        <h4 className="font-bold text-gray-900 mb-1 group-hover/item:text-[#7C3AED] transition-colors flex items-center justify-between">
-                          {sol.title}
-                          <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-[#7C3AED]" />
-                        </h4>
-                        <p className="text-xs text-gray-500 line-clamp-1">{sol.desc}</p>
                       </div>
                     ))}
                   </div>
@@ -549,14 +482,15 @@ export default function Navbar() {
 
                 {hoveredMenu === 'caseStudies' && (
                   <div className="flex flex-col">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                    {/* Same flat template as Services/Industries: bold title, plain text
+                        below, no card box — the link itself carries the hover state. */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
                       {MEGA_MENUS.caseStudies.map((cs, idx) => (
-                        <a key={idx} href={cs.href} className="group/item p-4 rounded-xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100 block">
-                          <h4 className="font-bold text-gray-900 mb-1 group-hover/item:text-[#7C3AED] transition-colors flex items-center justify-between">
+                        <a key={idx} href={cs.href} className="group/item flex flex-col">
+                          <h4 className="text-[15px] font-bold leading-snug tracking-tight text-[#0F172A] group-hover/item:text-[#7C3AED] transition-colors mb-1">
                             {cs.title}
-                            <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-[#7C3AED]" />
                           </h4>
-                          <p className="text-xs text-gray-500">{cs.desc}</p>
+                          <p className="text-[13px] font-medium leading-relaxed text-[#94A3B8]">{cs.desc}</p>
                         </a>
                       ))}
                     </div>
