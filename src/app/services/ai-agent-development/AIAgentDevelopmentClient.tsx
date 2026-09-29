@@ -7,7 +7,7 @@ import {
   ArrowRight, Headset, UserCheck, FileText, BarChart3,
   AlertTriangle, Database, Plug, Brain, ShieldAlert, GitBranch, KeyRound,
   Users, Briefcase, ShoppingBag, Rocket,
-  Tag, Clock, Code2, RefreshCw, Wrench, ChevronDown,
+  Tag, Clock, Code2, RefreshCw, Wrench, ChevronDown, Server, Cloud,
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import AnimatedCtaButton from "@/components/AnimatedCtaButton";
@@ -104,6 +104,24 @@ const AGENT_REQUIREMENTS = [
     title: "Scoped access",
     desc: "The agent's credentials cover only what its job requires, with audit logging on every write. It can't reach what it doesn't need.",
     icon: KeyRound,
+  },
+];
+
+const INFRASTRUCTURE = [
+  {
+    title: "Dedicated GPU Compute",
+    desc: "We provision and manage dedicated A100s and H100s on AWS, GCP, or private clouds. No fighting for shared inference endpoints or dealing with sudden rate limits when your agent scales.",
+    icon: Server,
+  },
+  {
+    title: "Cloud-Native Deployment",
+    desc: "Fully containerized via Docker and Kubernetes. We can deploy into our managed cloud or directly into your own VPC, ensuring your data never leaves your perimeter.",
+    icon: Cloud,
+  },
+  {
+    title: "Vector & State Storage",
+    desc: "Production-grade Pinecone, Qdrant, or pgvector clusters to give your agents instant, reliable memory over millions of internal documents without latency spikes.",
+    icon: Database,
   },
 ];
 
@@ -505,6 +523,35 @@ export default function AIAgentDevelopmentClient() {
                 </div>
                 <h3 className="font-bold text-slate-900 text-lg mb-2">{item.title}</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Cloud & Infrastructure */}
+      <section className="py-16 md:py-24 bg-slate-900 text-white border-y border-slate-800">
+        <div className="max-w-7xl mx-auto px-5 lg:px-10">
+          <div className="max-w-3xl mb-16">
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">Cloud & GPU Infrastructure</h2>
+            <p className="text-lg text-slate-400">Agents are only as fast as the metal they run on. We don't just write the code; we architect, provision, and manage the cloud infrastructure and GPU clusters required to run them at scale.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {INFRASTRUCTURE.map((item, idx) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.06 }}
+                className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700/50 hover:bg-slate-800 transition-colors"
+              >
+                <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center mb-5">
+                  <item.icon className="w-6 h-6 text-blue-400" />
+                </div>
+                <h3 className="font-bold text-white text-lg mb-2">{item.title}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
