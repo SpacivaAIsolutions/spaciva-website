@@ -43,28 +43,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const buildTime = new Date();
 
   const services = getSlugs("services").map((slug) =>
-    route("services", slug, buildTime, { changeFrequency: "monthly", priority: 0.85 })
+    route("services", slug, buildTime, { changeFrequency: "daily", priority: 1.0 })
   );
 
   const industries = getSlugs("industries").map((slug) =>
-    route("industries", slug, buildTime, { changeFrequency: "monthly", priority: 0.8 })
+    route("industries", slug, buildTime, { changeFrequency: "daily", priority: 0.9 })
   );
 
   // Excludes any guide directory still missing a page.tsx — this is how a
   // deliberately-held page (built locally, not yet committed) stays out of
   // the sitemap without needing a manual exclusion list here.
   const guides = getSlugs("guides").map((slug) =>
-    route("guides", slug, buildTime, { changeFrequency: "monthly", priority: 0.7 })
+    route("guides", slug, buildTime, { changeFrequency: "weekly", priority: 0.8 })
   );
 
   const caseStudies = getSlugs("case-studies").map((slug) =>
-    route("case-studies", slug, buildTime, { changeFrequency: "monthly", priority: 0.75 })
+    route("case-studies", slug, buildTime, { changeFrequency: "weekly", priority: 0.85 })
   );
 
   return [
-    { url: baseUrl, lastModified: buildTime, changeFrequency: "weekly", priority: 1.0 },
-    { url: `${baseUrl}/about`, lastModified: buildTime, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${baseUrl}/contact`, lastModified: buildTime, changeFrequency: "monthly", priority: 0.9 },
+    { url: baseUrl, lastModified: buildTime, changeFrequency: "daily", priority: 1.0 },
+    { url: `${baseUrl}/about`, lastModified: buildTime, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${baseUrl}/contact`, lastModified: buildTime, changeFrequency: "weekly", priority: 0.9 },
     ...services,
     ...industries,
     ...guides,
