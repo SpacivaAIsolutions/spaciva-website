@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedCtaButton from "@/components/AnimatedCtaButton";
+import TrustStrip from "@/components/TrustStrip";
 import {
   ArrowRight, Sparkles, Code2, Cpu, ShieldCheck,
   CheckCircle2, ChevronDown, Building2, Factory,
@@ -46,7 +47,7 @@ const WHAT_WE_DO = [
 const HERO_SERVICES = [
   { title: "AI Automation", desc: "Support agents · Lead routing · Invoice processing", color: "#7C3AED", bg: "#F5F3FF" },
   { title: "Custom Software", desc: "CRMs · Internal tools · Ops dashboards", color: "#0F172A", bg: "#F1F5F9" },
-  { title: "Ongoing Support", desc: "Monthly monitoring, tuning & maintenance", color: "#3B82F6", bg: "#EFF6FF" },
+  { title: "Ongoing Support", desc: "Monthly monitoring, tuning & maintenance", color: "#3B82F6", bg: "#EFF6FF", href: "/services/ai-monitoring-maintenance" },
 ];
 
 const WHY_CHOOSE_US = [
@@ -165,32 +166,47 @@ function HeroSection() {
 
       <div className="flex-1 w-full max-w-lg lg:max-w-none relative mt-12 lg:mt-0">
         <div className="flex flex-col gap-5 relative z-10 pl-0 lg:pl-12">
-          {HERO_SERVICES.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 + index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className={`flex items-center justify-between bg-white rounded-3xl p-5 border border-[#E2E8F0] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-[#C4B5FD] transition-all duration-300 cursor-default group transform ${index % 2 === 0 ? 'lg:-translate-x-4' : 'lg:translate-x-4'}`}
-            >
-              <div className="flex items-center gap-4 sm:gap-5 min-w-0">
-                <div
-                  className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110"
-                  style={{ backgroundColor: service.bg }}
-                >
+          {HERO_SERVICES.map((service, index) => {
+            const content = (
+              <>
+                <div className="flex items-center gap-4 sm:gap-5 min-w-0">
                   <div
-                    className="w-4 h-4 rounded-full shadow-sm"
-                    style={{ backgroundColor: service.color }}
-                  />
+                    className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110"
+                    style={{ backgroundColor: service.bg }}
+                  >
+                    <div
+                      className="w-4 h-4 rounded-full shadow-sm"
+                      style={{ backgroundColor: service.color }}
+                    />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="font-bold text-[#0F172A] text-base sm:text-lg mb-0.5">{service.title}</h3>
+                    <p className="text-xs sm:text-sm font-medium text-[#334155]">{service.desc}</p>
+                  </div>
                 </div>
-                <div className="min-w-0">
-                  <h3 className="font-bold text-[#0F172A] text-base sm:text-lg mb-0.5">{service.title}</h3>
-                  <p className="text-xs sm:text-sm font-medium text-[#334155]">{service.desc}</p>
-                </div>
-              </div>
-              <ArrowRight className="w-5 h-5 shrink-0 ml-3 text-[#94A3B8] group-hover:text-[#7C3AED] group-hover:translate-x-1 transition-all" />
-            </motion.div>
-          ))}
+                <ArrowRight className="w-5 h-5 shrink-0 ml-3 text-[#94A3B8] group-hover:text-[#7C3AED] group-hover:translate-x-1 transition-all" />
+              </>
+            );
+            return (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 + index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className={`bg-white rounded-3xl border border-[#E2E8F0] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-[#C4B5FD] transition-all duration-300 group transform ${index % 2 === 0 ? 'lg:-translate-x-4' : 'lg:translate-x-4'}`}
+              >
+                {service.href ? (
+                  <Link href={service.href} className="flex items-center justify-between p-5 cursor-pointer">
+                    {content}
+                  </Link>
+                ) : (
+                  <div className="flex items-center justify-between p-5 cursor-default">
+                    {content}
+                  </div>
+                )}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -198,70 +214,30 @@ function HeroSection() {
 }
 
 function PartnersSection() {
-  const partners = [
-    { type: 'img', name: "Siddhraj", logo: "/partnerslogo/siddhraj.jpeg", className: "h-20 md:h-28 lg:h-32 object-contain mix-blend-darken shrink-0" },
-    { type: 'img', name: "Unoloft", logo: "/partnerslogo/unoloft.webp", className: "h-8 md:h-10 lg:h-11 object-contain shrink-0" },
-    { type: 'img', name: "Kofeko", logo: "/partnerslogo/Kofeko.svg", className: "h-5 md:h-6 lg:h-7 object-contain shrink-0" },
-
-    { type: 'img', name: "3nStar", logo: "/partnerslogo/3nstar.png", className: "h-8 md:h-10 lg:h-12 object-contain shrink-0" },
-    { type: 'img', name: "Veda", logo: "/partnerslogo/veda.webp", className: "h-12 md:h-16 lg:h-20 object-contain mix-blend-darken shrink-0" },
-    { type: 'img', name: "Cerata", logo: "/partnerslogo/cerata.webp", className: "h-10 md:h-12 lg:h-14 object-contain shrink-0" },
-    { type: 'img', name: "Shubham", logo: "/partnerslogo/shubham.png", className: "h-10 md:h-12 lg:h-14 object-contain shrink-0" },
-    { type: 'img', name: "Consultup India", logo: "/partnerslogo/consultupindia.webp", className: "h-10 md:h-12 lg:h-14 object-contain shrink-0" },
-    { type: 'text', name: "navdrin", className: "text-xl md:text-2xl font-extrabold text-[#0F172A] tracking-tight shrink-0" }
-  ];
-
   return (
-    <section className="py-10 bg-white border-t border-[#E2E8F0] shadow-sm relative z-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative">
-        <p className="text-center text-sm font-bold text-[#94A3B8] uppercase tracking-wider mb-8">Trusted by teams in the US, UK, and India</p>
+    <>
+      <TrustStrip
+        sectionClassName="py-10 bg-white border-t border-[#E2E8F0] shadow-sm"
+        containerClassName="max-w-7xl mx-auto px-6 md:px-12"
+        fadeFrom="white"
+      />
+      {/*
+        TODO: client to supply a testimonial that contains a specific number (hours saved,
+        percentage reduction, time-to-completion). Per spec, do not ship this block with a vague
+        quote ("great to work with") — that occupies proof real estate without providing proof.
+        Uncomment and fill in once a real quote is available, directly beneath the trust strip.
 
-        {/* Gradient fades for smooth edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-
-        <div className="flex overflow-hidden">
-          <motion.div
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
-            className="flex w-max"
-          >
-            {/* Render 2 identical sets for seamless infinite scroll */}
-            {[1, 2].map((set) => (
-              <div key={set} className="flex items-end gap-12 md:gap-20 pr-12 md:pr-20">
-                {partners.map((p, idx) => (
-                  <div key={idx} className="flex flex-col items-center gap-2">
-                    {p.type === 'text'
-                      ? <span className={`${p.className} whitespace-nowrap px-4`}>{p.name}</span>
-                      : <img src={p.logo} alt={p.name} className={`${p.className} w-auto max-w-none`} />}
-                    {p.type !== 'text' && (
-                      <span className="text-xs font-semibold text-[#94A3B8] whitespace-nowrap">{p.name}</span>
-                    )}
-                  </div>
-                ))}
-              </div>
-            ))}
-          </motion.div>
-        </div>
-
-        {/*
-          TODO: client to supply a testimonial that contains a specific number (hours saved,
-          percentage reduction, time-to-completion). Per spec, do not ship this block with a vague
-          quote ("great to work with") — that occupies proof real estate without providing proof.
-          Uncomment and fill in once a real quote is available.
-
-        <div className="mt-14 max-w-[680px] mx-auto text-center">
-          <p className="text-xl md:text-2xl font-medium text-[#0F172A] leading-relaxed">
-            "[Testimonial quote, must contain a specific number, e.g. hours saved per week,
-            percentage reduction, or time-to-completion.]"
-          </p>
-          <p className="mt-4 text-sm font-bold text-[#334155]">
-            [Full name], [Job title] — [Company]
-          </p>
-        </div>
-        */}
+      <div className="mt-14 max-w-[680px] mx-auto text-center">
+        <p className="text-xl md:text-2xl font-medium text-[#0F172A] leading-relaxed">
+          "[Testimonial quote, must contain a specific number, e.g. hours saved per week,
+          percentage reduction, or time-to-completion.]"
+        </p>
+        <p className="mt-4 text-sm font-bold text-[#334155]">
+          [Full name], [Job title] — [Company]
+        </p>
       </div>
-    </section>
+      */}
+    </>
   );
 }
 

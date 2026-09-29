@@ -11,22 +11,11 @@ import {
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import AnimatedCtaButton from "@/components/AnimatedCtaButton";
+import TrustStrip from "@/components/TrustStrip";
 
 function cn(...c: (string | undefined | false)[]) {
   return c.filter(Boolean).join(" ");
 }
-
-const PARTNERS = [
-  { name: "Siddhraj", logo: "/partnerslogo/siddhraj.jpeg", className: "h-14 md:h-16" },
-  { name: "Unoloft", logo: "/partnerslogo/unoloft.webp", className: "h-7 md:h-8" },
-  { name: "Kofeko", logo: "/partnerslogo/Kofeko.svg", className: "h-4 md:h-5" },
-
-  { name: "3nStar", logo: "/partnerslogo/3nstar.png", className: "h-7 md:h-9" },
-  { name: "Veda", logo: "/partnerslogo/veda.webp", className: "h-9 md:h-11" },
-  { name: "Cerata", logo: "/partnerslogo/cerata.webp", className: "h-8 md:h-10" },
-  { name: "Shubham", logo: "/partnerslogo/shubham.png", className: "h-8 md:h-10" },
-  { name: "Consultup India", logo: "/partnerslogo/consultupindia.webp", className: "h-8 md:h-10" },
-];
 
 const AGENTS_WE_BUILD = [
   {
@@ -404,25 +393,7 @@ export default function AIAgentDevelopmentClient() {
       </section>
 
       {/* Trust strip — muted */}
-      <section className="py-10 bg-slate-50 border-y border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-5 lg:px-10">
-          <p className="text-center text-sm font-bold text-[#94A3B8] uppercase tracking-wider mb-8">
-            Trusted by teams in the US, UK, and India
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14">
-            {PARTNERS.map((p) => (
-              <div key={p.name} className="flex flex-col items-center gap-2">
-                <img
-                  src={p.logo}
-                  alt={p.name}
-                  className={cn(p.className, "w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300")}
-                />
-                <span className="text-xs font-semibold text-[#94A3B8]">{p.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TrustStrip sectionClassName="py-10 bg-slate-50 border-y border-[#E2E8F0]" fadeFrom="slate-50" />
 
       {/* What we build — light */}
       <section className="py-16 md:py-24 bg-white">
@@ -456,6 +427,19 @@ export default function AIAgentDevelopmentClient() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Cross-link — honest steer toward the cheaper option when it's the right one */}
+      <section className="py-10 bg-slate-50 border-y border-[#E2E8F0]">
+        <div className="max-w-3xl mx-auto px-5 lg:px-10 text-center">
+          <p className="text-slate-600">
+            Not every problem needs judgement calls. If the steps are known in advance, plain{" "}
+            <Link href="/services/workflow-automation" className="font-bold text-[#7C3AED] hover:underline">
+              workflow automation
+            </Link>{" "}
+            is cheaper and faster to build, and it&apos;s where we start most clients.
+          </p>
         </div>
       </section>
 
@@ -529,32 +513,50 @@ export default function AIAgentDevelopmentClient() {
         </div>
       </section>
 
-      {/* Cloud & Infrastructure */}
-      <section className="py-16 md:py-24 bg-slate-900 text-white border-y border-slate-800">
-        <div className="max-w-7xl mx-auto px-5 lg:px-10">
-          <div className="max-w-3xl mb-16">
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">Cloud & GPU Infrastructure</h2>
-            <p className="text-lg text-slate-400">Agents are only as fast as the metal they run on. We don't just write the code; we architect, provision, and manage the cloud infrastructure and GPU clusters required to run them at scale.</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {INFRASTRUCTURE.map((item, idx) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.06 }}
-                className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700/50 hover:bg-slate-800 transition-colors"
-              >
-                <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center mb-5">
-                  <item.icon className="w-6 h-6 text-blue-400" />
-                </div>
-                <h3 className="font-bold text-white text-lg mb-2">{item.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+      {/* Cross-link — an agent acts; a chatbot answers; document processing just reads and files. */}
+      <section className="py-10 bg-white border-y border-[#E2E8F0]">
+        <div className="max-w-3xl mx-auto px-5 lg:px-10 text-center">
+          <p className="text-slate-600">
+            An agent on this page acts end to end, unattended. If you&apos;d rather a person stayed the
+            last step, reviewing and approving instead of the system acting alone, that&apos;s an{" "}
+            <Link href="/services/ai-assistants" className="font-bold text-[#7C3AED] hover:underline">
+              AI assistant
+            </Link>
+            , cheaper, faster to build, and where most clients should start. Just need it to answer questions from your docs, with sources, and hand off when it can&apos;t?
+            That&apos;s a{" "}
+            <Link href="/services/rag-chatbot-development" className="font-bold text-[#7C3AED] hover:underline">
+              RAG chatbot
+            </Link>
+            , a simpler, cheaper build than a full agent. If the job is just reading invoices
+            or contracts and posting the fields, that&apos;s{" "}
+            <Link href="/services/document-invoice-processing" className="font-bold text-[#7C3AED] hover:underline">
+              document processing
+            </Link>
+            . And if it&apos;s just sorting and drafting replies to mail that arrives, that&apos;s{" "}
+            <Link href="/services/email-inbox-automation" className="font-bold text-[#7C3AED] hover:underline">
+              email and inbox automation
+            </Link>
+            , no judgement calls required. Any of these can run on{" "}
+            <Link href="/services/whatsapp-automation" className="font-bold text-[#7C3AED] hover:underline">
+              WhatsApp
+            </Link>{" "}
+            too, it&apos;s a channel, not a different job. And if the actual problem is that your{" "}
+            <Link href="/services/crm-automation" className="font-bold text-[#7C3AED] hover:underline">
+              CRM
+            </Link>{" "}
+            is half-empty and nobody trusts the data in it, that&apos;s worth fixing before anything gets built on top of it.
+          </p>
+          <p className="text-slate-500 text-sm mt-4">
+            Curious about the model, retrieval, and evaluation layer underneath any of this?{" "}
+            <Link href="/services/generative-ai-custom-llms" className="font-bold text-[#7C3AED] hover:underline">
+              Generative AI &amp; Custom LLMs
+            </Link>{" "}
+            covers the engineering foundation directly. And if the actual ask is just to{" "}
+            <Link href="/services/custom-dashboards" className="font-bold text-[#7C3AED] hover:underline">
+              see the state of the business
+            </Link>{" "}
+            rather than have something act on it, that&apos;s a dashboard, not an agent.
+          </p>
         </div>
       </section>
 
@@ -663,6 +665,9 @@ export default function AIAgentDevelopmentClient() {
               </motion.div>
             ))}
           </div>
+          <p className="mt-8 text-slate-600 max-w-[680px]">
+            <Link href="/services/ai-monitoring-maintenance" className="font-bold text-[#7C3AED] hover:underline">See what the monthly plan actually covers</Link>, month to month, cancel any time, and everything keeps running.
+          </p>
         </div>
       </section>
 

@@ -289,7 +289,7 @@ export default function EnergyUtilitiesClient() {
                 className="bg-slate-50 p-6 rounded-3xl border border-slate-100 hover:shadow-lg transition-all group"
               >
                 <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-5 shadow-sm">
-                  <challenge.icon className="w-6 h-6 text-blue-600" />
+                  <challenge.icon className="w-6 h-6 text-[#7C3AED]" />
                 </div>
                 <h3 className="text-lg font-bold mb-2 text-slate-900">{challenge.title}</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">{challenge.desc}</p>
@@ -300,9 +300,9 @@ export default function EnergyUtilitiesClient() {
       </section>
 
       {/* Solutions */}
-      <section id="solutions" className="py-16 md:py-24 bg-slate-900 text-white relative overflow-hidden">
+      <section id="solutions" className="py-16 md:py-24 bg-[#0F172A] text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5" />
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-blue-600/20 to-transparent rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#7C3AED]/20 to-transparent rounded-full blur-3xl pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-5 lg:px-10 relative">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -318,10 +318,10 @@ export default function EnergyUtilitiesClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
-                className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 p-8 rounded-3xl hover:bg-slate-800 transition-colors"
+                className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl hover:border-[#7C3AED]/40 transition-colors"
               >
-                <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6">
-                  <sol.icon className="w-6 h-6 text-blue-400" />
+                <div className="w-12 h-12 bg-[#7C3AED]/15 rounded-xl flex items-center justify-center mb-6">
+                  <sol.icon className="w-6 h-6 text-[#C4B5FD]" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">{sol.title}</h3>
                 <p className="text-slate-300 text-sm leading-relaxed">{sol.desc}</p>
@@ -417,7 +417,7 @@ export default function EnergyUtilitiesClient() {
           <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center items-stretch sm:items-center gap-3 sm:gap-4 relative">
             {["Energy Assessment", "Operational Workflow Analysis", "Solution Architecture", "UX/UI Design", "Software Development", "Testing & Security Validation", "Deployment", "Training", "Continuous Support"].map((step, idx, arr) => (
               <div key={idx} className="flex items-center w-full sm:w-auto">
-                <div className="bg-slate-900 text-white font-bold px-5 sm:px-6 py-3 rounded-full shadow-lg text-sm w-full sm:w-auto text-center sm:whitespace-nowrap">
+                <div className="bg-[#0F172A] text-white font-bold px-5 sm:px-6 py-3 rounded-full shadow-lg text-sm w-full sm:w-auto text-center sm:whitespace-nowrap">
                   {step}
                 </div>
                 {idx < arr.length - 1 && (
@@ -430,19 +430,19 @@ export default function EnergyUtilitiesClient() {
       </section>
 
       {/* Why Spaciva & Tech Stack */}
-      <section className="py-16 md:py-24 bg-slate-900 text-white relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-[#0F172A] text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 lg:px-10 relative z-10">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
             
             <div>
               <h2 className="text-3xl md:text-4xl font-extrabold mb-8">Why Energy Companies Choose Spaciva</h2>
-              <div className="space-y-4">
+              <div className="grid sm:grid-cols-2 gap-4">
                 {WHY_SPACIVA.map((why, idx) => (
-                  <div key={idx} className="flex gap-4 items-center p-4 bg-slate-800/50 rounded-2xl border border-slate-700/50">
-                    <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0">
-                      <CheckCircle2 className="w-5 h-5 text-blue-400" />
+                  <div key={idx} className="flex gap-4 items-center p-4 bg-white/5 rounded-2xl border border-white/10 hover:border-[#7C3AED]/40 transition-colors">
+                    <div className="w-10 h-10 rounded-full bg-[#7C3AED]/15 flex items-center justify-center shrink-0">
+                      <CheckCircle2 className="w-5 h-5 text-[#C4B5FD]" />
                     </div>
-                    <span className="font-bold text-slate-200">{why}</span>
+                    <span className="font-bold text-white/90 text-sm leading-snug">{why}</span>
                   </div>
                 ))}
               </div>
@@ -452,27 +452,27 @@ export default function EnergyUtilitiesClient() {
               <h2 className="text-3xl md:text-4xl font-extrabold mb-8">Technology Stack</h2>
               <div className="space-y-8">
                 <div>
-                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Frontend & Backend</h4>
+                  <h4 className="text-xs font-bold text-white/40 uppercase tracking-widest mb-3">Frontend & Backend</h4>
                   <div className="flex gap-2 flex-wrap">
-                    {["Next.js", "React", "Flutter", "Node.js", "Python", "Go", ".NET"].map(t => <span key={t} className="px-3 py-1.5 bg-slate-800 rounded-lg text-sm font-semibold">{t}</span>)}
+                    {["Next.js", "React", "Flutter", "Node.js", "Python", "Go", ".NET"].map(t => <span key={t} className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-sm font-semibold text-white/80">{t}</span>)}
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">IoT & Database</h4>
+                  <h4 className="text-xs font-bold text-white/40 uppercase tracking-widest mb-3">IoT & Database</h4>
                   <div className="flex gap-2 flex-wrap">
-                    {["MQTT", "OPC UA", "Modbus", "LoRaWAN", "PostgreSQL", "MongoDB", "InfluxDB"].map(t => <span key={t} className="px-3 py-1.5 bg-slate-800 rounded-lg text-sm font-semibold">{t}</span>)}
+                    {["MQTT", "OPC UA", "Modbus", "LoRaWAN", "PostgreSQL", "MongoDB", "InfluxDB"].map(t => <span key={t} className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-sm font-semibold text-white/80">{t}</span>)}
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">AI & Integration</h4>
+                  <h4 className="text-xs font-bold text-white/40 uppercase tracking-widest mb-3">AI & Integration</h4>
                   <div className="flex gap-2 flex-wrap">
-                    {["OpenAI", "LangChain", "TensorFlow", "PyTorch", "Computer Vision"].map(t => <span key={t} className="px-3 py-1.5 bg-slate-800 rounded-lg text-sm font-semibold">{t}</span>)}
+                    {["OpenAI", "LangChain", "TensorFlow", "PyTorch", "Computer Vision"].map(t => <span key={t} className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-sm font-semibold text-white/80">{t}</span>)}
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Cloud</h4>
+                  <h4 className="text-xs font-bold text-white/40 uppercase tracking-widest mb-3">Cloud</h4>
                   <div className="flex gap-2 flex-wrap">
-                    {["AWS", "Azure", "Docker", "Kubernetes"].map(t => <span key={t} className="px-3 py-1.5 bg-slate-800 rounded-lg text-sm font-semibold">{t}</span>)}
+                    {["AWS", "Azure", "Docker", "Kubernetes"].map(t => <span key={t} className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-sm font-semibold text-white/80">{t}</span>)}
                   </div>
                 </div>
               </div>
@@ -483,12 +483,16 @@ export default function EnergyUtilitiesClient() {
       </section>
 
       {/* KPIs */}
-      <section className="py-16 md:py-24 bg-blue-600 text-white">
-        <div className="max-w-7xl mx-auto px-5 lg:px-10 text-center">
-          <h2 className="text-2xl font-bold mb-10 text-white/90 uppercase tracking-wider">Key Business Metrics We Optimize</h2>
-          <div className="flex flex-wrap justify-center gap-4">
+      <section className="py-16 md:py-24 bg-[#0F172A] text-white relative overflow-hidden border-t border-white/10">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[500px] h-[300px] bg-[#7C3AED]/20 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+        <div className="max-w-5xl mx-auto px-5 lg:px-10 text-center relative z-10">
+          <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-[#7C3AED]/15 border border-[#7C3AED]/30 text-[#C4B5FD] text-xs font-bold uppercase tracking-widest mb-5">
+            What We Optimize
+          </div>
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-10 text-white">Key Business Metrics We Optimize</h2>
+          <div className="flex flex-wrap justify-center gap-3">
             {KPIS.map((kpi, idx) => (
-              <span key={idx} className="px-6 py-3 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm font-bold text-white shadow-lg">
+              <span key={idx} className="px-5 py-2.5 rounded-full border border-[#7C3AED]/30 bg-[#7C3AED]/10 font-bold text-white text-sm hover:bg-[#7C3AED]/20 hover:border-[#7C3AED]/50 transition-colors">
                 {kpi}
               </span>
             ))}
@@ -515,7 +519,7 @@ export default function EnergyUtilitiesClient() {
                 <button 
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
                   className="w-full text-left px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-3 sm:gap-4 font-bold text-slate-900"><span className="min-w-0 text-sm sm:text-base leading-snug">{faq.q}</span>
-                  <ChevronDown className={cn("w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0", openFaq === idx && "rotate-180 text-blue-600")} />
+                  <ChevronDown className={cn("w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0", openFaq === idx && "rotate-180 text-[#7C3AED]")} />
                 </button>
                 <AnimatePresence>
                   {openFaq === idx && (
@@ -538,7 +542,7 @@ export default function EnergyUtilitiesClient() {
 
       {/* CTA */}
       <section className="py-16 md:py-24 bg-slate-50 relative overflow-hidden border-t border-slate-200">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/10 blur-[100px] rounded-full pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#7C3AED]/10 blur-[100px] rounded-full pointer-events-none" />
         
         <div className="max-w-4xl mx-auto px-5 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight text-slate-900">Ready to Modernize Your Energy & Utility Operations?</h2>
@@ -562,31 +566,31 @@ export default function EnergyUtilitiesClient() {
             <div>
               <h4 className="text-lg font-bold mb-6 text-slate-900">Related Solutions</h4>
               <ul className="space-y-4">
-                <li><a href="#" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">Energy Management System (EMS)</a></li>
-                <li><a href="#" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">Utility Billing Platform</a></li>
-                <li><a href="#" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">Smart Grid Platform</a></li>
-                <li><a href="#" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">Asset Management System</a></li>
-                <li><a href="#" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">Field Workforce Management</a></li>
-                <li><a href="#" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">Executive Dashboard</a></li>
+                <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Energy Management System (EMS)</a></li>
+                <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Utility Billing Platform</a></li>
+                <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Smart Grid Platform</a></li>
+                <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Asset Management System</a></li>
+                <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Field Workforce Management</a></li>
+                <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Executive Dashboard</a></li>
               </ul>
             </div>
             <div>
               <h4 className="text-lg font-bold mb-6 text-slate-900">Related Services</h4>
               <ul className="space-y-4">
-                <li><a href="#" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">AI & Machine Learning</a></li>
-                <li><a href="#" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">Cloud & DevOps</a></li>
-                <li><a href="#" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">Data Engineering</a></li>
-                <li><a href="#" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">IoT Integration</a></li>
-                <li><a href="#" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">Custom Software Development</a></li>
+                <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">AI & Machine Learning</a></li>
+                <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Cloud & DevOps</a></li>
+                <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Data Engineering</a></li>
+                <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">IoT Integration</a></li>
+                <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Custom Software Development</a></li>
               </ul>
             </div>
             <div>
               <h4 className="text-lg font-bold mb-6 text-slate-900">Related Industries</h4>
               <ul className="space-y-4">
-                <li><a href="/industries/manufacturing" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">Manufacturing</a></li>
-                <li><a href="/industries/logistics" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">Logistics</a></li>
-                <li><a href="/industries/construction" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">Construction & Infrastructure</a></li>
-                <li><a href="/industries/government" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">Government & Public Sector</a></li>
+                <li><a href="/industries/manufacturing" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Manufacturing</a></li>
+                <li><a href="/industries/logistics" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Logistics</a></li>
+                <li><a href="/industries/construction" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Construction & Infrastructure</a></li>
+                <li><a href="/industries/government" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Government & Public Sector</a></li>
               </ul>
             </div>
           </div>

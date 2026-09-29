@@ -10,6 +10,7 @@ import {
 import Footer from "@/components/Footer";
 import AnimatedCtaButton from "@/components/AnimatedCtaButton";
 import AnimatedSection from "@/components/AnimatedSection";
+import TrustStrip from "@/components/TrustStrip";
 
 function cn(...c: (string | undefined | false)[]) {
   return c.filter(Boolean).join(" ");
@@ -29,18 +30,6 @@ function Fill({ children }: { children: React.ReactNode }) {
   );
 }
 
-const PARTNERS = [
-  { name: "Siddhraj", logo: "/partnerslogo/siddhraj.jpeg", className: "h-14 md:h-16" },
-  { name: "Unoloft", logo: "/partnerslogo/unoloft.webp", className: "h-7 md:h-8" },
-  { name: "Kofeko", logo: "/partnerslogo/Kofeko.svg", className: "h-4 md:h-5" },
-
-  { name: "3nStar", logo: "/partnerslogo/3nstar.png", className: "h-7 md:h-9" },
-  { name: "Veda", logo: "/partnerslogo/veda.webp", className: "h-9 md:h-11" },
-  { name: "Cerata", logo: "/partnerslogo/cerata.webp", className: "h-8 md:h-10" },
-  { name: "Shubham", logo: "/partnerslogo/shubham.png", className: "h-8 md:h-10" },
-  { name: "Consultup India", logo: "/partnerslogo/consultupindia.webp", className: "h-8 md:h-10" },
-];
-
 const WHAT_WE_DO = [
   {
     title: "AI automation and agents: our core work",
@@ -55,8 +44,9 @@ const WHAT_WE_DO = [
   },
   {
     title: "Ongoing monitoring and maintenance",
-    desc: "A monthly plan attached to every system we build: uptime monitoring, model and prompt tuning, dependency updates, small feature work, and a named engineer who knows your setup.",
+    desc: "A monthly plan attached to every system we build: uptime monitoring, dependency updates, small feature work, and a named engineer who knows your setup.",
     icon: ShieldCheck,
+    link: { href: "/services/ai-monitoring-maintenance", label: "See what's included" },
   },
 ];
 
@@ -84,7 +74,7 @@ const HOW_WE_WORK = [
   {
     step: "05",
     title: "We stay on",
-    desc: "After launch we monitor accuracy and uptime, retrain and retune against drift, and extend the system as your workflows change. This is the part most vendors skip.",
+    desc: "After launch we monitor uptime, watch for the signs that a system needs retuning, and extend it as your workflows change. This is the part most vendors skip.",
   },
 ];
 
@@ -140,7 +130,7 @@ const FAQS = [
   },
   {
     q: "What happens after a project launches?",
-    a: "Every system we build comes with a monthly plan: monitoring, tuning, updates, and small feature work, with a named engineer who knows your setup. AI systems drift, and that's not a failure case. It's the nature of the technology, and it's why we scope for it upfront.",
+    a: "Every system we build comes with a monthly plan: uptime monitoring, updates, and small feature work, with a named engineer who knows your setup. AI systems drift, and that's not a failure case. It's the nature of the technology, and the plan is built to catch it and respond, not just to keep the lights on.",
   },
   {
     q: "Will you sign an NDA?",
@@ -250,23 +240,7 @@ export default function AboutClient() {
         </section>
 
         {/* Proof strip */}
-        <section className="py-10 bg-slate-50 border-y border-[#E2E8F0]">
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <p className="text-center text-sm font-bold text-[#94A3B8] uppercase tracking-wider mb-8">
-              Trusted by teams in India, the UK, the US, and the UAE
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14">
-              {PARTNERS.map((p) => (
-                <img
-                  key={p.name}
-                  src={p.logo}
-                  alt={p.name}
-                  className={cn(p.className, "w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300")}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
+        <TrustStrip sectionClassName="py-10 bg-slate-50 border-y border-[#E2E8F0]" containerClassName="max-w-7xl mx-auto px-6 md:px-12" fadeFrom="slate-50" />
 
         {/* Why We Exist */}
         <section className="py-16 md:py-24 px-6 md:px-12 max-w-3xl mx-auto">
@@ -330,6 +304,11 @@ export default function AboutClient() {
                       {item.title}
                     </h3>
                     <p className="text-white/60 leading-relaxed max-w-2xl">{item.desc}</p>
+                    {item.link && (
+                      <Link href={item.link.href} className="inline-flex items-center gap-1.5 mt-4 font-bold text-[#C4B5FD] hover:text-white transition-colors">
+                        {item.link.label}
+                      </Link>
+                    )}
                   </div>
                 </motion.div>
               ))}
