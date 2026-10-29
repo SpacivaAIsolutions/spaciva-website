@@ -36,7 +36,7 @@ export default function Home() {
             "url": "https://www.spaciva.tech",
             "logo": "https://www.spaciva.tech/logos/darklogo.svg",
             "description": "AI automation and software engineering for agencies, professional-services firms, and DTC brands. Custom AI agents, internal tools, and monthly-monitored automations, based in Ahmedabad, India.",
-            "email": "hello@spaciva.tech",
+            "email": "connect@spaciva.tech",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Ahmedabad",

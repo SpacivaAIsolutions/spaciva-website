@@ -7,7 +7,7 @@ import {
   ArrowRight, Headset, UserCheck, FileText, BarChart3,
   AlertTriangle, Database, Plug, Brain, ShieldAlert, GitBranch, KeyRound,
   Users, Briefcase, ShoppingBag, Rocket,
-  Tag, Clock, Code2, RefreshCw, Wrench, ChevronDown,
+  Tag, Clock, Code2, RefreshCw, Wrench, ChevronDown, Server, Cloud,
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import AnimatedCtaButton from "@/components/AnimatedCtaButton";
@@ -93,6 +93,24 @@ const AGENT_REQUIREMENTS = [
     title: "Scoped access",
     desc: "The agent's credentials cover only what its job requires, with audit logging on every write. It can't reach what it doesn't need.",
     icon: KeyRound,
+  },
+];
+
+const INFRASTRUCTURE = [
+  {
+    title: "Dedicated GPU Compute",
+    desc: "We provision and manage dedicated A100s and H100s on AWS, GCP, or private clouds. No fighting for shared inference endpoints or dealing with sudden rate limits when your agent scales.",
+    icon: Server,
+  },
+  {
+    title: "Cloud-Native Deployment",
+    desc: "Fully containerized via Docker and Kubernetes. We can deploy into our managed cloud or directly into your own VPC, ensuring your data never leaves your perimeter.",
+    icon: Cloud,
+  },
+  {
+    title: "Vector & State Storage",
+    desc: "Production-grade Pinecone, Qdrant, or pgvector clusters to give your agents instant, reliable memory over millions of internal documents without latency spikes.",
+    icon: Database,
   },
 ];
 
