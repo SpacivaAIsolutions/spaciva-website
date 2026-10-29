@@ -1,33 +1,32 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { SERVICE_GROUPS, INDUSTRY_LINKS } from "@/lib/navigation";
 
-const FOOTER_LINKS = {
+// Columns render from the shared directory in lib/navigation. The navbar mega-menu only mounts
+// on hover, so this footer is where every service page gets a crawlable link from every page.
+const FOOTER_LINKS: Record<string, { name: string; href?: string }[]> = {
+  ...Object.fromEntries(
+    SERVICE_GROUPS.map((g) => [
+      g.shortTitle,
+      g.items.map((item) => ({ name: item.label.replace(/\s*\(.*\)$/, ""), href: item.href })),
+    ])
+  ),
+  Industries: INDUSTRY_LINKS.map((item) => ({ name: item.label, href: item.href })),
   Company: [
     { name: "About Us", href: "/about" },
+    { name: "All Services", href: "/services" },
+    { name: "Case Studies", href: "/case-studies" },
+    { name: "Guides", href: "/guides" },
     { name: "Contact", href: "/contact" },
-  ],
-  Services: [
-    { name: "AI Automation", href: "/#what-we-do" },
-    { name: "Custom Software", href: "/#what-we-do" },
-    { name: "Monitoring & Maintenance", href: "/#what-we-do" },
-  ],
-  // Agencies / Professional Services / E-Commerce don't have dedicated pages yet, so they
-  // render as plain text (no href) rather than linking to a 404. Startups already does.
-  Industries: [
-    { name: "Agencies", href: undefined },
-    { name: "Professional Services", href: undefined },
-    { name: "E-Commerce", href: undefined },
-    { name: "Startups", href: "/industries/startups" },
   ],
 };
 
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-[#E2E8F0] pt-20 pb-10 px-6 md:px-12 w-full">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-12 mb-16">
-        <div className="sm:col-span-2 lg:col-span-2">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-8 mb-16">
+        <div className="col-span-2 md:col-span-3 lg:col-span-6">
           <div className="flex items-center gap-3 mb-6 -ml-2">
-            <img src="/logos/darklogo.svg" alt="Spaciva AI" className="h-14 sm:h-16 md:h-20 w-auto object-contain" />
+            <img src="/logos/darklogo.svg" alt="Spaciva AI" loading="lazy" className="h-14 sm:h-16 md:h-20 w-auto object-contain" />
           </div>
           <p className="text-[#334155] mb-6 max-w-sm">
             AI automation and software engineering for agencies, professional-services firms, and DTC brands. Based in Ahmedabad, India.

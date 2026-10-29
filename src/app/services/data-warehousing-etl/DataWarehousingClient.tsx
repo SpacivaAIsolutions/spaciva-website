@@ -121,7 +121,7 @@ const SERVICE_SCHEMA = {
   provider: {
     "@type": "Organization",
     name: "Spaciva AI",
-    url: "https://spaciva.tech",
+    url: "https://www.spaciva.tech",
   },
   areaServed: ["US", "GB", "IN", "AE"],
   description:
@@ -142,9 +142,9 @@ const BREADCRUMB_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://spaciva.tech/" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://spaciva.tech/#what-we-do" },
-    { "@type": "ListItem", position: 3, name: "Data Warehousing & ETL", item: "https://spaciva.tech/services/data-warehousing-etl" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.spaciva.tech/" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://www.spaciva.tech/services" },
+    { "@type": "ListItem", position: 3, name: "Data Warehousing & ETL", item: "https://www.spaciva.tech/services/data-warehousing-etl" },
   ],
 };
 
@@ -155,8 +155,8 @@ const TECH_ARTICLE_SCHEMA = {
   description:
     "Three technical decisions in data engineering explained with a direct verdict for each: ETL vs ELT, data warehouse vs data lake, and one-off migration vs ongoing pipeline.",
   author: { "@type": "Organization", name: "Spaciva AI" },
-  publisher: { "@type": "Organization", name: "Spaciva AI", url: "https://spaciva.tech" },
-  mainEntityOfPage: "https://spaciva.tech/services/data-warehousing-etl#decisions",
+  publisher: { "@type": "Organization", name: "Spaciva AI", url: "https://www.spaciva.tech" },
+  mainEntityOfPage: "https://www.spaciva.tech/services/data-warehousing-etl#decisions",
 };
 
 // Cost crossover, inline SVG per the source spec's explicit "do not fabricate invented axis

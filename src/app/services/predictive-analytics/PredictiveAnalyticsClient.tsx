@@ -106,7 +106,7 @@ const SERVICE_SCHEMA = {
   provider: {
     "@type": "Organization",
     name: "Spaciva AI",
-    url: "https://spaciva.tech",
+    url: "https://www.spaciva.tech",
   },
   areaServed: ["US", "GB", "IN", "AE"],
   description:
@@ -121,9 +121,9 @@ const OFFER_SCHEMA = {
     "A two-week feasibility phase: data assessment, a simple baseline method, and a written verdict on whether a predictive model is likely to beat it, and by how much.",
   price: "249",
   priceCurrency: "USD",
-  url: "https://spaciva.tech/services/predictive-analytics",
+  url: "https://www.spaciva.tech/services/predictive-analytics",
   availability: "https://schema.org/InStock",
-  seller: { "@type": "Organization", name: "Spaciva AI", url: "https://spaciva.tech" },
+  seller: { "@type": "Organization", name: "Spaciva AI", url: "https://www.spaciva.tech" },
 };
 
 const FAQ_SCHEMA = {
@@ -140,9 +140,9 @@ const BREADCRUMB_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://spaciva.tech/" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://spaciva.tech/#what-we-do" },
-    { "@type": "ListItem", position: 3, name: "Predictive Analytics", item: "https://spaciva.tech/services/predictive-analytics" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.spaciva.tech/" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://www.spaciva.tech/services" },
+    { "@type": "ListItem", position: 3, name: "Predictive Analytics", item: "https://www.spaciva.tech/services/predictive-analytics" },
   ],
 };
 
@@ -153,8 +153,8 @@ const TECH_ARTICLE_SCHEMA = {
   description:
     "Predictive AI produces a number learned from historical records and measurable against reality. Generative AI produces language, code, or images, judged rather than measured. A plain explanation of the difference and why it matters for scoping a project.",
   author: { "@type": "Organization", name: "Spaciva AI" },
-  publisher: { "@type": "Organization", name: "Spaciva AI", url: "https://spaciva.tech" },
-  mainEntityOfPage: "https://spaciva.tech/services/predictive-analytics#predictive-vs-generative",
+  publisher: { "@type": "Organization", name: "Spaciva AI", url: "https://www.spaciva.tech" },
+  mainEntityOfPage: "https://www.spaciva.tech/services/predictive-analytics#predictive-vs-generative",
 };
 
 function ForecastChart() {

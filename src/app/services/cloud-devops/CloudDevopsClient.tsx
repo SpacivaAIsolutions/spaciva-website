@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import TrustStrip from "@/components/TrustStrip";
+import CaseStudyCards from "@/components/CaseStudyCards";
 import AnimatedCtaButton from "@/components/AnimatedCtaButton";
 
 function cn(...c: (string | undefined | false)[]) {
@@ -182,7 +183,7 @@ const SERVICE_SCHEMA = {
   provider: {
     "@type": "Organization",
     name: "Spaciva AI",
-    url: "https://spaciva.tech",
+    url: "https://www.spaciva.tech",
   },
   areaServed: ["US", "GB", "IN", "AE"],
   description:
@@ -203,9 +204,9 @@ const BREADCRUMB_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://spaciva.tech/" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://spaciva.tech/#what-we-do" },
-    { "@type": "ListItem", position: 3, name: "Cloud & DevOps", item: "https://spaciva.tech/services/cloud-devops" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.spaciva.tech/" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://www.spaciva.tech/services" },
+    { "@type": "ListItem", position: 3, name: "Cloud & DevOps", item: "https://www.spaciva.tech/services/cloud-devops" },
   ],
 };
 
@@ -216,9 +217,9 @@ const OFFER_SCHEMA = {
   description: "A one-week, read-only cloud cost and readiness audit: a costed savings list and a readiness assessment across backups, monitoring, deploy process, access control, and single points of failure.",
   price: "299",
   priceCurrency: "USD",
-  url: "https://spaciva.tech/services/cloud-devops",
+  url: "https://www.spaciva.tech/services/cloud-devops",
   availability: "https://schema.org/InStock",
-  seller: { "@type": "Organization", name: "Spaciva AI", url: "https://spaciva.tech" },
+  seller: { "@type": "Organization", name: "Spaciva AI", url: "https://www.spaciva.tech" },
 };
 
 function DeployTimeline() {
@@ -755,6 +756,12 @@ export default function CloudDevopsClient() {
                 <Link href="/services/ai-monitoring-maintenance" className="font-bold text-[#7C3AED] hover:underline">infrastructure &amp; monitoring</Link>.
               </p>
             </section>
+
+            <CaseStudyCards
+              layout="column"
+              intro="Both run on infrastructure we set up and monitor: AWS Lambda workers, rate-limited sync queues, and alerting before customers notice."
+              sectionClassName="py-16 md:py-24 border-t border-[#E2E8F0]"
+            />
 
             {/* FAQ — two-column plain list, no accordion */}
             <section id="questions" className="py-16 md:py-24 border-t border-[#E2E8F0] scroll-mt-28">

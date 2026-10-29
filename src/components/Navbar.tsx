@@ -4,110 +4,24 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { ArrowRight, Menu, X, ChevronDown } from "lucide-react";
+import { SERVICE_GROUPS, INDUSTRY_LINKS, CASE_STUDY_LINKS } from "@/lib/navigation";
 
 const NAV = [
-  { name: "Services", href: "/#what-we-do", hasMegaMenu: true, type: "services" },
+  { name: "Services", href: "/services", hasMegaMenu: true, type: "services" },
   { name: "Industries", href: "/#industries", hasMegaMenu: true, type: "industries" },
-  { name: "Case Studies", href: "/case-studies/partsflow", hasMegaMenu: true, type: "caseStudies" },
+  { name: "Case Studies", href: "/case-studies", hasMegaMenu: true, type: "caseStudies" },
   { name: "Contact", href: "/contact", hasMegaMenu: false },
 ];
 
+// Menu data comes from the shared directory in lib/navigation so the navbar, footer and
+// /services hub never drift apart.
 const MEGA_MENUS = {
-  services: [
-    {
-      title: "AI Automation & Agents",
-      items: [
-        { label: "AI Agents", href: "/services/ai-agent-development" },
-        { label: "AI Chatbots (RAG-powered)", href: "/services/rag-chatbot-development" },
-        { label: "Workflow Automation", href: "/services/workflow-automation" },
-        { label: "Document & Invoice Processing", href: "/services/document-invoice-processing" },
-        { label: "Email & Inbox Automation", href: "/services/email-inbox-automation" },
-        { label: "WhatsApp Automation", href: "/services/whatsapp-automation" },
-        { label: "CRM Automation", href: "/services/crm-automation" },
-        { label: "AI Assistants", href: "/services/ai-assistants" },
-        { label: "Generative AI & Custom LLMs", href: "/services/generative-ai-custom-llms" }
-      ] as { label: string; href?: string }[]
-    },
-    {
-      title: "Custom Software & Internal Tools",
-      items: [
-        { label: "CRM Development", href: "/services/crm-development" },
-        { label: "Custom Dashboards", href: "/services/custom-dashboards" },
-        { label: "Internal Business Tools", href: "/services/internal-business-tools" },
-        { label: "ERP Systems", href: "/services/erp-systems" },
-        { label: "Inventory Management", href: "/services/inventory-management" },
-        { label: "Business Intelligence", href: "/services/business-intelligence" }
-      ] as { label: string; href?: string }[]
-    },
-    {
-      title: "Web & Product Engineering",
-      items: [
-        { label: "Web Applications (Next.js / React)", href: "/services/web-applications" },
-        { label: "SaaS Platforms", href: "/services/saas-platforms" },
-        { label: "Client Portals", href: "/services/client-portals" },
-        { label: "Progressive Web Apps" },
-        { label: "UI/UX Design", href: "/guides/ux-for-internal-software" },
-        { label: "Product Strategy", href: "/services/discovery-sprint" }
-      ] as { label: string; href?: string }[]
-    },
-    {
-      title: "Cloud, Data & Managed Services",
-      items: [
-        { label: "Cloud & DevOps (AWS, Docker, CI/CD)", href: "/services/cloud-devops" },
-        { label: "Data Warehousing & ETL Pipelines", href: "/services/data-warehousing-etl" },
-        { label: "Predictive Analytics", href: "/services/predictive-analytics" },
-        { label: "Ongoing Maintenance & AI Monitoring (retainer)", href: "/services/ai-monitoring-maintenance" }
-      ] as { label: string; href?: string }[]
-    }
-  ],
+  services: SERVICE_GROUPS.map((g) => ({ title: g.title, items: g.items as { label: string; href?: string }[] })),
   industries: [
-    {
-      title: "Healthcare",
-      items: [
-        { label: "Healthcare Software", href: "/industries/healthcare" }
-      ] as { label: string; href?: string }[]
-    },
-    {
-      title: "Fintech",
-      items: [
-        { label: "Fintech Software", href: "/industries/fintech" }
-      ] as { label: string; href?: string }[]
-    },
-    {
-      title: "Real Estate & Hospitality",
-      items: [
-        { label: "Real Estate", href: "/industries/real-estate" },
-        { label: "Hospitality", href: "/industries/hospitality" }
-      ] as { label: string; href?: string }[]
-    },
-    {
-      title: "Retail & Logistics",
-      items: [
-        { label: "Retail & E-commerce", href: "/industries/retail-ecommerce" },
-        { label: "Logistics", href: "/industries/logistics" }
-      ] as { label: string; href?: string }[]
-    },
-    {
-      title: "Industrial & Infrastructure",
-      items: [
-        { label: "Manufacturing", href: "/industries/manufacturing" },
-        { label: "Construction", href: "/industries/construction" },
-        { label: "Energy & Utilities", href: "/industries/energy-utilities" }
-      ] as { label: string; href?: string }[]
-    },
-    {
-      title: "Startups & Public Sector",
-      items: [
-        { label: "Startups & SaaS", href: "/industries/startups" },
-        { label: "Education", href: "/industries/education" },
-        { label: "Government", href: "/industries/government" }
-      ] as { label: string; href?: string }[]
-    }
+    { title: "Who we build for", items: INDUSTRY_LINKS.slice(0, 3) as { label: string; href?: string }[] },
+    { title: "Also working with", items: INDUSTRY_LINKS.slice(3) as { label: string; href?: string }[] },
   ],
-  caseStudies: [
-    { title: "Unified Accounting", href: "/case-studies/unified-accounting", desc: "Multi-Platform Sync" },
-    { title: "PartsFlow", href: "/case-studies/partsflow", desc: "Spare Parts Inventory" }
-  ]
+  caseStudies: CASE_STUDY_LINKS,
 };
 
 function cn(...c: (string | undefined | false)[]) {
@@ -170,7 +84,7 @@ function MobileNavItem({ n, setOpen }: { n: any, setOpen: any }) {
         }}
         className="flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold text-[#334155] hover:text-[#7C3AED] hover:bg-[#F8FAFC] cursor-pointer"
       >
-        <a href={n.hasMegaMenu ? '#' : n.href} className="flex-1">{n.name}</a>
+        {n.hasMegaMenu ? <span className="flex-1">{n.name}</span> : <a href={n.href} className="flex-1">{n.name}</a>}
         {n.hasMegaMenu && <ChevronDown className={cn("w-4 h-4 opacity-50 transition-transform", expanded && "rotate-180")} />}
       </div>
 
@@ -203,6 +117,12 @@ function MobileNavItem({ n, setOpen }: { n: any, setOpen: any }) {
                   </div>
                 </div>
               ))}
+              {n.type === 'services' && (
+                <a href="/services" onClick={() => setOpen(false)} className="text-xs font-semibold text-[#7C3AED] inline-flex items-center gap-1">
+                  All services
+                  <ArrowRight className="w-3 h-3" />
+                </a>
+              )}
               {n.type === 'industries' && (
                 <>
                   {MEGA_MENUS.industries.map((ind, idx) => (
@@ -231,6 +151,10 @@ function MobileNavItem({ n, setOpen }: { n: any, setOpen: any }) {
                       <span className="text-xs text-[#94A3B8] mt-0.5">{cs.desc}</span>
                     </a>
                   ))}
+                  <a href="/case-studies" onClick={() => setOpen(false)} className="text-xs font-semibold text-[#7C3AED] inline-flex items-center gap-1">
+                    All case studies
+                    <ArrowRight className="w-3 h-3" />
+                  </a>
                 </>
               )}
             </div>
@@ -268,9 +192,16 @@ export default function Navbar() {
       let dark = false;
       const probeY = 40; // vertical centre of the navbar
 
-      // Check every dark-background element on the page
+      // Check every dark-background element on the page, excluding the
+      // navbar's own subtree. Without this exclusion, the desktop nav pill
+      // (which applies bg-[#0F172A]/40 to itself once isDark is true) gets
+      // picked up by this same query — since it's fixed at the top of the
+      // viewport, it then permanently self-confirms as "dark" even after
+      // scrolling back away from any actual dark section, and the white
+      // logo variant gets stuck on for the rest of the session.
       const darkEls = document.querySelectorAll(DARK_BG_SELECTORS);
       darkEls.forEach((el) => {
+        if (el.closest("header")) return;
         const rect = el.getBoundingClientRect();
         if (rect.top <= probeY && rect.bottom >= probeY) {
           dark = true;
@@ -412,6 +343,7 @@ export default function Navbar() {
                 {hoveredMenu === 'services' && (
                   // Flat directory style, matching Industries: bold header, plain list,
                   // no icon badge, no card box. Kept as the one shared dropdown template.
+                  <div className="flex flex-col">
                   <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-8">
                     {MEGA_MENUS.services.map((srv, idx) => (
                       <div key={idx} className="flex flex-col">
@@ -436,15 +368,19 @@ export default function Navbar() {
                       </div>
                     ))}
                   </div>
+                  <div className="mt-8 pt-6 border-t border-gray-100">
+                    <a href="/services" className="text-sm font-semibold text-[#7C3AED] hover:text-[#6D28D9] transition-colors inline-flex items-center gap-1">
+                      View all services
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                  </div>
                 )}
 
                 {hoveredMenu === 'industries' && (
                   <div className="flex flex-col">
-                    {/* Flat directory style: bold header, plain list, no icon badge, no card
-                        box. Uneven column lengths (1 to 3 links) don't need row-alignment
-                        tricks here — there's no divider or box edge for them to misalign
-                        against, so a short and a tall column both just read as plain lists. */}
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-8">
+                    {/* Flat directory style: bold header, plain list, no icon badge, no card box. */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8">
                       {MEGA_MENUS.industries.map((ind, idx) => (
                         <div key={idx} className="flex flex-col">
                           <h4 className="text-[15px] font-bold leading-snug tracking-tight text-[#0F172A] mb-3">
@@ -493,6 +429,12 @@ export default function Navbar() {
                           <p className="text-[13px] font-medium leading-relaxed text-[#94A3B8]">{cs.desc}</p>
                         </a>
                       ))}
+                    </div>
+                    <div className="mt-8 pt-6 border-t border-gray-100">
+                      <a href="/case-studies" className="text-sm font-semibold text-[#7C3AED] hover:text-[#6D28D9] transition-colors inline-flex items-center gap-1">
+                        All case studies
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </a>
                     </div>
                   </div>
                 )}

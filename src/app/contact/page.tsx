@@ -4,20 +4,45 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Mail, MapPin, Calendar, MessageSquare, Lightbulb, HelpCircle, ExternalLink } from "lucide-react";
 import Script from "next/script";
+import Link from "next/link";
+import { LEAD_SOURCE_KEYS } from "@/components/LayoutWrapper";
+
+const TOPICS = [
+  "AI agent / chatbot",
+  "Document processing",
+  "Workflow automation",
+  "CRM",
+  "Custom software",
+  "Other",
+];
+
+// Reads the lead-source breadcrumbs LayoutWrapper keeps in sessionStorage.
+function readLeadSource() {
+  try {
+    const entry = JSON.parse(sessionStorage.getItem(LEAD_SOURCE_KEYS.entry) || "{}");
+    return {
+      lastPage: sessionStorage.getItem(LEAD_SOURCE_KEYS.lastPage) || "",
+      entryPage: typeof entry.page === "string" ? entry.page : "",
+      referrer: typeof entry.referrer === "string" ? entry.referrer : "",
+    };
+  } catch {
+    return { lastPage: "", entryPage: "", referrer: "" };
+  }
+}
 
 function cn(...c: (string | undefined | false)[]) {
   return c.filter(Boolean).join(" ");
 }
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({ name: "", email: "", project: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", company: "", topic: "", project: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [website, setWebsite] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.project) return;
+    if (!formData.name || !formData.email || !formData.company || !formData.topic || !formData.project) return;
     setIsSubmitting(true);
 
     try {
@@ -27,6 +52,9 @@ export default function ContactPage() {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
+          company: formData.company,
+          topic: formData.topic,
+          source: readLeadSource(),
           website, // Honeypot
           message: `Project Description:\n${formData.project}`,
         }),
@@ -34,7 +62,7 @@ export default function ContactPage() {
       const data = await response.json().catch(() => null);
       if (response.ok && data?.ok) {
         setSubmitted(true);
-        setFormData({ name: "", email: "", project: "" });
+        setFormData({ name: "", email: "", company: "", topic: "", project: "" });
       } else {
         alert(data?.error || "Failed to submit request. Please try again.");
       }
@@ -76,7 +104,7 @@ export default function ContactPage() {
             Tell Us the Problem. We&apos;ll Design the <span className="text-[#7C3AED]">Solution.</span>
           </h1>
           <p className="text-lg text-[#334155] font-medium leading-relaxed max-w-2xl mx-auto">
-            Forget the buzzwords. AI, apps, automation, or software—we'll recommend what actually fits your business.
+            Forget the buzzwords. AI agents, automation, or custom software—we&apos;ll recommend what actually fits your business.
           </p>
         </motion.div>
 
@@ -130,25 +158,31 @@ export default function ContactPage() {
             >
               <h3 className="text-xl font-bold mb-2 text-[#0F172A]">How can we help?</h3>
 
-              <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="w-full group bg-[#F8FAFC] hover:bg-[#F1F5F9] border border-[#E2E8F0] rounded-2xl p-4 flex items-center justify-between transition-all">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-[#F5F3FF] flex items-center justify-center">
-                    <MessageSquare className="w-5 h-5 text-[#7C3AED]" />
+              <Link href="/services/discovery-sprint" className="w-full group bg-[#F8FAFC] hover:bg-[#F1F5F9] border border-[#E2E8F0] rounded-2xl p-4 flex items-center justify-between transition-all">
+                <div className="flex items-center gap-4 min-w-0">
+                  <div className="w-10 h-10 rounded-full bg-[#F5F3FF] flex items-center justify-center shrink-0">
+                    <Lightbulb className="w-5 h-5 text-[#7C3AED]" />
                   </div>
-                  <span className="font-bold text-[#0F172A] group-hover:text-[#7C3AED] transition-colors">Let's Talk</span>
+                  <span className="min-w-0">
+                    <span className="block font-bold text-[#0F172A] group-hover:text-[#7C3AED] transition-colors">Want a scoped quote first?</span>
+                    <span className="block text-sm text-[#334155]">Start with a paid discovery sprint</span>
+                  </span>
                 </div>
-                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#7C3AED] group-hover:translate-x-1 transition-all" />
-              </button>
+                <ArrowRight className="w-4 h-4 shrink-0 text-gray-400 group-hover:text-[#7C3AED] group-hover:translate-x-1 transition-all" />
+              </Link>
 
-              <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="w-full group bg-[#F8FAFC] hover:bg-[#F1F5F9] border border-[#E2E8F0] rounded-2xl p-4 flex items-center justify-between transition-all">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center">
-                    <Lightbulb className="w-5 h-5 text-indigo-600" />
+              <Link href="/case-studies" className="w-full group bg-[#F8FAFC] hover:bg-[#F1F5F9] border border-[#E2E8F0] rounded-2xl p-4 flex items-center justify-between transition-all">
+                <div className="flex items-center gap-4 min-w-0">
+                  <div className="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center shrink-0">
+                    <MessageSquare className="w-5 h-5 text-indigo-600" />
                   </div>
-                  <span className="font-bold text-[#0F172A] group-hover:text-indigo-600 transition-colors">Discuss Ideas</span>
+                  <span className="min-w-0">
+                    <span className="block font-bold text-[#0F172A] group-hover:text-indigo-600 transition-colors">See what we&apos;ve built</span>
+                    <span className="block text-sm text-[#334155]">Two case studies, with the numbers</span>
+                  </span>
                 </div>
-                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-indigo-600 group-hover:translate-x-1 transition-all" />
-              </button>
+                <ArrowRight className="w-4 h-4 shrink-0 text-gray-400 group-hover:text-indigo-600 group-hover:translate-x-1 transition-all" />
+              </Link>
             </motion.div>
           </div>
 
@@ -165,7 +199,15 @@ export default function ContactPage() {
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#7C3AED]/5 rounded-full blur-3xl pointer-events-none" />
 
               <h2 className="text-3xl font-bold mb-2 text-[#0F172A]">Or Drop Us a Message</h2>
-              <p className="text-[#334155] mb-8 font-medium">Prefer writing? Fill out the form below and we'll get back to you within 24 hours.</p>
+              <p className="text-[#334155] mb-5 font-medium">Prefer writing? Fill out the form below and we&apos;ll get back to you within 24 hours.</p>
+              <ul className="mb-8 flex flex-col gap-2 text-sm font-medium text-[#334155]">
+                <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 shrink-0 text-[#7C3AED]" />A reply from an engineer within 24 hours</li>
+                <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 shrink-0 text-[#7C3AED]" />NDA signed before discovery if you need one</li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 mt-0.5 shrink-0 text-[#7C3AED]" />
+                  <span>70% less manual data entry on our <Link href="/case-studies/unified-accounting" className="font-bold text-[#7C3AED] hover:underline">accounting sync build</Link></span>
+                </li>
+              </ul>
 
               {submitted ? (
                 <motion.div
@@ -211,6 +253,36 @@ export default function ContactPage() {
                         placeholder="jane@company.com"
                         className="w-full bg-white border border-[#E2E8F0] rounded-xl px-5 py-4 outline-none text-[#0F172A] placeholder-gray-400 focus:border-[#7C3AED] focus:ring-4 focus:ring-[#7C3AED]/10 transition-all shadow-sm"
                       />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="flex flex-col gap-2">
+                      <label htmlFor="contact-company" className="text-sm font-bold text-[#334155]">Company</label>
+                      <input
+                        id="contact-company"
+                        type="text"
+                        required
+                        value={formData.company}
+                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                        placeholder="Acme Ltd"
+                        className="w-full bg-white border border-[#E2E8F0] rounded-xl px-5 py-4 outline-none text-[#0F172A] placeholder-gray-400 focus:border-[#7C3AED] focus:ring-4 focus:ring-[#7C3AED]/10 transition-all shadow-sm"
+                      />
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <label htmlFor="contact-topic" className="text-sm font-bold text-[#334155]">What do you want to automate?</label>
+                      <select
+                        id="contact-topic"
+                        required
+                        value={formData.topic}
+                        onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
+                        className="w-full bg-white border border-[#E2E8F0] rounded-xl px-5 py-4 outline-none text-[#0F172A] placeholder-gray-400 focus:border-[#7C3AED] focus:ring-4 focus:ring-[#7C3AED]/10 transition-all shadow-sm appearance-none"
+                      >
+                        <option value="" disabled>Choose one</option>
+                        {TOPICS.map((t) => (
+                          <option key={t} value={t}>{t}</option>
+                        ))}
+                      </select>
                     </div>
                   </div>
 
@@ -265,6 +337,15 @@ export default function ContactPage() {
                     <p className="text-[#0F172A] font-medium break-all">hello@spaciva.tech</p>
                   </div>
                 </a>
+                <div className="flex items-center gap-4 min-w-0">
+                  <div className="w-12 h-12 rounded-full bg-[#F8FAFC] flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5 text-gray-500" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-[#0F172A] font-medium">Ahmedabad, India</p>
+                    <p className="text-sm text-[#334155]">5 hours of daily overlap with US and UK working hours</p>
+                  </div>
+                </div>
               </div>
             </motion.div>
 

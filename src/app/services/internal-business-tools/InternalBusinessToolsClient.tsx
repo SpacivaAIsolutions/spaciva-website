@@ -146,7 +146,7 @@ const SERVICE_SCHEMA = {
   provider: {
     "@type": "Organization",
     name: "Spaciva AI",
-    url: "https://spaciva.tech",
+    url: "https://www.spaciva.tech",
   },
   areaServed: ["US", "GB", "IN", "AE"],
   description:
@@ -178,9 +178,9 @@ const BREADCRUMB_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://spaciva.tech/" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://spaciva.tech/#what-we-do" },
-    { "@type": "ListItem", position: 3, name: "Internal Business Tools", item: "https://spaciva.tech/services/internal-business-tools" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.spaciva.tech/" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://www.spaciva.tech/services" },
+    { "@type": "ListItem", position: 3, name: "Internal Business Tools", item: "https://www.spaciva.tech/services/internal-business-tools" },
   ],
 };
 
@@ -708,6 +708,14 @@ export default function InternalBusinessToolsClient() {
           ))}
         </div>
       </section>
+
+      <div className="max-w-3xl mx-auto px-5 lg:px-10 pt-16 md:pt-24 -mb-8 md:-mb-12">
+        <p className="text-white/70 leading-relaxed">
+          <span className="font-bold text-white">Related guide: </span>
+          <Link href="/guides/ux-for-internal-software" className="font-bold text-[#C4B5FD] hover:text-white transition-colors">UX design for internal tools</Link>
+          , why software people have to use gets avoided, and how to design it so it doesn&apos;t.
+        </p>
+      </div>
 
       {/* FAQ — accordion, first item open */}
       <section className="max-w-3xl mx-auto px-5 lg:px-10 py-16 md:py-24">
