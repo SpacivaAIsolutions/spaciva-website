@@ -6,6 +6,8 @@ type ContactPayload = {
   name?: unknown;
   email?: unknown;
   company?: unknown;
+  topic?: unknown;
+  source?: { lastPage?: unknown; entryPage?: unknown; referrer?: unknown };
   message?: unknown;
   website?: unknown; // honeypot
 };
@@ -48,11 +50,17 @@ export async function POST(request: Request) {
   const name = isNonEmptyString(body.name) ? body.name.trim() : "";
   const email = isNonEmptyString(body.email) ? body.email.trim() : "";
   const company = isNonEmptyString(body.company) ? body.company.trim() : "";
+  const topic = isNonEmptyString(body.topic) ? body.topic.trim() : "";
   const message = isNonEmptyString(body.message) ? body.message.trim() : "";
+  // Where the lead came from (see LayoutWrapper). Optional; truncated so it can't bloat the email.
+  const sourceField = (value: unknown) => (isNonEmptyString(value) ? value.trim().slice(0, 300) : "");
+  const lastPage = sourceField(body.source?.lastPage);
+  const entryPage = sourceField(body.source?.entryPage);
+  const referrer = sourceField(body.source?.referrer);
 
-  if (!name || !email || !message) {
+  if (!name || !email || !company || !message) {
     return Response.json(
-      { ok: false, error: "Name, email, and message are required." },
+      { ok: false, error: "Name, email, company, and message are required." },
       { status: 400 }
     );
   }
@@ -61,17 +69,24 @@ export async function POST(request: Request) {
     return Response.json({ ok: false, error: "Invalid email." }, { status: 400 });
   }
 
-  if (name.length > 120 || email.length > 180 || company.length > 180 || message.length > 4000) {
+  if (name.length > 120 || email.length > 180 || company.length > 180 || topic.length > 80 || message.length > 4000) {
     return Response.json({ ok: false, error: "Message too long." }, { status: 400 });
   }
 
   const resend = new Resend(apiKey);
-  const subject = `New contact submission — ${name}`;
+  const subject = `New contact submission — ${name}${company ? ` (${company})` : ""}`;
+  const sourceLines = [
+    lastPage ? `Last page viewed: ${lastPage}` : null,
+    entryPage ? `Landing page: ${entryPage}` : null,
+    referrer ? `Referrer: ${referrer}` : null,
+  ].filter((line): line is string => line !== null);
 
   const text = [
     `Name: ${name}`,
     `Email: ${email}`,
     company ? `Company: ${company}` : null,
+    topic ? `Wants to automate: ${topic}` : null,
+    ...sourceLines,
     "",
     message,
   ]
@@ -83,7 +98,9 @@ export async function POST(request: Request) {
       <h2 style="margin: 0 0 12px;">New contact submission</h2>
       <p style="margin: 0 0 6px;"><strong>Name:</strong> ${escapeHtml(name)}</p>
       <p style="margin: 0 0 6px;"><strong>Email:</strong> ${escapeHtml(email)}</p>
-      ${company ? `<p style="margin: 0 0 12px;"><strong>Company:</strong> ${escapeHtml(company)}</p>` : ""}
+      ${company ? `<p style="margin: 0 0 6px;"><strong>Company:</strong> ${escapeHtml(company)}</p>` : ""}
+      ${topic ? `<p style="margin: 0 0 6px;"><strong>Wants to automate:</strong> ${escapeHtml(topic)}</p>` : ""}
+      ${sourceLines.map((line) => `<p style="margin: 0 0 6px; color: #64748b;">${escapeHtml(line)}</p>`).join("")}
       <div style="margin-top: 12px; padding: 12px; border: 1px solid #e5e7eb; border-radius: 10px;">
         <pre style="white-space: pre-wrap; margin: 0; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">${escapeHtml(
     message

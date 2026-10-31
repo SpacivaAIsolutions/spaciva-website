@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { PackageOpen, LayoutGrid, Server, ShieldCheck, Database, Cloud } from "lucide-react";
 import Footer from "@/components/Footer";
 import AnimatedCtaButton from "@/components/AnimatedCtaButton";
+import ServicesUsed from "@/components/ServicesUsed";
 
 const METRICS = [
   { num: "5,000+", lbl: "SKUs under management" },
@@ -114,7 +115,7 @@ export default function PartsFlowClient() {
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 text-slate-900">
-              PartsFlow <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-[#7C3AED]">Inventory</span>
+              How PartsFlow cut data entry time <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-[#7C3AED]">80%</span> across 5,000+ SKUs
             </h1>
 
             <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-3xl leading-relaxed">
@@ -268,6 +269,8 @@ export default function PartsFlowClient() {
           </div>
         </div>
       </section>
+
+      <ServicesUsed hrefs={["/services/inventory-management","/services/erp-systems","/services/web-applications"]} />
 
       {/* Next Project Nav */}
       <section className="py-12 bg-white border-t border-slate-200">

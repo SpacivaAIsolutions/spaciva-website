@@ -194,7 +194,7 @@ const SERVICE_SCHEMA = {
   provider: {
     "@type": "Organization",
     name: "Spaciva AI",
-    url: "https://spaciva.tech",
+    url: "https://www.spaciva.tech",
   },
   areaServed: ["US", "GB", "IN", "AE"],
   description:
@@ -215,9 +215,9 @@ const BREADCRUMB_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://spaciva.tech/" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://spaciva.tech/#what-we-do" },
-    { "@type": "ListItem", position: 3, name: "Web Applications", item: "https://spaciva.tech/services/web-applications" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.spaciva.tech/" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://www.spaciva.tech/services" },
+    { "@type": "ListItem", position: 3, name: "Web Applications", item: "https://www.spaciva.tech/services/web-applications" },
   ],
 };
 
@@ -810,6 +810,10 @@ export default function WebApplicationsClient() {
             />
           ))}
         </div>
+        <p className="mt-4 text-white/40 text-sm max-w-[680px] mx-auto text-center">
+          Still weighing a native app against a PWA?{" "}
+          <Link href="/guides/pwa-vs-native-app" className="font-bold text-[#C4B5FD] hover:underline">Five questions settle it</Link>.
+        </p>
       </section>
 
       {/* Closing CTA — dark bordered accent panel, single primary button, no secondary link */}

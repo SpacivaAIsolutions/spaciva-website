@@ -13,6 +13,7 @@ import {
 import Footer from "@/components/Footer";
 import AnimatedCtaButton from "@/components/AnimatedCtaButton";
 import TrustStrip from "@/components/TrustStrip";
+import CaseStudyCards from "@/components/CaseStudyCards";
 
 function cn(...c: (string | undefined | false)[]) {
   return c.filter(Boolean).join(" ");
@@ -106,7 +107,7 @@ const SERVICE_SCHEMA = {
   provider: {
     "@type": "Organization",
     name: "Spaciva AI",
-    url: "https://spaciva.tech",
+    url: "https://www.spaciva.tech",
   },
   areaServed: ["US", "GB", "IN", "AE"],
   description:
@@ -127,9 +128,9 @@ const BREADCRUMB_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://spaciva.tech/" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://spaciva.tech/#what-we-do" },
-    { "@type": "ListItem", position: 3, name: "SaaS Platforms", item: "https://spaciva.tech/services/saas-platforms" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.spaciva.tech/" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://www.spaciva.tech/services" },
+    { "@type": "ListItem", position: 3, name: "SaaS Platforms", item: "https://www.spaciva.tech/services/saas-platforms" },
   ],
 };
 
@@ -527,6 +528,15 @@ export default function SaasPlatformsClient() {
           </p>
         </div>
       </section>
+
+      <CaseStudyCards
+        intro="Two multi-system platforms we designed and built end to end, with the numbers our clients measured."
+        sectionClassName="py-16 md:py-24 bg-slate-50 border-y border-[#E2E8F0]"
+      />
+      <p className="max-w-3xl mx-auto px-5 lg:px-10 pt-12 text-center text-slate-600">
+        Founder looking for the short version?{" "}
+        <Link href="/industries/startups" className="font-bold text-[#7C3AED] hover:underline">See how we work with startups</Link>.
+      </p>
 
       {/* FAQ — light, accordion, first item open */}
       <section className="py-16 md:py-24 px-5 lg:px-10 max-w-3xl mx-auto">

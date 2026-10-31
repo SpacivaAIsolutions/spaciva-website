@@ -184,7 +184,7 @@ const SERVICE_SCHEMA = {
   provider: {
     "@type": "Organization",
     name: "Spaciva AI",
-    url: "https://spaciva.tech",
+    url: "https://www.spaciva.tech",
   },
   areaServed: ["US", "GB", "IN", "AE"],
   description:
@@ -205,9 +205,9 @@ const BREADCRUMB_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://spaciva.tech/" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://spaciva.tech/#what-we-do" },
-    { "@type": "ListItem", position: 3, name: "Generative AI & Custom LLMs", item: "https://spaciva.tech/services/generative-ai-custom-llms" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.spaciva.tech/" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://www.spaciva.tech/services" },
+    { "@type": "ListItem", position: 3, name: "Generative AI & Custom LLMs", item: "https://www.spaciva.tech/services/generative-ai-custom-llms" },
   ],
 };
 
@@ -310,6 +310,11 @@ export default function GenerativeAIClient() {
 
               <p className="text-lg md:text-xl text-white/70 mb-8 leading-relaxed">
                 Model selection, retrieval, fine-tuning, evaluation, guardrails, and deployment, including self-hosted, where your data can&apos;t leave your environment. This is the part that decides whether an AI system holds up in production or quietly degrades after launch.
+              </p>
+              <p className="text-base text-white/60 mb-8 leading-relaxed">
+                This page is for teams that already have a product, a dataset, or an AI system that needs engineering underneath it. If you want a specific job automated, start with{" "}
+                <Link href="/services/ai-agent-development" className="font-bold text-[#C4B5FD] hover:text-white transition-colors">AI agents</Link> or{" "}
+                <Link href="/services/workflow-automation" className="font-bold text-[#C4B5FD] hover:text-white transition-colors">workflow automation</Link> instead.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mb-6">

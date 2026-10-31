@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { RefreshCcw, Layers, Database, Lock, CheckCircle2, Server, Cloud, Code, GitMerge, FileText, Zap, ShieldCheck } from "lucide-react";
 import Footer from "@/components/Footer";
 import AnimatedCtaButton from "@/components/AnimatedCtaButton";
+import ServicesUsed from "@/components/ServicesUsed";
 
 const METRICS = [
   { num: "12+", lbl: "Accounting & ERP platforms" },
@@ -306,6 +307,8 @@ export default function UnifiedAccountingClient() {
           </div>
         </div>
       </section>
+
+      <ServicesUsed hrefs={["/services/document-invoice-processing","/services/erp-systems","/services/data-warehousing-etl"]} />
 
       {/* Next Project Nav */}
       <section className="py-12 bg-white border-t border-slate-200">

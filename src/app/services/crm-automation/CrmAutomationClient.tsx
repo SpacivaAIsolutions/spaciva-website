@@ -243,7 +243,7 @@ const SERVICE_SCHEMA = {
   provider: {
     "@type": "Organization",
     name: "Spaciva AI",
-    url: "https://spaciva.tech",
+    url: "https://www.spaciva.tech",
   },
   areaServed: ["US", "GB", "IN", "AE"],
   description:
@@ -264,9 +264,9 @@ const BREADCRUMB_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://spaciva.tech/" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://spaciva.tech/#what-we-do" },
-    { "@type": "ListItem", position: 3, name: "CRM Automation", item: "https://spaciva.tech/services/crm-automation" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.spaciva.tech/" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://www.spaciva.tech/services" },
+    { "@type": "ListItem", position: 3, name: "CRM Automation", item: "https://www.spaciva.tech/services/crm-automation" },
   ],
 };
 
@@ -388,6 +388,10 @@ export default function CrmAutomationClient() {
 
             <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed">
               Most CRMs are half-empty, half-wrong, and half-trusted, because keeping them current is manual work that always loses to actual selling. We fix the data, connect the systems your CRM can&apos;t reach on its own, and automate the updating so the record is right without anyone maintaining it.
+            </p>
+            <p className="text-base text-slate-500 mb-8 -mt-4">
+              Need a new CRM rather than a working one? That&apos;s{" "}
+              <Link href="/services/crm-development" className="font-bold text-[#7C3AED] hover:underline">custom CRM development</Link>.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-6">

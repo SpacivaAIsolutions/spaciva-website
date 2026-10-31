@@ -216,7 +216,7 @@ const SERVICE_SCHEMA = {
   provider: {
     "@type": "Organization",
     name: "Spaciva AI",
-    url: "https://spaciva.tech",
+    url: "https://www.spaciva.tech",
   },
   areaServed: ["US", "GB", "IN", "AE"],
   description:
@@ -237,9 +237,9 @@ const BREADCRUMB_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://spaciva.tech/" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://spaciva.tech/#what-we-do" },
-    { "@type": "ListItem", position: 3, name: "Document & Invoice Processing", item: "https://spaciva.tech/services/document-invoice-processing" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.spaciva.tech/" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://www.spaciva.tech/services" },
+    { "@type": "ListItem", position: 3, name: "Document & Invoice Processing", item: "https://www.spaciva.tech/services/document-invoice-processing" },
   ],
 };
 
@@ -519,7 +519,7 @@ export default function DocumentProcessingClient() {
             <Link href="/case-studies/unified-accounting" className="font-bold text-[#7C3AED] hover:underline">
               the accounting-sync side of this
             </Link>{" "}
-            before, across QuickBooks, Xero, NetSuite, and a dozen other ledgers.
+            before, across QuickBooks, Xero, NetSuite, and a dozen other ledgers, and it cut the client&apos;s manual data entry by 70%.
           </p>
         </div>
       </section>

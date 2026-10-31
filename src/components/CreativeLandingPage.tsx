@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedCtaButton from "@/components/AnimatedCtaButton";
 import TrustStrip from "@/components/TrustStrip";
+import CaseStudyCards from "@/components/CaseStudyCards";
 import {
   ArrowRight, Sparkles, Code2, Cpu, ShieldCheck,
   CheckCircle2, ChevronDown, Building2, Factory,
@@ -17,10 +18,24 @@ function cn(...c: (string | undefined | false)[]) {
 
 // --- DATA ---
 
-const WHAT_WE_DO = [
+// Body copy links each service it names, so the homepage passes link value to the pages it
+// promotes. Cards use a stretched title link so the inline links stay separately clickable.
+const InlineLink = ({ href, children }: { href: string; children: ReactNode }) => (
+  <Link href={href} className="underline decoration-white/30 underline-offset-4 hover:text-white hover:decoration-[#C4B5FD] transition-colors relative z-10">{children}</Link>
+);
+
+const WHAT_WE_DO: { title: string; body: ReactNode; priceLine?: string; tags: string[]; icon: typeof Cpu; color: string; href: string }[] = [
   {
     title: "AI Automation & Agents",
-    body: "Support agents trained on your own docs. Lead intake, qualification and routing. Invoice and document processing. Automated client reporting. Built to run in production and monitored monthly.",
+    body: (
+      <>
+        <InlineLink href="/services/rag-chatbot-development">Support agents trained on your own docs</InlineLink>.{" "}
+        <InlineLink href="/services/workflow-automation">Lead intake, qualification and routing</InlineLink>.{" "}
+        <InlineLink href="/services/document-invoice-processing">Invoice and document processing</InlineLink>.{" "}
+        <InlineLink href="/services/email-inbox-automation">Inbox triage and drafted replies</InlineLink>.{" "}
+        <InlineLink href="/services/custom-dashboards">Automated client reporting</InlineLink>. Built to run in production and monitored monthly.
+      </>
+    ),
     // TODO: client to confirm a real starting price. Per spec, if unavailable, render "Live in 3 weeks" alone.
     priceLine: "Live in 3 weeks",
     tags: ["LLMs", "AI Agents", "RAG", "n8n"],
@@ -30,25 +45,68 @@ const WHAT_WE_DO = [
   },
   {
     title: "Custom Software & Internal Tools",
-    body: "CRMs, dashboards, portals, and web apps, the engineering layer automation needs underneath it. Full code ownership on final payment.",
+    body: (
+      <>
+        <InlineLink href="/services/crm-development">CRMs</InlineLink>,{" "}
+        <InlineLink href="/services/custom-dashboards">dashboards</InlineLink>,{" "}
+        <InlineLink href="/services/client-portals">portals</InlineLink>, and{" "}
+        <InlineLink href="/services/web-applications">web apps</InlineLink>, the engineering layer automation needs underneath it. Full code ownership on final payment.
+      </>
+    ),
     tags: ["React", "Next.js", "Node.js", "Postgres"],
     icon: Code2,
     color: "#4F46E5",
+<<<<<<< HEAD
     href: "/services/custom-software-development",
+=======
+    href: "/services/web-applications",
+>>>>>>> e96601f4b85a2e63182204180bd80274b5f36978
   },
   {
     title: "Monitoring & Maintenance",
-    body: "A monthly plan on every system we build: uptime monitoring, model and prompt tuning, updates, and small feature work, with a named engineer who knows your setup.",
+    body: (
+      <>
+        A monthly plan on every system we build: uptime monitoring, model and prompt tuning, updates, and small feature work, with a named engineer who knows your setup. Hosting and deploy pipelines included, see{" "}
+        <InlineLink href="/services/cloud-devops">cloud &amp; DevOps</InlineLink>.
+      </>
+    ),
     tags: ["AWS", "Monitoring", "CI/CD"],
     icon: ShieldCheck,
     color: "#334155",
+    href: "/services/ai-monitoring-maintenance",
   },
 ];
 
+<<<<<<< HEAD
 const HERO_SERVICES = [
   { title: "AI Automation", desc: "Support agents · Lead routing · Invoice processing", color: "#7C3AED", bg: "#F5F3FF" },
   { title: "Custom Software", desc: "CRMs · Internal tools · Ops dashboards", color: "#0F172A", bg: "#F1F5F9", href: "/services/custom-software-development" },
   { title: "Ongoing Support", desc: "Monthly monitoring, tuning & maintenance", color: "#3B82F6", bg: "#EFF6FF", href: "/services/ai-monitoring-maintenance" },
+=======
+// Each card's title links to the pillar page; each subline item links to its own service page.
+const HERO_SERVICES: { title: string; href: string; color: string; bg: string; items: { label: string; href?: string }[] }[] = [
+  {
+    title: "AI Automation", href: "/services/ai-agent-development", color: "#7C3AED", bg: "#F5F3FF",
+    items: [
+      { label: "Support agents", href: "/services/rag-chatbot-development" },
+      { label: "Lead routing", href: "/services/workflow-automation" },
+      { label: "Invoice processing", href: "/services/document-invoice-processing" },
+    ],
+  },
+  {
+    title: "Custom Software", href: "/services/web-applications", color: "#0F172A", bg: "#F1F5F9",
+    items: [
+      { label: "CRMs", href: "/services/crm-development" },
+      { label: "Internal tools", href: "/services/internal-business-tools" },
+      { label: "Ops dashboards", href: "/services/custom-dashboards" },
+      { label: "Client portals", href: "/services/client-portals" },
+    ],
+  },
+  {
+    title: "Ongoing Support", href: "/services/ai-monitoring-maintenance", color: "#3B82F6", bg: "#EFF6FF",
+    items: [{ label: "Monthly monitoring, tuning & maintenance" }],
+  },
+>>>>>>> e96601f4b85a2e63182204180bd80274b5f36978
 ];
 
 const WHY_CHOOSE_US = [
@@ -62,13 +120,10 @@ const WHY_CHOOSE_US = [
 ];
 
 // Order matters: the first three are the primary niches and must render first at every breakpoint.
-// Agencies / Professional Services / E-Commerce link out to dedicated industry pages that don't exist
-// yet, so those three render as non-interactive until the pages ship (per spec: don't link to a 404,
-// don't create stub pages). The other three already have live pages, so they link through.
 const INDUSTRIES = [
-  { name: "Agencies", icon: Rocket, href: undefined },
-  { name: "Professional Services", icon: Briefcase, href: undefined },
-  { name: "E-Commerce", icon: ShoppingBag, href: undefined },
+  { name: "Agencies", icon: Rocket, href: "/industries/agencies" },
+  { name: "Professional Services", icon: Briefcase, href: "/industries/professional-services" },
+  { name: "E-Commerce", icon: ShoppingBag, href: "/industries/retail-ecommerce" },
   { name: "Startups & SaaS", icon: Sparkles, href: "/industries/startups" },
   { name: "Manufacturing", icon: Factory, href: "/industries/manufacturing" },
   { name: "Real Estate", icon: Building2, href: "/industries/real-estate" },
@@ -90,7 +145,7 @@ const FAQS = [
     q: "What happens after a project launches?",
     a: "Every system we build includes a monthly plan: uptime monitoring, model and prompt tuning, dependency updates, and small feature work, with a named engineer who knows your setup. AI systems drift over time, and that's the nature of the technology, so we scope for it upfront rather than treating it as an afterthought.",
   },
-  { q: "What is your typical timeline?", a: "Most MVPs and core web applications are delivered within 6 to 12 weeks. Complex enterprise or AI solutions may take 3 to 6 months depending on the scope." },
+  { q: "What is your typical timeline?", a: "Most automations go live in 2 to 3 weeks. Custom applications take 6 to 12 weeks, depending on scope. Either way you get a fixed timeline with the fixed price, before you commit." },
   { q: "Who owns the code?", a: "You do. Upon project completion and final payment, 100% of the intellectual property and source code is transferred to your company." },
   { q: "Do you sign NDAs?", a: "Absolutely. We are happy to sign a Non-Disclosure Agreement before any initial discovery calls or code audits to protect your ideas." },
   { q: "Do you offer post-launch support?", a: "Yes. We offer long-term maintenance and technical support contracts to ensure your application scales securely over time." },
@@ -102,11 +157,8 @@ function HeroSection() {
   return (
     <section className="px-5 sm:px-6 md:px-12 max-w-7xl mx-auto pt-24 pb-16 sm:pb-24 lg:pt-32 lg:pb-32 flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16">
       <div className="flex-1 text-center lg:text-left flex flex-col justify-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
+        {/* No entrance animation here: the H1 is the likely LCP element, so it renders on first paint. */}
+        <div>
           <h1 className="text-[2rem] sm:text-[2.75rem] md:text-[4rem] lg:text-[4.5rem] leading-[1.1] font-extrabold tracking-tight mb-6 text-[#0F172A]">
             AI automation that runs <span className="text-[#7C3AED]">your busywork</span>
           </h1>
@@ -121,7 +173,7 @@ function HeroSection() {
               hoverLabel="Let's Talk"
             />
             <a
-              href="#services"
+              href="#what-we-do"
               className="inline-flex items-center gap-1.5 font-bold text-[#0F172A] hover:text-[#7C3AED] transition-colors"
             >
               See how it works
@@ -130,7 +182,7 @@ function HeroSection() {
           </div>
           {/* TODO: client to confirm a real "systems live" count. Per spec, omit the proof line
               entirely rather than approximate one, so it stays out until that number exists. */}
-        </motion.div>
+        </div>
 
         {/* Creative Feature Pills */}
         <motion.div
@@ -181,8 +233,25 @@ function HeroSection() {
                     />
                   </div>
                   <div className="min-w-0">
-                    <h3 className="font-bold text-[#0F172A] text-base sm:text-lg mb-0.5">{service.title}</h3>
-                    <p className="text-xs sm:text-sm font-medium text-[#334155]">{service.desc}</p>
+                    <h3 className="font-bold text-[#0F172A] text-base sm:text-lg mb-0.5">
+                      <Link href={service.href} className="after:absolute after:inset-0 after:rounded-3xl focus:outline-none">
+                        {service.title}
+                      </Link>
+                    </h3>
+                    <p className="text-xs sm:text-sm font-medium text-[#334155]">
+                      {service.items.map((item, i) => (
+                        <span key={item.label}>
+                          {i > 0 && " · "}
+                          {item.href ? (
+                            <Link href={item.href} className="relative z-10 hover:text-[#7C3AED] hover:underline underline-offset-2 transition-colors">
+                              {item.label}
+                            </Link>
+                          ) : (
+                            item.label
+                          )}
+                        </span>
+                      ))}
+                    </p>
                   </div>
                 </div>
                 <ArrowRight className="w-5 h-5 shrink-0 ml-3 text-[#94A3B8] group-hover:text-[#7C3AED] group-hover:translate-x-1 transition-all" />
@@ -194,17 +263,11 @@ function HeroSection() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className={`bg-white rounded-3xl border border-[#E2E8F0] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-[#C4B5FD] transition-all duration-300 group transform ${index % 2 === 0 ? 'lg:-translate-x-4' : 'lg:translate-x-4'}`}
+                className={`relative bg-white rounded-3xl border border-[#E2E8F0] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-[#C4B5FD] transition-all duration-300 group transform ${index % 2 === 0 ? 'lg:-translate-x-4' : 'lg:translate-x-4'}`}
               >
-                {service.href ? (
-                  <Link href={service.href} className="flex items-center justify-between p-5 cursor-pointer">
-                    {content}
-                  </Link>
-                ) : (
-                  <div className="flex items-center justify-between p-5 cursor-default">
-                    {content}
-                  </div>
-                )}
+                <div className="flex items-center justify-between p-5">
+                  {content}
+                </div>
               </motion.div>
             );
           })}
@@ -257,7 +320,6 @@ function WhatWeDoSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {WHAT_WE_DO.map((service, index) => {
             const big = index === 0;
-            const href = "href" in service ? service.href : undefined;
 
             const cardInner = (
               <>
@@ -269,10 +331,14 @@ function WhatWeDoSection() {
                 </div>
 
                 <div className="relative z-10">
-                  <h3 className={`font-bold text-white mb-4 ${big ? "text-2xl lg:text-3xl" : "text-xl lg:text-2xl"}`}>{service.title}</h3>
+                  <h3 className={`font-bold text-white mb-4 ${big ? "text-2xl lg:text-3xl" : "text-xl lg:text-2xl"}`}>
+                    <Link href={service.href} className="after:absolute after:inset-0 focus:outline-none">
+                      {service.title}
+                    </Link>
+                  </h3>
                   <p className={`text-white/60 leading-relaxed ${big ? "max-w-2xl" : ""}`}>{service.body}</p>
 
-                  {"priceLine" in service && service.priceLine && (
+                  {service.priceLine && (
                     <span className="inline-flex items-center mt-5 px-4 py-1.5 rounded-full border border-[#7C3AED]/40 bg-[#7C3AED]/10 text-[#C4B5FD] font-bold text-sm">
                       {service.priceLine}
                     </span>
@@ -301,7 +367,7 @@ function WhatWeDoSection() {
                   : "border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_30px_rgba(0,0,0,0.2)] hover:bg-white/[0.06] hover:border-[#7C3AED]/40"
                   }`}
               >
-                {href ? <Link href={href} className="contents">{cardInner}</Link> : cardInner}
+                {cardInner}
               </motion.div>
             )
           })}
@@ -318,7 +384,7 @@ function WhyChooseUsSection() {
       <div className="px-6 md:px-12 max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-[#0E0E0C]">Why Choose Us</h2>
-          <p className="text-[#334155] font-medium max-w-2xl mx-auto">We focus on measurable outcomes and technical excellence.</p>
+          <p className="text-[#334155] font-medium max-w-2xl mx-auto">70% less manual data entry on one client&apos;s accounting sync, 80% faster on another&apos;s inventory. That&apos;s the bar.</p>
         </div>
 
         {/*
@@ -482,6 +548,12 @@ function CTASection() {
               hoverLabel="Let's Talk"
             />
           </div>
+          <p className="mt-6 text-white/60 font-medium">
+            Not ready?{" "}
+            <Link href="/services/discovery-sprint" className="text-white underline decoration-white/30 underline-offset-4 hover:decoration-[#C4B5FD] transition-colors">
+              Start with a paid scoping sprint
+            </Link>
+          </p>
         </div>
       </div>
     </section>
@@ -507,6 +579,10 @@ export default function CreativeLandingPage() {
       <main className="relative z-10">
         <HeroSection />
         <WhatWeDoSection />
+        <CaseStudyCards
+          intro="Two production systems, with the numbers our clients measured."
+          sectionClassName="py-16 md:py-24 bg-slate-50 border-b border-[#E2E8F0] relative z-10"
+        />
         <PartnersSection />
         <WhyChooseUsSection />
         <IndustriesSection />

@@ -44,13 +44,13 @@ const COST_CATEGORIES = [
   { title: "Marketing", desc: "Promotions, broadcasts, cart recovery, win-backs. The most expensive category by a wide margin, and deliberately so. No volume discounts at any scale." },
   { title: "Utility", desc: "Order updates, shipping alerts, appointment reminders, payment confirmations. Far cheaper, with volume tiers that reduce the rate as you grow." },
   { title: "Authentication", desc: "One-time passcodes and verification. Tightly formatted, cheap, and rule-bound." },
-  { title: "Service", desc: "Your free-form replies inside the 24-hour window. Free today. Not from October 2026." },
+  { title: "Service", desc: "Your free-form replies inside the 24-hour window. Free until 30 September 2026, billed per message since 1 October 2026." },
 ];
 
 const COST_LEVERS = [
   { title: "Get the category right", desc: "Order and shipping updates belong in utility, not marketing. Misclassification is the most common and most expensive error we see." },
-  { title: "Design for fewer, better messages", desc: "One complete reply instead of three fragments. Post-October, message count is the bill." },
-  { title: "Use inbound entry points", desc: "Conversations started from a Click-to-WhatsApp ad or a Page CTA button open a 72-hour entry-point window with free delivery, which survives the October change." },
+  { title: "Design for fewer, better messages", desc: "One complete reply instead of three fragments. Since October 2026, message count is the bill." },
+  { title: "Use inbound entry points", desc: "Conversations started from a Click-to-WhatsApp ad or a Page CTA button open a 72-hour entry-point window with free delivery, which survived the October 2026 change." },
   { title: "Don't broadcast to people who won't engage", desc: "Blocks and spam reports cost you rate limits as well as goodwill, and you still pay for a delivered message someone reports." },
 ];
 
@@ -125,7 +125,7 @@ const WHERE_WRONG = [
   { title: "Building on an unofficial library", desc: "It's cheaper, it works, and then the number is banned with no appeal. Every contact who saved that number now has a dead line to your business. The saving is real until the day it isn't." },
   { title: "Treating it as a broadcast channel", desc: "WhatsApp reaches people in a way email doesn't, which is exactly why misusing it is punished. Blocks and spam reports lower your quality rating and cut your daily messaging limit. The channel gets less useful the more you abuse it." },
   { title: "Automating the conversations that need a person", desc: "A polished automated reply to an angry customer is worse than a slow human one. We'll tell you which categories to leave alone, and we'd rather leave them alone than automate them badly." },
-  { title: "Costing the build and not the run", desc: "A project quoted without a per-message model is a project whose real cost you'll discover in month three. This was survivable when service replies were free. From October it isn't." },
+  { title: "Costing the build and not the run", desc: "A project quoted without a per-message model is a project whose real cost you'll discover in month three. This was survivable when service replies were free. Since October 2026 it isn't." },
 ];
 
 const FAQS = [
@@ -134,8 +134,8 @@ const FAQS = [
     a: "Meta banned general-purpose AI assistants from the Business API with effect from 15 January 2026, that's why ChatGPT and Copilot left the platform. Business automation for support, orders, bookings, and notifications remains explicitly permitted. Everything we build falls into the permitted category.",
   },
   {
-    q: "What's changing on 1 October 2026?",
-    a: "Service messages, your free-form replies inside the 24-hour customer service window, become chargeable per message, at the same rate as a utility template in that customer's country. Utility templates sent inside the window become chargeable too. If your WhatsApp volume is mostly inbound support, this is a real change to your running costs and it's worth modelling now.",
+    q: "What changed on 1 October 2026?",
+    a: "Service messages, your free-form replies inside the 24-hour customer service window, became chargeable per message, at the same rate as a utility template in that customer's country. Utility templates sent inside the window became chargeable too. If your WhatsApp volume is mostly inbound support, your running costs changed, and any build should be modelled on the new rates.",
   },
   {
     q: "What does WhatsApp automation cost to run?",
@@ -184,7 +184,7 @@ const SERVICE_SCHEMA = {
   provider: {
     "@type": "Organization",
     name: "Spaciva AI",
-    url: "https://spaciva.tech",
+    url: "https://www.spaciva.tech",
   },
   areaServed: ["AE", "IN", "GB", "US"],
   description:
@@ -205,9 +205,9 @@ const BREADCRUMB_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://spaciva.tech/" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://spaciva.tech/#what-we-do" },
-    { "@type": "ListItem", position: 3, name: "WhatsApp Automation", item: "https://spaciva.tech/services/whatsapp-automation" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.spaciva.tech/" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://www.spaciva.tech/services" },
+    { "@type": "ListItem", position: 3, name: "WhatsApp Automation", item: "https://www.spaciva.tech/services/whatsapp-automation" },
   ],
 };
 
@@ -447,7 +447,7 @@ export default function WhatsAppAutomationClient() {
             <LastReviewed />
           </div>
           <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-slate-900 text-center">
-            Meta charges you separately, and that&apos;s changing on 1 October 2026
+            Meta charges you separately, and since 1 October 2026 that includes every reply
           </h2>
           <p className="text-lg text-slate-600 text-center mb-12 max-w-2xl mx-auto">
             Two bills run alongside each other: what Meta charges to deliver messages, and what we charge to build and run the automation. Most vendors quote the second and stay quiet about the first, which is how a project comes in on budget and then costs three times what anyone expected to operate.
@@ -473,7 +473,7 @@ export default function WhatsAppAutomationClient() {
           <div
             className="bg-[#F5F3FF] border-2 border-[#7C3AED]/20 rounded-3xl p-6 md:p-8 mb-12"
             role="img"
-            aria-label="Diagram of the 24-hour customer service window: when a customer messages you, a 24-hour window opens during which free-form replies are sent. Today those replies are free for the full window. From 1 October 2026, replies sent inside this window are billed per message."
+            aria-label="Diagram of the 24-hour customer service window: when a customer messages you, a 24-hour window opens during which free-form replies are sent. Until 30 September 2026 those replies were free for the full window. Since 1 October 2026, replies sent inside this window are billed per message."
           >
             <div className="flex items-center gap-2 mb-4">
               <Clock3 className="w-4 h-4 text-[#7C3AED]" />
@@ -488,29 +488,29 @@ export default function WhatsAppAutomationClient() {
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="bg-white rounded-xl p-4 border border-[#E2E8F0]">
-                <p className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-1">Today</p>
-                <p className="font-bold text-slate-900 text-sm">Free-form replies inside the window are free.</p>
+                <p className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-1">Until 30 September 2026</p>
+                <p className="font-bold text-slate-900 text-sm">Free-form replies inside the window were free.</p>
               </div>
               <div className="bg-white rounded-xl p-4 border-2 border-amber-300">
-                <p className="text-xs font-bold uppercase tracking-wide text-amber-600 mb-1">From 1 October 2026</p>
+                <p className="text-xs font-bold uppercase tracking-wide text-amber-600 mb-1">Since 1 October 2026</p>
                 <p className="font-bold text-slate-900 text-sm">Every reply inside the window is billed per message, at the utility-template rate for that country.</p>
               </div>
             </div>
           </div>
 
-          <h3 className="font-bold text-slate-900 text-lg mb-2">What changes on 1 October 2026</h3>
+          <h3 className="font-bold text-slate-900 text-lg mb-2">What changed on 1 October 2026</h3>
           <div className="text-slate-600 leading-relaxed space-y-4 mb-8">
-            <p>Meta announced on 1 July 2026 that from 1 October 2026, service messages become billable. Every free-form reply your business sends inside the 24-hour window, whether typed by a person or generated by a third-party automation, is charged at the same per-message rate as a utility template in that customer&apos;s country. There&apos;s no volume discount. Utility templates sent inside the window become chargeable too. Meta committed to publishing the country rates by 1 September 2026.</p>
+            <p>Meta announced on 1 July 2026 that service messages would become billable from 1 October 2026. Since then, every free-form reply your business sends inside the 24-hour window, whether typed by a person or generated by a third-party automation, is charged at the same per-message rate as a utility template in that customer&apos;s country. There&apos;s no volume discount. Utility templates sent inside the window are chargeable too. The country rates are on Meta&apos;s pricing page.</p>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-5 mb-12">
             <div className="bg-slate-50 rounded-2xl p-5 border border-[#E2E8F0]">
               <h4 className="font-bold text-slate-900 mb-1.5">Support-heavy businesses are hit hardest</h4>
-              <p className="text-slate-600 text-sm leading-relaxed">If your WhatsApp volume is mostly inbound questions rather than outbound campaigns, almost all of it has been free since November 2024. From October, almost none of it is. Clinics, property managers, and delivery businesses should be modelling this now.</p>
+              <p className="text-slate-600 text-sm leading-relaxed">If your WhatsApp volume is mostly inbound questions rather than outbound campaigns, almost all of it was free from November 2024 until October 2026. Now almost none of it is. Clinics, property managers, and delivery businesses should model it before building anything.</p>
             </div>
             <div className="bg-slate-50 rounded-2xl p-5 border border-[#E2E8F0]">
-              <h4 className="font-bold text-slate-900 mb-1.5">Reply count becomes a cost, not just a habit</h4>
-              <p className="text-slate-600 text-sm leading-relaxed">Splitting an answer across four short messages used to be free and friendly. From October it costs four times what one message costs. Automation design changes accordingly.</p>
+              <h4 className="font-bold text-slate-900 mb-1.5">Reply count is now a cost, not just a habit</h4>
+              <p className="text-slate-600 text-sm leading-relaxed">Splitting an answer across four short messages used to be free and friendly. Now it costs four times what one message costs. Automation design changes accordingly.</p>
             </div>
           </div>
 
@@ -716,7 +716,7 @@ export default function WhatsAppAutomationClient() {
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#7C3AED]/30 via-[#0F172A]/0 to-[#0F172A]/0 pointer-events-none" />
           <div className="relative z-10 max-w-2xl mx-auto">
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-white">
-              Find out what WhatsApp would actually cost you before October.
+              Find out what WhatsApp will actually cost you before you build.
             </h2>
             <p className="text-lg text-white/70 mb-10 font-medium">
               Book a 30-minute call. We&apos;ll map the conversations worth automating, check them against Meta&apos;s rules, and build you a running-cost model for your real volumes. If WhatsApp isn&apos;t the right channel for you, we&apos;ll tell you that instead.

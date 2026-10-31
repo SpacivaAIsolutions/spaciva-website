@@ -75,11 +75,11 @@ const ARTICLE_SCHEMA = {
   "@type": "Article",
   headline: "Design for software people have to use, not software they chose",
   description: "Design for software people have to use, not choose. UX audits and product design built into every system we ship, so your team adopts it instead of avoiding it.",
-  author: { "@type": "Organization", name: "Spaciva AI", url: "https://spaciva.tech" },
-  publisher: { "@type": "Organization", name: "Spaciva AI", url: "https://spaciva.tech" },
+  author: { "@type": "Organization", name: "Spaciva AI", url: "https://www.spaciva.tech" },
+  publisher: { "@type": "Organization", name: "Spaciva AI", url: "https://www.spaciva.tech" },
   datePublished: "2026-08-26",
   dateModified: "2026-08-26",
-  mainEntityOfPage: "https://spaciva.tech/guides/ux-for-internal-software",
+  mainEntityOfPage: "https://www.spaciva.tech/guides/ux-for-internal-software",
 };
 
 const OFFER_SCHEMA = {
@@ -89,9 +89,9 @@ const OFFER_SCHEMA = {
   description: "A one-week UX audit: sessions with three to five real users, a prioritised effort-and-impact report, and a recorded walkthrough.",
   price: "399",
   priceCurrency: "USD",
-  url: "https://spaciva.tech/guides/ux-for-internal-software",
+  url: "https://www.spaciva.tech/guides/ux-for-internal-software",
   availability: "https://schema.org/InStock",
-  seller: { "@type": "Organization", name: "Spaciva AI", url: "https://spaciva.tech" },
+  seller: { "@type": "Organization", name: "Spaciva AI", url: "https://www.spaciva.tech" },
 };
 
 const FAQ_SCHEMA = {
@@ -108,8 +108,9 @@ const BREADCRUMB_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://spaciva.tech/" },
-    { "@type": "ListItem", position: 2, name: "UI/UX Design", item: "https://spaciva.tech/guides/ux-for-internal-software" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.spaciva.tech/" },
+    { "@type": "ListItem", position: 2, name: "Guides", item: "https://www.spaciva.tech/guides" },
+    { "@type": "ListItem", position: 3, name: "UI/UX Design", item: "https://www.spaciva.tech/guides/ux-for-internal-software" },
   ],
 };
 
@@ -147,6 +148,9 @@ export default function UxForInternalSoftwareClient() {
 
             <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-[680px] mx-auto">
               Consumer apps compete for attention. Business software doesn&apos;t, your team has to open it either way. That changes what design is for: not persuading anyone to come back, but making sure the person who has to do this fourteen times today can do it without thinking. Most internal software fails at that, and the symptoms are consistent.
+            </p>
+            <p className="-mt-6 mb-10 text-sm text-slate-500">
+              By the Spaciva AI team · Published <time dateTime="2026-08-26">26 August 2026</time> · <Link href="/guides" className="font-semibold hover:text-[#7C3AED]">More guides</Link>
             </p>
           </motion.div>
 

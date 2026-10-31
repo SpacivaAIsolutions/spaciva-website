@@ -83,11 +83,11 @@ const ARTICLE_SCHEMA = {
   "@type": "Article",
   headline: "Nobody can quote your project. Including us.",
   description: "Before anyone can quote your build honestly, someone has to scope it. A fixed-fee discovery sprint that ends in a specification you own — and can take anywhere.",
-  author: { "@type": "Organization", name: "Spaciva AI", url: "https://spaciva.tech" },
-  publisher: { "@type": "Organization", name: "Spaciva AI", url: "https://spaciva.tech" },
+  author: { "@type": "Organization", name: "Spaciva AI", url: "https://www.spaciva.tech" },
+  publisher: { "@type": "Organization", name: "Spaciva AI", url: "https://www.spaciva.tech" },
   datePublished: "2026-08-26",
   dateModified: "2026-08-26",
-  mainEntityOfPage: "https://spaciva.tech/services/discovery-sprint",
+  mainEntityOfPage: "https://www.spaciva.tech/services/discovery-sprint",
 };
 
 const OFFER_SCHEMA = {
@@ -97,9 +97,9 @@ const OFFER_SCHEMA = {
   description: "A one-to-two-week fixed-fee discovery sprint producing a written specification: scope, user flows, integration requirements, data findings, a ranked risk list, and a costed range.",
   price: "1200",
   priceCurrency: "USD",
-  url: "https://spaciva.tech/services/discovery-sprint",
+  url: "https://www.spaciva.tech/services/discovery-sprint",
   availability: "https://schema.org/InStock",
-  seller: { "@type": "Organization", name: "Spaciva AI", url: "https://spaciva.tech" },
+  seller: { "@type": "Organization", name: "Spaciva AI", url: "https://www.spaciva.tech" },
 };
 
 const FAQ_SCHEMA = {
@@ -116,8 +116,8 @@ const BREADCRUMB_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://spaciva.tech/" },
-    { "@type": "ListItem", position: 2, name: "Discovery Sprint", item: "https://spaciva.tech/services/discovery-sprint" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.spaciva.tech/" },
+    { "@type": "ListItem", position: 2, name: "Discovery Sprint", item: "https://www.spaciva.tech/services/discovery-sprint" },
   ],
 };
 

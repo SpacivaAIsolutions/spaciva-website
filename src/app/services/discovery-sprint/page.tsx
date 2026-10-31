@@ -14,9 +14,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
-    url: "https://spaciva.tech/services/discovery-sprint",
+    url: "https://www.spaciva.tech/services/discovery-sprint",
     siteName: "Spaciva AI",
-    type: "article",
+    images: ["/opengraph-image"],
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",

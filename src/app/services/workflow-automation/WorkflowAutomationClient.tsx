@@ -220,7 +220,7 @@ const SERVICE_SCHEMA = {
   provider: {
     "@type": "Organization",
     name: "Spaciva AI",
-    url: "https://spaciva.tech",
+    url: "https://www.spaciva.tech",
   },
   areaServed: ["US", "GB", "IN", "AE"],
   description:
@@ -241,9 +241,9 @@ const BREADCRUMB_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://spaciva.tech/" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://spaciva.tech/#what-we-do" },
-    { "@type": "ListItem", position: 3, name: "Workflow Automation", item: "https://spaciva.tech/services/workflow-automation" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.spaciva.tech/" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://www.spaciva.tech/services" },
+    { "@type": "ListItem", position: 3, name: "Workflow Automation", item: "https://www.spaciva.tech/services/workflow-automation" },
   ],
 };
 
@@ -372,7 +372,7 @@ export default function WorkflowAutomationClient() {
             </div>
 
             <p className="text-sm font-semibold text-slate-500 mb-12">
-              Most automations live in 2 weeks · You own everything we build
+              A single workflow live in about 2 weeks, a package in 3 to 4 · You own everything we build
             </p>
           </motion.div>
 

@@ -1,10 +1,27 @@
 import type { Metadata } from "next";
 
+const TITLE = "Contact Spaciva AI | Book a 30-Minute AI Automation Call";
+const DESCRIPTION =
+  "Book a 30-minute call with Spaciva's engineers to scope an AI automation or custom build, or send a message and get a reply within 24 hours. NDA available before discovery.";
+
 export const metadata: Metadata = {
-  title: "Contact SPACIVA | Build Custom AI, CRM, LMS & Web Systems",
-  description: "Get in touch with SPACIVA's software engineering team. Book a 30-minute discovery call to scope your custom AI, CRM, LMS, or high-performance Web project.",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: {
     canonical: "/contact",
+  },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "https://www.spaciva.tech/contact",
+    siteName: "Spaciva AI",
+    images: ["/opengraph-image"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
   },
 };
 

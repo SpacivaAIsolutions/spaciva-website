@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import AnimatedCtaButton from "@/components/AnimatedCtaButton";
+import CaseStudyCards from "@/components/CaseStudyCards";
 import SpecPanel from "@/components/SpecPanel";
 
 const SPEC_ITEMS = [
@@ -142,7 +143,7 @@ const SERVICE_SCHEMA = {
   provider: {
     "@type": "Organization",
     name: "Spaciva AI",
-    url: "https://spaciva.tech",
+    url: "https://www.spaciva.tech",
   },
   areaServed: ["US", "GB", "IN", "AE"],
   description:
@@ -163,9 +164,9 @@ const BREADCRUMB_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://spaciva.tech/" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://spaciva.tech/#what-we-do" },
-    { "@type": "ListItem", position: 3, name: "CRM Development", item: "https://spaciva.tech/services/crm-development" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.spaciva.tech/" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://www.spaciva.tech/services" },
+    { "@type": "ListItem", position: 3, name: "CRM Development", item: "https://www.spaciva.tech/services/crm-development" },
   ],
 };
 
@@ -542,6 +543,12 @@ export default function CrmDevelopmentClient() {
           </aside>
         </div>
       </div>
+
+      <CaseStudyCards
+        intro="Not CRMs, but the same work underneath one: a custom data model, multi-system sync, and records people trust."
+        sectionClassName="py-16 md:py-24 border-t border-white/10"
+        tone="dark"
+      />
 
       {/* FAQ — plain two-column list directly on the dark base, matching the Generative AI
           page. Not an accordion. */}

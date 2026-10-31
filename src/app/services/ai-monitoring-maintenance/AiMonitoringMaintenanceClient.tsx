@@ -135,7 +135,7 @@ const SERVICE_SCHEMA = {
   provider: {
     "@type": "Organization",
     name: "Spaciva AI",
-    url: "https://spaciva.tech",
+    url: "https://www.spaciva.tech",
   },
   areaServed: ["US", "GB", "IN", "AE"],
   description:
@@ -149,7 +149,7 @@ const OFFER_SCHEMA = {
   highPrice: "1499",
   priceCurrency: "USD",
   offerCount: "3",
-  url: "https://spaciva.tech/services/ai-monitoring-maintenance",
+  url: "https://www.spaciva.tech/services/ai-monitoring-maintenance",
 };
 
 const FAQ_SCHEMA = {
@@ -166,9 +166,9 @@ const BREADCRUMB_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://spaciva.tech/" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://spaciva.tech/#what-we-do" },
-    { "@type": "ListItem", position: 3, name: "Ongoing Maintenance & AI Monitoring", item: "https://spaciva.tech/services/ai-monitoring-maintenance" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.spaciva.tech/" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://www.spaciva.tech/services" },
+    { "@type": "ListItem", position: 3, name: "Ongoing Maintenance & AI Monitoring", item: "https://www.spaciva.tech/services/ai-monitoring-maintenance" },
   ],
 };
 

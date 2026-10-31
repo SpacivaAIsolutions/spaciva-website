@@ -1,49 +1,46 @@
 import type { Metadata } from "next";
-import { Inter, Poppins, Plus_Jakarta_Sans } from "next/font/google";
+import { Geist } from "next/font/google";
+import localFont from "next/font/local";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import "./globals.css";
 
-const inter = Inter({
+// The two families the design actually uses, both self-hosted through next/font so no
+// third-party stylesheet blocks first paint. (Geist used to come from a jsDelivr URL
+// that 404s, so body text was silently falling back to the system font.)
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-geist",
   display: "swap",
 });
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-  variable: "--font-poppins",
-  display: "swap",
-});
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-plus-jakarta-sans",
+// Cabinet Grotesk isn't on Google Fonts; files come from Fontshare (ITF Free Font License).
+const cabinetGrotesk = localFont({
+  src: [
+    { path: "../fonts/CabinetGrotesk-400.woff2", weight: "400" },
+    { path: "../fonts/CabinetGrotesk-500.woff2", weight: "500" },
+    { path: "../fonts/CabinetGrotesk-700.woff2", weight: "700" },
+    { path: "../fonts/CabinetGrotesk-800.woff2", weight: "800" },
+  ],
+  variable: "--font-cabinet",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://spaciva.tech"),
+  metadataBase: new URL("https://www.spaciva.tech"),
   title: "AI Automation for Agencies & DTC Brands | Spaciva AI",
   description:
     "Spaciva builds custom AI agents and automations for agencies, professional-services firms, and e-commerce brands in the US and UK. Fixed scope, fixed price, monitored monthly.",
-  alternates: {
-    canonical: "/",
-  },
+  // No canonical here: an inherited "/" told Google any page that forgot its own
+  // canonical was a duplicate of the homepage. Each page sets its own.
+  // Site-wide defaults only. Each page sets its own title/description/url; putting the
+  // homepage's values here made every page without its own openGraph share them.
   openGraph: {
-    title: "AI Automation for Agencies & DTC Brands | Spaciva AI",
-    description:
-      "Spaciva builds custom AI agents and automations for agencies, professional-services firms, and e-commerce brands in the US and UK. Fixed scope, fixed price, monitored monthly.",
-    url: "https://spaciva.tech",
     siteName: "Spaciva AI",
+    images: ["/opengraph-image"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Automation for Agencies & DTC Brands | Spaciva AI",
-    description:
-      "Spaciva builds custom AI agents and automations for agencies, professional-services firms, and e-commerce brands in the US and UK. Fixed scope, fixed price, monitored monthly.",
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "",
@@ -62,11 +59,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable} ${plusJakartaSans.variable} h-full antialiased`}>
-      <head>
-        <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,500,400,300&display=swap" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/font/sans.css" rel="stylesheet" />
-      </head>
+    <html lang="en" className={`${geist.variable} ${cabinetGrotesk.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col theme-redesign">
         <LayoutWrapper>{children}</LayoutWrapper>
       </body>

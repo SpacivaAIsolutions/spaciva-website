@@ -14,8 +14,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
-    url: "https://spaciva.tech/services/internal-business-tools",
+    url: "https://www.spaciva.tech/services/internal-business-tools",
     siteName: "Spaciva AI",
+    images: ["/opengraph-image"],
     type: "website",
   },
   twitter: {

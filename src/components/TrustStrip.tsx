@@ -64,7 +64,7 @@ export default function TrustStrip({
                     {p.type === "text" ? (
                       <span className={`${p.className} whitespace-nowrap px-4`}>{p.name}</span>
                     ) : (
-                      <img src={p.logo} alt={p.name} className={`${p.className} w-auto max-w-none`} />
+                      <img src={p.logo} alt={p.name} loading="lazy" decoding="async" className={`${p.className} w-auto max-w-none`} />
                     )}
                     {p.type !== "text" && (
                       <span className="text-xs font-semibold text-[#94A3B8] whitespace-nowrap">{p.name}</span>

@@ -36,17 +36,19 @@ const WHAT_WE_DO = [
     desc: "Custom AI agents and automated workflows built on your own data and integrated with the tools you already use. Support agents, lead intake and routing, document and invoice processing, automated reporting, client onboarding. Built to run in production, monitored monthly.",
     icon: Bot,
     big: true,
+    href: "/services/ai-agent-development",
   },
   {
     title: "Custom software and internal tools",
     desc: "CRMs, dashboards, portals, and web applications built on Next.js, React, and Node. This is the engineering layer that automation needs underneath it. Full code ownership, transferred on final payment.",
     icon: Code2,
-    link: { href: "/services/custom-software-development", label: "Custom software development" },
+    href: "/services/web-applications",
   },
   {
     title: "Ongoing monitoring and maintenance",
     desc: "A monthly plan attached to every system we build: uptime monitoring, dependency updates, small feature work, and a named engineer who knows your setup.",
     icon: ShieldCheck,
+    href: "/services/ai-monitoring-maintenance",
     link: { href: "/services/ai-monitoring-maintenance", label: "See what's included" },
   },
 ];
@@ -231,7 +233,7 @@ export default function AboutClient() {
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <AnimatedCtaButton href="/contact" label="Book a 30-minute discovery call" hoverLabel="Let's Talk" />
               <Link
-                href="/case-studies/partsflow"
+                href="/case-studies"
                 className="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-[#0F172A] border border-[#E2E8F0] font-bold text-center hover:bg-slate-50 hover:border-[#C4B5FD] transition-all flex items-center justify-center gap-2"
               >
                 See our work
@@ -302,7 +304,9 @@ export default function AboutClient() {
 
                   <div className="relative z-10">
                     <h3 className={cn("font-bold text-white mb-3", item.big ? "text-2xl lg:text-3xl" : "text-xl lg:text-2xl")}>
-                      {item.title}
+                      <Link href={item.href} className="hover:text-[#C4B5FD] transition-colors">
+                        {item.title}
+                      </Link>
                     </h3>
                     <p className="text-white/60 leading-relaxed max-w-2xl">{item.desc}</p>
                     {item.link && (
@@ -385,6 +389,22 @@ export default function AboutClient() {
               Spaciva is a small, senior team of 8 engineers working out of Ahmedabad, India. Every project has a named lead who stays with it from discovery through to the monthly maintenance plan. You&apos;ll know exactly who is building your system and how to reach them.
             </p>
           </div>
+          {/*
+            TODO: client to supply the named leads (name, role, photo, LinkedIn URL). Offshore buyers
+            check who they'll work with, so this section should show people, not just say it.
+            Uncomment and fill in once real details exist; do not ship placeholder names or stock photos.
+
+          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 text-left">
+            {TEAM.map((person) => (
+              <li key={person.name} className="bg-white border border-[#E2E8F0] rounded-3xl p-6 shadow-sm">
+                <img src={person.photo} alt={person.name} loading="lazy" className="w-20 h-20 rounded-full object-cover mb-4" />
+                <p className="font-bold text-[#0F172A]">{person.name}</p>
+                <p className="text-sm text-[#334155] mb-3">{person.role}</p>
+                <a href={person.linkedin} target="_blank" rel="noreferrer" className="text-sm font-bold text-[#0077b5]">LinkedIn</a>
+              </li>
+            ))}
+          </ul>
+          */}
         </section>
 
         {/* Where We Are — commented out until real address/email/phone are supplied; uncomment and fill in Fill() values before launch
