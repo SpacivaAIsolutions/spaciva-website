@@ -31,6 +31,7 @@ const MEGA_MENUS = {
     {
       title: "Custom Software & Internal Tools",
       items: [
+        { label: "Custom Software Development", href: "/services/custom-software-development" },
         { label: "CRM Development", href: "/services/crm-development" },
         { label: "Custom Dashboards", href: "/services/custom-dashboards" },
         { label: "Internal Business Tools", href: "/services/internal-business-tools" },

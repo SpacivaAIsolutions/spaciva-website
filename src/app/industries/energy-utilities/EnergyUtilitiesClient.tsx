@@ -581,7 +581,7 @@ export default function EnergyUtilitiesClient() {
                 <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Cloud & DevOps</a></li>
                 <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Data Engineering</a></li>
                 <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">IoT Integration</a></li>
-                <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Custom Software Development</a></li>
+                <li><a href="/services/custom-software-development" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Custom Software Development</a></li>
               </ul>
             </div>
             <div>

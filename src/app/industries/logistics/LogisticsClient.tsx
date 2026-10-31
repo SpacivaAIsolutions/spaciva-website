@@ -578,7 +578,7 @@ export default function LogisticsClient() {
               <h4 className="text-lg font-bold mb-6 text-slate-900">Related Services</h4>
               <ul className="space-y-4">
                 <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">AI & Machine Learning</a></li>
-                <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Custom Software Development</a></li>
+                <li><a href="/services/custom-software-development" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Custom Software Development</a></li>
                 <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Mobile Development</a></li>
                 <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Cloud & DevOps</a></li>
                 <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Data Engineering</a></li>

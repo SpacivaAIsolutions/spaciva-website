@@ -7,9 +7,9 @@ const FOOTER_LINKS = {
     { name: "Contact", href: "/contact" },
   ],
   Services: [
-    { name: "AI Automation", href: "/#what-we-do" },
-    { name: "Custom Software", href: "/#what-we-do" },
-    { name: "Monitoring & Maintenance", href: "/#what-we-do" },
+    { name: "Custom Software Development", href: "/services/custom-software-development" },
+    { name: "AI Automation", href: "/services/ai-agent-development" },
+    { name: "Monitoring & Maintenance", href: "/services/ai-monitoring-maintenance" },
   ],
   // Agencies / Professional Services / E-Commerce don't have dedicated pages yet, so they
   // render as plain text (no href) rather than linking to a 404. Startups already does.

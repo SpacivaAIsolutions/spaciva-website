@@ -34,6 +34,7 @@ const WHAT_WE_DO = [
     tags: ["React", "Next.js", "Node.js", "Postgres"],
     icon: Code2,
     color: "#4F46E5",
+    href: "/services/custom-software-development",
   },
   {
     title: "Monitoring & Maintenance",
@@ -46,7 +47,7 @@ const WHAT_WE_DO = [
 
 const HERO_SERVICES = [
   { title: "AI Automation", desc: "Support agents · Lead routing · Invoice processing", color: "#7C3AED", bg: "#F5F3FF" },
-  { title: "Custom Software", desc: "CRMs · Internal tools · Ops dashboards", color: "#0F172A", bg: "#F1F5F9" },
+  { title: "Custom Software", desc: "CRMs · Internal tools · Ops dashboards", color: "#0F172A", bg: "#F1F5F9", href: "/services/custom-software-development" },
   { title: "Ongoing Support", desc: "Monthly monitoring, tuning & maintenance", color: "#3B82F6", bg: "#EFF6FF", href: "/services/ai-monitoring-maintenance" },
 ];
 

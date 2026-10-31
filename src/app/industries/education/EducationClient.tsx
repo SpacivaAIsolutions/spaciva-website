@@ -582,7 +582,7 @@ export default function EducationClient() {
                 <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">AI & Machine Learning</a></li>
                 <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Web Engineering</a></li>
                 <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Mobile Development</a></li>
-                <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Custom Software</a></li>
+                <li><a href="/services/custom-software-development" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Custom Software Development</a></li>
                 <li><a href="#" className="text-slate-600 hover:text-[#7C3AED] transition-colors font-medium">Cloud & DevOps</a></li>
               </ul>
             </div>

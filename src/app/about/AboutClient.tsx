@@ -41,6 +41,7 @@ const WHAT_WE_DO = [
     title: "Custom software and internal tools",
     desc: "CRMs, dashboards, portals, and web applications built on Next.js, React, and Node. This is the engineering layer that automation needs underneath it. Full code ownership, transferred on final payment.",
     icon: Code2,
+    link: { href: "/services/custom-software-development", label: "Custom software development" },
   },
   {
     title: "Ongoing monitoring and maintenance",
