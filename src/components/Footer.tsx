@@ -18,22 +18,6 @@ const FOOTER_LINKS: Record<string, { name: string; href?: string }[]> = {
     { name: "Guides", href: "/guides" },
     { name: "Contact", href: "/contact" },
   ],
-<<<<<<< HEAD
-  Services: [
-    { name: "Custom Software Development", href: "/services/custom-software-development" },
-    { name: "AI Automation", href: "/services/ai-agent-development" },
-    { name: "Monitoring & Maintenance", href: "/services/ai-monitoring-maintenance" },
-  ],
-  // Agencies / Professional Services / E-Commerce don't have dedicated pages yet, so they
-  // render as plain text (no href) rather than linking to a 404. Startups already does.
-  Industries: [
-    { name: "Agencies", href: undefined },
-    { name: "Professional Services", href: undefined },
-    { name: "E-Commerce", href: undefined },
-    { name: "Startups", href: "/industries/startups" },
-  ],
-=======
->>>>>>> e96601f4b85a2e63182204180bd80274b5f36978
 };
 
 export default function Footer() {

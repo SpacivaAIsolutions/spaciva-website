@@ -16,58 +16,7 @@ const NAV = [
 // Menu data comes from the shared directory in lib/navigation so the navbar, footer and
 // /services hub never drift apart.
 const MEGA_MENUS = {
-<<<<<<< HEAD
-  services: [
-    {
-      title: "AI Automation & Agents",
-      items: [
-        { label: "AI Agents", href: "/services/ai-agent-development" },
-        { label: "AI Chatbots (RAG-powered)", href: "/services/rag-chatbot-development" },
-        { label: "Workflow Automation", href: "/services/workflow-automation" },
-        { label: "Document & Invoice Processing", href: "/services/document-invoice-processing" },
-        { label: "Email & Inbox Automation", href: "/services/email-inbox-automation" },
-        { label: "WhatsApp Automation", href: "/services/whatsapp-automation" },
-        { label: "CRM Automation", href: "/services/crm-automation" },
-        { label: "AI Assistants", href: "/services/ai-assistants" },
-        { label: "Generative AI & Custom LLMs", href: "/services/generative-ai-custom-llms" }
-      ] as { label: string; href?: string }[]
-    },
-    {
-      title: "Custom Software & Internal Tools",
-      items: [
-        { label: "Custom Software Development", href: "/services/custom-software-development" },
-        { label: "CRM Development", href: "/services/crm-development" },
-        { label: "Custom Dashboards", href: "/services/custom-dashboards" },
-        { label: "Internal Business Tools", href: "/services/internal-business-tools" },
-        { label: "ERP Systems", href: "/services/erp-systems" },
-        { label: "Inventory Management", href: "/services/inventory-management" },
-        { label: "Business Intelligence", href: "/services/business-intelligence" }
-      ] as { label: string; href?: string }[]
-    },
-    {
-      title: "Web & Product Engineering",
-      items: [
-        { label: "Web Applications (Next.js / React)", href: "/services/web-applications" },
-        { label: "SaaS Platforms", href: "/services/saas-platforms" },
-        { label: "Client Portals", href: "/services/client-portals" },
-        { label: "Progressive Web Apps" },
-        { label: "UI/UX Design", href: "/guides/ux-for-internal-software" },
-        { label: "Product Strategy", href: "/services/discovery-sprint" }
-      ] as { label: string; href?: string }[]
-    },
-    {
-      title: "Cloud, Data & Managed Services",
-      items: [
-        { label: "Cloud & DevOps (AWS, Docker, CI/CD)", href: "/services/cloud-devops" },
-        { label: "Data Warehousing & ETL Pipelines", href: "/services/data-warehousing-etl" },
-        { label: "Predictive Analytics", href: "/services/predictive-analytics" },
-        { label: "Ongoing Maintenance & AI Monitoring (retainer)", href: "/services/ai-monitoring-maintenance" }
-      ] as { label: string; href?: string }[]
-    }
-  ],
-=======
   services: SERVICE_GROUPS.map((g) => ({ title: g.title, items: g.items as { label: string; href?: string }[] })),
->>>>>>> e96601f4b85a2e63182204180bd80274b5f36978
   industries: [
     { title: "Who we build for", items: INDUSTRY_LINKS.slice(0, 3) as { label: string; href?: string }[] },
     { title: "Also working with", items: INDUSTRY_LINKS.slice(3) as { label: string; href?: string }[] },

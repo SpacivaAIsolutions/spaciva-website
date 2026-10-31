@@ -26,6 +26,7 @@ export const SERVICE_GROUPS: NavGroup[] = [
     shortTitle: "Custom Software",
     blurb: "The systems automation runs on: CRMs, dashboards, ERPs, and internal tools you own outright.",
     items: [
+      { label: "Custom Software Development", href: "/services/custom-software-development", desc: "Bespoke web applications, internal tools, and cloud platforms engineered to a fixed price." },
       { label: "CRM Development", href: "/services/crm-development", desc: "A CRM built around your data model and workflow when HubSpot or Salesforce don't fit." },
       { label: "Custom Dashboards", href: "/services/custom-dashboards", desc: "Ops and client-reporting dashboards on a real, auto-refreshing data layer." },
       { label: "Internal Business Tools", href: "/services/internal-business-tools", desc: "Admin panels, trackers, approval systems, and internal portals." },

@@ -56,11 +56,7 @@ const WHAT_WE_DO: { title: string; body: ReactNode; priceLine?: string; tags: st
     tags: ["React", "Next.js", "Node.js", "Postgres"],
     icon: Code2,
     color: "#4F46E5",
-<<<<<<< HEAD
     href: "/services/custom-software-development",
-=======
-    href: "/services/web-applications",
->>>>>>> e96601f4b85a2e63182204180bd80274b5f36978
   },
   {
     title: "Monitoring & Maintenance",
@@ -77,12 +73,6 @@ const WHAT_WE_DO: { title: string; body: ReactNode; priceLine?: string; tags: st
   },
 ];
 
-<<<<<<< HEAD
-const HERO_SERVICES = [
-  { title: "AI Automation", desc: "Support agents · Lead routing · Invoice processing", color: "#7C3AED", bg: "#F5F3FF" },
-  { title: "Custom Software", desc: "CRMs · Internal tools · Ops dashboards", color: "#0F172A", bg: "#F1F5F9", href: "/services/custom-software-development" },
-  { title: "Ongoing Support", desc: "Monthly monitoring, tuning & maintenance", color: "#3B82F6", bg: "#EFF6FF", href: "/services/ai-monitoring-maintenance" },
-=======
 // Each card's title links to the pillar page; each subline item links to its own service page.
 const HERO_SERVICES: { title: string; href: string; color: string; bg: string; items: { label: string; href?: string }[] }[] = [
   {
@@ -94,7 +84,7 @@ const HERO_SERVICES: { title: string; href: string; color: string; bg: string; i
     ],
   },
   {
-    title: "Custom Software", href: "/services/web-applications", color: "#0F172A", bg: "#F1F5F9",
+    title: "Custom Software", href: "/services/custom-software-development", color: "#0F172A", bg: "#F1F5F9",
     items: [
       { label: "CRMs", href: "/services/crm-development" },
       { label: "Internal tools", href: "/services/internal-business-tools" },
@@ -106,7 +96,6 @@ const HERO_SERVICES: { title: string; href: string; color: string; bg: string; i
     title: "Ongoing Support", href: "/services/ai-monitoring-maintenance", color: "#3B82F6", bg: "#EFF6FF",
     items: [{ label: "Monthly monitoring, tuning & maintenance" }],
   },
->>>>>>> e96601f4b85a2e63182204180bd80274b5f36978
 ];
 
 const WHY_CHOOSE_US = [
